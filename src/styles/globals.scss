@@ -1,0 +1,146 @@
+:root {
+  --primary-main: #0753b4;
+  --primary-light: #f0f6fe;
+  --primary-dark: #093987;
+  --secondary-main: #00000099;
+  --error-main: #f72b51;
+  --success-main: #23a26d;
+  --divider-color: #0000001f;
+}
+
+/* Import CodecProBold font */
+@font-face {
+  font-family: 'Codec Pro Bold';
+  /* Define the font name */
+  src: url('CodecProBold.ttf') format('truetype');
+  /* Path to your font file */
+  font-weight: bold;
+  font-style: normal;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--primary-main);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: light;
+  }
+}
+
+// Navbar styles
+
+.navbarDrawer {
+  text-align: center;
+
+  .navbarDrawerHeader {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .navbarLogo {
+      width: 170px;
+      height: 40px;
+    }
+  }
+
+  .listItemButtonContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .navbarItemAvatar {
+      width: 40px;
+      height: 40px;
+      margin-right: 5%;
+    }
+  }
+}
+
+.navbarContainer {
+  display: flex;
+
+  .navbarAppBar {
+    justify-content: center;
+
+    .avatarLogo {
+      width: 170px;
+      height: 40px;
+    }
+  }
+}
+
+.navbarDrawerContainer {
+  .MuiDrawer-paper {
+    box-sizing: border-box;
+    width: 220px;
+    background-color: var(--primary-light);
+    color: var(--primary-main)
+  }
+}
+
+// Footer styles 
+
+.footerContainer {
+  padding: 3% 5%;
+  background-color: var(--primary-dark);
+  color: white;
+
+  .avatarLogo {
+    width: 170px;
+    height: 40px;
+  }
+
+  .footer1Section {
+    text-align: left;
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+
+  .footer1_subSection {
+    text-align: left;
+  }
+
+  .footerSection {
+    text-align: left;
+
+    .footerHeading {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .footerLink {
+      font-size: 16px;
+      line-height: 1.5;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
