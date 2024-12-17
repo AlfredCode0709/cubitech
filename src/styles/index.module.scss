@@ -68,59 +68,6 @@
   }
 }
 
-// Promotion block styles
-
-.promotionContainer {
-  padding: 2.5% 10%;
-
-  .promotionTitle {
-    font-weight: 600;
-    font-size: 26px;
-    line-height: 1.235; // h4 line-height
-  }
-
-  .gridContainer {
-    padding: 2.5% 0;
-
-    .promotionCard {
-      border-radius: 8px;
-      overflow: hidden;
-
-      .promotionMediaContainer {
-        width: 100%;
-        padding-bottom: 100%;
-        position: relative;
-
-        .cardMedia {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          max-width: 100%;
-          max-height: 100%;
-        }
-      }
-
-      .promotionsCardContent {
-        border-top: 1px solid var(--divider-color);
-
-        .promotionName {
-          font-weight: 500;
-          font-size: 18px;
-          line-height: 1.6; // h6 line-height
-          margin-bottom: 3%;
-        }
-
-        .promotionDescription {
-          font-size: 14px;
-          line-height: 1.43; // body2 line-height
-          color: var(--secondary-main);
-        }
-      }
-    }
-  }
-}
-
 // Peek View block styles
 
 .peekViewContainer {

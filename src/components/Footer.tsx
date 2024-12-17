@@ -44,6 +44,11 @@ const Footer: React.FC = () => {
               <Typography sx={commonTypographyStyle}>{item}</Typography>
             </Link>
           ))} */}
+          {["CubiFood"].map((item) => (
+            <Link key={item} href={`/${item.toLowerCase()}`}>
+              <Typography className={"footerLink"}>{item}</Typography>
+            </Link>
+          ))}
         </Grid>
 
         <Grid item xs={3} className={"footerSection"}>

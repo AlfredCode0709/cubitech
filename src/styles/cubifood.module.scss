@@ -1,0 +1,50 @@
+// Starting block styles 
+
+.startingBlock {
+  background-image: url("/cubifood/block1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  margin-top: -80px;
+}
+
+// CubiFood slogan block styles
+
+.cubifoodSloganContainer {
+  padding: 2.5% 10%;
+  color: #08834e;
+  text-align: center;
+
+  .text {
+    font-family: 'Merriweather', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    font-style: italic;
+    line-height: 1.334; // h5 line-height
+  }
+}
+
+.topTreasuresContainer {
+  padding: 2.5% 10%;
+  background-color: #e7fef4;
+  color: #08834e;
+
+  .title {
+    font-family: 'Merriweather', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    font-style: italic;
+    line-height: 1.235; // h4 line-height
+    text-align: center;
+  }
+
+  .gridContainer {
+    padding: 2.5% 0;
+  }
+}

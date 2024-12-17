@@ -20,6 +20,11 @@ const navItems = [
     href: "./about",
     label: "About Us",
   },
+  {
+    avatar: "./navbar_icons/cubifood_icon.svg",
+    href: "./cubifood",
+    label: "CubiFood",
+  },
 ];
 
 const Navbar: React.FC<{ window?: () => Window }> = ({ window }) => {

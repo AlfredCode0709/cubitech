@@ -4,7 +4,7 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import styles from "../styles/index.module.scss";
+import styles from "../styles/common.module.scss";
 
 interface PromotionsProps {
   promotionTitle: string;
