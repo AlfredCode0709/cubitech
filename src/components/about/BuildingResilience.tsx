@@ -1,0 +1,35 @@
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Image from "next/image";
+import styles from "../../styles/about.module.scss";
+
+const BuildingResilience: React.FC = () => {
+  return (
+    <Box className={styles.container2}>
+      <Grid container className={styles.gridContainer}>
+        <Grid item xs={6}>
+          <Box className={styles.leftGridBox}>
+            <Typography className={styles.title}>
+              Building Economic Resilience
+            </Typography>
+            <Typography className={styles.subtitle}>
+              We're committed to strengthening the economic resilience of this
+              region for a sustainable and empowered future.
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={6} className={styles.rightGrid}>
+          <Image
+            src={"./about/block3.svg"}
+            alt={"Building Resilience"}
+            width={480} // 1920
+            height={270} // 1080
+          />
+        </Grid>
+      </Grid>
+    </Box>
+  );
+};
+
+export default BuildingResilience;
