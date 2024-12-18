@@ -3,8 +3,20 @@ import Typography from "@mui/material/Typography";
 import Head from "next/head";
 import styles from "../styles/cubifood.module.scss";
 import Promotions from "@/components/Promotions";
+import TopTreasures from "@/components/cubifood/TopTreasures";
+import Category from "@/components/cubifood/Category";
+import CategorisedView from "@/components/CategorisedView";
+import { useState } from "react";
 
 const CubiFood: React.FC<any> = () => {
+  const [imageSrc, setImageSrc] = useState<string>(
+    "./cubitech_brands/cubifood_light.svg",
+  );
+
+  const handleCategorySelect = (src: string) => {
+    setImageSrc(src);
+  };
+
   return (
     <>
       <Head>
@@ -31,6 +43,15 @@ const CubiFood: React.FC<any> = () => {
           titleColor={"white"}
           imageSrc={"./cubitech_brands/cubifood_light.svg"}
         />
+
+        {/* Top Treasures block */}
+        <TopTreasures />
+
+        {/* CubiFood Category block */}
+        <Category onCategorySelect={handleCategorySelect} />
+
+        {/* CubiFood Categorised View */}
+        <CategorisedView imageSrc={imageSrc} />
       </main>
     </>
   );

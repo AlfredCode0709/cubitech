@@ -50,3 +50,62 @@
     }
   }
 }
+
+// Categorised View block styles
+
+.categorisedViewContainer {
+  padding: 2.5% 10%;
+  border-top: 1px solid var(--divider-color);
+
+  .gridContainer {
+    padding: 2.5% 0;
+
+    .categorisedItemCard {
+      border-radius: 8px;
+
+      .cardMediaContainer {
+        width: 100%;
+        padding-bottom: 100%;
+        position: relative;
+
+        .cardMedia {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+        }
+      }
+
+      .cardContent {
+        border-top: 1px solid var(--divider-color);
+
+        .categorisedItemName {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 1.6; // h6 line-height
+          margin-bottom: 3%;
+        }
+
+        .categorisedItemPrice {
+          font-size: 16px;
+          line-height: 1.43; // body2 line-height
+          color: var(--secondary-main);
+        }
+
+        .categorisedItemRating {
+          padding: 7.5% 0;
+        }
+      }
+
+      .categorisedItemCardActions {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 12.5%;
+      }
+    }
+  }
+}
