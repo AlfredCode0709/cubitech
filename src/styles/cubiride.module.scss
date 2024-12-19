@@ -1,0 +1,42 @@
+.cubiRideAspectsBlock {
+  padding: 2.5% 10%;
+  color: var(--primary-main);
+  text-align: center;
+
+  .title {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 1.235; // h4 line-height
+  }
+
+  .gridContainer {
+    padding-top: 2.5%;
+
+    .gridItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .avatar {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 12px;
+      }
+
+      .avatarTitle {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.334; // h5 line-height
+      }
+
+      .avatarDescription {
+        margin-top: 2.5%;
+        margin-left: 7.5%;
+        margin-right: 7.5%;
+        font-size: 16px;
+        line-height: 1.5; // body1 line-height
+      }
+    }
+  }
+}

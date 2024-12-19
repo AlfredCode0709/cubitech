@@ -32,19 +32,7 @@ const Footer: React.FC = () => {
 
         <Grid item xs={3} className={"footerSection"}>
           <Typography className={"footerHeading"}>Consumers</Typography>
-          {/* {[
-            "CubiFood",
-            "CubiMart",
-            "CubiRide",
-            "CubiPay",
-            "CubiGift",
-            "CubiPerk",
-          ].map((item) => (
-            <Link key={item} href={`/${item.toLowerCase()}`}>
-              <Typography sx={commonTypographyStyle}>{item}</Typography>
-            </Link>
-          ))} */}
-          {["CubiFood"].map((item) => (
+          {["CubiFood", "CubiMart", "CubiRide"].map((item) => (
             <Link key={item} href={`/${item.toLowerCase()}`}>
               <Typography className={"footerLink"}>{item}</Typography>
             </Link>

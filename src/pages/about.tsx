@@ -1,11 +1,9 @@
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Head from "next/head";
 import BuildingResilience from "@/components/about/BuildingResilience";
 import CubitechStandards from "@/components/about/CubitechStandards";
 import DevelopingCubitech from "@/components/about/DevelopingCubitech";
+import MissionStatementBlock from "@/components/MissionStatementBlock";
 import StartingBlock1 from "@/components/StartingBlock1";
-import styles from "../styles/about.module.scss";
 
 const About: React.FC<any> = () => {
   return (
@@ -25,14 +23,10 @@ const About: React.FC<any> = () => {
         </StartingBlock1>
 
         {/* Mission Statement block */}
-        <Box className={styles.missionStatementBlock}>
-          <Box className={styles.content}>
-            <Typography className={styles.text}>
-              Inspired by the Cubitech Vision, our mission is to simplify life
-              through seamless integration of emerging technologies.
-            </Typography>
-          </Box>
-        </Box>
+        <MissionStatementBlock>
+          Inspired by the Cubitech Vision, our mission is to simplify life
+          through seamless integration of emerging technologies.
+        </MissionStatementBlock>
 
         {/* Developing Cubitech block */}
         <DevelopingCubitech />

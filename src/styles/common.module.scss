@@ -53,6 +53,25 @@
   margin-top: -80px;
 }
 
+// Mission Statement block styles
+
+.missionStatementBlock {
+  padding: 2% 10%;
+  background-color: var(--primary-main);
+  color: white;
+
+  .content {
+    width: 75%;
+    margin-right: 25%;
+  }
+
+  .text {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.334; // h5 line-height
+  }
+}
+
 // Promotion block styles
 
 .promotionBlock {

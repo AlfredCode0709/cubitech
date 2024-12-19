@@ -30,6 +30,11 @@ const navItems = [
     href: "./cubimart",
     label: "CubiMart",
   },
+  {
+    avatar: "./navbar_icons/cubiride_icon.svg",
+    href: "./cubiride",
+    label: "CubiRide",
+  },
 ];
 
 const Navbar: React.FC<{ window?: () => Window }> = ({ window }) => {
