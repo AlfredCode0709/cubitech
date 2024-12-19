@@ -1,0 +1,91 @@
+// Bargain Blitz block styles
+
+.bargainBlitzBlock {
+  padding: 2.5% 10%;
+  background-color: var(--primary-main);
+  color: white;
+
+  .title {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 1.235; // h4 line-height
+  }
+
+  .gridContainer{
+    padding: 2.5% 0;
+
+    .menuItemCard {
+      border-radius: 8px;
+      overflow: hidden;
+
+      .cardMediaContainer {
+        width: 100%;
+        padding-bottom: 100%;
+        position: relative;
+
+        .cardMedia {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+        }
+      }
+
+      .cardContent {
+        border-top: 1px solid var(--divider-color);
+
+        .name {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 1.6; // h6 line-height
+          margin-bottom: 3%;
+        }
+
+        .price {
+          font-size: 16px;
+          line-height: 1.43; // body2 line-height
+          color: var(--secondary-main);
+        }
+
+        .rating {
+          padding: 7.5% 0;
+        }
+      }
+
+      .cardActions {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 12.5%;
+      }
+    }
+  }
+}
+
+// CubiFood Category block styles
+
+.categoryBlock {
+  padding: 2.5% 10%;
+  color: var(--primary-main);
+  text-align: center;
+
+  .categoryBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      background-color: var(--primary-light);
+    }
+
+    .name {
+      margin-top: 12px;
+    }
+  }
+}

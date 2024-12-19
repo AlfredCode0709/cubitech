@@ -13,9 +13,9 @@ const BrandSlogan: React.FC<BrandSloganProps> = ({ color, children }) => {
       className={commonStyles.brandSloganBlock}
       style={
         {
-          "--color": `${color}`,
+          color: `${color}`,
         } as React.CSSProperties
-      } // Set dynamic background image
+      } // Set dynamic color
     >
       <Typography className={commonStyles.text}>
         {children} {/* Render dynamic content */}

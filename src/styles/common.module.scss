@@ -1,7 +1,6 @@
 // Starting block 1 styles
 
 .startingBlock1 {
-  // background-image: url("/index/block1.png");
    background-image: var(--background-image, url("/index/block1.png")); // Default fallback image
   background-size: cover;
   background-repeat: no-repeat;
@@ -41,7 +40,7 @@
 // Starting block 2 styles 
 
 .startingBlock2 {
-  background-image: url("/cubifood/block1.png");
+   background-image: var(--background-image, url("/index/block1.png")); // Default fallback image
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -120,6 +119,31 @@
     font-size: 32px;
     font-style: italic;
     line-height: 1.334; // h5 line-height
+  }
+}
+
+// Category block styles
+
+.categoryBlock {
+  padding: 2.5% 10%;
+  color: var(--color, var(--primary-main));
+  text-align: center;
+
+  .categoryBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      background-color: var(--color, var(--primary-light));
+    }
+
+    .name {
+      margin-top: 12px;
+    }
   }
 }
 

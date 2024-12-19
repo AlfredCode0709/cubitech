@@ -7,8 +7,16 @@ import styles from "../../styles/index.module.scss";
 const CubitechServices: React.FC<any> = () => {
   // Cubitech brand avatars
   const cubitechBrandAvatars = [
-    { alt: "CubiFood", src: "./cubitech_brands/cubifood_light.svg", href: "#" },
-    { alt: "CubiMart", src: "./cubitech_brands/cubimart_light.svg", href: "#" },
+    {
+      alt: "CubiFood",
+      src: "./cubitech_brands/cubifood_light.svg",
+      href: "/cubifood",
+    },
+    {
+      alt: "CubiMart",
+      src: "./cubitech_brands/cubimart_light.svg",
+      href: "/cubimart",
+    },
     { alt: "CubiRide", src: "./cubitech_brands/cubiride_light.svg", href: "#" },
     { alt: "CubiPay", src: "./cubitech_brands/cubipay_light.svg", href: "#" },
     { alt: "CubiGift", src: "./cubitech_brands/cubigift_light.svg", href: "#" },
