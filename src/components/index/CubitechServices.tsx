@@ -16,18 +16,18 @@ const CubitechServices: React.FC<any> = () => {
   ];
 
   return (
-    <Box className={styles.cubitechServicesContainer}>
+    <Box className={styles.cubitechServicesBlock}>
       {/* Cubitech Slogan */}
-      <Typography className={styles.cubitechSlogan}>
+      <Typography className={styles.slogan}>
         One platform, countless solutions - from essentials to opportunities.
       </Typography>
 
       {/* Cubitech brand avatars */}
-      <Box className={styles.avatarContainer}>
+      <Box className={styles.brandAvatars}>
         {cubitechBrandAvatars.map((avatar) => (
           <Link href={avatar.href}>
             <Avatar
-              className={styles.cubitechAvatar}
+              className={styles.avatar}
               key={avatar.alt}
               alt={avatar.alt}
               src={avatar.src}

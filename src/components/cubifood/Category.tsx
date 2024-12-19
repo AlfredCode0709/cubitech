@@ -29,26 +29,24 @@ const Category: React.FC<CategoryProps> = ({ onCategorySelect }) => {
   };
 
   return (
-    <Box className={styles.categoryContainer}>
+    <Box className={styles.categoryBlock}>
       <Grid container>
         {categories.map((category, index) => (
           <Grid item xs={1.5} key={index}>
             <Box
-              className={`${styles.categoryBoxContainer} ${
+              className={`${styles.categoryBox} ${
                 selectedCategory === category.src ? styles.selectedCategory : ""
               }`}
               onClick={() => handleCategoryClick(category.src)}
             >
               <Avatar
-                className={styles.categoryAvatar}
+                className={styles.avatar}
                 key={index}
                 alt={category.name}
                 src={category.src}
                 variant={"circular"}
               />
-              <Typography className={styles.categoryName}>
-                {category.name}
-              </Typography>
+              <Typography className={styles.name}>{category.name}</Typography>
             </Box>
           </Grid>
         ))}

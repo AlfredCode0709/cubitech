@@ -20,7 +20,7 @@ const Promotions: React.FC<PromotionsProps> = ({
   imageSrc,
 }) => {
   return (
-    <Box className={styles.promotionContainer} bgcolor={bgColor}>
+    <Box className={styles.promotionBlock} bgcolor={bgColor}>
       <Typography className={styles.promotionTitle} color={titleColor}>
         {promotionTitle}
       </Typography>
@@ -29,7 +29,7 @@ const Promotions: React.FC<PromotionsProps> = ({
         {Array.from({ length: 4 }).map((_, index) => (
           <Grid item xs={3} key={index}>
             <Card variant={"outlined"} className={styles.promotionCard}>
-              <Box className={styles.promotionMediaContainer}>
+              <Box className={styles.cardMediaContainer}>
                 <CardMedia
                   className={styles.cardMedia}
                   component={"img"}
@@ -37,11 +37,9 @@ const Promotions: React.FC<PromotionsProps> = ({
                   alt={"Promotion"}
                 />
               </Box>
-              <CardContent className={styles.promotionsCardContent}>
-                <Typography className={styles.promotionName}>
-                  Promotion Name
-                </Typography>
-                <Typography className={styles.promotionDescription}>
+              <CardContent className={styles.cardContent}>
+                <Typography className={styles.name}>Promotion Name</Typography>
+                <Typography className={styles.description}>
                   Description
                 </Typography>
               </CardContent>

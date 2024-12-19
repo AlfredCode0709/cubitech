@@ -7,7 +7,7 @@ import styles from "../../styles/index.module.scss";
 
 const CubiPerkIntro: React.FC<any> = () => {
   return (
-    <Box className={styles.cubiPerkIntroContainer}>
+    <Box className={styles.cubiPerkIntroBlock}>
       <Grid container className={styles.gridContainer}>
         <Grid item xs={6}>
           <Box className={styles.leftGridBox}>

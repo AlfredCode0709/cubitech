@@ -16,7 +16,7 @@ interface CategorisedViewProps {
 
 const CategorisedView: React.FC<CategorisedViewProps> = ({ imageSrc }) => {
   return (
-    <Box className={styles.categorisedViewContainer}>
+    <Box className={styles.categorisedViewBlock}>
       <Grid container className={styles.gridContainer} spacing={0.5}>
         {Array.from({ length: 12 }).map((_, index) => (
           <Grid item xs={2} key={index}>
@@ -30,18 +30,11 @@ const CategorisedView: React.FC<CategorisedViewProps> = ({ imageSrc }) => {
                 />
               </Box>
               <CardContent className={styles.cardContent}>
-                <Typography className={styles.categorisedItemName}>
-                  Menu Item Name
-                </Typography>
-                <Typography className={styles.categorisedItemPrice}>
-                  $9.99
-                </Typography>
-                <Rating
-                  className={styles.categorisedItemRating}
-                  defaultValue={5}
-                />
+                <Typography className={styles.name}>Menu Item Name</Typography>
+                <Typography className={styles.price}>$9.99</Typography>
+                <Rating className={styles.rating} defaultValue={5} />
               </CardContent>
-              <CardActions className={styles.categorisedItemCardActions}>
+              <CardActions className={styles.cardActions}>
                 <Button
                   startIcon={<Add />}
                   size={"small"}

@@ -20,23 +20,27 @@ const PeekView: React.FC<PeekViewProps> = ({ title }) => {
     title === "CUBIFood"
       ? "./cubitech_brands/cubifood_light.svg"
       : title === "CUBIMart"
-      ? "./cubitech_brands/cubimart_light.svg"
-      : "./cubitech_brands/default_image.svg"; // Fallback image
+        ? "./cubitech_brands/cubimart_light.svg"
+        : "./cubitech_brands/default_image.svg"; // Fallback image
 
   // Conditional styling for the second part of the title
   const titleSubColor = title === "CUBIFood" ? "#09b96d" : "#bf3953";
 
   return (
-    <Box className={styles.peekViewContainer} borderTop={ title === 'CUBIFood' ? 0 : '1px solid var(--divider-color)'}>
+    <Box
+      className={styles.peekViewBlock}
+      borderTop={title === "CUBIFood" ? 0 : "1px solid var(--divider-color)"}
+    >
       <Typography className={styles.peekViewTitle} variant="h4">
-        {title.substring(0, 4)}<span style={{ color: titleSubColor }}>{title.substring(4)}</span>
+        {title.substring(0, 4)}
+        <span style={{ color: titleSubColor }}>{title.substring(4)}</span>
       </Typography>
 
       <Grid container className={styles.gridContainer} spacing={0.5}>
         {Array.from({ length: 6 }).map((_, index) => (
           <Grid item xs={2} key={index}>
             <Card variant={"outlined"} className={styles.menuItemCard}>
-              <Box className={styles.menuItemMediaContainer}>
+              <Box className={styles.cardMediaContainer}>
                 <CardMedia
                   className={styles.cardMedia}
                   component={"img"}
@@ -44,14 +48,12 @@ const PeekView: React.FC<PeekViewProps> = ({ title }) => {
                   alt={"Menu Item Image"}
                 />
               </Box>
-              <CardContent className={styles.menuItemCardContent}>
-                <Typography className={styles.menuItemName}>
-                  Menu Item Name
-                </Typography>
-                <Typography className={styles.menuItemPrice}>$9.99</Typography>
+              <CardContent className={styles.cardContent}>
+                <Typography className={styles.name}>Menu Item Name</Typography>
+                <Typography className={styles.price}>$9.99</Typography>
                 <Rating className={styles.rating} defaultValue={5} />
               </CardContent>
-              <CardActions className={styles.menuItemCardActions}>
+              <CardActions className={styles.cardActions}>
                 <Button
                   startIcon={<Add />}
                   size={"small"}

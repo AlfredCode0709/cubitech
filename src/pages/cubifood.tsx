@@ -1,12 +1,11 @@
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Head from "next/head";
-import styles from "../styles/cubifood.module.scss";
 import Promotions from "@/components/Promotions";
 import TopTreasures from "@/components/cubifood/TopTreasures";
 import Category from "@/components/cubifood/Category";
 import CategorisedView from "@/components/CategorisedView";
 import { useState } from "react";
+import StartingBlock2 from "@/components/StartingBlock2";
+import BrandSloganBlock from "@/components/BrandSloganBlock";
 
 const CubiFood: React.FC<any> = () => {
   const [imageSrc, setImageSrc] = useState<string>(
@@ -27,14 +26,12 @@ const CubiFood: React.FC<any> = () => {
       </Head>
       <main>
         {/* Starting block of CubiFood Page */}
-        <Box className={styles.startingBlock} />
+        <StartingBlock2 backgroundImage={"/cubifood/block1.png"} />
 
         {/* CubiFood slogan block */}
-        <Box className={styles.cubifoodSloganContainer}>
-          <Typography className={styles.text}>
-            Eat Smart. Pay Easy. Enjoy Every Bite.
-          </Typography>
-        </Box>
+        <BrandSloganBlock color={"#08834e"}>
+          Eat Smart. Pay Easy. Enjoy Every Bite.
+        </BrandSloganBlock>
 
         {/* CubiFood Promotions block */}
         <Promotions

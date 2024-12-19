@@ -1,38 +1,6 @@
-// Starting block styles 
-
-.startingBlock {
-  background-image: url("/cubifood/block1.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 85vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  position: relative;
-  margin-top: -80px;
-}
-
-// CubiFood slogan block styles
-
-.cubifoodSloganContainer {
-  padding: 2.5% 10%;
-  color: #08834e;
-  text-align: center;
-
-  .text {
-    font-family: 'Merriweather', Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    font-size: 32px;
-    font-style: italic;
-    line-height: 1.334; // h5 line-height
-  }
-}
-
 // CubiFood Top Treasures block styles
 
-.topTreasuresContainer {
+.topTreasuresBlock {
   padding: 2.5% 10%;
   background-color: #e7fef4;
   color: #08834e;
@@ -73,14 +41,14 @@
       .cardContent {
         border-top: 1px solid var(--divider-color);
 
-        .treasureName {
+        .name {
           font-weight: 500;
           font-size: 20px;
           line-height: 1.6; // h6 line-height
           margin-bottom: 3%;
         }
 
-        .treasureDescription {
+        .description {
           color: var(--secondary-main);
           font-size: 16px;
           line-height: 1.43; // body2 line-height
@@ -111,14 +79,14 @@
       .cardContent {
         border-top: 1px solid var(--divider-color);
 
-        .treasureName {
+        .name {
           font-weight: 500;
           font-size: 18px;
           line-height: 1.6; // h6 line-height
           margin-bottom: 3%;
         }
 
-        .treasureDescription {
+        .description {
           color: var(--secondary-main);
           font-size: 14px;
           line-height: 1.43; // body2 line-height
@@ -132,24 +100,24 @@
 
 // CubiFood Category block styles
 
-.categoryContainer {
+.categoryBlock {
   padding: 2.5% 10%;
   color: #08834e;
   text-align: center;
 
-  .categoryBoxContainer {
+  .categoryBox {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    .categoryAvatar {
+    .avatar {
       width: 100px;
       height: 100px;
       background-color: #e7fef4;
     }
 
-    .categoryName {
+    .name {
       margin-top: 12px;
     }
   }

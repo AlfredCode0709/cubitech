@@ -24,8 +24,8 @@ const TreasureCard: React.FC<{ isMain?: boolean }> = ({ isMain = false }) => (
         />
       </Box>
       <CardContent className={styles.cardContent}>
-        <Typography className={styles.treasureName}>Treasure Name</Typography>
-        <Typography className={styles.treasureDescription}>
+        <Typography className={styles.name}>Treasure Name</Typography>
+        <Typography className={styles.description}>
           Treasure Description
         </Typography>
       </CardContent>
@@ -46,7 +46,7 @@ const TreasureCard: React.FC<{ isMain?: boolean }> = ({ isMain = false }) => (
 );
 
 const TopTreasures: React.FC = () => (
-  <Box className={styles.topTreasuresContainer}>
+  <Box className={styles.topTreasuresBlock}>
     <Typography className={styles.title}>Top Treasures</Typography>
     <Grid container className={styles.gridContainer} spacing={2}>
       {/* Main treasure card */}

@@ -7,7 +7,7 @@ import styles from "../../styles/index.module.scss";
 
 const JoinCubitech: React.FC<any> = () => {
   return (
-    <Box className={styles.joinCubitechContainer}>
+    <Box className={styles.joinCubitechBlock}>
       <Grid container className={styles.gridContainer}>
         <Grid item xs={8} className={styles.leftGrid}>
           <Typography className={styles.title}>Join Cubitech Today</Typography>
