@@ -1,7 +1,13 @@
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import Head from "next/head";
 import CubiRideAspects from "@/components/cubiride/CubiRideAspects";
+import EverydayRides from "@/components/cubiride/EverydayRides";
 import MissionStatementBlock from "@/components/MissionStatementBlock";
+import PremiumRides from "@/components/cubiride/PremiumRides";
 import StartingBlock1 from "@/components/StartingBlock1";
+import styles from "../styles/cubiride.module.scss";
+import SafetyPledge from "@/components/cubiride/SafetyPledge";
 
 const CubiRide: React.FC<any> = () => {
   return (
@@ -26,6 +32,20 @@ const CubiRide: React.FC<any> = () => {
 
         {/* CubiRide Aspects Block */}
         <CubiRideAspects />
+
+        {/* Passenger Types Block */}
+        <Box className={styles.passengerTypes}>
+          <Typography className={styles.title}>Why choose CubiRide?</Typography>
+
+          {/* Everyday Rides block */}
+          <EverydayRides />
+
+          {/* Premium Rides block */}
+          <PremiumRides />
+        </Box>
+
+        {/* Safety Pledge block */}
+        <SafetyPledge />
       </main>
     </>
   );
