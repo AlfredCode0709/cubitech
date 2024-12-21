@@ -1,0 +1,259 @@
+// How CubiPay works block
+
+.howCubiPayWorksBlock {
+  padding: 2.5% 10%;
+  background-color: var(--primary-light);
+  color: var(--primary-main);
+
+  .title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.6; // h6 line-height
+  }
+
+  .gridContainer {
+    padding: 2.5% 0;
+
+    .title {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 1.334; // h5 line-height
+    }
+
+    .description {
+      margin-top: 2.5%;
+      font-size: 18px;
+      line-height: 1.5; // body1 line-height
+    }
+  }
+}
+
+// Payment Flow block
+
+// Keyframe for zooming in from 0 to 200x200 size
+@keyframes zoomAnimation {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Keyframe for scanning shadow that only covers 30% of the height
+@keyframes scanAnimation {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* Slight upward movement */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideAnimation {
+  0% {
+    left: 1%;
+  }
+  100% {
+    left: 77.85%;
+  }
+}
+
+// Payment Flow and Transaction Flow blocks
+
+.paymentFlowBlock, .transactionFlowBlock {
+  background-color: #d6dde3;
+  height: 350px;
+  border-radius: 8px;
+
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5% 0;
+
+    .card {
+      padding: 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      height: 300px;
+      width: 300px;
+
+      // QR Code scanning styles
+
+      .qrContainer {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        animation: zoomAnimation 2s ease-out forwards;
+
+        &.zoomCompleted {
+          animation: none; /* Stop zoom animation after it's completed */
+        }
+
+        .qrIcon {
+          width: 100%;
+          height: 100%;
+        }
+
+        .scanningShadow {
+          position: absolute;
+          top: 0;
+          width: 100%;
+          height: 25%;
+          background: rgba(0, 88, 204, 0.5);
+          animation: scanAnimation 2s ease-in-out forwards;
+        }
+      }
+
+      .scanningText {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.6; // h6 line-height
+        margin-top: 2.5%;
+        animation: fadeIn 0.5s ease-out;
+        transition: opacity 0.5s;
+      }
+
+      // Payment Amount auto-input styles
+
+      .typingText {
+        display: flex;
+        animation: fadeIn 0.5s ease-out;
+        transition: opacity 0.5s;
+
+        .amountText {
+          font-size: 40px;
+          font-weight: 500;
+        }
+      }
+
+      .userCard {
+        margin: 10% 0;
+        padding: 5%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        animation: fadeIn 0.5s ease-out;
+        transition: opacity 0.5s;
+      }
+
+      .sendButton {
+        position: relative;
+        width: 100%;
+        height: 60px;
+        background-color: var(--primary-main);
+        border-radius: 30px;
+        text-align: center;
+        overflow: hidden;
+        animation: fadeIn 0.5s ease-out;
+        transition: opacity 0.5s;
+
+        .sendText {
+          color: white;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 50%;
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 1.6; // h6 line-height
+          transform: translateY(-50%);
+          transition: opacity 0.5s;
+        }
+
+        .arrowBox {
+          position: absolute;
+          top: 50%;
+          left: 5px;
+          width: 50px;
+          height: 50px;
+          background-color: white;
+          border-radius: 25px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transform: translateY(-50%);
+          animation: none;
+
+          &.arrowSlide {
+            animation: slideAnimation 0.5s forwards;
+          }
+
+          .arrowForwardIcon {
+            color: var(--primary-main);
+          }
+        }
+      }
+
+      // Payment Success styles
+
+      .iconBox {
+        width: 75px;
+        height: 75px;
+        position: relative;
+        animation: fadeIn 0.5s ease-out;
+        transition: opacity 0.5s;
+
+        .checkCircleIcon {
+          width: 100%;
+          height: 100%;
+          color: var(--primary-main);
+        }
+      }
+
+      .successText {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.6; // h6 line-height
+        margin: 5% 0;
+        color: var(--primary-main);
+        animation: fadeIn 0.5s ease-out;
+        transition: opacity 0.5s;
+      }
+
+      .amountText {
+        display: flex;
+        animation: fadeIn 0.5s ease-out;
+        transition: opacity 0.5s;
+      
+        .amountValue {
+          font-size: 40px;
+          font-weight: 500;
+        }
+      }
+
+      .userInfo, .payeeInfo {
+        padding: 3%;
+        margin-top: 5%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border-top: 1px solid #d9d9d9;
+        animation: fadeIn 0.5s ease-out;
+        transition: opacity 0.5s;
+      }
+    }
+  }
+}

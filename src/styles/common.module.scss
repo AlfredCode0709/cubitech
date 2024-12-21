@@ -1,7 +1,10 @@
 // Starting block 1 styles
 
 .startingBlock1 {
-   background-image: var(--background-image, url("/index/block1.png")); // Default fallback image
+  background-image: var(
+    --background-image,
+    url("/index/block1.png")
+  ); // Default fallback image
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -37,10 +40,13 @@
   }
 }
 
-// Starting block 2 styles 
+// Starting block 2 styles
 
 .startingBlock2 {
-   background-image: var(--background-image, url("/index/block1.png")); // Default fallback image
+  background-image: var(
+    --background-image,
+    url("/index/block1.png")
+  ); // Default fallback image
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -133,7 +139,7 @@
   text-align: center;
 
   .text {
-    font-family: 'Merriweather', Helvetica, Arial, sans-serif;
+    font-family: "Merriweather", Helvetica, Arial, sans-serif;
     font-weight: 700;
     font-size: 32px;
     font-style: italic;
@@ -178,7 +184,7 @@
     .categorisedItemCard {
       border-radius: 8px;
       overflow: hidden;
-      
+
       .cardMediaContainer {
         width: 100%;
         padding-bottom: 100%;
@@ -221,6 +227,51 @@
         display: flex;
         justify-content: center;
         padding-bottom: 12.5%;
+      }
+    }
+  }
+}
+
+// CubiRide + CubiPay Aspects blocks
+
+.cubiRideAspectsBlock, .cubiPayAspectsBlock {
+  padding: 2.5% 10%;
+  color: var(--primary-main);
+  text-align: center;
+
+  .title {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 1.235; // h4 line-height
+  }
+
+  .gridContainer {
+    padding-top: 2.5%;
+
+    .gridItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .avatar {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 2.5%;
+      }
+
+      .avatarTitle {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.334; // h5 line-height
+      }
+
+      .avatarDescription {
+        margin-top: 2.5%;
+        margin-left: 7.5%;
+        margin-right: 7.5%;
+        font-size: 16px;
+        line-height: 1.5; // body1 line-height
       }
     }
   }

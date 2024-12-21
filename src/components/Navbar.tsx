@@ -35,6 +35,11 @@ const navItems = [
     href: "./cubiride",
     label: "CubiRide",
   },
+  {
+    avatar: "./navbar_icons/cubipay_icon.svg",
+    href: "./cubipay",
+    label: "CubiPay",
+  }
 ];
 
 const Navbar: React.FC<{ window?: () => Window }> = ({ window }) => {
