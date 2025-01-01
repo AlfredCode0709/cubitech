@@ -1,0 +1,101 @@
+/* Navbar container */
+
+.navbarContainer {
+  display: flex;
+
+  /* AppBar */
+
+  .appBar {
+    justify-content: center;
+
+    .avatar {
+      width: 170px;
+      height: 40px;
+    }
+
+    /* Search Bar */
+
+    .searchBar {
+      position: relative;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.15);
+      margin-left: 2.5%;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+      }
+
+      /* Search Icon Wrapper */
+
+      .searchIconWrapper {
+        padding: 0 5%;
+        height: 100%;
+
+        position: absolute;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      /* MUI InputBase input */
+
+      .MuiInputBase-input {
+        padding: 8px 8px 8px 0;
+        padding-left: calc(1em + 32px);
+        transition: width 300ms;
+
+        @media (min-width: 600px) {
+          width: 12ch;
+
+          &:focus {
+            width: 20ch;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Main Menu */
+
+.mainMenu {
+
+  /* MUI Menu Paper */
+
+  .MuiMenu-paper {
+    background-color: var(--primary-light);
+    color: var(--primary-main);
+    margin-top: 16px;
+    width: 150px;
+  }
+
+  /* MUI Menu Item */
+
+  .MuiMenuItem-root {
+    &:hover {
+      background-color: #b7d4fa;
+      color: var(--primary-dark);
+
+      /* MUI Typography */
+
+      .MuiTypography-root {
+        font-weight: 500;
+      }
+    }
+  }
+
+  /* Menu Item */
+
+  .menuItem {
+    display: flex;
+
+    /* Avatar */
+
+    .avatar {
+      width: 35px;
+      height: 35px;
+      margin-right: 10%;
+    }
+  }
+}

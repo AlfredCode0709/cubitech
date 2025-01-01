@@ -1,0 +1,48 @@
+/* Footer container */
+
+.footerContainer {
+  padding: 3% 5%;
+  background-color: var(--primary-dark);
+  color: white;
+
+  .avatar {
+    width: 170px;
+    height: 40px;
+  }
+
+  /* Styling for the first section of the footer */
+
+  .footer1Section {
+    text-align: left;
+    margin: 10% 0 7.5% 0;
+  }
+
+  .footer1_subSection {
+    text-align: left;
+  }
+
+  /* General styling for the footer sections */
+
+  .footerSection {
+    text-align: left;
+
+    .footerHeading {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: var(--h6);
+    }
+
+    .footerLink {
+      font-size: 16px;
+      line-height: var(--body1);
+      color: inherit;
+
+      /* Change cursor to pointer on hover */
+      cursor: pointer;
+
+      &:hover {
+        color: #b7d4fa;
+      }
+    }
+  }
+}
