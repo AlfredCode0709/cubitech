@@ -1,9 +1,9 @@
-/* Navbar container */
+/* Navbar container styles */
 
 .navbarContainer {
   display: flex;
 
-  /* AppBar */
+  /* AppBar styles */
 
   .appBar {
     justify-content: center;
@@ -13,7 +13,7 @@
       height: 40px;
     }
 
-    /* Search Bar */
+    /* Search Bar styles */
 
     .searchBar {
       position: relative;
@@ -57,11 +57,11 @@
   }
 }
 
-/* Main Menu */
+/* Main Menu styles */
 
 .mainMenu {
 
-  /* MUI Menu Paper */
+  /* MUI Menu Paper styles */
 
   .MuiMenu-paper {
     background-color: var(--primary-light);
@@ -70,14 +70,14 @@
     width: 150px;
   }
 
-  /* MUI Menu Item */
+  /* MUI Menu Item styles */
 
   .MuiMenuItem-root {
     &:hover {
       background-color: #b7d4fa;
       color: var(--primary-dark);
 
-      /* MUI Typography */
+      /* MUI Typography styles */
 
       .MuiTypography-root {
         font-weight: 500;
@@ -85,12 +85,10 @@
     }
   }
 
-  /* Menu Item */
+  /* Menu Item styles */
 
   .menuItem {
     display: flex;
-
-    /* Avatar */
 
     .avatar {
       width: 35px;

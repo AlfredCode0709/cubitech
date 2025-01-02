@@ -6,27 +6,25 @@ interface MainMenuProps {
   handleClose: () => void;
 }
 
-const MainMenu: React.FC<MainMenuProps> = ({
-  anchorEl,
-  handleClose,
-}) => {
+const MainMenu: React.FC<MainMenuProps> = ({ anchorEl, handleClose }) => {
   return (
     <Menu
-    className={'mainMenu'}
+      className={"mainMenu"}
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: "bottom",
         horizontal: "right",
       }}
-      keepMounted
       transformOrigin={{
         vertical: "top",
         horizontal: "right",
       }}
+      keepMounted
+      disableScrollLock
       open={Boolean(anchorEl)}
       onClose={handleClose}
     >
-      <NavArray handleClose={handleClose}/>
+      <NavArray handleClose={handleClose} />
     </Menu>
   );
 };
