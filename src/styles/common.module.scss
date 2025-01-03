@@ -34,6 +34,7 @@
   .title {
     font-weight: 600;
     font-size: 54px;
+    line-height: var(--h1);
     color: white;
     width: 80%;
     /* Positioning with a large top margin */
@@ -43,7 +44,21 @@
     /* Ensure title appears above overlay */
     z-index: 1;
     text-align: left;
-    line-height: var(--h1);
+  }
+}
+
+/* Mission Statement styles */
+
+.missionStatement {
+  padding: 2% 10%;
+  background-color: var(--primary-main);
+  color: white;
+  padding-right: 25%;
+
+  .text {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: var(--h5);
   }
 }
 
