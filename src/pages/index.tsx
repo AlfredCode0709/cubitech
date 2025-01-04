@@ -27,7 +27,7 @@ const Index: React.FC<any> = () => {
         {/* Cubitech services */}
         <CubitechServices />
 
-        {/* Promotions  */}
+        {/* Promotions */}
         <Promotions
           title={"Weekly Promotions"}
           bgColor={"primary.main"}

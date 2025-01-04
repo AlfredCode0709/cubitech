@@ -1,0 +1,113 @@
+.treasures {
+  padding: 2.5% 10%;
+  background-color: #08834e;
+  color: var(--white);
+
+  .title {
+    font-family: "Merriweather", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    font-style: italic;
+    line-height: var(--h5);
+    text-align: center;
+  }
+
+  .gridContainer {
+    padding: 2.5% 0;
+
+    .topTreasure {
+      border-radius: 8px;
+      height: 100%;
+
+      .cardMediaContainer {
+        width: 100%;
+        /* Maintains a 1:1 ratio */
+        padding-bottom: 100%;
+        /* Allows positioning of child elements */
+        position: relative;
+
+        .cardMedia {
+          /* Positions the image relative to the container */
+          position: absolute;
+          /* Centers the image vertically */
+          top: 50%;
+          /* Centers the image horizontally */
+          left: 50%;
+          /* Ensure the image is centered */
+          transform: translate(-50%, -50%);
+          /* Prevents the image from exceeding the container's width */
+          max-width: 100%;
+          /* Prevents the image from exceeding the container's height */
+          max-height: 100%;
+          /* Maintains the image's aspect ratio */
+          width: auto;
+          height: auto;
+        }
+      }
+
+      .cardContent {
+        border-top: 1px solid var(--divider-color);
+
+        .name {
+          font-weight: 500;
+          font-size: 20px;
+          line-height: var(--h6);
+          margin-bottom: 2.5%;
+        }
+
+        .description {
+          font-size: 16px;
+          line-height: var(--body1);
+          color: var(--secondary-main);
+        }
+      }
+    }
+
+    .treasure {
+      border-radius: 8px;
+
+      .cardMediaContainer {
+        width: 100%;
+        /* Maintains a 1:1 ratio */
+        padding-bottom: 100%;
+        /* Allows positioning of child elements */
+        position: relative;
+
+        .cardMedia {
+          /* Positions the image relative to the container */
+          position: absolute;
+          /* Centers the image vertically */
+          top: 50%;
+          /* Centers the image horizontally */
+          left: 50%;
+          /* Ensure the image is centered */
+          transform: translate(-50%, -50%);
+          /* Prevents the image from exceeding the container's width */
+          max-width: 100%;
+          /* Prevents the image from exceeding the container's height */
+          max-height: 100%;
+          /* Maintains the image's aspect ratio */
+          width: auto;
+          height: auto;
+        }
+      }
+
+      .cardContent {
+        border-top: 1px solid var(--divider-color);
+
+        .name {
+          font-weight: 500;
+          font-size: 18px;
+          line-height: var(--h6);
+          margin-bottom: 2.5%;
+        }
+
+        .description {
+          font-size: 14px;
+          line-height: var(--body1);
+          color: var(--secondary-main);
+        }
+      }
+    }
+  }
+}

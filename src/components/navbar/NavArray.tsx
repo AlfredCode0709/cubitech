@@ -1,16 +1,17 @@
 import Avatar from "@mui/material/Avatar";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
 
 const navItems = [
   {
     avatar: "./navbar_icons/aboutus_icon_light.svg",
-    href: "#",
+    href: "/about",
     label: "About Us",
   },
   {
     avatar: "./navbar_icons/cubifood_icon.svg",
-    href: "#",
+    href: "/cubifood",
     label: "CubiFood",
   },
   {
@@ -48,10 +49,17 @@ const NavArray: React.FC<NavArrayProps> = ({ handleClose }) => {
   return (
     <>
       {navItems.map((nav) => (
-        <MenuItem className={'menuItem'} key={nav.label} onClick={handleClose} href={nav.href}>
-          <Avatar className={'avatar'} alt={nav.label} src={nav.avatar} variant={"square"} />
-          <Typography>{nav.label}</Typography>
-        </MenuItem>
+        <Link key={nav.label} href={nav.href} passHref>
+          <MenuItem className={"menuItem"} onClick={handleClose}>
+            <Avatar
+              className={"avatar"}
+              alt={nav.label}
+              src={nav.avatar}
+              variant={"square"}
+            />
+            <Typography>{nav.label}</Typography>
+          </MenuItem>
+        </Link>
       ))}
     </>
   );
