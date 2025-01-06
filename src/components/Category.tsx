@@ -1,9 +1,9 @@
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+import Grid from "@mui/material/Grid"
+import Typography from "@mui/material/Typography";;
 import commonStyles from "../styles/common.module.scss";
 import { CSSProperties, useState } from "react";
-import Typography from "@mui/material/Typography";
 
 interface CategoryType {
   name: string;
@@ -36,22 +36,7 @@ const Category: React.FC<CategoryProps> = ({
 
   // Function to add line breaks to category names for better readability
   const formatCategoryName = (name: string) => {
-    return (
-      <span>
-        {name.split(" ").map((word, index) => {
-          // If the word contains certain characters like "&", "/", or "'", break it into new lines
-          if (word === "&" || word === "/" || word.includes("'")) {
-            return (
-              <span key={index}>
-                {word}
-                <br />
-              </span>
-            );
-          }
-          return `${word} `; // Otherwise, just add a space
-        })}
-      </span>
-    );
+    return <span dangerouslySetInnerHTML={{ __html: name }} />;
   };
 
   return (
@@ -69,7 +54,6 @@ const Category: React.FC<CategoryProps> = ({
             <Box
               className={commonStyles.box}
               onClick={() => handleCategoryClick(category.src)}
-              style={{ borderColor: primaryColor }}
             >
               <Avatar
                 className={commonStyles.avatar}

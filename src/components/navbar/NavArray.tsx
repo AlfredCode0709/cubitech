@@ -16,29 +16,29 @@ const navItems = [
   },
   {
     avatar: "./navbar_icons/cubimart_icon.svg",
-    href: "#",
+    href: "/cubimart",
     label: "CubiMart",
   },
-  {
-    avatar: "./navbar_icons/cubiride_icon.svg",
-    href: "#",
-    label: "CubiRide",
-  },
-  {
-    avatar: "./navbar_icons/cubipay_icon.svg",
-    href: "#",
-    label: "CubiPay",
-  },
-  {
-    avatar: "./navbar_icons/cubigift_icon.svg",
-    href: "#",
-    label: "CubiGift",
-  },
-  {
-    avatar: "./navbar_icons/cubiperk_icon.svg",
-    href: "#",
-    label: "CubiPerk",
-  },
+  // {
+  //   avatar: "./navbar_icons/cubiride_icon.svg",
+  //   href: "#",
+  //   label: "CubiRide",
+  // },
+  // {
+  //   avatar: "./navbar_icons/cubipay_icon.svg",
+  //   href: "#",
+  //   label: "CubiPay",
+  // },
+  // {
+  //   avatar: "./navbar_icons/cubigift_icon.svg",
+  //   href: "#",
+  //   label: "CubiGift",
+  // },
+  // {
+  //   avatar: "./navbar_icons/cubiperk_icon.svg",
+  //   href: "#",
+  //   label: "CubiPerk",
+  // },
 ];
 
 interface NavArrayProps {

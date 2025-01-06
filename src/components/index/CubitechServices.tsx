@@ -9,12 +9,12 @@ const CubitechServices: React.FC<any> = () => {
     {
       alt: "CubiFood",
       src: "./cubitech_brands/cubifood_light.svg",
-      href: "#",
+      href: "/cubifood",
     },
     {
       alt: "CubiMart",
       src: "./cubitech_brands/cubimart_light.svg",
-      href: "#",
+      href: "/cubimart",
     },
     {
       alt: "CubiRide",
