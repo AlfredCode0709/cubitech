@@ -310,6 +310,35 @@
   }
 }
 
+/* Payment Flow and Transaction Replay Flow styles */
+
+.paymentFlow, .transactionReplayFlow {
+  background-color: #d6dde3;
+  height: 350px;
+  border-radius: 8px;
+
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5% 0;
+
+    .card {
+      padding: 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      height: 300px;
+      width: 300px;
+    }
+  }
+}
+
 /* Safety Pledge styles */
 
 .safetyPledge {

@@ -24,11 +24,11 @@ const navItems = [
     href: "/cubiride",
     label: "CubiRide",
   },
-  // {
-  //   avatar: "./navbar_icons/cubipay_icon.svg",
-  //   href: "#",
-  //   label: "CubiPay",
-  // },
+  {
+    avatar: "./navbar_icons/cubipay_icon.svg",
+    href: "./cubipay",
+    label: "CubiPay",
+  },
   // {
   //   avatar: "./navbar_icons/cubigift_icon.svg",
   //   href: "#",

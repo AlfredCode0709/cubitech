@@ -1,0 +1,9 @@
+run = "pnpm dev"
+modules = ["nodejs-20"]
+
+[deployment]
+run = ["sh", "-c", "pnpm dev"]
+
+[[ports]]
+localPort = 3000
+externalPort = 80
