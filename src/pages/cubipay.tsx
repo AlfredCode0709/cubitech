@@ -1,8 +1,10 @@
 import CubiPayHighlights from "@/components/cubipay/CubiPayHighlights";
 import HowCubiPayWorks from "@/components/cubipay/HowCubiPayWorks";
 import MissionStatement from "@/components/MissionStatement";
+import SafetyPledge from "@/components/cubipay/SafetyPledge";
 import StartingBlock1 from "@/components/StartingBlock1";
 import Head from "next/head";
+import PayWithCubiPay from "@/components/cubipay/PayWithCubiPay";
 
 const CubiPay: React.FC<any> = () => {
   return (
@@ -32,7 +34,10 @@ const CubiPay: React.FC<any> = () => {
         <HowCubiPayWorks />
 
         {/* Safety Pledge */}
-        {/* <SafetyPledge /> */}
+        <SafetyPledge />
+
+        {/* Pay with CubiPay */}
+        <PayWithCubiPay />
       </main>
     </>
   );

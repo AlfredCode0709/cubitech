@@ -24,7 +24,7 @@ const CubitechServices: React.FC<any> = () => {
     {
       alt: "CubiPay",
       src: "./cubitech_brands/cubipay_light.svg",
-      href: "#",
+      href: "/cubipay",
     },
     {
       alt: "CubiGift",

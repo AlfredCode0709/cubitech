@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
-// import PaymentSuccessReplay from "./PaymentSuccessReplay";
+import PaymentSuccessReplay from "./PaymentSuccessReplay";
 import TransactionHistory from "./TransactionHistory";
-// import ZoomedInTransaction from "./ZoomedInTransaction";
+import ZoomedInTransaction from "./ZoomedInTransaction";
 import { useState } from "react";
 import commonStyles from "../../../styles/common.module.scss";
 
@@ -19,10 +19,9 @@ const TransactionReplayFlow: React.FC<any> = () => {
 
   return (
     <Box className={commonStyles.transactionReplayFlow}>
-      {/* {step === 0 && <PaymentSuccessReplay onSuccess={handleSuccess} />} */}
-      {/* {step === 1 && <TransactionHistory onSuccess={handleSuccess} />} */}
-      {/* {step === 2 && <ZoomedInTransaction onSuccess={handleSuccess} />} */}
-      <TransactionHistory />
+      {step === 0 && <PaymentSuccessReplay onSuccess={handleSuccess} />}
+      {step === 1 && <TransactionHistory onSuccess={handleSuccess} />}
+      {step === 2 && <ZoomedInTransaction onSuccess={handleSuccess} />}
     </Box>
   );
 };

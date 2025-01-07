@@ -7,15 +7,32 @@ import { useEffect } from "react";
 import commonStyles from "../../../styles/common.module.scss";
 import styles from "../../../styles/cubipay.module.scss";
 
-const PaymentSuccessReplay: React.FC<any> = () => {
+interface PaymentSuccessReplayProps {
+  onSuccess: () => void; // Accept onSuccess prop
+}
+
+const PaymentSuccessReplay: React.FC<PaymentSuccessReplayProps> = ({
+  onSuccess,
+}) => {
   useEffect(() => {
-    const timer = setTimeout(() => {}, 1000); // Initial delay for the animation
+    const timer = setTimeout(() => {
+      setTimeout(() => {
+        onSuccess(); // Call onSuccess to reset the flow after display
+      }, 2000); // Keep success message visible for 2 seconds
+    }, 500); // Initial delay for the animation
     return () => clearTimeout(timer);
-  }, []);
+  }, [onSuccess]);
 
   return (
     <Box className={commonStyles.container}>
-      <Card className={commonStyles.card} variant={"outlined"}>
+      <Card
+        className={commonStyles.card}
+        variant={"outlined"}
+        sx={{
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Box className={`${styles.container} ${styles.card} ${styles.iconBox}`}>
           <CheckCircle className={styles.checkCircleIcon} />
         </Box>

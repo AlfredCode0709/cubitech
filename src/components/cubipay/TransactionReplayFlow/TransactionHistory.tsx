@@ -52,23 +52,40 @@ const TransactionRow: React.FC<{
   </Fade>
 );
 
-const TransactionHistory: React.FC<any> = ({ onSuccess }) => {
+interface TransactionHistoryProps {
+  onSuccess: () => void; // Accept onSuccess prop
+}
+
+const TransactionHistory: React.FC<TransactionHistoryProps> = ({
+  onSuccess,
+}) => {
   const [zoomEffect, setZoomEffect] = useState(false);
 
   useEffect(() => {
     const zoomTimeout = setTimeout(() => {
       setZoomEffect(true);
       setTimeout(() => setZoomEffect(false), 600); // Reset after zoom out and back in
+
+      setTimeout(() => {
+        onSuccess();
+      }, 2500);
     }, transactions.length * 1000); // Start zoom after all rows fade in
 
     return () => {
       clearTimeout(zoomTimeout);
     };
-  }, []);
+  }, [onSuccess]);
 
   return (
     <Box className={commonStyles.container}>
-      <Card className={commonStyles.card} variant={"outlined"}>
+      <Card
+        className={commonStyles.card}
+        variant={"outlined"}
+        sx={{
+          alignItems: "left",
+          justifyContent: "center",
+        }}
+      >
         <Typography
           className={`${styles.container} ${styles.card} ${styles.transactionHistoryTitle}`}
         >

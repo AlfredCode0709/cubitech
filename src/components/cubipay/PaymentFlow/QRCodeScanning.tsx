@@ -20,19 +20,26 @@ const QRCodeScanning: React.FC<QRCodeScanningProps> = ({ onSuccess }) => {
       // Simulate successful scanning after zoom
       setTimeout(() => {
         onSuccess(); // Call onSuccess when scanning is done
-      }, 2000); // Delay to simulate scanning process
+      }, 2500); // Delay to simulate scanning process
     }, 2000); // Delay for zoom effect
     return () => clearTimeout(zoomTimer);
   }, [onSuccess]);
-  
+
   return (
     <Box className={commonStyles.container}>
-      <Card className={commonStyles.card} variant={"outlined"}>
+      <Card
+        className={commonStyles.card}
+        variant={"outlined"}
+        sx={{
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         {/* Container for QR Code and scanning shadow overlay */}
         <Box
-          className={`${styles.container} ${styles.card} ${styles.qrContainer} ${
-            zoomCompleted ? styles.zoomCompleted : ""
-          }`}
+          className={`${styles.container} ${styles.card} ${
+            styles.qrContainer
+          } ${zoomCompleted ? styles.zoomCompleted : ""}`}
         >
           {/* QR Code Icon */}
           <QrCodeScanner className={styles.qrIcon} />

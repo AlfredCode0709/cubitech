@@ -7,17 +7,34 @@ import { useEffect } from "react";
 import commonStyles from "../../../styles/common.module.scss";
 import styles from "../../../styles/cubipay.module.scss";
 
-const ZoomedInTransaction: React.FC<any> = () => {
+interface ZoomedInTransactionProps {
+  onSuccess: () => void; // Accept onSuccess prop
+}
+
+const ZoomedInTransaction: React.FC<ZoomedInTransactionProps> = ({
+  onSuccess,
+}) => {
   // Trigger fade-in effect when component is mounted
   useEffect(() => {
-    const timer = setTimeout(() => {}, 1000);
+    const timer = setTimeout(() => {
+      setTimeout(() => {
+        onSuccess();
+      }, 1500);
+    }, 100);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [onSuccess]);
 
   return (
     <Box className={commonStyles.container}>
-      <Card className={commonStyles.card} variant={"outlined"}>
+      <Card
+        className={commonStyles.card}
+        variant={"outlined"}
+        sx={{
+          alignItems: "left",
+          justifyContent: "center",
+        }}
+      >
         <Typography
           className={`${styles.container} ${styles.card} ${styles.transactionDetailsTitle}`}
         >
@@ -25,13 +42,16 @@ const ZoomedInTransaction: React.FC<any> = () => {
         </Typography>
 
         <Typography
-          className={`${styles.fadeIn} ${styles.transactionAmountData}`}
+          className={`${styles.container} ${styles.card} ${styles.transactionAmountData}`}
         >
           SGD&nbsp;
           <span className={styles.amountValue}>14.50</span>
         </Typography>
 
-        <Grid container className={`${styles.fadeIn} ${styles.gridRow}`}>
+        <Grid
+          container
+          className={`${styles.container} ${styles.card} ${styles.gridRow}`}
+        >
           <Grid item xs={4} className={styles.leftText}>
             <Typography>Paid To</Typography>
           </Grid>
@@ -40,7 +60,10 @@ const ZoomedInTransaction: React.FC<any> = () => {
           </Grid>
         </Grid>
 
-        <Grid container className={`${styles.fadeIn} ${styles.gridRow}`}>
+        <Grid
+          container
+          className={`${styles.container} ${styles.card} ${styles.gridRow}`}
+        >
           <Grid item xs={10} className={styles.leftText}>
             <Typography>Request a refund</Typography>
           </Grid>

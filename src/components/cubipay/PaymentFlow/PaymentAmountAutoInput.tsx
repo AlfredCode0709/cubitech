@@ -47,7 +47,14 @@ const PaymentAmountAutoInput: React.FC<PaymentAmountAutoInputProps> = ({
 
   return (
     <Box className={commonStyles.container}>
-      <Card className={commonStyles.card} variant={"outlined"}>
+      <Card
+        className={commonStyles.card}
+        variant={"outlined"}
+        sx={{
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Box
           className={`${styles.container} ${styles.card} ${styles.typingText}`}
         >
