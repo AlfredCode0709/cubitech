@@ -1,0 +1,289 @@
+/* Intro Slideshow styles */
+
+.introSlideshow {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  margin-top: -80px;
+
+  .imageContainer {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+    transform: translateX(var(--translateX, 0%));
+
+    .media {
+      min-width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .paginationContainer {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+
+    .paginationDot {
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      border-radius: 50%;
+      background-color: #bbb;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: var(--white);
+      }
+    }
+
+    .paginationDotActive {
+      background-color: var(--white);
+    }
+  }
+}
+
+/* Gift Card Slideshow styles */
+
+.giftCardSlideshow {
+  padding: 2.5% 10%;
+  color: var(--primary-main);
+
+  .gridContainer {
+    align-items: center;
+
+    .heading {
+      font-weight: 600;
+      font-size: 24px;
+    }
+
+    .paginationButtons {
+      display: flex;
+      justify-content: flex-end;
+
+      .iconButton {
+        background-color: var(--primary-main);
+        color: var(--white);
+
+        &:hover {
+          background-color: var(--primary-dark);
+        }
+
+        &:focus {
+          outline: 1px solid #ff9800;
+        }
+
+        &.disabled {
+          background-color: var(--white);
+          color: var(--disable-main);
+        }
+      }
+    }
+  }
+
+  .cardContainer {
+    display: flex;
+    gap: 20px;
+    padding: 2.5% 0;
+    overflow-x: auto;
+    cursor: grab;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &.dragging {
+      cursor: grabbing;
+    }
+
+    .cardWrapper {
+      text-align: center;
+      flex-shrink: 0;
+
+      .card {
+        padding: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        height: 150px;
+        width: 250px;
+        background-color: var(--primary-light);
+        color: var(--primary-dark);
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          transform: scale(1.05);
+          transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .avatar {
+          width: 200px;
+          height: 47px;
+        }
+      }
+
+      .cardName {
+        font-weight: 600;
+        color: var(--primary-main);
+        margin-top: 5%;
+      }
+    }
+  }
+}
+
+/* Customisation Form styles */
+
+.customisationForm {
+  padding: 2.5% 10%;
+
+  .heading {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: var(--h5);
+    color: var(--primary-main);
+    margin-bottom: 2.5%;
+  }
+
+  .formContainer {
+    display: flex;
+
+    .textFieldLeft {
+      width: 95%;
+      margin-right: 5%;
+    }
+
+    .textFieldRight {
+      width: 95%;
+      margin-left: 5%;
+    }
+
+    .characterCount {
+      font-size: 14px;
+      color: var(--text-secondary-main);
+      line-height: var(--body2);
+      margin: 2.5% 0;
+    }
+
+    .amountPerGiftHeading {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: var(--h6);
+      color: var(--primary-main);
+      margin-bottom: 2.5%;
+    }
+
+    .giftItemBox {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+
+      .card {
+        padding: 5%;
+        cursor: pointer;
+        color: var(--primary-main);
+
+        &:hover {
+          background-color: var(--primary-light);
+          color: var(--primary-dark);
+          border: 1px solid var(--primary-dark);
+        }
+
+        &.selected {
+          background-color: var(--primary-light);
+          color: var(--primary-dark);
+          border: 1px solid var(--primary-main);
+        }
+
+        .cardValue {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: var(--h6);
+        }
+      }
+    }
+
+    .textFieldGiftsNumber {
+      width: 45%;
+      margin-right: 55%;
+    }
+
+    .maxGiftNumberLegend {
+      font-size: 14px;
+      color: var(--text-secondary-main);
+      line-height: var(--body2);
+      margin: 2.5% 0;
+    }
+
+    .orderCard {
+      width: 95%;
+      margin-left: 5%;
+      padding: 5%;
+      background-color: var(--primary-light);
+
+      .title {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: var(--h6);
+        color: var(--primary-main);
+      }
+
+      .gridContainer {
+        align-items: center;
+        padding: 5% 0;
+
+        .gridNumber {
+          padding: 20% 0;
+          width: 100%;
+          text-align: center;
+          color: var(--primary-main);
+        }
+
+        .cubiGiftVoucherInfoBox {
+          font-size: 14px;
+          color: var(--primary-main);
+          line-height: var(--body2);
+
+          .span {
+            font-weight: 500;
+            font-size: 16px;
+          }
+        }
+
+        .totalAmountBox {
+          text-align: right;
+          color: var(--primary-main);
+        }
+
+        .totalAmountCalculation {
+          display: flex;
+          color: var(--primary-main);
+
+          .totalHeader {
+            width: 70%;
+          }
+
+          .number {
+            width: 30%;
+            text-align: right;
+          }
+        }
+
+        .buyNowButton {
+          height: 50px;
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+}

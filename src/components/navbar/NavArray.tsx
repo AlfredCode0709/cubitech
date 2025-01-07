@@ -26,14 +26,14 @@ const navItems = [
   },
   {
     avatar: "./navbar_icons/cubipay_icon.svg",
-    href: "./cubipay",
+    href: "/cubipay",
     label: "CubiPay",
   },
-  // {
-  //   avatar: "./navbar_icons/cubigift_icon.svg",
-  //   href: "#",
-  //   label: "CubiGift",
-  // },
+  {
+    avatar: "./navbar_icons/cubigift_icon.svg",
+    href: "/cubigift",
+    label: "CubiGift",
+  },
   // {
   //   avatar: "./navbar_icons/cubiperk_icon.svg",
   //   href: "#",

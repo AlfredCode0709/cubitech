@@ -8,32 +8,32 @@ const CubitechServices: React.FC<any> = () => {
   const brandAvatars = [
     {
       alt: "CubiFood",
-      src: "./cubitech_brands/cubifood_light.svg",
+      src: "/cubitech_brands/cubifood_light.svg",
       href: "/cubifood",
     },
     {
       alt: "CubiMart",
-      src: "./cubitech_brands/cubimart_light.svg",
+      src: "/cubitech_brands/cubimart_light.svg",
       href: "/cubimart",
     },
     {
       alt: "CubiRide",
-      src: "./cubitech_brands/cubiride_light.svg",
+      src: "/cubitech_brands/cubiride_light.svg",
       href: "/cubiride",
     },
     {
       alt: "CubiPay",
-      src: "./cubitech_brands/cubipay_light.svg",
+      src: "/cubitech_brands/cubipay_light.svg",
       href: "/cubipay",
     },
     {
       alt: "CubiGift",
-      src: "./cubitech_brands/cubigift_light.svg",
-      href: "#",
+      src: "/cubitech_brands/cubigift_light.svg",
+      href: "/cubigift",
     },
     {
       alt: "CubiPerk",
-      src: "./cubitech_brands/cubiperk_light.svg",
+      src: "/cubitech_brands/cubiperk_light.svg",
       href: "#",
     },
   ];
