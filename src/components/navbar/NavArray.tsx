@@ -34,11 +34,11 @@ const navItems = [
     href: "/cubigift",
     label: "CubiGift",
   },
-  // {
-  //   avatar: "./navbar_icons/cubiperk_icon.svg",
-  //   href: "#",
-  //   label: "CubiPerk",
-  // },
+  {
+    avatar: "./navbar_icons/cubiperk_icon.svg",
+    href: "/cubiperk",
+    label: "CubiPerk",
+  },
 ];
 
 interface NavArrayProps {

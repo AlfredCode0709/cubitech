@@ -68,6 +68,27 @@
   margin-top: -80px;
 }
 
+/* Starting block 3 styles */
+
+.startingBlock3 {
+  /* Set a background image with full cover, no-repeat, and centered position */
+  background-image: var(--background-image, url("/default.png"));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  /* 100% viewport height and vertically/horizontally centered content */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  /* Adjust positioning and overlap to account for offset margin */
+  position: relative;
+  margin-top: -80px;
+}
+
 /* Mission Statement styles */
 
 .missionStatement {
