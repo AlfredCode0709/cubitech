@@ -1,3 +1,37 @@
+/* Loading Screen styles */
+
+.loadingScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--primary-light);
+
+  .box {
+    position: relative;
+    display: inline-flex;
+
+    .content {
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .text {
+        font-weight: 600;
+        font-size: 36px;
+        line-height: var(--h3);
+        color: var(--primary-main);
+      }
+    }
+  }
+}
+
 /* Starting block 1 styles */
 
 .startingBlock1 {

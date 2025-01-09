@@ -4,6 +4,7 @@ import { createDynamicTheme } from "@/styles/theme";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState(createDynamicTheme());
@@ -15,10 +16,12 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <UserProvider>
+        <CssBaseline />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </UserProvider>
     </ThemeProvider>
   );
 }

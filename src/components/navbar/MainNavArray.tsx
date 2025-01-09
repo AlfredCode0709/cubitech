@@ -41,11 +41,11 @@ const navItems = [
   },
 ];
 
-interface NavArrayProps {
+interface MainNavArrayProps {
   handleClose: () => void;
 }
 
-const NavArray: React.FC<NavArrayProps> = ({ handleClose }) => {
+const MainNavArray: React.FC<MainNavArrayProps> = ({ handleClose }) => {
   return (
     <>
       {navItems.map((nav) => (
@@ -65,4 +65,4 @@ const NavArray: React.FC<NavArrayProps> = ({ handleClose }) => {
   );
 };
 
-export default NavArray;
+export default MainNavArray;

@@ -1,15 +1,15 @@
 import Menu from "@mui/material/Menu";
-import MainNavArray from "./MainNavArray";
+import UserNavArray from "./UserNavArray";
 
-interface MainMenuProps {
+interface UserMenuProps {
   anchorEl: null | HTMLElement;
   handleClose: () => void;
 }
 
-const MainMenu: React.FC<MainMenuProps> = ({ anchorEl, handleClose }) => {
+const UserMenu: React.FC<UserMenuProps> = ({ anchorEl, handleClose }) => {
   return (
     <Menu
-      className={"mainMenu"}
+      className={"userMenu"}
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: "bottom",
@@ -24,9 +24,9 @@ const MainMenu: React.FC<MainMenuProps> = ({ anchorEl, handleClose }) => {
       open={Boolean(anchorEl)}
       onClose={handleClose}
     >
-      <MainNavArray handleClose={handleClose} />
+      <UserNavArray handleClose={handleClose} />
     </Menu>
   );
 };
 
-export default MainMenu;
+export default UserMenu;
