@@ -1,5 +1,5 @@
-import IndexDefault from "@/components/view/IndexDefault";
-import IndexLogged from "@/components/view/IndexLogged";
+import IndexDefault from "@/components/view/index/IndexDefault";
+import IndexLogged from "@/components/view/index/IndexLogged";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import Head from "next/head";
 

@@ -1,16 +1,16 @@
-import CubiPerkIntro from "../index/CubiPerkIntro";
-import CubiRideIntro from "../index/CubiRideIntro";
-import CubitechServices from "../index/CubitechServices";
-import JoinCubitech from "../index/JoinCubitech";
-import PeekView from "../index/PeekView";
-import Promotions from "../Promotions";
-import StartingBlock1 from "../StartingBlock1";
+import CubiPerkIntro from "../../index/CubiPerkIntro";
+import CubiRideIntro from "../../index/CubiRideIntro";
+import CubitechServices from "../../index/CubitechServices";
+import JoinCubitech from "../../index/JoinCubitech";
+import PeekView from "../../index/PeekView";
+import Promotions from "../../Promotions";
+import StartingBlock1 from "../../StartingBlock1";
 
 const IndexDefault: React.FC<any> = () => {
   return (
     <>
-      {/* Starting block of IndexDefault Page */}
-      <StartingBlock1 backgroundImage={"/IndexDefault/block1.png"}>
+      {/* Starting block of Index Page */}
+      <StartingBlock1 backgroundImage={"/index/block1.png"}>
         Cubitech: Beyond Fintech,
         <br />
         Infinite Possibilities for Your Life!
