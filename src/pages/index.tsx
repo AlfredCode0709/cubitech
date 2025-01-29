@@ -1,3 +1,4 @@
+import IndexDefault from "@/components/view/IndexDefault";
 import Head from "next/head";
 
 const Index: React.FC<any> = () => {
@@ -9,7 +10,9 @@ const Index: React.FC<any> = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/cubitech.ico" />
       </Head>
-      <main></main>
+      <main>
+        <IndexDefault />
+      </main>
     </>
   );
 };

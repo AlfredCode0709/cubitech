@@ -1,0 +1,37 @@
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import styles from "../../styles/index.module.scss";
+
+const CubitechServices: React.FC<any> = () => {
+  return (
+    <Box className={styles.cubitechServices}>
+      {/* Cubitech slogan */}
+      <Typography className={styles.slogan}>
+        One platform, countless solutions - from essentials to opportunities.
+      </Typography>
+
+      {/* Cubitech brand avatars */}
+      <Box className={styles.brands} gap={2}>
+        {[
+          "CubiFood",
+          "CubiMart",
+          "CubiRide",
+          "CubiPay",
+          "CubiGift",
+          "CubiPerk",
+        ].map((item) => (
+          <Avatar
+            className={styles.avatar}
+            alt={item}
+            src={`/cubitech_brands/${item.toLowerCase()}_light.svg`}
+            component={"div"}
+            variant={"square"}
+          />
+        ))}
+      </Box>
+    </Box>
+  );
+};
+
+export default CubitechServices;
