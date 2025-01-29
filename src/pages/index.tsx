@@ -1,4 +1,4 @@
-import IndexDefault from "@/components/view/IndexDefault";
+import IndexDefault from "@/components/view/index/IndexDefault";
 import Head from "next/head";
 
 const Index: React.FC<any> = () => {

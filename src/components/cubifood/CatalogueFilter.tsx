@@ -1,0 +1,154 @@
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import FormControl from "@mui/material/FormControl";
+import Grid from "@mui/material/Grid";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import { useEffect, useState } from "react";
+import styles from "../../styles/cubifood.module.scss";
+
+interface CatalogueFilterProps {
+  categories: { name: string; src: string }[];
+  selectedCategory: string | null;
+  onApplyFilters: (image: string, category: string | null) => void;
+  onClearFilters: () => void;
+}
+
+const CatalogueFilter: React.FC<CatalogueFilterProps> = ({
+  categories,
+  selectedCategory,
+  onApplyFilters,
+  onClearFilters,
+}) => {
+  const [filters, setFilters] = useState({
+    sortBy: "",
+    price: "",
+    cuisine: selectedCategory || "",
+    dietaryPreferences: "",
+  });
+
+  const handleFilterChange = (key: string, value: string) => {
+    setFilters((prev) => ({ ...prev, [key]: value }));
+    if (key === "cuisine") {
+      const selectedCategoryItem = categories.find(
+        (category) => category.name === value,
+      );
+      const image = selectedCategoryItem
+        ? selectedCategoryItem.src
+        : "./filtered_icon.svg";
+      onApplyFilters(image, value); // Sync category selection
+    }
+  };
+
+  const handleApplyFilters = () => {
+    const selectedCategoryItem = categories.find(
+      (category) => category.name === filters.cuisine,
+    );
+    const image = selectedCategoryItem
+      ? selectedCategoryItem.src
+      : "./filtered_icon.svg"; // Use category image or fallback
+    onApplyFilters(image, filters.cuisine); // Trigger the callback with image and category
+  };
+
+  // Update filters when selectedCategory changes
+  useEffect(() => {
+    if (selectedCategory) {
+      setFilters((prev) => ({
+        ...prev,
+        cuisine: selectedCategory,
+      }));
+    }
+  }, [selectedCategory]);
+
+  return (
+    <Box className={styles.catalogueFilter}>
+      <Grid container spacing={1} className={styles.gridContainer}>
+        {[
+          {
+            label: "Sort by",
+            id: "sortBy",
+            options: [
+              { value: "preparationTime", label: "Preparation Time" },
+              { value: "distance", label: "Distance" },
+            ],
+          },
+          {
+            label: "Price",
+            id: "price",
+            options: [
+              { value: "0to10", label: "$0 - $10" },
+              { value: "10to20", label: "$10 - $20" },
+              { value: "above20", label: "$20+" },
+            ],
+          },
+          {
+            label: "Cuisine",
+            id: "cuisine",
+            options: categories.map((category) => ({
+              value: category.name,
+              label: category.name,
+            })),
+          },
+          {
+            label: "Dietary Preferences",
+            id: "dietaryPreferences",
+            options: [
+              { value: "halal", label: "Halal" },
+              { value: "healthierChoice", label: "Healthier Choice" },
+              { value: "vegetarian", label: "Vegetarian" },
+            ],
+          },
+        ].map(({ label, id, options }) => (
+          <Grid item xs={2.25} key={id}>
+            <FormControl fullWidth>
+              <InputLabel id={`${id}Label`}>{label}</InputLabel>
+              <Select
+                labelId={`${id}Label`}
+                id={`${id}Select`}
+                value={filters[id as keyof typeof filters]}
+                label={label}
+                onChange={(e) => handleFilterChange(id, e.target.value)}
+                MenuProps={{
+                  disableScrollLock: true,
+                }}
+              >
+                {options.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+        ))}
+
+        <Grid item xs={3} textAlign="right">
+          <Button
+            className={styles.clearAllButton}
+            onClick={() => {
+              setFilters({
+                sortBy: "",
+                price: "",
+                cuisine: "",
+                dietaryPreferences: "",
+              });
+              onClearFilters(); // Call the function to clear filters in the parent
+            }}
+          >
+            Clear All
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleApplyFilters} // Apply filters on click
+          >
+            Apply Filters
+          </Button>
+        </Grid>
+      </Grid>
+    </Box>
+  );
+};
+
+export default CatalogueFilter;

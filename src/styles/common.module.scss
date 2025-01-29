@@ -34,6 +34,20 @@
   }
 }
 
+/* Starting block 2 styles */
+
+.startingBlock2 {
+  background: var(--background-image, url("/default.png")) center/cover
+    no-repeat;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  margin-top: -80px;
+}
+
 /* Promotion styles */
 
 .promotion {
@@ -134,5 +148,46 @@
     font-weight: 500;
     font-size: 24px;
     line-height: var(--h5);
+  }
+}
+
+/* Brand Slogan styles */
+
+.brandSlogan {
+  padding: 2.5% 10%;
+  color: var(--color, var(--primary-main));
+  text-align: center;
+
+  .text {
+    font-family: "Merriweather", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    font-style: italic;
+    line-height: var(--h5);
+  }
+}
+
+/* Category styles */
+
+.category {
+  padding: 2% 10%;
+  color: var(--color, var(--primary-main));
+  text-align: center;
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      background-color: var(--color, var(--primary-light));
+    }
+
+    .name {
+      margin-top: 10%;
+    }
   }
 }
