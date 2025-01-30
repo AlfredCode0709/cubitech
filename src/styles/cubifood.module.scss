@@ -277,6 +277,10 @@
         background-color: #05482b;
       }
 
+      &:focus {
+        background-color: #05482b;
+      }
+
       &:disabled {
         background-color: var(--white);
         color: var(--disable-main);

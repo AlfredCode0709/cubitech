@@ -1,4 +1,4 @@
-import CubiFoodDefault from "@/components/view/cubifood/CubiFoodDefault";
+import Default from "@/components/view/cubifood/Default";
 import Head from "next/head";
 
 const CubiFood: React.FC<any> = () => {
@@ -11,7 +11,7 @@ const CubiFood: React.FC<any> = () => {
         <link rel="icon" href="/cubitech.ico" />
       </Head>
       <main>
-        <CubiFoodDefault />
+        <Default />
       </main>
     </>
   );

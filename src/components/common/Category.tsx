@@ -7,6 +7,8 @@ import { CSSProperties } from "react";
 
 interface CategoryType {
   name: string;
+  label: string;
+  text: string;
   src: string;
 }
 
@@ -71,7 +73,7 @@ const Category: React.FC<CategoryProps> = ({
                 src={category.src}
               />
               <Typography className={commonStyles.name}>
-                {formatCategoryName(category.name)}
+                {formatCategoryName(category.text)}
               </Typography>
             </Box>
           </Grid>
