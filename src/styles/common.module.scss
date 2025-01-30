@@ -48,6 +48,20 @@
   margin-top: -80px;
 }
 
+/* Starting block 3 styles */
+
+.startingBlock3 {
+  background: var(--background-image, url("/default.png")) center/cover
+    no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  margin-top: -80px;
+}
+
 /* Promotion styles */
 
 .promotion {
