@@ -5,7 +5,7 @@ const LogoDark: React.FC<any> = () => {
     <Avatar
       className={"avatar"}
       alt={"Cubitech"}
-      src={"./cubitech_brands/cubitech_dark.svg"}
+      src={"/cubitech_brands/cubitech_dark.svg"}
       variant={"square"}
     />
   );

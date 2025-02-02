@@ -5,37 +5,37 @@ import Link from "next/link";
 
 const navItems = [
   {
-    avatar: "./navbar_icons/aboutus_icon_light.svg",
+    avatar: "/navbar_icons/aboutus_icon_light.svg",
     href: "/about",
     label: "About Us",
   },
   {
-    avatar: "./navbar_icons/cubifood_icon.svg",
+    avatar: "/navbar_icons/cubifood_icon.svg",
     href: "/cubifood",
     label: "CubiFood",
   },
   {
-    avatar: "./navbar_icons/cubimart_icon.svg",
+    avatar: "/navbar_icons/cubimart_icon.svg",
     href: "/cubimart",
     label: "CubiMart",
   },
   {
-    avatar: "./navbar_icons/cubiride_icon.svg",
+    avatar: "/navbar_icons/cubiride_icon.svg",
     href: "/cubiride",
     label: "CubiRide",
   },
   {
-    avatar: "./navbar_icons/cubipay_icon.svg",
+    avatar: "/navbar_icons/cubipay_icon.svg",
     href: "/cubipay",
     label: "CubiPay",
   },
   {
-    avatar: "./navbar_icons/cubigift_icon.svg",
+    avatar: "/navbar_icons/cubigift_icon.svg",
     href: "/cubigift",
     label: "CubiGift",
   },
   {
-    avatar: "./navbar_icons/cubiperk_icon.svg",
+    avatar: "/navbar_icons/cubiperk_icon.svg",
     href: "/cubiperk",
     label: "CubiPerk",
   },

@@ -1,6 +1,7 @@
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
 import styles from "../../styles/index.module.scss";
 
 const CubitechServices: React.FC<any> = () => {
@@ -21,13 +22,15 @@ const CubitechServices: React.FC<any> = () => {
           "CubiGift",
           "CubiPerk",
         ].map((item) => (
-          <Avatar
-            className={styles.avatar}
-            alt={item}
-            src={`/cubitech_brands/${item.toLowerCase()}_light.svg`}
-            component={"div"}
-            variant={"square"}
-          />
+          <Link key={item} href={`/${item.toLowerCase()}`}>
+            <Avatar
+              className={styles.avatar}
+              alt={item}
+              src={`/cubitech_brands/${item.toLowerCase()}_light.svg`}
+              component={"div"}
+              variant={"square"}
+            />
+          </Link>
         ))}
       </Box>
     </Box>

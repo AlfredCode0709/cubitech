@@ -24,7 +24,7 @@ const Default: React.FC<any> = () => {
         title={"Weekly Promotions"}
         bgColor={"primary.main"}
         titleColor={"white"}
-        imageSrc={"./cubitech_brands/cubitech_light.svg"}
+        imageSrc={"/cubitech_brands/cubitech_light.svg"}
       />
 
       {/* CUBIFood Peek View */}
