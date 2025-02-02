@@ -1,6 +1,7 @@
 import Avatar from "@mui/material/Avatar";
+import { FC } from "react";
 
-const LogoDark: React.FC<any> = () => {
+const LogoDark: FC<any> = () => {
   return (
     <Avatar
       className={"avatar"}

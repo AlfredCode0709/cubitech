@@ -17,7 +17,7 @@ const NearbyOutlets: React.FC<any> = () => {
   // Mock data for the shop list
   const shopList = Array.from({ length: 12 }, (_, i) => ({
     id: i + 1,
-    image: `./cubitech_brands/cubifood_light.svg`,
+    image: `/cubitech_brands/cubifood_light.svg`,
   }));
 
   return (
@@ -32,7 +32,7 @@ const NearbyOutlets: React.FC<any> = () => {
               <Avatar
                 className={styles.avatar}
                 alt="Outlet Logo"
-                src="./navbar_icons/cubifood_icon.svg"
+                src="/navbar_icons/cubifood_icon.svg"
               />
               <Typography className={styles.outletName}>Outlet Name</Typography>
             </Stack>
@@ -55,7 +55,7 @@ const NearbyOutlets: React.FC<any> = () => {
               {shopList.map((shop) => (
                 <Grid item key={shop.id} sx={{ flex: "0 0 auto" }}>
                   <Card variant={"outlined"} className={styles.shopCard}>
-                    <CardActionArea>
+                    <CardActionArea href={`/cubifood/${shop.id}`}>
                       <Box className={styles.cardMediaContainer}>
                         <CardMedia
                           className={styles.cardMedia}

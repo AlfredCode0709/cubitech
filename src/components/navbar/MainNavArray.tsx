@@ -2,6 +2,7 @@ import Avatar from "@mui/material/Avatar";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
+import { FC } from "react";
 
 const navItems = [
   {
@@ -45,7 +46,7 @@ interface MainNavArrayProps {
   handleClose: () => void;
 }
 
-const MainNavArray: React.FC<MainNavArrayProps> = ({ handleClose }) => {
+const MainNavArray: FC<MainNavArrayProps> = ({ handleClose }) => {
   return (
     <>
       {navItems.map((nav) => (

@@ -5,6 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import styles from "../../styles/common.module.scss";
+import { FC } from "react";
 
 interface PromotionsProps {
   title: string;
@@ -13,7 +14,7 @@ interface PromotionsProps {
   imageSrc: string;
 }
 
-const Promotions: React.FC<PromotionsProps> = ({
+const Promotions: FC<PromotionsProps> = ({
   title,
   bgColor,
   titleColor,

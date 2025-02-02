@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import ArrowForward from "@mui/icons-material/ArrowForward";
 import commonStyles from "../../styles/common.module.scss";
+import { FC } from "react";
 
 interface JoinSectionProps {
   title: string;
@@ -11,11 +12,7 @@ interface JoinSectionProps {
   buttonText: string;
 }
 
-const JoinSection: React.FC<JoinSectionProps> = ({
-  title,
-  subtitle,
-  buttonText,
-}) => {
+const JoinSection: FC<JoinSectionProps> = ({ title, subtitle, buttonText }) => {
   return (
     <Box className={commonStyles.joinSection}>
       <Grid container className={commonStyles.gridContainer}>

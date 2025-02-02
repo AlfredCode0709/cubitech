@@ -1,17 +1,18 @@
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
-import AccountBox from "@mui/icons-material/AccountBox";
-import Logout from "@mui/icons-material/Logout";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import LogoutIcon from "@mui/icons-material/Logout";
 import Link from "next/link";
+import { FC } from "react";
 
 const navItems = [
   {
-    icon: <AccountBox className={"icon"} />,
+    icon: <AccountBoxIcon className={"icon"} />,
     href: "#",
     label: "Account",
   },
   {
-    icon: <Logout className={"icon"} />,
+    icon: <LogoutIcon className={"icon"} />,
     href: "/api/auth/logout",
     label: "Logout",
   },
@@ -21,7 +22,7 @@ interface UserNavArrayProps {
   handleClose: () => void;
 }
 
-const UserNavArray: React.FC<UserNavArrayProps> = ({ handleClose }) => {
+const UserNavArray: FC<UserNavArrayProps> = ({ handleClose }) => {
   return (
     <>
       {navItems.map((nav) => (

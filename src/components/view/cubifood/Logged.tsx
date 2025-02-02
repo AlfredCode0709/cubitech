@@ -1,11 +1,9 @@
-import BrandSlogan from "@/components/common/BrandSlogan";
+import Box from "@mui/material/Box";
 import Category from "@/components/common/Category";
 import CatalogueFilter from "@/components/cubifood/CatalogueFilter";
 import FilteredCatalogue from "@/components/cubifood/FilteredCatalogue";
 import NearbyOutlets from "@/components/cubifood/NearbyOutlets";
-import Promotions from "@/components/common/Promotions";
-import StartingBlock2 from "@/components/common/StartingBlock2";
-import Treasures from "@/components/cubifood/Treasures";
+import styles from "../../../styles/cubifood.module.scss";
 import { FC, useState } from "react";
 
 export const categories = [
@@ -49,7 +47,7 @@ export const categories = [
   },
 ];
 
-const Default: FC<any> = () => {
+const Logged: FC<any> = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>("");
   const [isFiltered, setIsFiltered] = useState(false);
   const [imageSrc, setImageSrc] = useState<string>(
@@ -79,24 +77,8 @@ const Default: FC<any> = () => {
 
   return (
     <>
-      {/* Starting block of CubiFood Page */}
-      <StartingBlock2 backgroundImage={"/cubifood/block1.png"} />
-
-      {/* CubiFood slogan block */}
-      <BrandSlogan color={"#08834e"}>
-        Eat Smart. Pay Easy. Enjoy Every Bite.
-      </BrandSlogan>
-
-      {/* Promotions */}
-      <Promotions
-        title={"Weekly Promotions"}
-        bgColor={"#e7fef4"}
-        titleColor={"#08834e"}
-        imageSrc={"/cubitech_brands/cubifood_light.svg"}
-      />
-
-      {/* Treasures */}
-      <Treasures />
+      {/* Starting block of CUBIFood Logged Page */}
+      <Box className={styles.userStartingBlock} />
 
       {/* CUBIFood Category */}
       <Category
@@ -128,4 +110,4 @@ const Default: FC<any> = () => {
   );
 };
 
-export default Default;
+export default Logged;

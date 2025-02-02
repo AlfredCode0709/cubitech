@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import styles from "../../styles/cubifood.module.scss";
 
 interface CatalogueFilterProps {
-  categories: { name: string; src: string }[];
+  categories: { name: string; label: string; src: string; }[];
   selectedCategory: string | null;
   onApplyFilters: (image: string, category: string | null) => void;
   onClearFilters: () => void;
@@ -36,7 +36,7 @@ const CatalogueFilter: React.FC<CatalogueFilterProps> = ({
       );
       const image = selectedCategoryItem
         ? selectedCategoryItem.src
-        : "./filtered_icon.svg";
+        : "/filtered_icon.svg";
       onApplyFilters(image, value); // Sync category selection
     }
   };
@@ -47,7 +47,7 @@ const CatalogueFilter: React.FC<CatalogueFilterProps> = ({
     );
     const image = selectedCategoryItem
       ? selectedCategoryItem.src
-      : "./filtered_icon.svg"; // Use category image or fallback
+      : "/filtered_icon.svg"; // Use category image or fallback
     onApplyFilters(image, filters.cuisine); // Trigger the callback with image and category
   };
 
@@ -87,7 +87,7 @@ const CatalogueFilter: React.FC<CatalogueFilterProps> = ({
             id: "cuisine",
             options: categories.map((category) => ({
               value: category.name,
-              label: category.name,
+              label: category.label,
             })),
           },
           {

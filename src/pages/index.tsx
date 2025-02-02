@@ -2,8 +2,9 @@ import Default from "@/components/view/index/Default";
 import Logged from "@/components/view/index/Logged";
 import Head from "next/head";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import { FC } from "react";
 
-const Index: React.FC<any> = () => {
+const Index: FC<any> = () => {
   const { user } = useUser();
 
   return (

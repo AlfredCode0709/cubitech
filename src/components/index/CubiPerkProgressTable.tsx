@@ -6,8 +6,9 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import styles from "../../styles/index.module.scss";
+import { FC } from "react";
 
-const CubiPerkProgressTable: React.FC<any> = () => {
+const CubiPerkProgressTable: FC<any> = () => {
   return (
     <Box className={styles.cubiPerkProgressTable}>
       <Link href={"/cubiperk"}>

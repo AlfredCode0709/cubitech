@@ -1,12 +1,13 @@
 import Menu from "@mui/material/Menu";
 import UserNavArray from "./UserNavArray";
+import { FC } from "react";
 
 interface UserMenuProps {
   anchorEl: null | HTMLElement;
   handleClose: () => void;
 }
 
-const UserMenu: React.FC<UserMenuProps> = ({ anchorEl, handleClose }) => {
+const UserMenu: FC<UserMenuProps> = ({ anchorEl, handleClose }) => {
   return (
     <Menu
       className={"userMenu"}

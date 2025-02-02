@@ -4,8 +4,9 @@ import DevelopingCubitech from "@/components/about/DevelopingCubitech";
 import MissionStatement from "@/components/common/MissionStatement";
 import StartingBlock1 from "@/components/common/StartingBlock1";
 import Head from "next/head";
+import { FC } from "react";
 
-const About: React.FC<any> = () => {
+const About: FC<any> = () => {
   return (
     <>
       <Head>

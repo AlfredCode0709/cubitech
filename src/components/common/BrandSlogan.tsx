@@ -1,14 +1,14 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import commonStyles from "../../styles/common.module.scss";
-import { CSSProperties, ReactNode } from "react";
+import { CSSProperties, FC, ReactNode } from "react";
 
 interface BrandSloganProps {
   color: string; // Color of text
   children: ReactNode; // Content inside the component
 }
 
-const BrandSlogan: React.FC<BrandSloganProps> = ({ color, children }) => {
+const BrandSlogan: FC<BrandSloganProps> = ({ color, children }) => {
   return (
     <Box
       className={commonStyles.brandSlogan}

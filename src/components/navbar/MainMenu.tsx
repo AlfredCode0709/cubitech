@@ -1,12 +1,13 @@
 import Menu from "@mui/material/Menu";
 import MainNavArray from "./MainNavArray";
+import { FC } from "react";
 
 interface MainMenuProps {
   anchorEl: null | HTMLElement;
   handleClose: () => void;
 }
 
-const MainMenu: React.FC<MainMenuProps> = ({ anchorEl, handleClose }) => {
+const MainMenu: FC<MainMenuProps> = ({ anchorEl, handleClose }) => {
   return (
     <Menu
       className={"mainMenu"}

@@ -5,8 +5,9 @@ import JoinSection from "../../common/JoinSection";
 import PeekView from "../../index/PeekView";
 import Promotions from "../../common/Promotions";
 import StartingBlock1 from "../../common/StartingBlock1";
+import { FC } from "react";
 
-const Default: React.FC<any> = () => {
+const Default: FC<any> = () => {
   return (
     <>
       {/* Starting block of Index Page */}

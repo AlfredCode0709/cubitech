@@ -5,8 +5,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import styles from "../../styles/index.module.scss";
+import { FC } from "react";
 
-const CubiPlusIntro: React.FC<any> = () => {
+const CubiPlusIntro: FC<any> = () => {
   return (
     <Box className={styles.cubiPlusIntro}>
       <Typography className={styles.title} component={"div"}>

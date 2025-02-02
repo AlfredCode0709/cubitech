@@ -5,13 +5,17 @@ import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
 import styles from "../../styles/index.module.scss";
+import { FC } from "react";
 
-const TopRatedEateries: React.FC<any> = () => {
+const TopRatedEateries: FC<any> = () => {
   return (
     <Box className={styles.topRatedEateries}>
       <Typography className={styles.title} component={"div"}>
-        <span className={styles.cubiFood}>CUBIFood</span>
+        <Link href={"/cubifood"}>
+          <span className={styles.cubiFood}>CUBIFood</span>
+        </Link>
         Top Rated Eateries
       </Typography>
 

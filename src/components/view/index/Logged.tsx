@@ -4,8 +4,9 @@ import NewsBoard from "@/components/index/NewsBoard";
 import Promotions from "@/components/common/Promotions";
 import TopRatedEateries from "@/components/index/TopRatedEateries";
 import UserDashboard from "@/components/index/UserDashboard";
+import { FC } from "react";
 
-const Logged: React.FC<any> = () => {
+const Logged: FC<any> = () => {
   return (
     <>
       {/* User Dashboard */}

@@ -4,8 +4,9 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import styles from "../../styles/index.module.scss";
+import { FC } from "react";
 
-const CubiPerkIntro: React.FC<any> = () => {
+const CubiPerkIntro: FC<any> = () => {
   return (
     <Box className={styles.introSection} bgcolor={"primary.main"}>
       <Grid container className={styles.gridContainer}>

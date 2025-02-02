@@ -13,7 +13,7 @@ import ArrowBackIosNew from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
 import Link from "next/link";
 import styles from "../../styles/index.module.scss";
-import { useState } from "react";
+import { FC, useState } from "react";
 
 /**
  * Props for the PeekView component.
@@ -24,14 +24,14 @@ interface PeekViewProps {
 
 const ITEMS_PER_PAGE = 6;
 
-const PeekView: React.FC<PeekViewProps> = ({ title }) => {
+const PeekView: FC<PeekViewProps> = ({ title }) => {
   /* Determines the image path based on the title */
   const imagePath =
     title === "CUBIFood"
-      ? "./cubitech_brands/cubifood_light.svg"
+      ? "/cubitech_brands/cubifood_light.svg"
       : title === "CUBIMart"
-      ? "./cubitech_brands/cubimart_light.svg"
-      : "./cubitech_brands/cubitech_light.svg";
+      ? "/cubitech_brands/cubimart_light.svg"
+      : "/cubitech_brands/cubitech_light.svg";
 
   /* Determines the color for the second part of the title */
   const titleSubColor = title === "CUBIFood" ? "#09b96d" : "#bf3953";

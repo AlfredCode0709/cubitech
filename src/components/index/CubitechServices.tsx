@@ -3,8 +3,9 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import styles from "../../styles/index.module.scss";
+import { FC } from "react";
 
-const CubitechServices: React.FC<any> = () => {
+const CubitechServices: FC<any> = () => {
   return (
     <Box className={styles.cubitechServices}>
       {/* Cubitech slogan */}

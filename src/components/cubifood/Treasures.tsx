@@ -8,8 +8,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import styles from "../../styles/cubifood.module.scss";
+import { FC } from "react";
 
-const TreasureCard: React.FC<{ isMain?: boolean }> = ({ isMain = false }) => (
+const TreasureCard: FC<{ isMain?: boolean }> = ({ isMain = false }) => (
   <Card
     variant={"outlined"}
     className={isMain ? styles.topTreasure : styles.treasure}
@@ -19,7 +20,7 @@ const TreasureCard: React.FC<{ isMain?: boolean }> = ({ isMain = false }) => (
         <CardMedia
           className={styles.cardMedia}
           component={"img"}
-          image={"./cubitech_brands/cubifood_light.svg"}
+          image={"/cubitech_brands/cubifood_light.svg"}
           alt={"CubiFood Treasure"}
         />
       </Box>
@@ -45,7 +46,7 @@ const TreasureCard: React.FC<{ isMain?: boolean }> = ({ isMain = false }) => (
   </Card>
 );
 
-const Treasures: React.FC<any> = () => {
+const Treasures: FC<any> = () => {
   return (
     <Box className={styles.treasures}>
       <Typography className={styles.title}>Top Treasures</Typography>

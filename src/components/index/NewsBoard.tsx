@@ -5,8 +5,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import styles from "../../styles/index.module.scss";
+import { FC } from "react";
 
-const NewsBoard: React.FC<any> = () => {
+const NewsBoard: FC<any> = () => {
   return (
     <Box className={styles.newsBoard}>
       <Typography className={styles.title}>News Board</Typography>

@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import commonStyles from "../../styles/common.module.scss";
-import { CSSProperties } from "react";
+import { CSSProperties, FC } from "react";
 
 interface CategoryType {
   name: string;
@@ -20,14 +20,13 @@ interface CategoryProps {
   bgColor: string; // Custom color for category highlight
 }
 
-const Category: React.FC<CategoryProps> = ({
+const Category: FC<CategoryProps> = ({
   categories,
   selectedCategory,
   onCategorySelect,
   primaryColor,
   bgColor,
 }) => {
-
   const handleCategoryClick = (category: CategoryType) => {
     // setSelectedCategory(category.name); // Update the selected category name
     onCategorySelect(category.name); // Pass category name to the parent

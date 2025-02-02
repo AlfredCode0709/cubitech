@@ -1,14 +1,14 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import commonStyles from "../../styles/common.module.scss";
-import { CSSProperties, ReactNode } from "react";
+import { CSSProperties, FC, ReactNode } from "react";
 
 interface StartingBlock1Props {
   backgroundImage: string; // URL for the background image
   children: ReactNode; // Content inside the component
 }
 
-const StartingBlock1: React.FC<StartingBlock1Props> = ({
+const StartingBlock1: FC<StartingBlock1Props> = ({
   backgroundImage,
   children,
 }) => {

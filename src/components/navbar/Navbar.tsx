@@ -13,10 +13,10 @@ import LogoDark from "./LogoDark";
 import MainMenu from "./MainMenu";
 import SearchBar from "./SearchBar";
 import UserMenu from "./UserMenu";
-import { useState } from "react";
+import { FC, useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
-const Navbar: React.FC = () => {
+const Navbar: FC<any> = () => {
   const { user } = useUser();
 
   const [mainMenuAnchorEl, setMainMenuAnchorEl] = useState<null | HTMLElement>(
