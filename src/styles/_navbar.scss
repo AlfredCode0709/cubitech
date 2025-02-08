@@ -1,0 +1,133 @@
+/* Navbar container styles */
+
+.navbarContainer {
+  display: flex;
+
+  /* AppBar styles */
+
+  .appBar {
+    justify-content: center;
+
+    .avatar {
+      width: 170px;
+      height: 40px;
+    }
+
+    /* Search Bar styles */
+    .searchBar {
+      position: relative;
+      border-radius: 4px;
+      background-color: #FFFFFF26;
+      margin-left: 2.5%;
+
+      &:hover {
+        background-color: #FFFFFF40;
+      }
+
+      /* Search Icon Wrapper */
+
+      .searchIconWrapper {
+        padding: 0 5%;
+        height: 100%;
+
+        position: absolute;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      /* MUI InputBase input */
+
+      .MuiInputBase-input {
+        padding: 8px 8px 8px 0;
+        padding-left: calc(1em + 32px);
+        transition: width 300ms;
+
+        @media (min-width: 600px) {
+          width: 12ch;
+
+          &:focus {
+            width: 20ch;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Main Menu styles */
+
+.mainMenu {
+  /* MUI Menu Paper styles */
+
+  .MuiMenu-paper {
+    background-color: var(--primary-light);
+    color: var(--primary-main);
+    margin-top: 16px;
+    width: 150px;
+  }
+
+  /* MUI Menu Item styles */
+
+  .MuiMenuItem-root {
+    &:hover {
+      background-color: #b7d4fa;
+      color: var(--primary-dark);
+
+      /* MUI Typography styles */
+
+      .MuiTypography-root {
+        font-weight: 500;
+      }
+    }
+  }
+
+  /* Menu Item styles */
+
+  .menuItem {
+    display: flex;
+
+    .avatar {
+      width: 35px;
+      height: 35px;
+      margin-right: 10%;
+    }
+  }
+}
+
+.userMenu {
+  /* MUI Menu Paper styles */
+
+  .MuiMenu-paper {
+    background-color: var(--primary-light);
+    color: var(--primary-main);
+    margin-top: 19px;
+  }
+
+  /* MUI Menu Item styles */
+
+  .MuiMenuItem-root {
+    &:hover {
+      background-color: #b7d4fa;
+      color: var(--primary-dark);
+
+      /* MUI Typography styles */
+
+      .MuiTypography-root {
+        font-weight: 500;
+      }
+    }
+  }
+
+  /* Menu Item styles */
+
+  .menuItem {
+    display: flex;
+
+    .icon {
+      margin-left: -5%;
+      margin-right: 10%;
+    }
+  }
+}
