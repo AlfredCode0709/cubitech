@@ -1,0 +1,227 @@
+/* Cubitech Services styles */
+
+.cubitechServices {
+  padding: 2.5% 10%;
+  background: var(--primary-light);
+  text-align: center;
+
+  .slogan {
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--primary-main);
+    line-height: var(--h5);
+  }
+
+  .brands {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5%;
+
+    .avatar {
+      width: 170px;
+      height: 40px;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+}
+
+/* Peek View styles */
+
+.peekView {
+  padding: 2.5% 10%;
+
+  .title {
+    font-family: "Codec Pro Bold", sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 1;
+    color: var(--primary-main);
+    line-height: var(--h4);
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  .paginationButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: -0.5%;
+
+    .iconButtonVariant1 {
+      background: #08834e;
+      color: var(--white);
+
+      &:hover {
+        background: #05482b;
+      }
+
+      &:focus {
+        background: #05482b;
+      }
+
+      &:disabled {
+        background: transparent;
+        color: var(--disable-main);
+      }
+    }
+
+    .iconButtonVariant2 {
+      background: var(--primary-main);
+      color: var(--white);
+
+      &:hover {
+        background: var(--primary-dark);
+      }
+
+      &:focus {
+        background: var(--primary-dark);
+      }
+
+      &:disabled {
+        background: transparent;
+        color: var(--disable-main);
+      }
+    }
+  }
+
+  .gridContainer {
+    padding: 2.5% 0;
+
+    .card {
+      border-radius: 8px;
+      overflow: hidden;
+
+      .cardMediaContainer {
+        width: 100%;
+        padding-bottom: 100%;
+        position: relative;
+
+        .cardMedia {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+        }
+      }
+
+      .cardContent {
+        border-top: 1px solid var(--divider-color);
+
+        .name {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: var(--h6);
+        }
+
+        .price {
+          font-size: 16px;
+          line-height: var(--body1);
+          color: var(--secondary-main);
+        }
+
+        .rating {
+          margin-top: 15%;
+        }
+      }
+
+      .cardActions {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 12.5%;
+      }
+    }
+  }
+}
+
+/* Intro blocks styles */
+
+.introSection {
+  padding: 2.5% 10%;
+
+  .gridContainer {
+    display: flex;
+    align-items: center;
+
+    .leftGrid {
+      text-align: left;
+    }
+
+    .rightGrid {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .leftGridBox {
+      width: 90%;
+      margin-right: 10%;
+
+      .title {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: var(--h4);
+        color: var(--white);
+
+        .subtitle {
+          font-weight: 500;
+          font-size: 20px;
+          line-height: var(--subtitle2);
+          margin-top: 4%;
+        }
+      }
+
+      .description {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: var(--h4);
+        color: #b5d4fc;
+        margin: 5% 0 6.5% 0;
+      }
+
+      .learnMoreButton {
+        background: var(--white);
+        color: var(--primary-main);
+
+        &:hover {
+          background: var(--primary-dark);
+          color: var(--white);
+        }
+      }
+    }
+
+    .rightGridBox {
+      width: 90%;
+      margin-left: 10%;
+
+      .title {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: var(--h4);
+        color: var(--primary-main);
+
+        .subtitle {
+          font-weight: 500;
+          font-size: 20px;
+          line-height: var(--subtitle2);
+          margin-top: 4%;
+        }
+      }
+
+      .description {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: var(--h4);
+        color: var(--primary-dark);
+        margin: 5% 0 6.5% 0;
+      }
+    }
+  }
+}
