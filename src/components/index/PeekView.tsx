@@ -27,8 +27,8 @@ const PeekView: FC<PeekViewProps> = ({ title }) => {
     title === "CUBIFood"
       ? "/cubitech_brands/cubifood_light.svg"
       : title === "CUBIMart"
-        ? "/cubitech_brands/cubimart_light.svg"
-        : "/cubitech_brands/cubitech_light.svg";
+      ? "/cubitech_brands/cubimart_light.svg"
+      : "/cubitech_brands/cubitech_light.svg";
 
   /* Determines the color for the second part of the title */
   const titleSubColor = title === "CUBIFood" ? "#09b96d" : "#bf3953";
@@ -40,7 +40,7 @@ const PeekView: FC<PeekViewProps> = ({ title }) => {
 
   const paginatedItems = totalItems.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
   );
 
   const handlePrevious = () => {
@@ -113,37 +113,27 @@ const PeekView: FC<PeekViewProps> = ({ title }) => {
                   />
                 </Box>
                 <CardContent className={styles.cardContent}>
-                  <Typography
-                    className={styles.name}
-                    sx={{
-                      marginBottom: title === "CUBIFood" ? "15%" : "5%",
-                    }}
-                  >
+                  <Typography className={styles.name}>
                     Item Name {globalIndex}
                   </Typography>
-                  <Typography
-                    className={styles.price}
-                    sx={{
-                      marginBottom: title === "CUBIFood" ? "5%" : 0,
-                    }}
-                  >
-                    $9.99
-                  </Typography>
+                  <Typography className={styles.price}>$9.99</Typography>
                   {title === "CUBIMart" ? (
                     <Rating className={styles.rating} defaultValue={5} />
                   ) : (
                     ""
                   )}
                 </CardContent>
-                <CardActions className={styles.cardActions}>
-                  <Button
-                    startIcon={<AddIcon />}
-                    size={"small"}
-                    variant={"contained"}
-                  >
-                    Add To Cart
-                  </Button>
-                </CardActions>
+                {title === "CUBIMart" && (
+                  <CardActions className={styles.cardActions}>
+                    <Button
+                      startIcon={<AddIcon />}
+                      size={"small"}
+                      variant={"contained"}
+                    >
+                      Add To Cart
+                    </Button>
+                  </CardActions>
+                )}
               </Card>
             </Grid>
           );

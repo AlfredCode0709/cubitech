@@ -120,6 +120,7 @@
           font-weight: 500;
           font-size: 16px;
           line-height: var(--h6);
+          margin-bottom: 10%;
         }
 
         .price {
@@ -129,14 +130,14 @@
         }
 
         .rating {
-          margin-top: 15%;
+          margin-top: 10%;
         }
       }
 
       .cardActions {
         display: flex;
         justify-content: center;
-        padding-bottom: 12.5%;
+        padding: 0 0 12.5% 0;
       }
     }
   }
