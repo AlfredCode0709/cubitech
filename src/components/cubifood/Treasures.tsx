@@ -33,13 +33,13 @@ const TreasureCard: FC<{ isMain?: boolean }> = ({ isMain = false }) => (
     </CardActionArea>
     <CardActions>
       {isMain ? (
-        <Button color={"primary"} size={"large"}>
+        <Button className={styles.button} size={"large"}>
           Learn More
         </Button>
       ) : (
         <>
-          <Button color={"primary"}>View</Button>
-          <Button color={"primary"}>Learn More</Button>
+          <Button className={styles.button}>View</Button>
+          <Button className={styles.button}>Learn More</Button>
         </>
       )}
     </CardActions>

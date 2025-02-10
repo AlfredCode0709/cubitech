@@ -17,6 +17,10 @@
   .gridContainer {
     padding: 2.5% 0;
 
+    .button {
+      color: #08834e;
+    }
+
     .topTreasure {
       border-radius: 8px;
       height: 100%;
@@ -679,7 +683,7 @@
       align-items: center;
       justify-content: flex-end;
       gap: 16px;
-      margin-top: -2.5%;
+      margin-top: -1.25%;
   
       .iconButton {
         background: #08834e;

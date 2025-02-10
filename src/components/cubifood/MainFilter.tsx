@@ -26,14 +26,14 @@ const MainFilter: FC<MainFilterProps> = ({
     sortBy: "",
     price: "",
     cuisine: selectedCategory || "",
-    dietaryPreferences: "",
+    dietaryChoice: "",
   });
 
   const handleFilterChange = (key: string, value: string) => {
     setFilters((prev) => ({ ...prev, [key]: value }));
     if (key === "cuisine") {
       const selectedCategoryItem = categories.find(
-        (category) => category.name === value
+        (category) => category.name === value,
       );
       const image = selectedCategoryItem
         ? selectedCategoryItem.src
@@ -44,14 +44,14 @@ const MainFilter: FC<MainFilterProps> = ({
 
   const handleApplyFilters = () => {
     const selectedCategoryItem = categories.find(
-      (category) => category.name === filters.cuisine
+      (category) => category.name === filters.cuisine,
     );
     const image = selectedCategoryItem
       ? selectedCategoryItem.src
       : "/filtered_icon.svg"; /* Use category image or fallback */
     onApplyFilters(
       image,
-      filters.cuisine
+      filters.cuisine,
     ); /* Trigger the callback with image and category */
   };
 
@@ -67,7 +67,7 @@ const MainFilter: FC<MainFilterProps> = ({
 
   /* Function to check if any filter is applied */
   const isAnyFilterSelected = Object.values(filters).some(
-    (value) => value !== ""
+    (value) => value !== "",
   );
 
   return (
@@ -111,7 +111,7 @@ const MainFilter: FC<MainFilterProps> = ({
                 sortBy: "",
                 price: "",
                 cuisine: "",
-                dietaryPreferences: "",
+                dietaryChoice: "",
               });
               onClearFilters(); /* Call the function to clear filters in the parent */
             }}

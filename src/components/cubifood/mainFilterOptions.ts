@@ -22,8 +22,8 @@ export const mainFilterOptions = [
     dynamic: true, // Marks this as needing category data
   },
   {
-    label: "Dietary Preferences",
-    id: "dietaryPreferences",
+    label: "Dietary Choice",
+    id: "dietaryChoice",
     options: [
       { value: "halal", label: "Halal" },
       { value: "healthierChoice", label: "Healthier Choice" },

@@ -36,7 +36,10 @@ const NearbyOutlets: FC<NearbyOutletsProps> = ({ numberOfStalls }) => {
             </Stack>
             <Stack className={styles.rightSection}>
               <Typography className={styles.distance}>1.99 km</Typography>
-              <IconButton className={styles.outletViewButton}>
+              <IconButton
+                className={styles.outletViewButton}
+                href={`/cubifood/outlet/${index + 1}`}
+              >
                 <ArrowForwardIosIcon />
               </IconButton>
             </Stack>

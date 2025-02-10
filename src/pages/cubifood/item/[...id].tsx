@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
+import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Checkbox from "@mui/material/Checkbox";
@@ -61,7 +61,7 @@ const ItemView: FC<any> = () => {
 
   const paginatedItems = totalItems.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
+    currentPage * ITEMS_PER_PAGE,
   );
 
   const handlePrevious = () => {
@@ -169,8 +169,8 @@ const ItemView: FC<any> = () => {
                                         checked
                                           ? [...field.value, label]
                                           : field.value.filter(
-                                              (val) => val !== label
-                                            )
+                                              (val) => val !== label,
+                                            ),
                                       );
                                     }}
                                   />
@@ -289,37 +289,37 @@ const ItemView: FC<any> = () => {
                   </Box>
                 )}
               </Grid>
-              <Grid size={12} container paddingTop={'2.5%'}>
+              <Grid size={12} container paddingTop={"2.5%"}>
                 {paginatedItems.map((_, index) => {
                   const globalIndex =
-                    (currentPage - 1) * ITEMS_PER_PAGE + index + 1; // Calculate global index
+                    (currentPage - 1) * ITEMS_PER_PAGE + index + 1; /* Calculate global index */
 
                   return (
                     <Grid size={2} key={index}>
                       <Card variant={"outlined"} className={styles.card}>
-                        <Box className={styles.cardMediaContainer}>
-                          <CardMedia
-                            className={styles.cardMedia}
-                            component={"img"}
-                            image={"/cubitech_brands/cubifood_light.svg"}
-                            alt={"Item Image"}
-                          />
-                        </Box>
-                        <CardContent className={styles.cardContent}>
-                          <Typography
-                            className={styles.name}
-                            sx={{
-                              marginBottom: "15%",
-                            }}
-                          >
-                            Item Name {globalIndex}
-                          </Typography>
-                          <Typography
-                            className={styles.price}
-                          >
-                            $9.99
-                          </Typography>
-                        </CardContent>
+                        <CardActionArea href={`/cubifood/item/${globalIndex}`}>
+                          <Box className={styles.cardMediaContainer}>
+                            <CardMedia
+                              className={styles.cardMedia}
+                              component={"img"}
+                              image={"/cubitech_brands/cubifood_light.svg"}
+                              alt={"Item Image"}
+                            />
+                          </Box>
+                          <CardContent className={styles.cardContent}>
+                            <Typography
+                              className={styles.name}
+                              sx={{
+                                marginBottom: "15%",
+                              }}
+                            >
+                              Item Name {globalIndex}
+                            </Typography>
+                            <Typography className={styles.price}>
+                              $9.99
+                            </Typography>
+                          </CardContent>
+                        </CardActionArea>
                       </Card>
                     </Grid>
                   );
