@@ -9,7 +9,7 @@ import { FC } from "react";
 const CubiRideIntro: FC<any> = () => {
   return (
     <Box className={styles.introSection} bgcolor={"primary.light"}>
-      <Grid container className={styles.gridContainer}>
+      <Grid container className={styles.content}>
         <Grid size={6} className={styles.leftGrid}>
           <Image
             src="/index/block2.svg"

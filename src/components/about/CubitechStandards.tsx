@@ -7,7 +7,7 @@ import styles from "../../styles/about.module.scss";
 const CubitechStandards: React.FC = () => {
   return (
     <Box className={styles.container}>
-      <Grid container className={styles.gridContainer}>
+      <Grid container className={styles.content}>
         <Grid size={6} className={styles.leftGrid}>
           <Image
             src={"./about/block4.svg"}

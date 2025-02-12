@@ -33,63 +33,67 @@
 .peekView {
   padding: 2.5% 10%;
 
-  .title {
-    font-family: "Codec Pro Bold", sans-serif;
-    font-weight: 700;
-    font-size: 28px;
-    letter-spacing: 1;
-    color: var(--primary-main);
-    line-height: var(--h4);
-
-    &:hover {
-      opacity: 0.75;
-    }
-  }
-
-  .paginationButtons {
+  .header {
     display: flex;
-    justify-content: flex-end;
-    gap: 16px;
-    margin-top: -0.5%;
+    align-items: center;
 
-    .iconButtonVariant1 {
-      background: #08834e;
-      color: var(--white);
-
+    .title {
+      font-family: "Codec Pro Bold", sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: 1;
+      color: var(--primary-main);
+      line-height: var(--h4);
+  
       &:hover {
-        background: #05482b;
-      }
-
-      &:focus {
-        background: #05482b;
-      }
-
-      &:disabled {
-        background: transparent;
-        color: var(--disable-main);
+        opacity: 0.75;
       }
     }
 
-    .iconButtonVariant2 {
-      background: var(--primary-main);
-      color: var(--white);
-
-      &:hover {
-        background: var(--primary-dark);
+    .paginationButtons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 16px;
+  
+      .iconButtonVariant1 {
+        background: #08834e;
+        color: var(--white);
+  
+        &:hover {
+          background: #05482b;
+        }
+  
+        &:focus {
+          background: #05482b;
+        }
+  
+        &:disabled {
+          background: transparent;
+          color: var(--disable-main);
+        }
       }
-
-      &:focus {
-        background: var(--primary-dark);
+  
+      .iconButtonVariant2 {
+        background: var(--primary-main);
+        color: var(--white);
+  
+        &:hover {
+          background: var(--primary-dark);
+        }
+  
+        &:focus {
+          background: var(--primary-dark);
+        }
+  
+        &:disabled {
+          background: transparent;
+          color: var(--disable-main);
+        }
       }
-
-      &:disabled {
-        background: transparent;
-        color: var(--disable-main);
-      }
-    }
+    }  
   }
 
-  .gridContainer {
+  .itemsCatalogue {
     padding: 2.5% 0;
 
     .card {
@@ -142,7 +146,7 @@
 .introSection {
   padding: 2.5% 10%;
 
-  .gridContainer {
+  .content {
     display: flex;
     align-items: center;
 

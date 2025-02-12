@@ -11,13 +11,24 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import styles from "../../styles/cubifood.module.scss";
-import { FC, Fragment } from "react";
+import { FC, Fragment, useEffect, useRef, useState } from "react";
 
 interface NearbyOutletsProps {
   numberOfStalls: number;
 }
 
 const NearbyOutlets: FC<NearbyOutletsProps> = ({ numberOfStalls }) => {
+  const shopListRef = useRef<HTMLDivElement | null>(null);
+  const [isScrollable, setIsScrollable] = useState(false);
+
+  useEffect(() => {
+    if (shopListRef.current) {
+      const isOverflowing =
+        shopListRef.current.scrollWidth > shopListRef.current.clientWidth;
+      setIsScrollable(isOverflowing);
+    }
+  }, [numberOfStalls]);
+
   return (
     <Box className={styles.nearbyOutlets}>
       <Typography className={styles.title}>Nearby Outlets</Typography>
@@ -46,11 +57,18 @@ const NearbyOutlets: FC<NearbyOutletsProps> = ({ numberOfStalls }) => {
           </Stack>
 
           {/* Shop List */}
-          <Box className={styles.shopList}>
+          <Box
+            ref={shopListRef}
+            className={styles.shopList}
+            sx={{
+              overflowX: isScrollable ? "auto" : "hidden", // Hide scrollbar if not needed
+              whiteSpace: "nowrap",
+            }}
+          >
             <Grid
               container
               spacing={2}
-              className={styles.gridContainer}
+              className={styles.content}
               wrap={"nowrap"}
             >
               {Array.from({ length: numberOfStalls }).map((_, index) => (

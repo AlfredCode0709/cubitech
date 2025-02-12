@@ -14,7 +14,7 @@
     text-align: center;
   }
 
-  .gridContainer {
+  .treasuresView {
     padding: 2.5% 0;
 
     .button {
@@ -202,7 +202,7 @@
 
     /* Chrome, Edge, and Safari */
     &::-webkit-scrollbar {
-      height: 6px; /* Ensure visibility */
+      height: 6px; 
     }
 
     &::-webkit-scrollbar-track {
@@ -226,7 +226,7 @@
     scrollbar-width: thin;
     scrollbar-color: #00000033 transparent;
 
-    .gridContainer {
+    .content {
       display: flex;
       flex-wrap: no-wrap;
 
@@ -258,7 +258,7 @@
             font-weight: 500;
             font-size: 16px;
             line-height: var(--h6);
-            margin-bottom: 7.5%;
+            margin-bottom: 10%;
           }
 
           .chip {
@@ -280,7 +280,7 @@
   .paginationButtons {
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
+    gap: 16px;
 
     .iconButton {
       background: #08834e;
@@ -301,8 +301,8 @@
     }
   }
 
-  .gridContainer {
-    padding: 2% 0;
+  .catalogueView, .stallView {
+    padding: 2.5% 0;
 
     .card {
       border-radius: 8px;
@@ -332,7 +332,7 @@
           font-weight: 500;
           font-size: 16px;
           line-height: var(--h6);
-          margin-bottom: 7.5%;
+          margin-bottom: 10%;
         }
 
         .chip {
@@ -352,9 +352,9 @@
   height: 60vh;
 }
 
-/* Outlet Page Content styles */
+/* Outlet Page Header styles */
 
-.outletPageContent {
+.outletPageHeader {
   padding: 2.5% 10%;
 
   .outletData {
@@ -484,7 +484,7 @@
   }
 
   .stallList {
-    .gridContainer {
+    .data {
       align-items: center;
 
       .cardContainer {
@@ -565,7 +565,7 @@
   .paginationButtons {
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
+    gap: 16px;
 
     .iconButton {
       background: #08834e;
@@ -586,8 +586,8 @@
     }
   }
 
-  .gridContainer {
-    padding: 2% 0;
+  .menuView {
+    padding: 2.5% 0;
 
     .card {
       border-radius: 8px;

@@ -7,7 +7,7 @@ import styles from "../../styles/about.module.scss";
 const BuildingResilience: React.FC = () => {
   return (
     <Box className={styles.container} bgcolor={"primary.light"}>
-      <Grid container className={styles.gridContainer}>
+      <Grid container className={styles.content}>
         <Grid size={6}>
           <Box className={styles.leftGridBox}>
             <Typography className={styles.title}>

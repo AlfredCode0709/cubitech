@@ -29,10 +29,10 @@ const Default: FC<any> = () => {
       />
 
       {/* CUBIFood Peek View */}
-      <PeekView title={"CUBIFood"} />
+      <PeekView title={"CUBIFood"} totalItems={18} />
 
       {/* CUBIMart Peek View */}
-      <PeekView title={"CUBIMart"} />
+      <PeekView title={"CUBIMart"} totalItems={18} />
 
       {/* CubiRide Intro */}
       <CubiRideIntro />

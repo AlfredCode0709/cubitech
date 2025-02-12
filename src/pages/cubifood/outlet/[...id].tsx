@@ -1,11 +1,11 @@
 import Box from "@mui/material/Box";
 import OutletFilter from "@/components/cubifood/OutletFilter";
-import OutletPageContent from "@/components/cubifood/OutletPageContent";
+import OutletPageHeader from "@/components/cubifood/OutletPageHeader";
 import StallListDisplay from "@/components/cubifood/StallListDisplay";
 import StallMenu from "@/components/cubifood/StallMenu";
 import Head from "next/head";
-import { FC, useState } from "react";
 import styles from "../../../styles/cubifood.module.scss";
+import { FC, useState } from "react";
 
 const OutletCatalogue: FC<any> = () => {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -14,9 +14,7 @@ const OutletCatalogue: FC<any> = () => {
     setSelectedOption(stallId);
   };
 
-  const numberOfStalls = 10;
-
-  const numberOfItems = 20;
+  const numberOfStalls = 14;
 
   return (
     <>
@@ -30,8 +28,8 @@ const OutletCatalogue: FC<any> = () => {
         {/* Starting block of Outlet Catalogue page */}
         <Box className={styles.outletPageCover} />
 
-        {/* Outlet Page content */}
-        <OutletPageContent />
+        {/* Outlet Page header */}
+        <OutletPageHeader />
 
         {/* Outlet Filter */}
         <OutletFilter
@@ -46,7 +44,7 @@ const OutletCatalogue: FC<any> = () => {
             numberOfStalls={numberOfStalls}
           />
         ) : (
-          <StallMenu stallId={selectedOption} numberOfItems={numberOfItems} />
+          <StallMenu stallId={selectedOption} numberOfItems={20} />
         )}
       </main>
     </>

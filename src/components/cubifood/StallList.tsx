@@ -107,8 +107,8 @@ const StallList: FC<StallListProps> = ({
 
   return (
     <Box className={styles.stallList}>
-      <Grid container className={styles.gridContainer}>
-        <Grid size={9.5}>
+      <Grid container className={styles.data}>
+        <Grid size={9}>
           <Box
             ref={containerRef}
             className={`${styles.cardContainer} ${
@@ -135,7 +135,7 @@ const StallList: FC<StallListProps> = ({
           </Box>
         </Grid>
         <Grid
-          size={2.5}
+          size={3}
           className={styles.paginationButtons}
           gap={2}
           style={{ display: showPagination ? "flex" : "none" }}

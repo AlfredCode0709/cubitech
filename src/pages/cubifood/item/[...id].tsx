@@ -32,6 +32,7 @@ interface FormValues {
 }
 
 const ITEMS_PER_PAGE = 6;
+const TOTAL_ITEMS = 18;
 
 const ItemView: FC<any> = () => {
   const router = useRouter();
@@ -56,21 +57,17 @@ const ItemView: FC<any> = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalItems = Array.from({ length: 18 });
-  const totalPages = Math.ceil(totalItems.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(TOTAL_ITEMS / ITEMS_PER_PAGE);
 
-  const paginatedItems = totalItems.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE,
+  const paginatedItems = Array.from(
+    {
+      length: Math.min(
+        ITEMS_PER_PAGE,
+        TOTAL_ITEMS - (currentPage - 1) * ITEMS_PER_PAGE
+      ),
+    },
+    (_, i) => (currentPage - 1) * ITEMS_PER_PAGE + i + 1
   );
-
-  const handlePrevious = () => {
-    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
-  };
-
-  const handleNext = () => {
-    if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
-  };
 
   return (
     <>
@@ -169,8 +166,8 @@ const ItemView: FC<any> = () => {
                                         checked
                                           ? [...field.value, label]
                                           : field.value.filter(
-                                              (val) => val !== label,
-                                            ),
+                                              (val) => val !== label
+                                            )
                                       );
                                     }}
                                   />
@@ -272,58 +269,61 @@ const ItemView: FC<any> = () => {
                 {/* Pagination Buttons */}
                 {totalPages > 1 && (
                   <Box className={styles.paginationButtons}>
-                    <IconButton
-                      className={styles.iconButton}
-                      onClick={handlePrevious}
-                      disabled={currentPage === 1}
-                    >
-                      <ArrowBackIosNewIcon />
-                    </IconButton>
-                    <IconButton
-                      className={styles.iconButton}
-                      onClick={handleNext}
-                      disabled={currentPage === totalPages}
-                    >
-                      <ArrowForwardIosIcon />
-                    </IconButton>
+                    {["prev", "next"].map((dir) => (
+                      <IconButton
+                        key={dir}
+                        className={styles.iconButton}
+                        onClick={() =>
+                          setCurrentPage(
+                            (prev) => prev + (dir === "prev" ? -1 : 1)
+                          )
+                        }
+                        disabled={
+                          dir === "prev"
+                            ? currentPage === 1
+                            : currentPage === totalPages
+                        }
+                      >
+                        {dir === "prev" ? (
+                          <ArrowBackIosNewIcon />
+                        ) : (
+                          <ArrowForwardIosIcon />
+                        )}
+                      </IconButton>
+                    ))}
                   </Box>
                 )}
               </Grid>
               <Grid size={12} container paddingTop={"2.5%"}>
-                {paginatedItems.map((_, index) => {
-                  const globalIndex =
-                    (currentPage - 1) * ITEMS_PER_PAGE + index + 1; /* Calculate global index */
-
-                  return (
-                    <Grid size={2} key={index}>
-                      <Card variant={"outlined"} className={styles.card}>
-                        <CardActionArea href={`/cubifood/item/${globalIndex}`}>
-                          <Box className={styles.cardMediaContainer}>
-                            <CardMedia
-                              className={styles.cardMedia}
-                              component={"img"}
-                              image={"/cubitech_brands/cubifood_light.svg"}
-                              alt={"Item Image"}
-                            />
-                          </Box>
-                          <CardContent className={styles.cardContent}>
-                            <Typography
-                              className={styles.name}
-                              sx={{
-                                marginBottom: "15%",
-                              }}
-                            >
-                              Item Name {globalIndex}
-                            </Typography>
-                            <Typography className={styles.price}>
-                              $9.99
-                            </Typography>
-                          </CardContent>
-                        </CardActionArea>
-                      </Card>
-                    </Grid>
-                  );
-                })}
+                {paginatedItems.map((globalIndex) => (
+                  <Grid size={2} key={globalIndex}>
+                    <Card variant={"outlined"} className={styles.card}>
+                      <CardActionArea href={`/cubifood/item/${globalIndex}`}>
+                        <Box className={styles.cardMediaContainer}>
+                          <CardMedia
+                            className={styles.cardMedia}
+                            component={"img"}
+                            image={"/cubitech_brands/cubifood_light.svg"}
+                            alt={"Item Image"}
+                          />
+                        </Box>
+                        <CardContent className={styles.cardContent}>
+                          <Typography
+                            className={styles.name}
+                            sx={{
+                              marginBottom: "15%",
+                            }}
+                          >
+                            Item Name {globalIndex}
+                          </Typography>
+                          <Typography className={styles.price}>
+                            $9.99
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                    </Card>
+                  </Grid>
+                ))}
               </Grid>
             </Grid>
           </Box>

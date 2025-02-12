@@ -9,7 +9,7 @@ import MapIcon from "@mui/icons-material/Map";
 import styles from "../../styles/cubifood.module.scss";
 import { FC, useEffect, useRef, useState } from "react";
 
-const OutletPageContent: FC<any> = () => {
+const OutletPageHeader: FC<any> = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [dialogPosition, setDialogPosition] = useState<{
     top: number;
@@ -26,8 +26,8 @@ const OutletPageContent: FC<any> = () => {
     if (timeRef.current) {
       const rect = timeRef.current.getBoundingClientRect();
       setDialogPosition({
-        top: rect.bottom + window.scrollY + 20, // Positioned just below the text
-        left: rect.left + window.scrollX + rect.width / 2, // Centered below
+        top: rect.bottom + window.scrollY + 20, /* Positioned just below the text */
+        left: rect.left + window.scrollX + rect.width / 2, /* Centered below */
       });
     }
     setOpenDialog(true);
@@ -37,7 +37,7 @@ const OutletPageContent: FC<any> = () => {
     setOpenDialog(false);
   };
 
-  // Detect clicks outside or inside to close the dialog
+  /* Detect clicks outside or inside to close the dialog */
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       if (
@@ -60,7 +60,7 @@ const OutletPageContent: FC<any> = () => {
   }, [openDialog]);
 
   return (
-    <Box className={styles.outletPageContent}>
+    <Box className={styles.outletPageHeader}>
       <Stack className={styles.outletData}>
         <Stack className={styles.firstSection}>
           <Avatar
@@ -121,4 +121,4 @@ const OutletPageContent: FC<any> = () => {
   );
 };
 
-export default OutletPageContent;
+export default OutletPageHeader;

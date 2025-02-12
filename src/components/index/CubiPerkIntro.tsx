@@ -9,7 +9,7 @@ import { FC } from "react";
 const CubiPerkIntro: FC<any> = () => {
   return (
     <Box className={styles.introSection} bgcolor={"primary.main"}>
-      <Grid container className={styles.gridContainer}>
+      <Grid container className={styles.content}>
         <Grid size={6}>
           <Box className={styles.leftGridBox}>
             <Typography className={styles.title} component={"div"}>

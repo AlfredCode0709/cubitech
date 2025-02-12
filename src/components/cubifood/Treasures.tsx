@@ -50,7 +50,7 @@ const Treasures: FC<any> = () => {
   return (
     <Box className={styles.treasures}>
       <Typography className={styles.title}>Top Treasures</Typography>
-      <Grid container className={styles.gridContainer} spacing={2}>
+      <Grid container className={styles.treasuresView} spacing={2}>
         {/* Main treasure card */}
         <Grid size={4}>
           <TreasureCard isMain />
