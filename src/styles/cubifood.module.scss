@@ -19,6 +19,10 @@
 
     .button {
       color: #08834e;
+
+      &:hover {
+        background: #e7fef4;
+      }
     }
 
     .topTreasure {
@@ -106,7 +110,7 @@
   padding: 2.5% 10%;
   background: #f9f9f9;
 
-  .gridContainer {
+  .filterContent {
     align-items: center;
 
     .clearAllButton {
@@ -121,11 +125,9 @@
 
     .applyFiltersButton {
       background: #08834e;
-      color: var(--white);
 
       &:hover {
         background: #05482b;
-        color: var(--white);
       }
 
       &:disabled {
@@ -630,9 +632,9 @@
   }
 }
 
-/* Item View styles */
+/* Item Data styles */
 
-.itemView {
+.itemData {
   padding: 2.5% 10%;
 
   .cardMediaContainer {
@@ -666,12 +668,31 @@
       font-size: 24px;
       line-height: var(--body1);
       color: var(--secondary-main);
-      margin-bottom: 2.5%;
+    }
+
+    .orderCustomisation {
+      padding: 5% 0;
+    }
+
+    .button {
+      background: #08834e;
+      margin-right: 2.5%;
+
+      &:hover {
+        background: #05482b;
+      }
     }
   }
+}
 
-  .moreItemsView {
-    padding: 2.5% 0;
+/* More Items Data styles */
+
+.moreItemsData {
+  padding: 2.5% 10%;
+
+  .header {
+    display: flex;
+    align-items: center;
 
     .title {
       font-size: 18px;
@@ -683,26 +704,29 @@
       align-items: center;
       justify-content: flex-end;
       gap: 16px;
-      margin-top: -1.25%;
-  
+
       .iconButton {
         background: #08834e;
         color: var(--white);
-  
+
         &:hover {
           background: #05482b;
         }
-  
+
         &:focus {
           background: #05482b;
         }
-  
+
         &:disabled {
           background: transparent;
           color: var(--disable-main);
         }
       }
     }
+  }
+
+  .itemsView {
+    padding: 2.5% 0;
 
     .card {
       border-radius: 8px;

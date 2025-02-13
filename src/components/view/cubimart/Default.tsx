@@ -34,7 +34,6 @@ const Default: FC<any> = () => {
   const handleClearFilters = () => {
     setIsFiltered(false); /* Set isFiltered to false */
     setSelectedCategory(null); /* Optionally reset selectedCategory as well */
-    setImageSrc("/cubitech_brands/cubimart_light.svg");
   };
 
   return (
@@ -52,11 +51,11 @@ const Default: FC<any> = () => {
         title={"Weekly Promotions"}
         bgColor={"primary.light"}
         titleColor={"primary.main"}
-        imageSrc={"./cubitech_brands/cubimart_light.svg"}
+        imageSrc={"/cubitech_brands/cubimart_light.svg"}
       />
 
       {/* Bargain Blitz */}
-      <BargainBlitz />
+      <BargainBlitz totalItems={18} />
 
       {/* CUBIMart Category */}
       <Category
@@ -80,7 +79,11 @@ const Default: FC<any> = () => {
       />
 
       {/* Categorised View */}
-      <CategorisedView imageSrc={imageSrc} />
+      <CategorisedView
+        imageSrc={isFiltered ? imageSrc : "/cubitech_brands/cubimart_light.svg"}
+      />
+
+      <BrandsCatalogue />
     </>
   );
 };

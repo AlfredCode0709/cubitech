@@ -5,12 +5,12 @@ import Grid from "@mui/material/Grid2";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import { FC, useEffect, useState } from "react";
-import { mainFilterOptions } from "./mainFilterOptions";
 import styles from "../../styles/cubimart.module.scss";
+import { mainFilterOptions } from "./mainFilterOptions";
+import { FC, useEffect, useState } from "react";
 
 interface MainFilterProps {
-  categories: { name: string; src: string }[];
+  categories: { name: string; label: string; src: string }[];
   selectedCategory: string | null;
   onApplyFilters: (image: string, category: string | null) => void;
   onClearFilters: () => void;
@@ -49,7 +49,10 @@ const MainFilter: FC<MainFilterProps> = ({
     const image = selectedCategoryItem
       ? selectedCategoryItem.src
       : "/filtered_icon.svg"; /* Use category image or fallback */
-    onApplyFilters(image, filters.category); /* Trigger the callback with image and category */
+    onApplyFilters(
+      image,
+      filters.category,
+    ); /* Trigger the callback with image and category */
   };
 
   /* Update filters when selectedCategory changes */
@@ -110,7 +113,7 @@ const MainFilter: FC<MainFilterProps> = ({
                 shippingFrom: "",
                 shippingOption: "",
               });
-              onClearFilters(); // Call the function to clear filters in the parent
+              onClearFilters(); /* Call the function to clear filters in the parent */
             }}
           >
             Clear All

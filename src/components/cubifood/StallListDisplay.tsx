@@ -32,10 +32,10 @@ const StallListDisplay: FC<StallListDisplayProps> = ({
     {
       length: Math.min(
         ITEMS_PER_PAGE,
-        numberOfStalls - (currentPage - 1) * ITEMS_PER_PAGE
+        numberOfStalls - (currentPage - 1) * ITEMS_PER_PAGE,
       ),
     },
-    (_, i) => (currentPage - 1) * ITEMS_PER_PAGE + i + 1
+    (_, i) => (currentPage - 1) * ITEMS_PER_PAGE + i + 1,
   );
 
   return (
@@ -68,7 +68,7 @@ const StallListDisplay: FC<StallListDisplayProps> = ({
         {paginatedItems.map((globalIndex) => (
           <Grid size={2} key={globalIndex}>
             <Card variant={"outlined"} className={styles.card}>
-              <CardActionArea onClick={() => onSelectStall(globalIndex)}>
+              <CardActionArea onClick={() => onSelectStall(globalIndex - 1)}>
                 <Box className={styles.cardMediaContainer}>
                   <CardMedia
                     className={styles.cardMedia}

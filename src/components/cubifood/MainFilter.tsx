@@ -5,9 +5,9 @@ import Grid from "@mui/material/Grid2";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import { FC, useEffect, useState } from "react";
-import { mainFilterOptions } from "./mainFilterOptions";
 import styles from "../../styles/cubifood.module.scss";
+import { mainFilterOptions } from "./mainFilterOptions";
+import { FC, useEffect, useState } from "react";
 
 interface MainFilterProps {
   categories: { name: string; label: string; src: string }[];
@@ -72,10 +72,24 @@ const MainFilter: FC<MainFilterProps> = ({
 
   return (
     <Box className={styles.mainFilter}>
-      <Grid container spacing={1} className={styles.gridContainer}>
+      <Grid container spacing={1} className={styles.filterContent}>
         {mainFilterOptions.map(({ label, id, options, dynamic }) => (
           <Grid size={2.25} key={id}>
-            <FormControl fullWidth>
+            <FormControl
+              fullWidth
+              sx={{
+                "& .MuiInputLabel-root": {
+                  "&:active": {
+                    color: "#08834e",
+                  },
+                },
+                "& .MuiInputLabel-root.Mui-focused": { color: "#08834e" },
+                "& .MuiOutlinedInput-root": {
+                  "&:hover fieldset": { borderColor: "#08834e" },
+                  "&.Mui-focused fieldset": { borderColor: "#08834e" },
+                },
+              }}
+            >
               <InputLabel id={`${id}Label`}>{label}</InputLabel>
               <Select
                 labelId={`${id}Label`}
@@ -94,7 +108,16 @@ const MainFilter: FC<MainFilterProps> = ({
                     }))
                   : options
                 )?.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
+                  <MenuItem
+                    key={option.value}
+                    value={option.value}
+                    sx={{
+                      "&:hover": { background: "#e7fef4" }, // Hover background color
+                      "&.Mui-selected": {
+                        background: "#c5f2e0 !important",
+                      },
+                    }}
+                  >
                     {option.label}
                   </MenuItem>
                 ))}

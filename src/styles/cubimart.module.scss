@@ -5,40 +5,44 @@
   background: var(--primary-main);
   color: var(--white);
 
-  .title {
-    font-family: "Merriweather", Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    font-size: 28px;
-    font-style: italic;
-    line-height: var(--h5);
-  }
-
-  .paginationButtons {
+  .header {
     display: flex;
-    justify-content: flex-end;
-    margin-top: -0.5%;
-    gap: 16px;
+    align-items: center;
+    
+    .title {
+      font-family: "Merriweather", Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      font-style: italic;
+      line-height: var(--h5);
+    }
 
-    .iconButton {
-      background: var(--white);
-      color: var(--primary-main);
+    .paginationButtons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 16px;
 
-      &:hover {
-        background: #b7d4fa;
-      }
+      .iconButton {
+        background: var(--white);
+        color: var(--primary-main);
 
-      &:focus {
-        background: #b7d4fa;
-      }
+        &:hover {
+          background: #b7d4fa;
+        }
 
-      &:disabled {
-        background: #FFFFFF00;
-        color: var(--disable-main);
+        &:focus {
+          background: #b7d4fa;
+        }
+
+        &:disabled {
+          background: #FFFFFF00;
+          color: var(--disable-main);
+        }
       }
     }
   }
 
-  .gridContainer {
+  .itemsCatalogue {
     padding: 2.5% 0;
 
     .card {
@@ -69,7 +73,7 @@
           font-weight: 500;
           font-size: 16px;
           line-height: var(--h6);
-          margin-bottom: 2.5%;
+          margin-bottom: 10%;
         }
 
         .price {
@@ -79,7 +83,7 @@
         }
 
         .rating {
-          padding-top: 12.5%;
+          margin-top: 10%;
         }
       }
     }
