@@ -5,20 +5,21 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid2";
 import IconButton from "@mui/material/IconButton";
+import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import styles from "../../styles/cubifood.module.scss";
+import styles from "../../styles/cubimart.module.scss";
 import { FC, useState } from "react";
 
-interface StallMenuProps {
-  stallId: number;
+interface CategoryMenuProps {
+  categoryId: number;
   numberOfItems: number;
 }
 
 const ITEMS_PER_PAGE = 12;
 
-const StallMenu: FC<StallMenuProps> = ({ stallId, numberOfItems }) => {
+const CategoryMenu: FC<CategoryMenuProps> = ({ categoryId, numberOfItems }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   /* Total items and paginated data */
@@ -35,7 +36,7 @@ const StallMenu: FC<StallMenuProps> = ({ stallId, numberOfItems }) => {
   );
 
   return (
-    <Box className={styles.stallMenu} key={stallId}>
+    <Box className={styles.categoryMenu} key={categoryId}>
       {/* Pagination Buttons */}
       {totalPages > 1 && (
         <Box className={styles.paginationButtons}>
@@ -64,12 +65,12 @@ const StallMenu: FC<StallMenuProps> = ({ stallId, numberOfItems }) => {
         {paginatedItems.map((globalIndex) => (
           <Grid size={2} key={globalIndex}>
             <Card variant={"outlined"} className={styles.card}>
-              <CardActionArea href={`/cubifood/item/${globalIndex}`}>
+              <CardActionArea href={`/cubimart/item/${globalIndex}`}>
                 <Box className={styles.cardMediaContainer}>
                   <CardMedia
                     className={styles.cardMedia}
                     component={"img"}
-                    image={"/cubitech_brands/cubifood_light.svg"}
+                    image={"/cubitech_brands/cubimart_light.svg"}
                     alt={"Categorised Item"}
                   />
                 </Box>
@@ -78,6 +79,7 @@ const StallMenu: FC<StallMenuProps> = ({ stallId, numberOfItems }) => {
                     Item Name {globalIndex}
                   </Typography>
                   <Typography className={styles.price}>$9.99</Typography>
+                  <Rating className={styles.rating} defaultValue={5} />
                 </CardContent>
               </CardActionArea>
             </Card>
@@ -88,4 +90,4 @@ const StallMenu: FC<StallMenuProps> = ({ stallId, numberOfItems }) => {
   );
 };
 
-export default StallMenu;
+export default CategoryMenu;

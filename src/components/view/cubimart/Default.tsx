@@ -5,6 +5,7 @@ import CategorisedView from "@/components/cubimart/CategorisedView";
 import MainFilter from "@/components/cubimart/MainFilter";
 import Promotions from "@/components/common/Promotions";
 import StartingBlock2 from "@/components/common/StartingBlock2";
+import StoresView from "@/components/cubimart/StoresView";
 import { categories } from "@/components/cubimart/categories";
 import { FC, useState } from "react";
 
@@ -12,7 +13,7 @@ const Default: FC<any> = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>("");
   const [isFiltered, setIsFiltered] = useState(false);
   const [imageSrc, setImageSrc] = useState<string>(
-    "/cubitech_brands/cubimart_light.svg",
+    "/cubitech_brands/cubimart_light.svg"
   );
 
   /* Handle category selection */
@@ -22,7 +23,7 @@ const Default: FC<any> = () => {
 
     /* Apply filter based on the selected category */
     const selectedCategoryItem = categories.find(
-      (category) => category.name === categoryName,
+      (category) => category.name === categoryName
     );
     const image = selectedCategoryItem
       ? selectedCategoryItem.src
@@ -78,12 +79,11 @@ const Default: FC<any> = () => {
         onClearFilters={handleClearFilters}
       />
 
-      {/* Categorised View */}
-      <CategorisedView
-        imageSrc={isFiltered ? imageSrc : "/cubitech_brands/cubimart_light.svg"}
-      />
-
-      <BrandsCatalogue />
+      {isFiltered ? (
+        <CategorisedView imageSrc={imageSrc} />
+      ) : (
+        <StoresView numberOfStores={48} />
+      )}
     </>
   );
 };

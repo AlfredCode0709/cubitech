@@ -1,15 +1,12 @@
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
-import Add from "@mui/icons-material/Add";
 import ArrowBackIosNew from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
 import styles from "../../styles/cubimart.module.scss";
@@ -64,7 +61,7 @@ const CategorisedView: FC<CategorisedViewProps> = ({ imageSrc }) => {
         </Box>
       )}
 
-      <Grid container className={styles.gridContainer} spacing={0.5}>
+      <Grid container className={styles.itemsView} spacing={0.5}>
         {paginatedItems.map((_, index) => {
           const globalIndex = (currentPage - 1) * ITEMS_PER_PAGE + index + 1; // Calculate global index
 

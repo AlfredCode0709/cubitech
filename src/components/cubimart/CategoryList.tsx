@@ -5,19 +5,19 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
-import styles from "../../styles/cubifood.module.scss";
+import styles from "../../styles/cubimart.module.scss";
 import { FC, MouseEvent, useEffect, useRef, useState } from "react";
 
-interface StallListProps {
-  selectedStall: number | null;
-  onSelectStall: (stallId: number | null) => void;
-  numberOfStalls: number;
+interface CategoryListProps {
+  selectedCategory: number | null;
+  onSelectCategory: (stallId: number | null) => void;
+  numberOfCategories: number;
 }
 
-const StallList: FC<StallListProps> = ({
-  selectedStall,
-  onSelectStall,
-  numberOfStalls,
+const CategoryList: FC<CategoryListProps> = ({
+  selectedCategory,
+  onSelectCategory,
+  numberOfCategories,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -59,7 +59,7 @@ const StallList: FC<StallListProps> = ({
       }
       window.removeEventListener("resize", updatePaginationState);
     };
-  }, [numberOfStalls]);
+  }, [numberOfCategories]);
 
   const handleMouseDown = (e: MouseEvent) => {
     e.preventDefault();
@@ -104,7 +104,7 @@ const StallList: FC<StallListProps> = ({
   };
 
   return (
-    <Box className={styles.stallList}>
+    <Box className={styles.categoryList}>
       <Grid container className={styles.data}>
         <Grid size={9}>
           <Box
@@ -117,16 +117,16 @@ const StallList: FC<StallListProps> = ({
             onMouseUp={handleMouseUpOrLeave}
             onMouseLeave={handleMouseUpOrLeave}
           >
-            {Array.from({ length: numberOfStalls }).map((_, index) => (
+            {Array.from({ length: numberOfCategories }).map((_, index) => (
               <Box key={index} className={styles.cardWrapper}>
                 <Button
-                  className={`${styles.stallButton} ${
-                    selectedStall === index ? styles.focused : ""
+                  className={`${styles.categoryButton} ${
+                    selectedCategory === index ? styles.focused : ""
                   }`}
                   size={"large"}
-                  onClick={() => onSelectStall(index)}
+                  onClick={() => onSelectCategory(index)}
                 >
-                  {`Stall ${index + 1}`}
+                  {`Category ${index + 1}`}
                 </Button>
               </Box>
             ))}
@@ -165,4 +165,4 @@ const StallList: FC<StallListProps> = ({
   );
 };
 
-export default StallList;
+export default CategoryList;

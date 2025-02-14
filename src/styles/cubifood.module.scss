@@ -108,14 +108,14 @@
 
 .mainFilter {
   padding: 2.5% 10%;
-  background: #f9f9f9;
+  background: #e9e9e9;
 
   .filterContent {
     align-items: center;
 
     .clearAllButton {
       color: #08834e;
-      margin-right: 2%;
+      margin-right: 2.5%;
 
       &:hover {
         background: #08834e;
@@ -204,7 +204,7 @@
 
     /* Chrome, Edge, and Safari */
     &::-webkit-scrollbar {
-      height: 6px; 
+      height: 6px;
     }
 
     &::-webkit-scrollbar-track {
@@ -276,7 +276,8 @@
 
 /* Filtered Catalogue and Stall List Display styles */
 
-.filteredCatalogue, .stallListDisplay {
+.filteredCatalogue,
+.stallListDisplay {
   padding: 2.5% 10%;
 
   .paginationButtons {
@@ -297,13 +298,14 @@
       }
 
       &:disabled {
-        background: var(--white);
+        background: transparent;
         color: var(--disable-main);
       }
     }
   }
 
-  .catalogueView, .stallView {
+  .catalogueView,
+  .stallView {
     padding: 2.5% 0;
 
     .card {
@@ -461,12 +463,10 @@
 
 .outletFilter {
   padding: 2.5% 10%;
-  background: #f9f9f9;
+  background: #e9e9e9;
 
   .allStallsButton,
   .stallButton {
-    display: flex;
-    align-items: center;
     color: #08834e;
 
     &:hover {
@@ -524,11 +524,6 @@
               box-shadow: 0 4px 8px #0000001a;
               transition: transform 0.3s, box-shadow 0.3s;
             }
-
-            .avatar {
-              width: 200px;
-              height: 47px;
-            }
           }
         }
       }
@@ -550,7 +545,7 @@
           }
 
           &:disabled {
-            background: #f9f9f9;
+            background: transparent;
             color: var(--disable-main);
           }
         }
@@ -582,7 +577,7 @@
       }
 
       &:disabled {
-        background: var(--white);
+        background: transparent;
         color: var(--disable-main);
       }
     }

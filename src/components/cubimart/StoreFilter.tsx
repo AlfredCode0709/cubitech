@@ -1,40 +1,40 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid2";
-import StallList from "./StallList";
-import styles from "../../styles/cubifood.module.scss";
+import CategoryList from "./CategoryList";
+import styles from "../../styles/cubimart.module.scss";
 import { FC } from "react";
 
-interface OutletFilterProps {
+interface StoreFilterProps {
   selectedOption: number | null;
   onSelectedOption: (stallId: number | null) => void;
-  numberOfStalls: number;
+  numberOfCategories: number;
 }
 
-const OutletFilter: FC<OutletFilterProps> = ({
+const StoreFilter: FC<StoreFilterProps> = ({
   selectedOption,
   onSelectedOption,
-  numberOfStalls,
+  numberOfCategories,
 }) => {
   return (
-    <Box className={styles.outletFilter}>
+    <Box className={styles.storeFilter}>
       <Grid container spacing={2}>
         <Grid size={2}>
           <Button
-            className={`${styles.allStallsButton} ${
+            className={`${styles.allCategoriesButton} ${
               selectedOption === null ? styles.focused : styles.notFocused
             }`}
             size={"large"}
             onClick={() => onSelectedOption(null)} 
           >
-            All Stalls
+            All Categories
           </Button>
         </Grid>
         <Grid size={10}>
-          <StallList
-            selectedStall={selectedOption}
-            onSelectStall={onSelectedOption}
-            numberOfStalls={numberOfStalls}
+          <CategoryList
+            selectedCategory={selectedOption}
+            onSelectCategory={onSelectedOption}
+            numberOfCategories={numberOfCategories}
           />
         </Grid>
       </Grid>
@@ -42,4 +42,4 @@ const OutletFilter: FC<OutletFilterProps> = ({
   );
 };
 
-export default OutletFilter;
+export default StoreFilter;

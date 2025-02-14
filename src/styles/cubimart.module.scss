@@ -8,7 +8,7 @@
   .header {
     display: flex;
     align-items: center;
-    
+
     .title {
       font-family: "Merriweather", Helvetica, Arial, sans-serif;
       font-weight: 700;
@@ -35,7 +35,7 @@
         }
 
         &:disabled {
-          background: #FFFFFF00;
+          background: transparent;
           color: var(--disable-main);
         }
       }
@@ -94,7 +94,7 @@
 
 .mainFilter {
   padding: 2.5% 10%;
-  background: #f9f9f9;
+  background: #e9e9e9;
 
   .gridContainer {
     align-items: center;
@@ -114,7 +114,6 @@
 
       &:hover {
         background: var(--primary-dark);
-        color: var(--white);
       }
 
       &:disabled {
@@ -125,9 +124,102 @@
   }
 }
 
+/* Stores View styles */
+
+.storesView {
+  padding: 2.5% 10%;
+
+  .header {
+    display: flex;
+    align-items: center;
+
+    .title {
+      font-family: "Merriweather", Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      font-style: italic;
+      color: var(--primary-main);
+      line-height: var(--h3);
+    }
+
+    .paginationButtons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 16px;
+
+      .iconButton {
+        background: var(--primary-main);
+        color: var(--white);
+
+        &:hover {
+          background: var(--primary-dark);
+        }
+
+        &:focus {
+          background: var(--primary-dark);
+        }
+
+        &:disabled {
+          background: transparent;
+          color: var(--disable-main);
+        }
+      }
+    }
+  }
+
+  .catalogueView,
+  .stallView {
+    padding: 2.5% 0;
+
+    .card {
+      border-radius: 8px;
+      overflow: hidden;
+
+      .cardMediaContainer {
+        width: 100%;
+        padding-bottom: 100%;
+        position: relative;
+
+        .cardMedia {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+        }
+      }
+
+      .cardContent {
+        border-top: 1px solid var(--divider-color);
+
+        .name {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: var(--h6);
+          margin-bottom: 10%;
+        }
+
+        .followers {
+          font-size: 16px;
+          line-height: var(--body1);
+          color: var(--secondary-main);
+        }
+
+        .rating {
+          margin-top: 10%;
+        }
+      }
+    }
+  }
+}
+
 /* Categorised View styles */
 
-.categorisedView {
+.categorisedView,
+.categoryListDisplay {
   padding: 2.5% 10%;
 
   .paginationButtons {
@@ -148,13 +240,14 @@
       }
 
       &:disabled {
-        background: var(--white);
+        background: transparent;
         color: var(--disable-main);
       }
     }
   }
 
-  .gridContainer {
+  .itemsView,
+  .categoryView {
     padding: 2.5% 0;
 
     .card {
@@ -202,6 +295,286 @@
   }
 }
 
+/* Store Page Cover styles */
+
+.storePageCover {
+  background: url("/cubimart/pagecover1.png") center / cover no-repeat;
+  height: 60vh;
+}
+
+/* Store Page Header styles */
+
+.storePageHeader {
+  padding: 2.5% 10%;
+
+  .storeData {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .firstSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+
+      .avatar {
+        width: 100px;
+        height: 100px;
+        padding: 7.5%;
+        background: var(--primary-light);
+      }
+
+      .storeInfo {
+        display: flex;
+        flex-direction: column;
+
+        .storeName {
+          font-size: 24px;
+          font-weight: 500;
+          line-height: var(--h5);
+          color: var(--primary-main);
+        }
+
+        .storeUserName {
+          font-size: 18px;
+          line-height: var(--body1);
+          color: var(--primary-dark);
+          margin-top: 2.5%;
+        }
+      }
+    }
+
+    .secondSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      text-align: right;
+      flex-grow: 1;
+      margin-right: 2.5%;
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90px;
+
+        .number {
+          display: flex;
+          align-items: center;
+          font-size: 22px;
+          font-weight: 600;
+          color: var(--primary-main);
+          margin-bottom: 5%;
+
+          .icon {
+            color: var(--primary-main);
+          }
+        }
+
+        .label {
+          display: flex;
+          align-items: center;
+          font-size: 16px;
+          line-height: var(--body1);
+          color: var(--text-secondary-main);
+        }
+      }
+    }
+
+    .thirdSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .chatButton {
+        width: 90px;
+        background: transparent;
+        color: var(--primary-main);
+        margin-right: 2.5%;
+
+        &:hover {
+          background: var(--primary-dark);
+          color: var(--white);
+        }
+      }
+    }
+  }
+}
+
+/* Store Filter styles */
+
+.storeFilter {
+  padding: 2.5% 10%;
+  background: #e9e9e9;
+
+  .allCategoriesButton,
+  .categoryButton {
+    &:hover {
+      background: var(--primary-main);
+      color: var(--white);
+    }
+
+    &.focused {
+      background: var(--primary-main);
+      color: var(--white);
+    }
+
+    &.notFocused {
+      background: transparent;
+      color: var(--primary-main);
+    }
+  }
+
+  .categoryList {
+    .data {
+      align-items: center;
+
+      .cardContainer {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        cursor: grab;
+        scroll-behavior: smooth;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        &.dragging {
+          cursor: pointer;
+        }
+
+        .cardWrapper {
+          text-align: center;
+          flex-shrink: 0;
+
+          .card {
+            padding: 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            height: 45px;
+            width: 125px;
+            cursor: pointer;
+
+            &:hover {
+              box-shadow: 0 4px 8px #0000001a;
+              transition: transform 0.3s, box-shadow 0.3s;
+            }
+          }
+        }
+      }
+
+      .paginationButtons {
+        display: flex;
+        justify-content: flex-end;
+
+        .iconButton {
+          background: var(--primary-main);
+          color: var(--white);
+
+          &:hover {
+            background: var(--primary-dark);
+          }
+
+          &:focus {
+            background: var(--primary-dark);
+          }
+
+          &:disabled {
+            background: transparent;
+            color: var(--disable-main);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Category Menu styles */
+
+.categoryMenu {
+  padding: 2.5% 10%;
+
+  .paginationButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+
+    .iconButton {
+      background: var(--primary-main);
+      color: var(--white);
+
+      &:hover {
+        background: var(--primary-dark);
+      }
+
+      &:focus {
+        background: var(--primary-dark);
+      }
+
+      &:disabled {
+        background: transparent;
+        color: var(--disable-main);
+      }
+    }
+  }
+
+  .menuView {
+    padding: 2.5% 0;
+
+    .card {
+      border-radius: 8px;
+      overflow: hidden;
+
+      .cardMediaContainer {
+        width: 100%;
+        padding-bottom: 100%;
+        position: relative;
+
+        .cardMedia {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+        }
+      }
+
+      .cardContent {
+        border-top: 1px solid var(--divider-color);
+
+        .name {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: var(--h6);
+          margin-bottom: 10%;
+        }
+
+        .price {
+          font-size: 16px;
+          line-height: var(--body1);
+          color: var(--secondary-main);
+        }
+
+        .rating {
+          margin-top: 10%;
+        }
+      }
+    }
+  }
+}
+
 /* Item View styles */
 
 .itemView {
@@ -242,7 +615,7 @@
     }
 
     .rating {
-      margin-bottom: 5%
+      margin-bottom: 5%;
     }
 
     .brandName {
@@ -253,7 +626,7 @@
       padding: 2.5% 0;
       display: flex;
       align-items: center;
-      
+
       .title {
         color: var(--text-secondary-main);
         line-height: var(--body1);
@@ -364,6 +737,228 @@
         }
       }
     }
+
+    .card {
+      border-radius: 8px;
+      overflow: hidden;
+
+      .cardMediaContainer {
+        width: 100%;
+        padding-bottom: 100%;
+        position: relative;
+
+        .cardMedia {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+        }
+      }
+
+      .cardContent {
+        border-top: 1px solid var(--divider-color);
+
+        .name {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: var(--h6);
+          margin-bottom: 10%;
+        }
+
+        .price {
+          font-size: 16px;
+          line-height: var(--body1);
+          color: var(--secondary-main);
+        }
+
+        .rating {
+          margin-top: 10%;
+        }
+      }
+    }
+  }
+}
+
+/* Item Data styles */
+
+.itemData {
+  padding: 2.5% 10%;
+
+  .cardMediaContainer {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+
+    .cardMedia {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  .itemContent {
+    padding: 2.5%;
+
+    .itemName {
+      font-weight: 500;
+      font-size: 28px;
+      line-height: var(--h4);
+      margin-bottom: 4%;
+    }
+
+    .itemPrice {
+      font-size: 24px;
+      line-height: var(--body1);
+      color: var(--secondary-main);
+      margin-bottom: 4%;
+    }
+
+    .rating {
+      margin-bottom: 4%;
+    }
+
+    .brandName {
+      line-height: var(--body1);
+      margin-bottom: 4%;
+    }
+
+    .promotionChips {
+      display: flex;
+      align-items: center;
+
+      .title {
+        color: var(--text-secondary-main);
+        line-height: var(--body1);
+        margin-right: 4%;
+      }
+
+      .chip {
+        background: var(--primary-light);
+        color: var(--primary-main);
+        margin-right: 2%;
+      }
+    }
+
+    .orderCustomisation {
+      padding: 4% 0;
+    }
+
+    .button {
+      margin-right: 2.5%;
+    }
+  }
+
+  .productData {
+    padding: 5%;
+    height: 100%;
+
+    .productDetailsTitle {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: var(--h4);
+      margin-bottom: 3%;
+    }
+
+    .productDescription {
+      font-size: 16px;
+      line-height: var(--body1);
+      color: var(--text-secondary-main);
+    }
+  }
+
+  .ratingsData {
+    padding: 10%;
+    height: 100%;
+
+    .ratingsReviewsTitle {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: var(--h4);
+      margin-bottom: 5%;
+    }
+
+    .ratingRow {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2.5%;
+
+      .rating {
+        font-size: 18px;
+        margin-right: 2.5%;
+
+        .score {
+          font-weight: 600;
+          font-size: 22px;
+        }
+      }
+    }
+
+    .numberOfReviews {
+      color: var(--text-secondary-main);
+    }
+
+    .ratingTable {
+      margin-top: 10%;
+      align-items: center;
+
+      .rating {
+        margin-top: 3%;
+      }
+    }
+  }
+}
+
+/* More Items Data styles */
+
+.moreItemsData {
+  padding: 2.5% 10%;
+
+  .header {
+    display: flex;
+    align-items: center;
+
+    .title {
+      font-size: 18px;
+      line-height: var(--body1);
+    }
+
+    .paginationButtons {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+
+      .iconButton {
+        background: var(--primary-main);
+        color: var(--white);
+
+        &:hover {
+          background: var(--primary-dark);
+        }
+
+        &:focus {
+          background: var(--primary-dark);
+        }
+
+        &:disabled {
+          background: transparent;
+          color: var(--disable-main);
+        }
+      }
+    }
+  }
+
+  .itemsView {
+    padding: 2.5% 0;
 
     .card {
       border-radius: 8px;
