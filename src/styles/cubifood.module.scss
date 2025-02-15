@@ -531,6 +531,7 @@
       .paginationButtons {
         display: flex;
         justify-content: flex-end;
+        gap: 16px;
 
         .iconButton {
           background: #08834e;

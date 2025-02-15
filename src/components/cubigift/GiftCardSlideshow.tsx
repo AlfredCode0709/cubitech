@@ -1,24 +1,21 @@
+import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid2";
 import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
-import styles from "../../styles/cubifood.module.scss";
+import styles from "../../styles/cubigift.module.scss";
 import { FC, MouseEvent, useEffect, useRef, useState } from "react";
+import { cardList } from "./cardList";
 
-interface StallListProps {
-  selectedStall: number | null;
-  onSelectStall: (stallId: number | null) => void;
-  numberOfStalls: number;
+interface GiftCardSlideShowProps {
+  onCardSelect: (title: string, message: string) => void;
 }
 
-const StallList: FC<StallListProps> = ({
-  selectedStall,
-  onSelectStall,
-  numberOfStalls,
-}) => {
+const GiftCardSlideShow: FC<GiftCardSlideShowProps> = ({ onCardSelect }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -59,7 +56,7 @@ const StallList: FC<StallListProps> = ({
       }
       window.removeEventListener("resize", updatePaginationState);
     };
-  }, [numberOfStalls]);
+  }, []);
 
   const handleMouseDown = (e: MouseEvent) => {
     e.preventDefault();
@@ -104,36 +101,12 @@ const StallList: FC<StallListProps> = ({
   };
 
   return (
-    <Box className={styles.stallList}>
-      <Grid container className={styles.data}>
+    <Box className={styles.giftCardSlideshow}>
+      <Grid container className={styles.header}>
         <Grid size={9}>
-          <Box
-            ref={containerRef}
-            className={`${styles.cardContainer} ${
-              isDragging && styles.dragging
-            }`}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUpOrLeave}
-            onMouseLeave={handleMouseUpOrLeave}
-          >
-            {Array.from({ length: numberOfStalls }).map((_, index) => (
-              <Box key={index} className={styles.cardWrapper}>
-                <Button
-                  className={`${styles.stallButton} ${
-                    selectedStall === index ? styles.focused : ""
-                  }`}
-                  size={"large"}
-                  onClick={() => onSelectStall(index)}
-                >
-                  {`Stall ${index + 1}`}
-                </Button>
-              </Box>
-            ))}
-          </Box>
+          <Typography className={styles.heading}>Choose A Gift Card</Typography>
         </Grid>
-        <Grid
-          size={3}
+        <Grid size={3}
           className={styles.paginationButtons}
           style={{ display: showPagination ? "flex" : "none" }}
         >
@@ -160,8 +133,35 @@ const StallList: FC<StallListProps> = ({
           </IconButton>
         </Grid>
       </Grid>
+
+      <Box
+        ref={containerRef}
+        className={`${styles.cardContainer} ${isDragging && styles.dragging}`}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUpOrLeave}
+        onMouseLeave={handleMouseUpOrLeave}
+      >
+        {cardList.map((card) => (
+          <Box key={card.id} className={styles.cardWrapper}>
+            <Card
+              className={styles.card}
+              variant={"outlined"}
+              onClick={() => onCardSelect(card.name, card.message)}
+            >
+              <Avatar
+                alt={"CubiGift"}
+                src={"/cubitech_brands/cubigift_light.svg"}
+                className={styles.avatar}
+                variant={"square"}
+              />
+            </Card>
+            <Typography className={styles.cardName}>{card.name}</Typography>
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 };
 
-export default StallList;
+export default GiftCardSlideShow;

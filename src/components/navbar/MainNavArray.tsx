@@ -30,6 +30,11 @@ const navItems = [
     href: "/cubipay",
     label: "CubiPay",
   },
+  {
+    avatar: "/navbar_icons/cubigift_icon.svg",
+    href: "/cubigift",
+    label: "CubiGift",
+  },
 ];
 
 interface MainNavArrayProps {
