@@ -22,7 +22,7 @@ const StoreCatalogue: FC<any> = () => {
         <title>Store Catalogue | CubiMart</title>
         <meta name="description" content="Cubitech - Next Typescript" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/cubitech.ico" />
+        <link rel="icon" href="/cubimart.ico" />
       </Head>
       <main>
         {/* Starting block of Store Catalogue page */}

@@ -10,7 +10,9 @@ const Footer: FC<any> = () => {
     <Box className={"footerContainer"}>
       <Grid container spacing={4}>
         <Grid size={3}>
-          <LogoDark />
+          <Link href={"/"}>
+            <LogoDark />
+          </Link>
           <Typography className={"footer1Section"}>
             12 Marina Blvd, <br />
             Singapore 018982
@@ -30,7 +32,14 @@ const Footer: FC<any> = () => {
 
         <Grid size={3} className={"footerSection"}>
           <Typography className={"footerHeading"}>Consumers</Typography>
-          {["CubiFood", "CubiMart", "CubiRide", "CubiPay", "CubiGift", "CubiPerk"].map((item) => (
+          {[
+            "CubiFood",
+            "CubiMart",
+            "CubiRide",
+            "CubiPay",
+            "CubiGift",
+            "CubiPerk",
+          ].map((item) => (
             <Link key={item} href={`/${item.toLowerCase()}`}>
               <Typography className={"footerLink"}>{item}</Typography>
             </Link>

@@ -10,7 +10,7 @@ const ItemView: FC<any> = () => {
         <title>Item View | CubiMart</title>
         <meta name="description" content="Cubitech - Next Typescript" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/cubitech.ico" />
+        <link rel="icon" href="/cubimart.ico" />
       </Head>
       <main>
         {/* Item Data */}
