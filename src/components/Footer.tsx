@@ -30,7 +30,7 @@ const Footer: FC<any> = () => {
 
         <Grid size={3} className={"footerSection"}>
           <Typography className={"footerHeading"}>Consumers</Typography>
-          {["CubiFood", "CubiMart", "CubiRide", "CubiPay", "CubiGift"].map((item) => (
+          {["CubiFood", "CubiMart", "CubiRide", "CubiPay", "CubiGift", "CubiPerk"].map((item) => (
             <Link key={item} href={`/${item.toLowerCase()}`}>
               <Typography className={"footerLink"}>{item}</Typography>
             </Link>
