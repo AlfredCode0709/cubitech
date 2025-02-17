@@ -4,10 +4,10 @@ import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
-import Tooltip from "@mui/material/Tooltip";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
 import LoginIcon from "@mui/icons-material/Login";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Link from "next/link";
 import LogoDark from "./LogoDark";
 import MainMenu from "./MainMenu";
@@ -16,15 +16,15 @@ import UserMenu from "./UserMenu";
 import { useUser } from "@auth0/nextjs-auth0";
 import { FC, MouseEvent, useState } from "react";
 
-const Navabr: FC<any> = () => {
+const Navbar: FC<any> = () => {
   const { user } = useUser();
 
   const [mainMenuAnchorEl, setMainMenuAnchorEl] = useState<null | HTMLElement>(
-    null
+    null,
   );
 
   const [userMenuAnchorEl, setUserMenuAnchorEl] = useState<null | HTMLElement>(
-    null
+    null,
   );
 
   const handleMainMenu = (event: MouseEvent<HTMLElement>) => {
@@ -54,15 +54,25 @@ const Navabr: FC<any> = () => {
           <SearchBar />
           <Box flexGrow={1} />
           {user ? (
-            <Button
-              startIcon={<AccountCircleIcon />}
-              color={"inherit"}
-              size={"large"}
-              sx={{ marginRight: "1%" }}
-              onClick={handleUserMenu}
-            >
-              {user.name && user.name.split(" ")[0]}
-            </Button>
+            <>
+              <IconButton
+                color={"inherit"}
+                size={"large"}
+                sx={{ marginRight: "1%" }}
+                href={"/shopping_cart"}
+              >
+                <ShoppingCartIcon />
+              </IconButton>
+              <Button
+                startIcon={<AccountCircleIcon />}
+                color={"inherit"}
+                size={"large"}
+                sx={{ marginRight: "1%" }}
+                onClick={handleUserMenu}
+              >
+                {user.name && user.name.split(" ")[0]}
+              </Button>
+            </>
           ) : (
             <Button
               startIcon={<LoginIcon />}
@@ -74,16 +84,14 @@ const Navabr: FC<any> = () => {
               Login
             </Button>
           )}
-          <Tooltip title="Open main menu">
-            <IconButton
-              onClick={handleMainMenu}
-              color={"inherit"}
-              size={"large"}
-              edge={"end"}
-            >
-              <MenuIcon />
-            </IconButton>
-          </Tooltip>
+          <IconButton
+            onClick={handleMainMenu}
+            color={"inherit"}
+            size={"large"}
+            edge={"end"}
+          >
+            <MenuIcon />
+          </IconButton>
           <MainMenu
             anchorEl={mainMenuAnchorEl}
             handleClose={handleCloseMainMenu}
@@ -98,4 +106,4 @@ const Navabr: FC<any> = () => {
   );
 };
 
-export default Navabr;
+export default Navbar;

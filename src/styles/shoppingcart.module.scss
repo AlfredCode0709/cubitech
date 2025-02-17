@@ -1,0 +1,47 @@
+.shoppingCart {
+  padding: 2.5% 10%;
+
+  .header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    // background: green;
+
+    .title {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: var(--h4);
+      color: var(--primary-dark);
+    }
+  }
+
+  .cartContent {
+    padding: 2.5% 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+    .emptyCartDisplay {      
+      .avatar {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+      }
+      
+      .title {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: var(--h5);
+        color: var(--primary-dark);
+        margin-top: 2.5%;
+      }
+
+      .subtitle {
+        font-size: 16px;
+        line-height: var(--body1);
+        color: var(--text-secondary-main);
+      }
+    }
+  }
+}

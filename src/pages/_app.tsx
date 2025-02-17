@@ -5,6 +5,7 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
 import { Auth0Provider } from "@auth0/nextjs-auth0";
+import { CartProvider } from "@/contexts/CartContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState(createDynamicTheme());
@@ -17,10 +18,12 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <Auth0Provider>
-        <CssBaseline />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <CartProvider>
+          <CssBaseline />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </CartProvider>
       </Auth0Provider>
     </ThemeProvider>
   );

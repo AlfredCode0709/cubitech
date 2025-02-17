@@ -6,8 +6,9 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import styles from "../../styles/cubifood.module.scss";
-import { mainFilterOptions } from "./mainFilterOptions";
+import { getMainFilterOptions } from "./mainFilterOptions";
 import { FC, useEffect, useState } from "react";
+import { useUser } from "@auth0/nextjs-auth0";
 
 interface MainFilterProps {
   categories: { name: string; label: string; src: string }[];
@@ -22,11 +23,15 @@ const MainFilter: FC<MainFilterProps> = ({
   onApplyFilters,
   onClearFilters,
 }) => {
+  const { user } = useUser();
+  const isLoggedIn = !!user;
+
   const [filters, setFilters] = useState({
     sortBy: "",
     price: "",
     cuisine: selectedCategory || "",
     dietaryChoice: "",
+    consumeBy: "",
   });
 
   const handleFilterChange = (key: string, value: string) => {
@@ -70,11 +75,13 @@ const MainFilter: FC<MainFilterProps> = ({
     (value) => value !== "",
   );
 
+  const filterOptions = getMainFilterOptions(isLoggedIn);
+
   return (
     <Box className={styles.mainFilter}>
       <Grid container spacing={1} className={styles.filterContent}>
-        {mainFilterOptions.map(({ label, id, options, dynamic }) => (
-          <Grid size={2.25} key={id}>
+        {filterOptions.map(({ label, id, options, dynamic, size }) => (
+          <Grid size={size} key={id}>
             <FormControl
               fullWidth
               sx={{
@@ -126,7 +133,7 @@ const MainFilter: FC<MainFilterProps> = ({
           </Grid>
         ))}
 
-        <Grid size={3} textAlign={"right"}>
+        <Grid size={isLoggedIn ? 3.5 : 4} textAlign={"right"}>
           <Button
             className={styles.clearAllButton}
             onClick={() => {
@@ -135,6 +142,7 @@ const MainFilter: FC<MainFilterProps> = ({
                 price: "",
                 cuisine: "",
                 dietaryChoice: "",
+                consumeBy: "",
               });
               onClearFilters(); /* Call the function to clear filters in the parent */
             }}
