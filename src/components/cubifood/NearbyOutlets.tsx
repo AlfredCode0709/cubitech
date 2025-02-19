@@ -2,7 +2,6 @@ import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
-import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid2";
@@ -10,6 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import CardMediaContainer from "../common/CardMediaContainer";
 import styles from "../../styles/cubifood.module.scss";
 import { FC, Fragment, useEffect, useRef, useState } from "react";
 
@@ -75,14 +75,10 @@ const NearbyOutlets: FC<NearbyOutletsProps> = ({ numberOfStalls }) => {
                 <Grid key={index} sx={{ flex: "0 0 auto" }}>
                   <Card variant={"outlined"} className={styles.shopCard}>
                     <CardActionArea href={`/cubifood/outlet/${index + 1}`}>
-                      <Box className={styles.cardMediaContainer}>
-                        <CardMedia
-                          className={styles.cardMedia}
-                          component={"img"}
-                          image={"/cubitech_brands/cubifood_light.svg"}
-                          alt={"Menu Image"}
-                        />
-                      </Box>
+                      <CardMediaContainer
+                        imageSrc={"/cubitech_brands/cubifood_light.svg"}
+                        alt={"Menu Item"}
+                      />
                       <CardContent className={styles.cardContent}>
                         <Typography className={styles.name}>
                           Shop Name {index + 1}

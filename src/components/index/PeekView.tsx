@@ -2,7 +2,6 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid2";
 import IconButton from "@mui/material/IconButton";
 import Rating from "@mui/material/Rating";
@@ -10,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Link from "next/link";
+import CardMediaContainer from "../common/CardMediaContainer";
 import styles from "../../styles/index.module.scss";
 import { FC, useState } from "react";
 
@@ -37,7 +37,7 @@ interface PeekViewProps {
 
 const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
   const {
-    path: imagePath,
+    path: imageSrc,
     color: titleSubColor,
     link,
   } = TITLE_CONFIG[title] || {
@@ -119,14 +119,7 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
                     : `/cubimart/item/${globalIndex}`
                 }
               >
-                <Box className={styles.cardMediaContainer}>
-                  <CardMedia
-                    className={styles.cardMedia}
-                    component={"img"}
-                    image={imagePath}
-                    alt={"Item Image"}
-                  />
-                </Box>
+                <CardMediaContainer imageSrc={imageSrc} alt={"Item Image"} />
                 <CardContent className={styles.cardContent}>
                   <Typography className={styles.name}>
                     Item Name {globalIndex}

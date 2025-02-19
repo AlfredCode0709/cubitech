@@ -1,10 +1,10 @@
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
-import styles from "../../styles/common.module.scss";
+import CardMediaContainer from "./CardMediaContainer";
+import commonStyles from "../../styles/common.module.scss";
 import { FC } from "react";
 
 interface PromotionsProps {
@@ -21,26 +21,23 @@ const Promotions: FC<PromotionsProps> = ({
   imageSrc,
 }) => {
   return (
-    <Box className={styles.promotion} bgcolor={bgColor}>
-      <Typography className={styles.title} color={titleColor}>
+    <Box className={commonStyles.promotion} bgcolor={bgColor}>
+      <Typography className={commonStyles.title} color={titleColor}>
         {title}
       </Typography>
 
-      <Grid container className={styles.gridContainer} spacing={1}>
+      <Grid container className={commonStyles.gridContainer} spacing={1}>
         {Array.from({ length: 4 }).map((_, index) => (
           <Grid size={3} key={index}>
-            <Card variant={"outlined"} className={styles.card}>
-              <Box className={styles.cardMediaContainer}>
-                <CardMedia
-                  className={styles.cardMedia}
-                  component={"img"}
-                  image={imageSrc}
-                  alt={"Promotion"}
-                />
-              </Box>
-              <CardContent className={styles.cardContent}>
-                <Typography className={styles.name}>Promotion Name</Typography>
-                <Typography className={styles.description}>Description</Typography>
+            <Card variant={"outlined"} className={commonStyles.card}>
+              <CardMediaContainer imageSrc={imageSrc} alt={"Promotions"} />
+              <CardContent className={commonStyles.cardContent}>
+                <Typography className={commonStyles.name}>
+                  Promotion Name
+                </Typography>
+                <Typography className={commonStyles.description}>
+                  Description
+                </Typography>
               </CardContent>
             </Card>
           </Grid>

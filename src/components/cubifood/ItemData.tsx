@@ -1,9 +1,10 @@
 import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
+import CardMediaContainer from "../common/CardMediaContainer";
 import CustomizationSelector from "./CustomizationSelector";
 import ItemActionButtons from "./ItemActionButtons";
-import ItemImage from "./ItemImage";
 import QuantitySelector from "./QuantitySelector";
 import OptionSelector from "./OptionSelector";
 import SpecialNotes from "./SpecialNotes";
@@ -87,7 +88,12 @@ const ItemData: FC<any> = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={2}>
           <Grid size={4}>
-            <ItemImage imageSrc={"/cubitech_brands/cubifood_light.svg"} />
+            <Card variant={"outlined"} className={styles.itemImage}>
+              <CardMediaContainer
+                imageSrc={"/cubitech_brands/cubifood_light.svg"}
+                alt={"Item Image"}
+              />
+            </Card>
           </Grid>
           <Grid size={8}>
             <Box className={styles.itemContent}>

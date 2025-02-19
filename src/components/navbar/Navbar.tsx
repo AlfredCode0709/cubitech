@@ -53,16 +53,16 @@ const Navbar: FC<any> = () => {
           </Link>
           <SearchBar />
           <Box flexGrow={1} />
+          <IconButton
+            color={"inherit"}
+            size={"large"}
+            sx={{ marginRight: "1%" }}
+            href={"/shoppingcart"}
+          >
+            <ShoppingCartIcon />
+          </IconButton>
           {user ? (
             <>
-              <IconButton
-                color={"inherit"}
-                size={"large"}
-                sx={{ marginRight: "1%" }}
-                href={"/shopping_cart"}
-              >
-                <ShoppingCartIcon />
-              </IconButton>
               <Button
                 startIcon={<AccountCircleIcon />}
                 color={"inherit"}

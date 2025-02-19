@@ -2,12 +2,12 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid2";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import CardMediaContainer from "../common/CardMediaContainer";
 import styles from "../../styles/cubifood.module.scss";
 import { FC, useState } from "react";
 
@@ -28,10 +28,10 @@ const StallMenu: FC<StallMenuProps> = ({ stallId, numberOfItems }) => {
     {
       length: Math.min(
         ITEMS_PER_PAGE,
-        numberOfItems - (currentPage - 1) * ITEMS_PER_PAGE
+        numberOfItems - (currentPage - 1) * ITEMS_PER_PAGE,
       ),
     },
-    (_, i) => (currentPage - 1) * ITEMS_PER_PAGE + i + 1
+    (_, i) => (currentPage - 1) * ITEMS_PER_PAGE + i + 1,
   );
 
   return (
@@ -65,14 +65,10 @@ const StallMenu: FC<StallMenuProps> = ({ stallId, numberOfItems }) => {
           <Grid size={2} key={globalIndex}>
             <Card variant={"outlined"} className={styles.card}>
               <CardActionArea href={`/cubifood/item/${globalIndex}`}>
-                <Box className={styles.cardMediaContainer}>
-                  <CardMedia
-                    className={styles.cardMedia}
-                    component={"img"}
-                    image={"/cubitech_brands/cubifood_light.svg"}
-                    alt={"Categorised Item"}
-                  />
-                </Box>
+                <CardMediaContainer
+                  imageSrc={"/cubitech_brands/cubifood_light.svg"}
+                  alt={"Categorised Item"}
+                />
                 <CardContent className={styles.cardContent}>
                   <Typography className={styles.name}>
                     Item Name {globalIndex}
