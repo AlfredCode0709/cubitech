@@ -1,4 +1,5 @@
 import AppBar from "@mui/material/AppBar";
+import Badge from "@mui/material/Badge";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -14,10 +15,12 @@ import MainMenu from "./MainMenu";
 import SearchBar from "./SearchBar";
 import UserMenu from "./UserMenu";
 import { useUser } from "@auth0/nextjs-auth0";
-import { FC, MouseEvent, useState } from "react";
+import { FC, MouseEvent, useEffect, useState } from "react";
+import { useCart } from "@/contexts/CartContext";
 
 const Navbar: FC<any> = () => {
   const { user } = useUser();
+  const { state: cartState } = useCart();
 
   const [mainMenuAnchorEl, setMainMenuAnchorEl] = useState<null | HTMLElement>(
     null,
@@ -43,6 +46,8 @@ const Navbar: FC<any> = () => {
     setUserMenuAnchorEl(null);
   };
 
+  const cartItemCount = cartState.items.length;
+
   return (
     <Box className={"navbarContainer"}>
       <CssBaseline />
@@ -59,7 +64,13 @@ const Navbar: FC<any> = () => {
             sx={{ marginRight: "1%" }}
             href={"/shoppingcart"}
           >
-            <ShoppingCartIcon />
+            <Badge
+              color={"error"}
+              badgeContent={cartItemCount}
+              invisible={cartItemCount === 0} // Hide badge if cart is empty
+            >
+              <ShoppingCartIcon />
+            </Badge>
           </IconButton>
           {user ? (
             <>

@@ -74,7 +74,7 @@ const FilteredCatalogue: FC<FilteredCatalogueProps> = ({
                   <Typography className={styles.name}>
                     Shop Name {globalIndex}
                   </Typography>
-                  <Chip className={styles.chip} label="9mins" />
+                  <Chip className={styles.chip} label={"9mins"} />
                 </CardContent>
               </CardActionArea>
             </Card>

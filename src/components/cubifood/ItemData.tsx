@@ -28,8 +28,7 @@ const ItemData: FC<any> = () => {
 
   const { user } = useUser();
 
-  const { state, dispatch } =
-    useCart(); /* Access the cart state and dispatch method */
+  const { state, dispatch } = useCart();
 
   const {
     control,
@@ -56,32 +55,27 @@ const ItemData: FC<any> = () => {
   const customizations = ["Custom 1", "Custom 2", "Custom 3", "Custom 4"];
 
   const onSubmit = (data: FormValues) => {
-    console.log("Form Submitted:", data);
-
     const newItem = {
       itemId: Array.isArray(id) ? id[0] : id,
-      name: "Item Name" /* Use dynamic name here */,
-      price: 9.99 /* Use dynamic price here */,
+      name: "Item Name",
+      price: 9.99,
       option: data.option,
       customizations: data.customizations,
       specialNotes: data.specialNotes,
       quantity: data.quantity,
     };
 
-    console.log(newItem);
-
     /* Dispatch action to add item to the cart */
     dispatch({ type: "ADD_ITEM", payload: newItem });
 
-    /* Optionally, navigate to the ShoppingCart page */
-    router.push("/shoppingcart");
+    reset();
   };
 
   useEffect(() => {
     if (!watch("option") || !watch("quantity")) {
-      reset();
+      reset({ option: "", customizations: [], specialNotes: "", quantity: 1 });
     }
-  }, [reset, watch]);
+  }, []);
 
   return (
     <Box className={styles.itemData}>
