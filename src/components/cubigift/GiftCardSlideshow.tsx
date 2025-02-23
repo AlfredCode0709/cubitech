@@ -106,7 +106,8 @@ const GiftCardSlideShow: FC<GiftCardSlideShowProps> = ({ onCardSelect }) => {
         <Grid size={9}>
           <Typography className={styles.heading}>Choose A Gift Card</Typography>
         </Grid>
-        <Grid size={3}
+        <Grid
+          size={3}
           className={styles.paginationButtons}
           style={{ display: showPagination ? "flex" : "none" }}
         >

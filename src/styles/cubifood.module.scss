@@ -164,9 +164,15 @@
   }
 
   .shopList {
-    overflow-x: auto;
     display: flex;
     padding: 0 0 1% 1%;
+    overflow-x: auto;
+    cursor: grab;
+    scroll-behavior: smooth;
+
+    &.dragging {
+      cursor: pointer;
+    }
 
     /* Chrome, Edge, and Safari */
     &::-webkit-scrollbar {
@@ -190,10 +196,6 @@
       display: none;
     }
 
-    /* Firefox */
-    scrollbar-width: thin;
-    scrollbar-color: #00000033 transparent;
-
     .content {
       display: flex;
       flex-wrap: no-wrap;
@@ -201,22 +203,22 @@
       .shopCard {
         width: 200px;
         border-radius: 8px;
+      }
 
-        .cardContent {
-          border-top: 1px solid var(--divider-color);
+      .cardContent {
+        border-top: 1px solid var(--divider-color);
 
-          .name {
-            font-weight: 500;
-            font-size: 16px;
-            line-height: var(--h6);
-            margin-bottom: 10%;
-          }
+        .name {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: var(--h6);
+          margin-bottom: 10%;
+        }
 
-          .chip {
-            font-weight: 500;
-            color: #066039;
-            background: #e7fef4;
-          }
+        .chip {
+          font-weight: 500;
+          color: #066039;
+          background: #e7fef4;
         }
       }
     }
@@ -229,29 +231,29 @@
 .stallListDisplay {
   padding: 2.5% 10%;
 
-  .paginationButtons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 16px;
+  // .paginationButtons {
+  //   display: flex;
+  //   justify-content: flex-end;
+  //   gap: 16px;
 
-    .iconButton {
-      background: #08834e;
-      color: var(--white);
+  //   .iconButton {
+  //     background: #08834e;
+  //     color: var(--white);
 
-      &:hover {
-        background: #05482b;
-      }
+  //     &:hover {
+  //       background: #05482b;
+  //     }
 
-      &:focus {
-        background: #05482b;
-      }
+  //     &:focus {
+  //       background: #05482b;
+  //     }
 
-      &:disabled {
-        background: transparent;
-        color: var(--disable-main);
-      }
-    }
-  }
+  //     &:disabled {
+  //       background: transparent;
+  //       color: var(--disable-main);
+  //     }
+  //   }
+  // }
 
   .catalogueView,
   .stallView {

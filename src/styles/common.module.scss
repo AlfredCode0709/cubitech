@@ -353,3 +353,149 @@
     }
   }
 }
+
+/* Pagination variant 1 styles */
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+
+  .iconButtonVariant1 {
+    background: #08834e;
+    color: var(--white);
+
+    &:hover {
+      background: #05482b;
+    }
+
+    &:focus {
+      background: #05482b;
+    }
+
+    &:disabled {
+      background: transparent;
+      color: var(--disable-main);
+    }
+  }
+
+  .iconButtonVariant2 {
+    background: var(--primary-main);
+    color: var(--white);
+
+    &:hover {
+      background: var(--primary-dark);
+    }
+
+    &:focus {
+      background: var(--primary-dark);
+    }
+
+    &:disabled {
+      background: transparent;
+      color: var(--disable-main);
+    }
+  }
+}
+
+/* Empty Cart Display styles */
+
+.emptyCartDisplay {
+  padding: 2.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .avatar {
+    width: 200px;
+    height: 200px;
+  }
+
+  .titleVariant1 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: var(--h5);
+    color: #08834e;
+    margin-top: 5%;
+  }
+
+  .titleVariant2 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: var(--h5);
+    color: var(--primary-dark);
+    margin-top: 5%;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: var(--body1);
+    color: var(--text-secondary-main);
+    margin-top: 1.25%;
+  }
+
+  .buttonVariant1 {
+    color: #08834e;
+    margin-top: 2.5%;
+
+    &:hover {
+      background: #08834e;
+      color: var(--white);
+    }
+  }
+
+  .buttonVariant2 {
+    color: var(--primary-main);
+    margin-top: 2.5%;
+
+    &:hover {
+      background: var(--primary-main);
+      color: var(--white);
+    }
+  }
+}
+
+/* Payment Details styles */
+
+.paymentDetails {
+  // margin-top: 8px;
+  border: 1px solid var(--divider-color);
+  border-radius: 8px;
+  padding: 5%;
+
+  .paymentDetailsLine,
+  .totalAmount {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5% 0;
+    border-bottom: 1px solid var(--divider-color);
+    font-size: 16px;
+  }
+
+  ._ {
+    font-weight: 500;
+  }
+
+  .price {
+    font-weight: 600;
+    line-height: var(--h6);
+    color: var(--primary-dark);
+  }
+
+  .addButton {
+    font-size: 14px;
+    color: var(--primary-main);
+
+    &:hover {
+      color: var(--primary-dark);
+      cursor: pointer;
+    }
+  }
+
+  .checkoutButton {
+    margin-top: 5%;
+  }
+}

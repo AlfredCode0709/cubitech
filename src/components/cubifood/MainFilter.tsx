@@ -42,7 +42,7 @@ const MainFilter: FC<MainFilterProps> = ({
       );
       const image = selectedCategoryItem
         ? selectedCategoryItem.src
-        : "/filtered_icon.svg";
+        : "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740098614/filtered_icon_ll8b8e.svg";
       onApplyFilters(image, value); /* Sync category selection */
     }
   };
@@ -53,7 +53,7 @@ const MainFilter: FC<MainFilterProps> = ({
     );
     const image = selectedCategoryItem
       ? selectedCategoryItem.src
-      : "/filtered_icon.svg"; /* Use category image or fallback */
+      : "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740098614/filtered_icon_ll8b8e.svg"; /* Use category image or fallback */
     onApplyFilters(
       image,
       filters.cuisine,

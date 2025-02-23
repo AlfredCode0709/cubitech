@@ -3,13 +3,13 @@ import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid2";
-import IconButton from "@mui/material/IconButton";
 import Rating from "@mui/material/Rating";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Link from "next/link";
 import CardMediaContainer from "../common/CardMediaContainer";
+import PaginationVariant1 from "../common/PaginationVariant1";
+import commonStyles from "../../styles/common.module.scss";
 import styles from "../../styles/index.module.scss";
 import { FC, useState } from "react";
 
@@ -55,10 +55,10 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
     {
       length: Math.min(
         ITEMS_PER_PAGE,
-        totalItems - (currentPage - 1) * ITEMS_PER_PAGE,
+        totalItems - (currentPage - 1) * ITEMS_PER_PAGE
       ),
     },
-    (_, i) => (currentPage - 1) * ITEMS_PER_PAGE + i + 1,
+    (_, i) => (currentPage - 1) * ITEMS_PER_PAGE + i + 1
   );
 
   return (
@@ -66,47 +66,27 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
       className={styles.peekView}
       borderTop={title === "CUBIFood" ? 0 : "1px solid var(--divider-color)"}
     >
-      <Grid container className={styles.header}>
-        <Grid size={6}>
-          <Link href={link}>
-            <Typography className={styles.title}>
-              {title.substring(0, 4)}
-              <span style={{ color: titleSubColor }}>{title.substring(4)}</span>
-            </Typography>
-          </Link>
-        </Grid>
-        <Grid size={6}>
-          {/* Pagination Buttons */}
-          {totalPages > 1 && (
-            <Box className={styles.paginationButtons}>
-              {["prev", "next"].map((dir) => (
-                <IconButton
-                  key={dir}
-                  className={
-                    title === "CUBIFood"
-                      ? styles.iconButtonVariant1
-                      : styles.iconButtonVariant2
-                  }
-                  onClick={() =>
-                    setCurrentPage((prev) => prev + (dir === "prev" ? -1 : 1))
-                  }
-                  disabled={
-                    dir === "prev"
-                      ? currentPage === 1
-                      : currentPage === totalPages
-                  }
-                >
-                  {dir === "prev" ? (
-                    <ArrowBackIosNewIcon />
-                  ) : (
-                    <ArrowForwardIosIcon />
-                  )}
-                </IconButton>
-              ))}
-            </Box>
-          )}
-        </Grid>
-      </Grid>
+      <Stack className={styles.header}>
+        <Link href={link}>
+          <Typography className={styles.title}>
+            {title.substring(0, 4)}
+            <span style={{ color: titleSubColor }}>{title.substring(4)}</span>
+          </Typography>
+        </Link>
+        {/* Pagination Buttons */}
+        {totalPages > 1 && (
+          <PaginationVariant1
+            className={
+              title === "CUBIFood"
+                ? commonStyles.iconButtonVariant1
+                : commonStyles.iconButtonVariant2
+            }
+            currentPage={currentPage}
+            totalPages={totalPages}
+            setCurrentPage={setCurrentPage}
+          />
+        )}
+      </Stack>
 
       <Grid container className={styles.itemsCatalogue} spacing={0.5}>
         {paginatedItems.map((globalIndex) => (

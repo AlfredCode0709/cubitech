@@ -23,7 +23,7 @@ const ShoppingCartDisplay: FC<ShoppingCartDisplayProps> = ({
 
   const subtotal = items.reduce(
     (sum, item) => sum + item.price * item.quantity,
-    0,
+    0
   );
 
   const handleEmptyCart = () => {
@@ -33,23 +33,22 @@ const ShoppingCartDisplay: FC<ShoppingCartDisplayProps> = ({
   return (
     <>
       <Stack className={styles.header}>
-        <Stack>
-          <Typography className={styles.title}>Shopping Cart</Typography>
-          <Typography className={styles.itemNumber}>
+        <Typography className={styles.title}>
+          Shopping Cart
+          <br />
+          <span className={styles.itemNumber}>
             {totalQuantity} {totalQuantity > 0 ? "item(s)" : "item"}
-          </Typography>
-        </Stack>
-        <Stack>
-          <Button
-            color={"error"}
-            variant={"contained"}
-            size={"large"}
-            startIcon={<RemoveShoppingCartIcon />}
-            onClick={handleEmptyCart}
-          >
-            Empty Cart
-          </Button>
-        </Stack>
+          </span>
+        </Typography>
+        <Button
+          color={"error"}
+          variant={"contained"}
+          size={"large"}
+          startIcon={<RemoveShoppingCartIcon />}
+          onClick={handleEmptyCart}
+        >
+          Empty Cart
+        </Button>
       </Stack>
       <Grid container spacing={2} className={styles.cartData}>
         <Grid size={8.5}>
@@ -57,7 +56,7 @@ const ShoppingCartDisplay: FC<ShoppingCartDisplayProps> = ({
             <CartListItem key={item.cartId} item={item} />
           ))}
         </Grid>
-        <Grid size={3.5}>
+        <Grid size={3.5} marginTop={'8px'}>
           <PaymentDetails subtotal={subtotal} />
         </Grid>
       </Grid>

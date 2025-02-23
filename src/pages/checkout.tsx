@@ -1,13 +1,17 @@
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid2";
 import Head from "next/head";
+import CheckoutForm from "@/components/checkout/CheckoutForm";
+import PaymentDetails from "@/components/cubifood/PaymentDetails";
 import styles from "../styles/checkout.module.scss";
-import { useOrder } from "@/contexts/OrderContext";
 import { FC } from "react";
+import { useOrder } from "@/contexts/OrderContext";
 
 const Checkout: FC<any> = () => {
   const { state } = useOrder();
 
-  console.log(state);
+  const items = state?.items;
+  const subtotal = state?.subtotal;
 
   return (
     <>
@@ -15,10 +19,22 @@ const Checkout: FC<any> = () => {
         <title>Checkout | Cubitech</title>
         <meta name="description" content="Cubitech - Next Typescript" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/cubitech.ico" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/dcsfz2ydj/image/upload/v1739968314/cubitech_pv5rz0.ico"
+        />
       </Head>
       <main>
-        <Box className={styles.checkout}></Box>
+        <Box className={styles.checkout}>
+          <Grid container spacing={2}>
+            <Grid size={7}>
+              <CheckoutForm items={items} />
+            </Grid>
+            <Grid size={5}>
+              <PaymentDetails subtotal={subtotal} />
+            </Grid>
+          </Grid>
+        </Box>
       </main>
     </>
   );

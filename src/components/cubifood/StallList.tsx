@@ -1,12 +1,10 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid2";
-import IconButton from "@mui/material/IconButton";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
+import PaginationVariant2 from "../common/PaginationVariant2";
+import commonStyles from "../../styles/common.module.scss";
 import styles from "../../styles/cubifood.module.scss";
-import { FC, MouseEvent, useEffect, useRef, useState } from "react";
+import { FC, MouseEvent, RefObject, useEffect, useRef, useState } from "react";
 
 interface StallListProps {
   selectedStall: number | null;
@@ -19,13 +17,13 @@ const StallList: FC<StallListProps> = ({
   onSelectStall,
   numberOfStalls,
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [disablePrev, setDisablePrev] = useState(true);
   const [disableNext, setDisableNext] = useState(false);
-  const [disableSkipPrev, setDisableSkipPrev] = useState(false);
+  const [disableSkipToPrev, setDisableSkipToPrev] = useState(false);
   const [showPagination, setShowPagination] = useState(false);
 
   useEffect(() => {
@@ -40,7 +38,7 @@ const StallList: FC<StallListProps> = ({
 
         setDisablePrev(atStart);
         setDisableNext(atEnd);
-        setDisableSkipPrev(atStart);
+        setDisableSkipToPrev(atStart);
         setShowPagination(!noScrollNeeded);
       }
     };
@@ -61,46 +59,22 @@ const StallList: FC<StallListProps> = ({
     };
   }, [numberOfStalls]);
 
-  const handleMouseDown = (e: MouseEvent) => {
+  const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragging(true);
     setStartX(e.pageX - (containerRef.current?.offsetLeft || 0));
     setScrollLeft(containerRef.current?.scrollLeft || 0);
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
-    if (!isDragging) return;
-    const x = e.pageX - (containerRef.current?.offsetLeft || 0);
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!isDragging || !containerRef.current) return;
+    const x = e.pageX - containerRef.current.offsetLeft;
     const walk = (x - startX) * 2;
-    if (containerRef.current) {
-      containerRef.current.scrollLeft = scrollLeft - walk;
-    }
+    containerRef.current.scrollLeft = scrollLeft - walk;
   };
 
   const handleMouseUpOrLeave = () => {
     setIsDragging(false);
-  };
-
-  const handlePageChange = (direction: "prev" | "next") => {
-    const container = containerRef.current;
-    if (container) {
-      const clientWidth = container.clientWidth;
-      const scrollAmount = clientWidth / 2;
-      container.scrollBy({
-        left: direction === "prev" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const handleSkipToLeft = () => {
-    const container = containerRef.current;
-    if (container) {
-      container.scrollTo({
-        left: 0,
-        behavior: "smooth",
-      });
-    }
   };
 
   return (
@@ -137,27 +111,12 @@ const StallList: FC<StallListProps> = ({
           className={styles.paginationButtons}
           style={{ display: showPagination ? "flex" : "none" }}
         >
-          <IconButton
-            className={`${styles.iconButton} ${disablePrev && styles.disabled}`}
-            onClick={() => handlePageChange("prev")}
-            disabled={disablePrev}
-          >
-            <ArrowBackIosNewIcon />
-          </IconButton>
-          <IconButton
-            className={`${styles.iconButton} ${disableNext && styles.disabled}`}
-            onClick={() => handlePageChange("next")}
-            disabled={disableNext}
-          >
-            <ArrowForwardIosIcon />
-          </IconButton>
-          <IconButton
-            className={`${styles.iconButton}`}
-            onClick={handleSkipToLeft}
-            disabled={disableSkipPrev}
-          >
-            <SkipPreviousIcon />
-          </IconButton>
+          <PaginationVariant2 
+          className={commonStyles.iconButtonVariant1}
+          containerRef={containerRef as RefObject<HTMLDivElement>}
+          disablePrev={disablePrev}
+          disableNext={disableNext}
+          disableSkipToPrev={disableSkipToPrev} />
         </Grid>
       </Grid>
     </Box>

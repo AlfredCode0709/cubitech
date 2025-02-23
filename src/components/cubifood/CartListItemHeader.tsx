@@ -17,7 +17,7 @@ const CartListItemHeader: FC<any> = () => {
         <Avatar
           className={styles.avatar}
           alt="Store / Outlet Name"
-          src="/cubitech.svg"
+          src="https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740098710/cubitech_hsy1hv.svg"
         />
         <Typography>Store Name</Typography>
       </Grid>

@@ -1,3 +1,75 @@
 .checkout {
   padding: 2.5% 10%;
+
+  .checkoutForm {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--divider-color);
+    border-radius: 8px;
+    padding: 5%;
+
+    .title {
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--primary-main);
+      margin-bottom: 5%;
+    }
+
+    .cartListItemReadOnly {
+      padding: 2.5% 0;
+      border-bottom: 1px solid var(--divider-color);
+
+      .itemQuantity {
+        text-align: center;
+        font-weight: 600;
+        font-size: 18px;
+        color: var(--primary-main);
+      }
+
+      .itemData {
+        padding: 0 1.25%;
+
+        .itemName {
+          height: 55px;
+          font-weight: 600;
+          font-size: 18px;
+        }
+
+        .itemOption {
+          font-size: 14px;
+          color: var(--text-secondary-main);
+          margin-bottom: 1%;
+        }
+
+        .itemCustomisation {
+          font-size: 14px;
+          color: var(--text-secondary-main);
+          margin-bottom: 1%;
+        }
+
+        .itemSpecialNotes {
+          font-size: 14px;
+          color: var(--text-secondary-dark);
+          font-style: italic;
+          margin-bottom: 1%;
+        }
+      }
+
+      .itemPrice {
+        text-align: right;
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
+
+    .paymentMethodOption {
+      padding: 2.5% 0;
+
+      .heading {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--primary-dark);
+      }
+    }
+  }
 }

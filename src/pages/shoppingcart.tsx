@@ -1,16 +1,17 @@
 import Box from "@mui/material/Box";
 import Head from "next/head";
-import EmptyCartDisplay from "@/components/cubifood/EmptyCartDisplay";
 import ShoppingCartDisplay from "@/components/cubifood/ShoppingCartDisplay";
-import MoreItemsData from "@/components/cubifood/MoreItemsData";
+import EmptyCartDisplay from "@/components/common/EmptyCartDisplay";
+import Toggle from "@/components/shoppingcart/Toggle";
 import styles from "../styles/shoppingcart.module.scss";
 import { useCart } from "@/contexts/CartContext";
-import { FC } from "react";
+import { FC, useState } from "react";
 
 const ShoppingCart: FC<any> = () => {
   const { state, dispatch } = useCart();
-
   const items = state.items;
+
+  const [isCubiFood, setIsCubiFood] = useState(false);
 
   return (
     <>
@@ -18,19 +19,39 @@ const ShoppingCart: FC<any> = () => {
         <title>Shopping Cart | Cubitech</title>
         <meta name="description" content="Cubitech - Next Typescript" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/cubitech.ico" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/dcsfz2ydj/image/upload/v1739968314/cubitech_pv5rz0.ico"
+        />
       </Head>
       <main>
         <Box className={styles.shoppingCart}>
+          <Toggle isCubiFood={isCubiFood} setIsCubiFood={setIsCubiFood} />
+
           {state.items.length > 0 ? (
-            <ShoppingCartDisplay dispatch={dispatch} items={items} />
+            !isCubiFood ? (
+              <ShoppingCartDisplay dispatch={dispatch} items={items} />
+            ) : (
+              <EmptyCartDisplay
+                imageSrc={
+                  isCubiFood
+                  ? "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740135701/cubimart_emptycart_icon_hg1kxe.svg"
+                  : "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740135701/cubifood_emptycart_icon_ku3pne.svg"
+                }
+                shopLink={isCubiFood ? "/cubifood" : "/cubimart"}
+              />
+            )
           ) : (
-            <EmptyCartDisplay />
+            <EmptyCartDisplay
+              imageSrc={
+                isCubiFood
+                  ? "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740135701/cubimart_emptycart_icon_hg1kxe.svg"
+                  : "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740135701/cubifood_emptycart_icon_ku3pne.svg"
+              }
+              shopLink={isCubiFood ? "/cubifood" : "/cubimart"}
+            />
           )}
         </Box>
-
-        {/* Set Shopping Cart to CubiFood first */}
-        <MoreItemsData TOTAL_ITEMS={20} />
       </main>
     </>
   );

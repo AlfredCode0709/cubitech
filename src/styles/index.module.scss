@@ -36,6 +36,8 @@
   .header {
     display: flex;
     align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
 
     .title {
       font-family: "Codec Pro Bold", sans-serif;
@@ -47,48 +49,6 @@
 
       &:hover {
         opacity: 0.75;
-      }
-    }
-
-    .paginationButtons {
-      display: flex;
-      justify-content: flex-end;
-      gap: 16px;
-
-      .iconButtonVariant1 {
-        background: #08834e;
-        color: var(--white);
-
-        &:hover {
-          background: #05482b;
-        }
-
-        &:focus {
-          background: #05482b;
-        }
-
-        &:disabled {
-          background: transparent;
-          color: var(--disable-main);
-        }
-      }
-
-      .iconButtonVariant2 {
-        background: var(--primary-main);
-        color: var(--white);
-
-        &:hover {
-          background: var(--primary-dark);
-        }
-
-        &:focus {
-          background: var(--primary-dark);
-        }
-
-        &:disabled {
-          background: transparent;
-          color: var(--disable-main);
-        }
       }
     }
   }

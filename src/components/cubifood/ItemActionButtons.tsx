@@ -45,13 +45,7 @@ const ItemActionButtons: FC<ItemActionButtonsProps> = ({
         variant="contained"
         startIcon={<AddIcon />}
         disabled={!watch("option") || !watch("quantity")}
-        onClick={() => {
-          if (!user) {
-            router.push("/auth/login");
-          } else {
-            onSubmit();
-          }
-        }}
+        onClick={() => onSubmit()}
       >
         Add to Cart
       </Button>

@@ -11,30 +11,111 @@ import Typography from "@mui/material/Typography";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CardMediaContainer from "../common/CardMediaContainer";
 import styles from "../../styles/cubifood.module.scss";
-import { FC, Fragment, useEffect, useRef, useState } from "react";
+import { FC, Fragment, MouseEvent, useEffect, useRef, useState } from "react";
 
 interface NearbyOutletsProps {
   numberOfStalls: number;
 }
 
 const NearbyOutlets: FC<NearbyOutletsProps> = ({ numberOfStalls }) => {
-  const shopListRef = useRef<HTMLDivElement | null>(null);
-  const [isScrollable, setIsScrollable] = useState(false);
+  const shopListRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [dragState, setDragState] = useState<
+    Record<number, { isDragging: boolean; startX: number; scrollLeft: number }>
+  >({});
+  const [paginationState, setPaginationState] = useState<
+    Record<
+      number,
+      { disablePrev: boolean; disableNext: boolean; showPagination: boolean }
+    >
+  >({});
+
+  const setShopListRef = (el: HTMLDivElement | null, index: number) => {
+    shopListRefs.current[index] = el;
+  };
+
+  const handleMouseDown = (e: MouseEvent, index: number) => {
+    e.preventDefault();
+    const shopList = shopListRefs.current[index];
+    if (!shopList) return;
+
+    setDragState((prevState) => ({
+      ...prevState,
+      [index]: {
+        isDragging: true,
+        startX: e.pageX - shopList.offsetLeft,
+        scrollLeft: shopList.scrollLeft,
+      },
+    }));
+  };
+
+  const handleMouseMove = (e: MouseEvent, index: number) => {
+    if (!dragState[index]?.isDragging) return;
+    const shopList = shopListRefs.current[index];
+    if (!shopList) return;
+
+    const x = e.pageX - shopList.offsetLeft;
+    const walk = (x - dragState[index].startX) * 2;
+    shopList.scrollLeft = dragState[index].scrollLeft - walk;
+  };
+
+  const handleMouseUpOrLeave = (index: number) => {
+    setDragState((prevState) => ({
+      ...prevState,
+      [index]: { ...prevState[index], isDragging: false },
+    }));
+  };
+
+  const updatePaginationState = (index: number) => {
+    const shopList = shopListRefs.current[index];
+    if (!shopList) return;
+
+    const atStart = shopList.scrollLeft === 0;
+    const atEnd =
+      Math.ceil(shopList.scrollLeft + shopList.clientWidth) >=
+      shopList.scrollWidth;
+    const noScrollNeeded = shopList.scrollWidth <= shopList.clientWidth;
+
+    setPaginationState((prevState) => ({
+      ...prevState,
+      [index]: {
+        disablePrev: atStart,
+        disableNext: atEnd,
+        showPagination: !noScrollNeeded,
+      },
+    }));
+  };
 
   useEffect(() => {
-    if (shopListRef.current) {
-      const isOverflowing =
-        shopListRef.current.scrollWidth > shopListRef.current.clientWidth;
-      setIsScrollable(isOverflowing);
-    }
-  }, [numberOfStalls]);
+    shopListRefs.current.forEach((shopList, index) => {
+      if (!shopList) return;
+      shopList.addEventListener("scroll", () => updatePaginationState(index));
+    });
+
+    window.addEventListener("resize", () => {
+      shopListRefs.current.forEach((_, index) => updatePaginationState(index));
+    });
+
+    return () => {
+      shopListRefs.current.forEach((shopList, index) => {
+        if (!shopList) return;
+        shopList.removeEventListener("scroll", () =>
+          updatePaginationState(index)
+        );
+      });
+      window.removeEventListener("resize", () => {
+        shopListRefs.current.forEach((_, index) =>
+          updatePaginationState(index)
+        );
+      });
+    };
+  }, []);
 
   return (
     <Box className={styles.nearbyOutlets}>
       <Typography className={styles.title}>Nearby Outlets</Typography>
 
-      {Array.from({ length: 3 }).map((_, index) => (
-        <Fragment key={index}>
+      {Array.from({ length: 3 }).map((_, outletIndex) => (
+        <Fragment key={outletIndex}>
           {/* Outlet Header */}
           <Stack className={styles.outletHeader}>
             <Stack className={styles.leftSection}>
@@ -49,7 +130,7 @@ const NearbyOutlets: FC<NearbyOutletsProps> = ({ numberOfStalls }) => {
               <Typography className={styles.distance}>1.99 km</Typography>
               <IconButton
                 className={styles.outletViewButton}
-                href={`/cubifood/outlet/${index + 1}`}
+                href={`/cubifood/outlet/${outletIndex + 1}`}
               >
                 <ArrowForwardIosIcon />
               </IconButton>
@@ -58,12 +139,16 @@ const NearbyOutlets: FC<NearbyOutletsProps> = ({ numberOfStalls }) => {
 
           {/* Shop List */}
           <Box
-            ref={shopListRef}
-            className={styles.shopList}
-            sx={{
-              overflowX: isScrollable ? "auto" : "hidden", // Hide scrollbar if not needed
-              whiteSpace: "nowrap",
-            }}
+            ref={(el) =>
+              setShopListRef(el as HTMLDivElement | null, outletIndex)
+            }
+            className={`${styles.shopList} ${
+              dragState[outletIndex]?.isDragging && styles.dragging
+            }`}
+            onMouseDown={(e) => handleMouseDown(e, outletIndex)}
+            onMouseMove={(e) => handleMouseMove(e, outletIndex)}
+            onMouseUp={() => handleMouseUpOrLeave(outletIndex)}
+            onMouseLeave={() => handleMouseUpOrLeave(outletIndex)}
           >
             <Grid
               container
@@ -71,17 +156,17 @@ const NearbyOutlets: FC<NearbyOutletsProps> = ({ numberOfStalls }) => {
               className={styles.content}
               wrap={"nowrap"}
             >
-              {Array.from({ length: numberOfStalls }).map((_, index) => (
-                <Grid key={index} sx={{ flex: "0 0 auto" }}>
+              {Array.from({ length: numberOfStalls }).map((_, stallIndex) => (
+                <Grid key={stallIndex} sx={{ flex: "0 0 auto" }}>
                   <Card variant={"outlined"} className={styles.shopCard}>
-                    <CardActionArea href={`/cubifood/outlet/${index + 1}`}>
+                    <CardActionArea href={`/cubifood/outlet/${stallIndex + 1}`}>
                       <CardMediaContainer
                         imageSrc={"/cubitech_brands/cubifood_light.svg"}
-                        alt={"Menu Item"}
+                        alt={"Shop Image"}
                       />
                       <CardContent className={styles.cardContent}>
                         <Typography className={styles.name}>
-                          Shop Name {index + 1}
+                          Shop Name {stallIndex + 1}
                         </Typography>
                         <Chip className={styles.chip} label="9mins" />
                       </CardContent>

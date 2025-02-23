@@ -3,11 +3,10 @@ import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid2";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CardMediaContainer from "../common/CardMediaContainer";
+import PaginationVariant1 from "../common/PaginationVariant1";
+import commonStyles from "../../styles/common.module.scss";
 import styles from "../../styles/cubifood.module.scss";
 import { FC, useState } from "react";
 
@@ -28,36 +27,22 @@ const StallMenu: FC<StallMenuProps> = ({ stallId, numberOfItems }) => {
     {
       length: Math.min(
         ITEMS_PER_PAGE,
-        numberOfItems - (currentPage - 1) * ITEMS_PER_PAGE,
+        numberOfItems - (currentPage - 1) * ITEMS_PER_PAGE
       ),
     },
-    (_, i) => (currentPage - 1) * ITEMS_PER_PAGE + i + 1,
+    (_, i) => (currentPage - 1) * ITEMS_PER_PAGE + i + 1
   );
 
   return (
     <Box className={styles.stallMenu} key={stallId}>
       {/* Pagination Buttons */}
       {totalPages > 1 && (
-        <Box className={styles.paginationButtons}>
-          {["prev", "next"].map((dir) => (
-            <IconButton
-              key={dir}
-              className={styles.iconButton}
-              onClick={() =>
-                setCurrentPage((prev) => prev + (dir === "prev" ? -1 : 1))
-              }
-              disabled={
-                dir === "prev" ? currentPage === 1 : currentPage === totalPages
-              }
-            >
-              {dir === "prev" ? (
-                <ArrowBackIosNewIcon />
-              ) : (
-                <ArrowForwardIosIcon />
-              )}
-            </IconButton>
-          ))}
-        </Box>
+        <PaginationVariant1
+          className={commonStyles.iconButtonVariant1}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          setCurrentPage={setCurrentPage}
+        />
       )}
 
       <Grid container className={styles.menuView} spacing={0.5}>

@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
-import styles from "../../styles/shoppingcart.module.scss";
+import commonStyles from "../../styles/common.module.scss";
 import { FC } from "react";
 import { useCart } from "@/contexts/CartContext";
 import { useOrder } from "@/contexts/OrderContext";
@@ -48,11 +48,11 @@ const PaymentDetails: FC<PaymentDetailsProps> = ({ subtotal }) => {
   };
 
   return (
-    <Box className={styles.paymentDetails}>
+    <Box className={commonStyles.paymentDetails}>
       {details.map(({ label, value }) => (
-        <Stack key={label} className={styles.paymentDetailsLine}>
+        <Stack key={label} className={commonStyles.paymentDetailsLine}>
           <Typography>{label}</Typography>
-          <Typography className={styles.price}>
+          <Typography className={commonStyles.price}>
             {label === "Discount"
               ? `-$${value.toFixed(2)}`
               : `$${value.toFixed(2)}`}
@@ -60,18 +60,18 @@ const PaymentDetails: FC<PaymentDetailsProps> = ({ subtotal }) => {
         </Stack>
       ))}
 
-      {/* <Stack className={styles.paymentDetailsLine}>
-        <Typography className={styles._}>Voucher</Typography>
-        <Typography className={styles.addButton}>ADD</Typography>
+      {/* <Stack className={commonStyles.paymentDetailsLine}>
+        <Typography className={commonStyles._}>Voucher</Typography>
+        <Typography className={commonStyles.addButton}>ADD</Typography>
       </Stack> */}
 
-      <Stack className={styles.totalAmount}>
-        <Typography className={styles._}>Total</Typography>
-        <Typography className={styles.price}>${total.toFixed(2)}</Typography>
+      <Stack className={commonStyles.totalAmount}>
+        <Typography className={commonStyles._}>Total</Typography>
+        <Typography className={commonStyles.price}>${total.toFixed(2)}</Typography>
       </Stack>
 
       <Button
-        className={styles.checkoutButton}
+        className={commonStyles.checkoutButton}
         color={"primary"}
         variant={"contained"}
         size={"large"}
