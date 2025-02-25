@@ -35,7 +35,7 @@ const ShoppingCart: FC<any> = () => {
               <EmptyCartDisplay
                 imageSrc={
                   isCubiFood
-                  ? "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740135701/cubimart_emptycart_icon_hg1kxe.svg"
+                  ? "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740469687/cubimart_emptycart_icon_cbhh4u.svg"
                   : "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740135701/cubifood_emptycart_icon_ku3pne.svg"
                 }
                 shopLink={isCubiFood ? "/cubifood" : "/cubimart"}
@@ -45,7 +45,7 @@ const ShoppingCart: FC<any> = () => {
             <EmptyCartDisplay
               imageSrc={
                 isCubiFood
-                  ? "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740135701/cubimart_emptycart_icon_hg1kxe.svg"
+                  ? "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740469687/cubimart_emptycart_icon_cbhh4u.svg"
                   : "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740135701/cubifood_emptycart_icon_ku3pne.svg"
               }
               shopLink={isCubiFood ? "/cubifood" : "/cubimart"}

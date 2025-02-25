@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import Head from "next/head";
 import CheckoutForm from "@/components/checkout/CheckoutForm";
-import PaymentDetails from "@/components/cubifood/PaymentDetails";
+import PaymentDetailsReadOnly from "@/components/checkout/PaymentDetailsReadOnly";
 import styles from "../styles/checkout.module.scss";
 import { FC } from "react";
 import { useOrder } from "@/contexts/OrderContext";
@@ -31,7 +31,7 @@ const Checkout: FC<any> = () => {
               <CheckoutForm items={items} />
             </Grid>
             <Grid size={5}>
-              <PaymentDetails subtotal={subtotal} />
+              <PaymentDetailsReadOnly subtotal={subtotal} />
             </Grid>
           </Grid>
         </Box>

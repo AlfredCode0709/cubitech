@@ -5,88 +5,92 @@ import FormLabel from "@mui/material/FormLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 import { timeSlots } from "./timeslots";
-import { ChangeEvent, FC, useState } from "react";
+import { Controller } from "react-hook-form";
+import { FC, useState } from "react";
 
-const TimeSlot: FC<any> = () => {
-  const [selectedTimeSlot, setSelectedTimeSlot] = useState(timeSlots[0].value);
-  const [isConfirmed, setIsConfirmed] = useState(false);
+interface TimeSlotProps {
+  control: any;
+  name: string;
+  onChange: (newValue: string) => void;
+}
 
-  const handleTimeSlotChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedTimeSlot(event.target.value);
+const TimeSlot: FC<TimeSlotProps> = ({ control, name, onChange }) => {
+  const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
+  const [confirmed, setConfirmed] = useState<boolean>(false);
+  const [selectedLabel, setSelectedLabel] = useState<string | null>(null);
+
+  const handleSelect = (newValue: string) => {
+    setSelectedSlot(newValue);
+    const selectedTimeSlot = timeSlots.find((slot) => slot.value === newValue);
+    setSelectedLabel(selectedTimeSlot ? selectedTimeSlot.label : null);
   };
 
   const handleConfirm = () => {
-    setIsConfirmed(true);
+    if (selectedSlot) {
+      onChange(selectedSlot);
+      setConfirmed(true);
+    }
   };
 
   const handleEdit = () => {
-    setIsConfirmed(false);
+    setConfirmed(false);
   };
 
   return (
-    <FormControl sx={{ marginBottom: "5%" }}>
-      <Stack
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
-        <FormLabel>
-          Time Slot
-          {isConfirmed
-            ? `: ${
-                timeSlots.find((slot) => slot.value === selectedTimeSlot)?.label
-              }`
-            : ""}
-        </FormLabel>
-        {isConfirmed ? (
-          <Typography
-            fontWeight={500}
-            onClick={handleEdit}
-            color={"primary"}
+    <Controller
+      name={name}
+      control={control}
+      render={({ field }) => (
+        <FormControl sx={{ marginBottom: "5%" }}>
+          <Stack
             sx={{
-              cursor: "pointer",
-              "&:hover": {
-                color: "primary.dark",
-                fontWeight: 600,
-              },
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "row",
+              justifyContent: "space-between",
             }}
           >
-            EDIT
-          </Typography>
-        ) : (
-          ""
-        )}
-      </Stack>
-
-      {isConfirmed ? (
-        <></>
-      ) : (
-        <>
-          <RadioGroup
-            value={selectedTimeSlot}
-            onChange={handleTimeSlotChange}
-            sx={{ marginBottom: "2.5%" }}
-          >
-            {timeSlots.map((slot) => (
-              <FormControlLabel
-                key={slot.value}
-                value={slot.value}
-                control={<Radio />}
-                label={slot.label}
-              />
-            ))}
-          </RadioGroup>
-          <Button variant="contained" color="primary" onClick={handleConfirm}>
-            Confirm
-          </Button>
-        </>
+            <FormLabel>Time Slot: {confirmed && `${selectedLabel}`}</FormLabel>
+            {confirmed ? (
+              <Button variant="text" color="primary" onClick={handleEdit}>
+                Edit
+              </Button>
+            ) : (
+              <Button
+                variant="text"
+                color="primary"
+                disabled={!selectedSlot}
+                onClick={handleConfirm}
+              >
+                Confirm
+              </Button>
+            )}
+          </Stack>
+          {!confirmed && (
+            <Controller
+              name={name}
+              control={control}
+              render={({ field }) => (
+                <RadioGroup
+                  value={selectedSlot || field.value}
+                  onChange={(e) => handleSelect(e.target.value)}
+                >
+                  {timeSlots.map((slot) => (
+                    <FormControlLabel
+                      key={slot.value}
+                      value={slot.value}
+                      control={<Radio />}
+                      label={slot.label}
+                    />
+                  ))}
+                </RadioGroup>
+              )}
+            />
+          )}
+        </FormControl>
       )}
-    </FormControl>
+    />
   );
 };
 
