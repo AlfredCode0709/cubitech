@@ -8,7 +8,12 @@ import PaymentMethodOption from "./PaymentMethodOption";
 import TimeSlot from "./TimeSlot";
 import styles from "../../styles/checkout.module.scss";
 import { useForm } from "react-hook-form";
-import { FC } from "react";
+import { FC, useMemo, useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,
+);
 
 interface CheckoutFormProps {
   items: any[];
@@ -38,16 +43,53 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ items }) => {
     setValue("consumeBy", newValue);
     setValue(
       "collectBy",
-      newValue === "dineIn" ? "<15minsSelfCollection" : "7amTo10am"
+      newValue === "dineIn" ? "<15minsSelfCollection" : "7amTo10am",
     );
   };
 
   const handleTimeSlotChange = (newTimeSlot: string) => {
     setValue("collectBy", newTimeSlot);
   };
-  
+
   const onSubmit = async (data: CheckoutFormValues) => {
     console.log("Form Data:", data);
+
+    handleCheckout();
+  };
+
+  const [loading, setLoading] = useState(false);
+
+  // Get the base URL dynamically on the client-side
+  const baseUrl = useMemo(() => {
+    if (typeof window !== "undefined") {
+      return window.location.origin;
+    }
+    return "";
+  }, []);
+
+  const handleCheckout = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount: 1000,
+          currency: "sgd",
+        }),
+      });
+
+      const data = await response.json();
+      if (data.sessionId) {
+        const stripe = await stripePromise;
+        await stripe?.redirectToCheckout({ sessionId: data.sessionId });
+      } else {
+        console.error("Failed to create session");
+      }
+    } catch (error) {
+      console.error("Checkout error:", error);
+    }
+    setLoading(false);
   };
 
   return (
@@ -91,8 +133,10 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ items }) => {
         sx={{
           marginTop: "5%",
         }}
+        disabled={loading}
         fullWidth
       >
+        {loading ? "Pending Checkout" : "Proceed to Checkout"}
       </Button>
     </Box>
   );
