@@ -8,6 +8,8 @@
   .header {
     display: flex;
     align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
 
     .title {
       font-family: "Merriweather", Helvetica, Arial, sans-serif;
@@ -17,27 +19,21 @@
       line-height: var(--h5);
     }
 
-    .paginationButtons {
-      display: flex;
-      justify-content: flex-end;
-      gap: 16px;
+    .iconButton {
+      background: var(--white);
+      color: var(--primary-main);
 
-      .iconButton {
-        background: var(--white);
-        color: var(--primary-main);
+      &:hover {
+        background: #b7d4fa;
+      }
 
-        &:hover {
-          background: #b7d4fa;
-        }
+      &:focus {
+        background: #b7d4fa;
+      }
 
-        &:focus {
-          background: #b7d4fa;
-        }
-
-        &:disabled {
-          background: transparent;
-          color: var(--disable-main);
-        }
+      &:disabled {
+        background: transparent;
+        color: var(--disable-main);
       }
     }
   }
@@ -48,23 +44,6 @@
     .card {
       border-radius: 8px;
       overflow: hidden;
-
-      .cardMediaContainer {
-        width: 100%;
-        padding-bottom: 100%;
-        position: relative;
-
-        .cardMedia {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          max-width: 100%;
-          max-height: 100%;
-          width: auto;
-          height: auto;
-        }
-      }
 
       .cardContent {
         border-top: 1px solid var(--divider-color);
@@ -1002,5 +981,23 @@
         }
       }
     }
+  }
+}
+
+/* User Starting block styles */
+
+.userStartingBlock {
+  background: url("/default.png") center / cover no-repeat;
+  height: 72.5vh;
+  margin-top: -80px;
+}
+
+.quickStart {
+  padding: 2.5% 10%;
+  height: 27.5vh;
+  background: var(--primary-light);
+
+  .card {
+    padding: 2.5%;
   }
 }

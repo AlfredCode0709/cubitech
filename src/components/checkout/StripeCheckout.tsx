@@ -11,7 +11,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
@@ -29,10 +29,15 @@ export default async function handler(
     }
 
     if (!paymentMethod || typeof paymentMethod !== "string") {
-      return res.status(400).json({ error: "Invalid or missing payment method" });
+      return res
+        .status(400)
+        .json({ error: "Invalid or missing payment method" });
     }
 
-    const supportedPaymentMethods: Record<string, Stripe.Checkout.SessionCreateParams.PaymentMethodType[]> = {
+    const supportedPaymentMethods: Record<
+      string,
+      Stripe.Checkout.SessionCreateParams.PaymentMethodType[]
+    > = {
       paynow: ["paynow"],
       card: ["card"],
     };
@@ -44,12 +49,12 @@ export default async function handler(
     // Calculate total amount
     const totalAmount = cartItems.reduce(
       (sum, item) => sum + item.price * item.quantity,
-      0
+      0,
     );
 
     /* Stripe expects amount in cents (multiply by 100) */
-    const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = cartItems.map(
-      (item) => ({
+    const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] =
+      cartItems.map((item) => ({
         price_data: {
           currency,
           product_data: {
@@ -58,11 +63,12 @@ export default async function handler(
               ? `Customizations: ${item.customizations.join(", ")}`
               : undefined,
           },
-          unit_amount: Math.round(item.price * 100), /* Convert price to cents */
+          unit_amount: Math.round(
+            item.price * 100,
+          ) /* Convert price to cents */,
         },
         quantity: item.quantity,
-      })
-    );
+      }));
 
     const protocol = req.headers["x-forwarded-proto"] || "http";
     const baseUrl = `${protocol}://${req.headers.host}`;
