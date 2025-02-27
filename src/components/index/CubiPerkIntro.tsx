@@ -35,7 +35,9 @@ const CubiPerkIntro: FC<any> = () => {
         </Grid>
         <Grid size={6} className={styles.rightGrid}>
           <Image
-            src={"/index/block3.svg"}
+            src={
+              "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740573113/block3_h5g05x.svg"
+            }
             width={480}
             height={270}
             alt={"CubiPerk"}

@@ -12,7 +12,9 @@ const CubiRideIntro: FC<any> = () => {
       <Grid container className={styles.content}>
         <Grid size={6} className={styles.leftGrid}>
           <Image
-            src="/index/block2.svg"
+            src={
+              "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740573114/block2_izggej.svg"
+            }
             width={480}
             height={270}
             alt="CubiRide"

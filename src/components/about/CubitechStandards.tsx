@@ -10,7 +10,9 @@ const CubitechStandards: React.FC = () => {
       <Grid container className={styles.content}>
         <Grid size={6} className={styles.leftGrid}>
           <Image
-            src={"./about/block4.svg"}
+            src={
+              "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740624906/block4_dfzea5.svg"
+            }
             alt={"Cubitech Standards"}
             width={480}
             height={270}

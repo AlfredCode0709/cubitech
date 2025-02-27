@@ -21,7 +21,9 @@ const BuildingResilience: React.FC = () => {
         </Grid>
         <Grid size={6} className={styles.rightGrid}>
           <Image
-            src={"./about/block3.svg"}
+            src={
+              "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740621063/block3_lpowsc.svg"
+            }
             alt={"Building Resilience"}
             width={480}
             height={270}

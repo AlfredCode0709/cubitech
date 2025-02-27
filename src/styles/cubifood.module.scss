@@ -17,17 +17,32 @@
   .treasuresView {
     padding: 2.5% 0;
 
-    .button {
-      color: #08834e;
+    .topTreasure {
+      height: 100%;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid var(--divider-color);
 
       &:hover {
-        background: #e7fef4;
+        box-shadow: 0px 4px 8px #00000026;
       }
-    }
 
-    .topTreasure {
-      border-radius: 8px;
-      height: 100%;
+      .cardMediaContainer {
+        width: 100%;
+        padding-bottom: 100%;
+        position: relative;
+
+        .cardMedia {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+        }
+      }
 
       .cardContent {
         border-top: 1px solid var(--divider-color);
@@ -48,7 +63,30 @@
     }
 
     .treasure {
-      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid var(--divider-color);
+
+      &:hover {
+        box-shadow: 0px 4px 8px #00000026;
+      }
+
+      .cardMediaContainer {
+        width: 100%;
+        padding-bottom: 100%;
+        position: relative;
+
+        .cardMedia {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+        }
+      }
 
       .cardContent {
         border-top: 1px solid var(--divider-color);
@@ -67,38 +105,12 @@
         }
       }
     }
-  }
-}
 
-/* Main Filter styles */
-
-.mainFilter {
-  padding: 2.5% 10%;
-  background: #e9e9e9;
-
-  .filterContent {
-    align-items: center;
-
-    .clearAllButton {
+    .button {
       color: #08834e;
-      margin-right: 2.5%;
 
       &:hover {
-        background: #08834e;
-        color: var(--white);
-      }
-    }
-
-    .applyFiltersButton {
-      background: #08834e;
-
-      &:hover {
-        background: #05482b;
-      }
-
-      &:disabled {
-        background: transparent;
-        color: var(--disable-main);
+        background: #e7fef4;
       }
     }
   }
@@ -202,81 +214,46 @@
 
       .shopCard {
         width: 200px;
-        border-radius: 8px;
-      }
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        border: 1px solid var(--divider-color);
 
-      .cardContent {
-        border-top: 1px solid var(--divider-color);
-
-        .name {
-          font-weight: 500;
-          font-size: 16px;
-          line-height: var(--h6);
-          margin-bottom: 10%;
+        &:hover {
+          box-shadow: 0px 4px 8px #00000026;
         }
 
-        .chip {
-          font-weight: 500;
-          color: #066039;
-          background: #e7fef4;
-        }
-      }
-    }
-  }
-}
+        .cardMediaContainer {
+          width: 100%;
+          padding-bottom: 100%;
+          position: relative;
 
-/* Filtered Catalogue and Stall List Display styles */
-
-.filteredCatalogue,
-.stallListDisplay {
-  padding: 2.5% 10%;
-
-  // .paginationButtons {
-  //   display: flex;
-  //   justify-content: flex-end;
-  //   gap: 16px;
-
-  //   .iconButton {
-  //     background: #08834e;
-  //     color: var(--white);
-
-  //     &:hover {
-  //       background: #05482b;
-  //     }
-
-  //     &:focus {
-  //       background: #05482b;
-  //     }
-
-  //     &:disabled {
-  //       background: transparent;
-  //       color: var(--disable-main);
-  //     }
-  //   }
-  // }
-
-  .catalogueView,
-  .stallView {
-    padding: 2.5% 0;
-
-    .card {
-      border-radius: 8px;
-      overflow: hidden;
-
-      .cardContent {
-        border-top: 1px solid var(--divider-color);
-
-        .name {
-          font-weight: 500;
-          font-size: 16px;
-          line-height: var(--h6);
-          margin-bottom: 10%;
+          .cardMedia {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+          }
         }
 
-        .chip {
-          font-weight: 500;
-          color: #066039;
-          background: #e7fef4;
+        .cardContent {
+          border-top: 1px solid var(--divider-color);
+
+          .name {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: var(--h6);
+            margin-bottom: 10%;
+          }
+
+          .chip {
+            font-weight: 500;
+            color: #066039;
+            background: #e7fef4;
+          }
         }
       }
     }
@@ -287,24 +264,35 @@
 
 .outletPageCover {
   background: url("/cubifood/pagecover1.png") center / cover no-repeat;
-  height: 60vh;
+  height: 62.5vh;
 }
 
 /* Outlet Page Header styles */
 
 .outletPageHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
   padding: 2.5% 10%;
+  height: 37.5vh;
+  margin-bottom: -80px;
+  text-align: center;
 
   .outletData {
     display: flex;
-    align-items: center;
     flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    margin-top: -80px;
 
     .firstSection {
       display: flex;
       flex-direction: row;
       align-items: center;
+      text-align: left;
       gap: 16px;
 
       .avatar {
@@ -409,8 +397,8 @@
     }
 
     &.focused {
-      background: #08834e; // Focus color for the selected button
-      color: var(--white); // Text color when focused
+      background: #08834e; 
+      color: var(--white);
     }
 
     &.notFocused {
@@ -461,31 +449,17 @@
           }
         }
       }
-
-      .paginationButtons {
-        display: flex;
-        justify-content: flex-end;
-        gap: 16px;
-
-        .iconButton {
-          background: #08834e;
-          color: var(--white);
-
-          &:hover {
-            background: #05482b;
-          }
-
-          &:focus {
-            background: #05482b;
-          }
-
-          &:disabled {
-            background: transparent;
-            color: var(--disable-main);
-          }
-        }
-      }
     }
+  }
+}
+
+/* Stall List Display styles */
+
+.stallListDisplay {
+  padding: 2.5% 10%;
+
+  .stallView {
+    padding: 2.5% 0;
   }
 }
 

@@ -10,11 +10,13 @@ const DevelopingCubitech: React.FC = () => {
       <Grid container className={styles.content}>
         <Grid size={6} className={styles.leftGrid}>
           <Image
-            src={"./about/block2.svg"}
+            src={
+              "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740621061/block2_dewwvl.svg"
+            }
             alt={"Developing Cubitech"}
             width={480}
             height={270}
-            style={{ display: 'block' }}
+            style={{ display: "block" }}
           />
         </Grid>
         <Grid size={6}>

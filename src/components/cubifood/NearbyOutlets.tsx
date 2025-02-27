@@ -3,13 +3,13 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
 import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid2";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import CardMediaContainer from "../common/CardMediaContainer";
 import styles from "../../styles/cubifood.module.scss";
 import { FC, Fragment, MouseEvent, useEffect, useRef, useState } from "react";
 
@@ -99,12 +99,12 @@ const NearbyOutlets: FC<NearbyOutletsProps> = ({ numberOfStalls }) => {
       shopListRefs.current.forEach((shopList, index) => {
         if (!shopList) return;
         shopList.removeEventListener("scroll", () =>
-          updatePaginationState(index)
+          updatePaginationState(index),
         );
       });
       window.removeEventListener("resize", () => {
         shopListRefs.current.forEach((_, index) =>
-          updatePaginationState(index)
+          updatePaginationState(index),
         );
       });
     };
@@ -160,10 +160,14 @@ const NearbyOutlets: FC<NearbyOutletsProps> = ({ numberOfStalls }) => {
                 <Grid key={stallIndex} sx={{ flex: "0 0 auto" }}>
                   <Card variant={"outlined"} className={styles.shopCard}>
                     <CardActionArea href={`/cubifood/outlet/${stallIndex + 1}`}>
-                      <CardMediaContainer
-                        imageSrc={"/cubitech_brands/cubifood_light.svg"}
-                        alt={"Shop Image"}
-                      />
+                      <Box className={styles.cardMediaContainer}>
+                        <CardMedia
+                          className={styles.cardMedia}
+                          component={"img"}
+                          image={"/cubitech_brands/cubifood_light.svg"}
+                          alt={"Card Media"}
+                        />
+                      </Box>
                       <CardContent className={styles.cardContent}>
                         <Typography className={styles.name}>
                           Shop Name {stallIndex + 1}

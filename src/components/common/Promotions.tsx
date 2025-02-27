@@ -1,9 +1,7 @@
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
-import CardMediaContainer from "./CardMediaContainer";
+import ContentCard from "./ContentCard";
 import commonStyles from "../../styles/common.module.scss";
 import { FC } from "react";
 
@@ -29,17 +27,11 @@ const Promotions: FC<PromotionsProps> = ({
       <Grid container className={commonStyles.gridContainer} spacing={1}>
         {Array.from({ length: 4 }).map((_, index) => (
           <Grid size={3} key={index}>
-            <Card variant={"outlined"} className={commonStyles.card}>
-              <CardMediaContainer imageSrc={imageSrc} alt={"Promotions"} />
-              <CardContent className={commonStyles.cardContent}>
-                <Typography className={commonStyles.name}>
-                  Promotion Name
-                </Typography>
-                <Typography className={commonStyles.description}>
-                  Description
-                </Typography>
-              </CardContent>
-            </Card>
+            <ContentCard
+              imageSrc={imageSrc}
+              title={"Promotion Name"}
+              description={"Description"}
+            />
           </Grid>
         ))}
       </Grid>

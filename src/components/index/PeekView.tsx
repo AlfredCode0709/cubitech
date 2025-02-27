@@ -1,13 +1,9 @@
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardActionArea from "@mui/material/CardActionArea";
-import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid2";
-import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
-import CardMediaContainer from "../common/CardMediaContainer";
+import ItemCard from "../common/ItemCard";
 import PaginationVariant1 from "../common/PaginationVariant1";
 import commonStyles from "../../styles/common.module.scss";
 import styles from "../../styles/index.module.scss";
@@ -55,16 +51,16 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
     {
       length: Math.min(
         ITEMS_PER_PAGE,
-        totalItems - (currentPage - 1) * ITEMS_PER_PAGE
+        totalItems - (currentPage - 1) * ITEMS_PER_PAGE,
       ),
     },
-    (_, i) => (currentPage - 1) * ITEMS_PER_PAGE + i + 1
+    (_, i) => (currentPage - 1) * ITEMS_PER_PAGE + i + 1,
   );
 
   return (
     <Box
       className={styles.peekView}
-      borderTop={title === "CUBIFood" ? 0 : "1px solid var(--divider-color)"}
+      borderBottom={"1px solid var(--divider-color)"}
     >
       <Stack className={styles.header}>
         <Link href={link}>
@@ -91,28 +87,17 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
       <Grid container className={styles.itemsCatalogue} spacing={0.5}>
         {paginatedItems.map((globalIndex) => (
           <Grid size={2} key={globalIndex}>
-            <Card variant={"outlined"} className={styles.card}>
-              <CardActionArea
-                href={
-                  title === "CUBIFood"
-                    ? `/cubifood/item/${globalIndex}`
-                    : `/cubimart/item/${globalIndex}`
-                }
-              >
-                <CardMediaContainer imageSrc={imageSrc} alt={"Item Image"} />
-                <CardContent className={styles.cardContent}>
-                  <Typography className={styles.name}>
-                    Item Name {globalIndex}
-                  </Typography>
-                  <Typography className={styles.price}>$9.99</Typography>
-                  {title === "CUBIMart" ? (
-                    <Rating defaultValue={5} className={styles.rating} />
-                  ) : (
-                    ""
-                  )}
-                </CardContent>
-              </CardActionArea>
-            </Card>
+            <ItemCard
+              href={
+                title === "CUBIFood"
+                  ? `/cubifood/item/${globalIndex}`
+                  : `/cubimart/item/${globalIndex}`
+              }
+              imageSrc={imageSrc}
+              name={"Item Name " + globalIndex}
+              price={9.99}
+              isCUBIMart={title === "CUBIMart" ? true : false}
+            />
           </Grid>
         ))}
       </Grid>

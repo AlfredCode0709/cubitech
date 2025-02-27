@@ -108,15 +108,16 @@ const StallList: FC<StallListProps> = ({
         </Grid>
         <Grid
           size={3}
-          className={styles.paginationButtons}
+          justifyContent={"flex-end"}
           style={{ display: showPagination ? "flex" : "none" }}
         >
-          <PaginationVariant2 
-          className={commonStyles.iconButtonVariant1}
-          containerRef={containerRef as RefObject<HTMLDivElement>}
-          disablePrev={disablePrev}
-          disableNext={disableNext}
-          disableSkipToPrev={disableSkipToPrev} />
+          <PaginationVariant2
+            className={commonStyles.iconButtonVariant1}
+            containerRef={containerRef as RefObject<HTMLDivElement>}
+            disablePrev={disablePrev}
+            disableNext={disableNext}
+            disableSkipToPrev={disableSkipToPrev}
+          />
         </Grid>
       </Grid>
     </Box>

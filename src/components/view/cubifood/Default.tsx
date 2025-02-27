@@ -1,7 +1,7 @@
 import BrandSlogan from "@/components/common/BrandSlogan";
 import Category from "@/components/common/Category";
-import FilteredCatalogue from "@/components/cubifood/FilteredCatalogue";
-import MainFilter from "@/components/cubifood/MainFilter";
+import FilteredCatalogue from "@/components/common/FilteredCatalogue";
+import MainFilter from "@/components/common/MainFilter";
 import NearbyOutlets from "@/components/cubifood/NearbyOutlets";
 import Promotions from "@/components/common/Promotions";
 import StartingBlock2 from "@/components/common/StartingBlock2";
@@ -13,28 +13,25 @@ const Default: FC<any> = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>("");
   const [isFiltered, setIsFiltered] = useState(false);
   const [imageSrc, setImageSrc] = useState<string>(
-    "/cubitech_brands/cubifood_light.svg"
+    "/cubitech_brands/cubifood_light.svg",
   );
 
-  /* Handle category selection */
   const handleCategorySelect = (categoryName: string) => {
     setSelectedCategory(categoryName);
-    setIsFiltered(true); /* Mark as filtered after selecting category */
+    setIsFiltered(true);
 
-    /* Apply filter based on the selected category */
     const selectedCategoryItem = categories.find(
-      (category) => category.name === categoryName
+      (category) => category.name === categoryName,
     );
     const image = selectedCategoryItem
       ? selectedCategoryItem.src
-      : "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740098614/filtered_icon_ll8b8e.svg"; /* Use category image or fallback */
-    setImageSrc(image); /* Set image for the filtered category */
+      : "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740098614/filtered_icon_ll8b8e.svg";
+    setImageSrc(image);
   };
 
-  /* Handle clearing filters */
   const handleClearFilters = () => {
-    setIsFiltered(false); /* Set isFiltered to false */
-    setSelectedCategory(null); /* Optionally reset selectedCategory as well */
+    setIsFiltered(false);
+    setSelectedCategory(null);
   };
 
   return (

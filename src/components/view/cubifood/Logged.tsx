@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Category from "@/components/common/Category";
-import FilteredCatalogue from "@/components/cubifood/FilteredCatalogue";
+import FilteredCatalogue from "@/components/common/FilteredCatalogue";
 import MainFilter from "@/components/cubifood/MainFilter";
 import NearbyOutlets from "@/components/cubifood/NearbyOutlets";
 import styles from "../../../styles/cubifood.module.scss";
