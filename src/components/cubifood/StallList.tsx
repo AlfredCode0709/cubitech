@@ -83,7 +83,7 @@ const StallList: FC<StallListProps> = ({
         <Grid size={9}>
           <Box
             ref={containerRef}
-            className={`${styles.cardContainer} ${
+            className={`${styles.dataView} ${
               isDragging && styles.dragging
             }`}
             onMouseDown={handleMouseDown}
@@ -94,6 +94,7 @@ const StallList: FC<StallListProps> = ({
             {Array.from({ length: numberOfStalls }).map((_, index) => (
               <Box key={index} className={styles.cardWrapper}>
                 <Button
+                  key={index}
                   className={`${styles.stallButton} ${
                     selectedStall === index ? styles.focused : ""
                   }`}

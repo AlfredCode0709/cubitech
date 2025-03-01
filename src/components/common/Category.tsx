@@ -31,14 +31,12 @@ const Category: FC<CategoryProps> = ({
     onCategorySelect(category.name);
   };
 
-  /* Calculate size based on the number of categories */
   const numCategories = categories.length;
   const gridSize =
     numCategories === 8
       ? 1.5
-      : 2; /* If there are 8 categories, use smaller grid size */
+      : 2; 
 
-  /* Function to add line breaks to category names for better readability */
   const formatCategoryName = (name: string) => {
     return <span dangerouslySetInnerHTML={{ __html: name }} />;
   };

@@ -94,9 +94,11 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
                   : `/cubimart/item/${globalIndex}`
               }
               imageSrc={imageSrc}
-              name={"Item Name " + globalIndex}
+              name={`Item Name ${globalIndex}`}
               price={9.99}
+              haveChip={false}
               isCUBIMart={title === "CUBIMart" ? true : false}
+              onClick={() => {}}
             />
           </Grid>
         ))}

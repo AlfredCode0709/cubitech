@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid2";
 import PaginationVariant1 from "../common/PaginationVariant1";
 import commonStyles from "../../styles/common.module.scss";
 import { FC, useState } from "react";
-import CatalogueItemCard from "./CatalogueItemCard";
+import ItemCard from "./ItemCard";
 
 interface FilteredCatalogueProps {
   imageSrc: string;
@@ -46,12 +46,13 @@ const FilteredCatalogue: FC<FilteredCatalogueProps> = ({
       <Grid container className={commonStyles.catalogueView} spacing={0.5}>
         {paginatedItems.map((globalIndex) => (
           <Grid size={2} key={globalIndex}>
-            <CatalogueItemCard
+            <ItemCard
               href={`/cubifood/outlet/${globalIndex}`}
               imageSrc={imageSrc}
               name={`Shop Name ${globalIndex}`}
+              price={0}
               haveChip={true}
-              onClick={() => {}}
+              isCUBIMart={false}            
             />
           </Grid>
         ))}

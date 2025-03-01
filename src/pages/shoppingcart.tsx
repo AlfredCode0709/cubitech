@@ -1,15 +1,10 @@
-import Box from "@mui/material/Box";
+import CartView from "@/components/view/shoppingcart/CartView";
 import Head from "next/head";
-import ShoppingCartDisplay from "@/components/cubifood/ShoppingCartDisplay";
-import EmptyCartDisplay from "@/components/common/EmptyCartDisplay";
-import Toggle from "@/components/shoppingcart/Toggle";
-import styles from "../styles/shoppingcart.module.scss";
 import { useCart } from "@/contexts/CartContext";
 import { FC, useState } from "react";
 
 const ShoppingCart: FC<any> = () => {
   const { state, dispatch } = useCart();
-  const items = state.items;
 
   const [isCubiFood, setIsCubiFood] = useState(false);
 
@@ -25,33 +20,7 @@ const ShoppingCart: FC<any> = () => {
         />
       </Head>
       <main>
-        <Box className={styles.shoppingCart}>
-          <Toggle isCubiFood={isCubiFood} setIsCubiFood={setIsCubiFood} />
-
-          {state.items.length > 0 ? (
-            !isCubiFood ? (
-              <ShoppingCartDisplay dispatch={dispatch} items={items} />
-            ) : (
-              <EmptyCartDisplay
-                imageSrc={
-                  isCubiFood
-                  ? "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740469687/cubimart_emptycart_icon_cbhh4u.svg"
-                  : "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740135701/cubifood_emptycart_icon_ku3pne.svg"
-                }
-                shopLink={isCubiFood ? "/cubifood" : "/cubimart"}
-              />
-            )
-          ) : (
-            <EmptyCartDisplay
-              imageSrc={
-                isCubiFood
-                  ? "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740469687/cubimart_emptycart_icon_cbhh4u.svg"
-                  : "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740135701/cubifood_emptycart_icon_ku3pne.svg"
-              }
-              shopLink={isCubiFood ? "/cubifood" : "/cubimart"}
-            />
-          )}
-        </Box>
+        <CartView state={state} dispatch={dispatch} isCubiFood={isCubiFood} setIsCubiFood={setIsCubiFood} />
       </main>
     </>
   );

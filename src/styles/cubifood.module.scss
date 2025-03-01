@@ -21,7 +21,6 @@
       height: 100%;
       overflow: hidden;
       transition: all 0.3s ease-in-out;
-      border: 1px solid var(--divider-color);
 
       &:hover {
         box-shadow: 0px 4px 8px #00000026;
@@ -51,7 +50,7 @@
           font-weight: 500;
           font-size: 20px;
           line-height: var(--h6);
-          margin-bottom: 2.5%;
+          margin-bottom: 3%;
         }
 
         .description {
@@ -65,7 +64,6 @@
     .treasure {
       overflow: hidden;
       transition: all 0.3s ease-in-out;
-      border: 1px solid var(--divider-color);
 
       &:hover {
         box-shadow: 0px 4px 8px #00000026;
@@ -95,7 +93,7 @@
           font-weight: 500;
           font-size: 18px;
           line-height: var(--h6);
-          margin-bottom: 2.5%;
+          margin-bottom: 3%;
         }
 
         .description {
@@ -411,7 +409,7 @@
     .data {
       align-items: center;
 
-      .cardContainer {
+      .dataView {
         display: flex;
         gap: 20px;
         overflow-x: auto;
@@ -429,24 +427,6 @@
         .cardWrapper {
           text-align: center;
           flex-shrink: 0;
-
-          .card {
-            padding: 5%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            height: 45px;
-            width: 125px;
-            cursor: pointer;
-
-            &:hover {
-              box-shadow: 0 4px 8px #0000001a;
-              transition: transform 0.3s, box-shadow 0.3s;
-            }
-          }
         }
       }
     }
@@ -498,135 +478,6 @@
     .card {
       border-radius: 8px;
       overflow: hidden;
-
-      .cardContent {
-        border-top: 1px solid var(--divider-color);
-
-        .name {
-          font-weight: 500;
-          font-size: 16px;
-          line-height: var(--h6);
-          margin-bottom: 10%;
-        }
-
-        .price {
-          font-size: 16px;
-          line-height: var(--body1);
-          color: var(--secondary-main);
-        }
-      }
-    }
-  }
-}
-
-/* Item Data styles */
-
-.itemData {
-  padding: 2.5% 10%;
-
-  .itemImage {
-    border-radius: 8px;
-  }
-
-  .itemContent {
-    padding: 2.5%;
-
-    .itemName {
-      font-weight: 500;
-      font-size: 28px;
-      line-height: var(--h4);
-      margin-bottom: 4%;
-    }
-
-    .itemPrice {
-      font-size: 24px;
-      line-height: var(--body1);
-      color: var(--secondary-main);
-    }
-
-    .orderCustomisation {
-      padding: 5% 0;
-    }
-
-    .button {
-      background: #08834e;
-      margin-right: 2.5%;
-
-      &:hover {
-        background: #05482b;
-      }
-
-      &:disabled {
-        background: transparent;
-        color: var(--disable-main);
-      }
-    }
-  }
-}
-
-/* More Items Data styles */
-
-.moreItemsData {
-  padding: 2.5% 10%;
-
-  .header {
-    display: flex;
-    align-items: center;
-
-    .title {
-      font-size: 18px;
-      line-height: var(--body1);
-    }
-
-    .paginationButtons {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 16px;
-
-      .iconButton {
-        background: #08834e;
-        color: var(--white);
-
-        &:hover {
-          background: #05482b;
-        }
-
-        &:focus {
-          background: #05482b;
-        }
-
-        &:disabled {
-          background: transparent;
-          color: var(--disable-main);
-        }
-      }
-    }
-  }
-
-  .itemsView {
-    padding: 2.5% 0;
-
-    .card {
-      border-radius: 8px;
-      overflow: hidden;
-
-      .cardMediaContainer {
-        width: 100%;
-        padding-bottom: 100%;
-        position: relative;
-
-        .cardMedia {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          max-width: 100%;
-          max-height: 100%;
-          width: auto;
-          height: auto;
-        }
-      }
 
       .cardContent {
         border-top: 1px solid var(--divider-color);

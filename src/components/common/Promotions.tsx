@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
-import ContentCard from "./ContentCard";
+import InfoCard from "./InfoCard";
 import commonStyles from "../../styles/common.module.scss";
 import { FC } from "react";
 
@@ -27,10 +27,12 @@ const Promotions: FC<PromotionsProps> = ({
       <Grid container className={commonStyles.gridContainer} spacing={1}>
         {Array.from({ length: 4 }).map((_, index) => (
           <Grid size={3} key={index}>
-            <ContentCard
+            <InfoCard
               imageSrc={imageSrc}
               title={"Promotion Name"}
               description={"Description"}
+              titleFontSize={18}
+              descrFontSize={14}
             />
           </Grid>
         ))}

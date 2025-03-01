@@ -1,14 +1,10 @@
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardActionArea from "@mui/material/CardActionArea";
-import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid2";
-import Typography from "@mui/material/Typography";
-// import CardMediaContainer from "../common/CardMediaContainer";
 import PaginationVariant1 from "../common/PaginationVariant1";
 import commonStyles from "../../styles/common.module.scss";
 import styles from "../../styles/cubifood.module.scss";
 import { FC, useState } from "react";
+import ItemCard from "../common/ItemCard";
 
 interface StallMenuProps {
   stallId: number;
@@ -48,20 +44,15 @@ const StallMenu: FC<StallMenuProps> = ({ stallId, numberOfItems }) => {
       <Grid container className={styles.menuView} spacing={0.5}>
         {paginatedItems.map((globalIndex) => (
           <Grid size={2} key={globalIndex}>
-            <Card variant={"outlined"} className={styles.card}>
-              <CardActionArea href={`/cubifood/item/${globalIndex}`}>
-                {/* <CardMediaContainer
-                  imageSrc={"/cubitech_brands/cubifood_light.svg"}
-                  alt={"Categorised Item"}
-                /> */}
-                <CardContent className={styles.cardContent}>
-                  <Typography className={styles.name}>
-                    Item Name {globalIndex}
-                  </Typography>
-                  <Typography className={styles.price}>$9.99</Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+            <ItemCard
+              href={`/cubifood/item/${globalIndex}`}
+              imageSrc={"/cubitech_brands/cubifood_light.svg"}
+              name={`Item Name ${globalIndex}`}
+              price={9.99}
+              haveChip={false}
+              isCUBIMart={false}
+              onClick={() => {}}
+            />
           </Grid>
         ))}
       </Grid>

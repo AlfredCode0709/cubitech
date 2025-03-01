@@ -1,4 +1,4 @@
-.shoppingCart {
+.cartView {
   padding: 2.5% 10%;
   border-bottom: 1px solid var(--divider-color);
 
@@ -30,13 +30,12 @@
   }
 
   /* Shopping Cart header styles */
-  .header {
+  .shoppingCartHeader {
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
     margin: 2.5% 0;
-    background: lavender;
 
     .title {
       font-size: 32px;

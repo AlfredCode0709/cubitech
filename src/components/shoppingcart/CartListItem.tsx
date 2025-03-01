@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
 import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid2";
 import IconButton from "@mui/material/IconButton";
@@ -7,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import RemoveIcon from "@mui/icons-material/Remove";
-import CardMediaContainer from "@/components/common/CardMediaContainer";
+import ItemImage from "../common/ItemImage";
 import styles from "../../styles/shoppingcart.module.scss";
 import { FC } from "react";
 import { useCart } from "@/contexts/CartContext";
@@ -52,15 +51,10 @@ const CartListItem: FC<CartListItemProps> = ({ item }) => {
     <>
       <Grid size={12} container className={styles.cartListItem}>
         <Grid size={0.75}>
-          <Checkbox />
+          <Checkbox sx={{ marginTop: "-6.5px" }} />
         </Grid>
         <Grid size={1.75}>
-          <Card variant={"outlined"}>
-            <CardMediaContainer
-              imageSrc={"/cubitech_brands/cubitech_light.svg"}
-              alt={"Item Image"}
-            />
-          </Card>
+          <ItemImage imageSrc={"/cubitech_brands/cubitech_light.svg"} />
         </Grid>
         <Grid size={5} className={styles.itemData}>
           <Typography className={styles.itemName}>{item.name}</Typography>

@@ -1,10 +1,10 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
+import ItemCard from "../common/ItemCard";
 import PaginationVariant1 from "../common/PaginationVariant1";
 import commonStyles from "../../styles/common.module.scss";
 import styles from "../../styles/cubifood.module.scss";
 import { FC, useState } from "react";
-import CatalogueItemCard from "../common/CatalogueItemCard";
 
 interface StallListDisplayProps {
   onSelectStall: (stallId: number) => void;
@@ -47,12 +47,15 @@ const StallListDisplay: FC<StallListDisplayProps> = ({
       <Grid container className={styles.stallView} spacing={0.5}>
         {paginatedItems.map((globalIndex) => (
           <Grid size={2} key={globalIndex}>
-            <CatalogueItemCard
+            <ItemCard
               href={"#"}
               imageSrc={"/cubitech_brands/cubifood_light.svg"}
               name={`Shop Name ${globalIndex}`}
+              price={0}
               haveChip={true}
-              onClick={() => {
+              isCUBIMart={false}
+              onClick={(e: any) => {
+                e.preventDefault();
                 onSelectStall(globalIndex - 1);
               }}
             />

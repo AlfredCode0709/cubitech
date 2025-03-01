@@ -2,11 +2,10 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import styles from "../../styles/cubifood.module.scss";
+import commonStyles from "../../../styles/common.module.scss";
 import { FC } from "react";
 
 interface ItemActionButtonsProps {
-  user: any;
   router: any;
   watch: any;
   reset: () => void;
@@ -14,16 +13,15 @@ interface ItemActionButtonsProps {
 }
 
 const ItemActionButtons: FC<ItemActionButtonsProps> = ({
-  user,
   router,
   watch,
   reset,
   onSubmit,
 }) => {
   return (
-    <Box>
+    <Box className={commonStyles.itemActionButtons}>
       <Button
-        className={styles.button}
+        className={commonStyles.button}
         size="large"
         variant="contained"
         startIcon={<ArrowBackIcon />}
@@ -32,7 +30,7 @@ const ItemActionButtons: FC<ItemActionButtonsProps> = ({
         Back
       </Button>
       <Button
-        className={styles.button}
+        className={commonStyles.button}
         size="large"
         variant="contained"
         onClick={() => reset()}
@@ -40,7 +38,7 @@ const ItemActionButtons: FC<ItemActionButtonsProps> = ({
         Reset
       </Button>
       <Button
-        className={styles.button}
+        className={commonStyles.button}
         size="large"
         variant="contained"
         startIcon={<AddIcon />}

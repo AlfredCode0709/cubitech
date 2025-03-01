@@ -20,6 +20,7 @@
     .avatar {
       width: 170px;
       height: 40px;
+      transition: all 0.3s ease-in-out;
 
       &:hover {
         opacity: 0.75;
@@ -46,6 +47,7 @@
       letter-spacing: 1;
       color: var(--primary-main);
       line-height: var(--h4);
+      transition: all 0.3s ease-in-out;
 
       &:hover {
         opacity: 0.75;

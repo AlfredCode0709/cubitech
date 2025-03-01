@@ -4,21 +4,25 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import commonStyles from "../../styles/common.module.scss";
-import { FC } from "react";
+import { CSSProperties, FC } from "react";
 
-interface ContentCardProps {
+interface InfoCardProps {
   imageSrc: string;
   title: string;
   description: string;
+  titleFontSize: number;
+  descrFontSize: number;
 }
 
-const ContentCard: FC<ContentCardProps> = ({
+const InfoCard: FC<InfoCardProps> = ({
   imageSrc,
   title,
   description,
+  titleFontSize,
+  descrFontSize
 }) => {
   return (
-    <Card className={commonStyles.contentCard} elevation={0}>
+    <Card className={commonStyles.infoCard} variant={'outlined'}>
       {/* Card Media */}
       <Box className={commonStyles.cardMediaContainer}>
         <CardMedia
@@ -30,9 +34,17 @@ const ContentCard: FC<ContentCardProps> = ({
       </Box>
 
       {/* Card Content */}
-      <CardContent className={commonStyles.cardContentData}>
-        <Typography className={commonStyles.title}>{title}</Typography>
-        <Typography className={commonStyles.description}>
+      <CardContent className={commonStyles.contentData}>
+        <Typography className={commonStyles.title} style={
+          {
+            '--title-font-size': `${titleFontSize}px`, 
+          } as CSSProperties
+        }>{title}</Typography>
+        <Typography className={commonStyles.descr} style={
+          {
+            '--descr-font-size': `${descrFontSize}px`, 
+          } as CSSProperties
+        }>
           {description}
         </Typography>
       </CardContent>
@@ -40,4 +52,4 @@ const ContentCard: FC<ContentCardProps> = ({
   );
 };
 
-export default ContentCard;
+export default InfoCard;

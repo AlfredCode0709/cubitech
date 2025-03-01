@@ -15,7 +15,7 @@ import MainMenu from "./MainMenu";
 import SearchBar from "./SearchBar";
 import UserMenu from "./UserMenu";
 import { useUser } from "@auth0/nextjs-auth0";
-import { FC, MouseEvent, useEffect, useState } from "react";
+import { FC, MouseEvent, useState } from "react";
 import { useCart } from "@/contexts/CartContext";
 
 const Navbar: FC<any> = () => {
@@ -23,11 +23,11 @@ const Navbar: FC<any> = () => {
   const { state: cartState } = useCart();
 
   const [mainMenuAnchorEl, setMainMenuAnchorEl] = useState<null | HTMLElement>(
-    null,
+    null
   );
 
   const [userMenuAnchorEl, setUserMenuAnchorEl] = useState<null | HTMLElement>(
-    null,
+    null
   );
 
   const handleMainMenu = (event: MouseEvent<HTMLElement>) => {
@@ -58,51 +58,52 @@ const Navbar: FC<any> = () => {
           </Link>
           <SearchBar />
           <Box flexGrow={1} />
-          <IconButton
-            color={"inherit"}
-            size={"large"}
-            sx={{ marginRight: "1%" }}
-            href={"/shoppingcart"}
-          >
-            <Badge
-              color={"error"}
-              badgeContent={cartItemCount}
-              invisible={cartItemCount === 0} // Hide badge if cart is empty
+          <Box display={'flex'} gap={"16px"}>
+            <IconButton
+              color={"inherit"}
+              size={"large"}
+              // sx={{ marginRight: "1%" }}
+              href={"/shoppingcart"}
             >
-              <ShoppingCartIcon />
-            </Badge>
-          </IconButton>
-          {user ? (
-            <>
+              <Badge
+                color={"error"}
+                badgeContent={cartItemCount}
+                invisible={cartItemCount === 0} // Hide badge if cart is empty
+              >
+                <ShoppingCartIcon />
+              </Badge>
+            </IconButton>
+            {user ? (
               <Button
                 startIcon={<AccountCircleIcon />}
                 color={"inherit"}
                 size={"large"}
-                sx={{ marginRight: "1%" }}
+                // sx={{ marginRight: "1%" }}
                 onClick={handleUserMenu}
               >
                 {user.name && user.name.split(" ")[0]}
               </Button>
-            </>
-          ) : (
-            <Button
-              startIcon={<LoginIcon />}
+            ) : (
+              <Button
+                startIcon={<LoginIcon />}
+                color={"inherit"}
+                size={"large"}
+                sx={{ marginRight: "1%" }}
+                href={"/auth/login"}
+                disabled
+              >
+                Login
+              </Button>
+            )}
+            <IconButton
+              onClick={handleMainMenu}
               color={"inherit"}
               size={"large"}
-              sx={{ marginRight: "1%" }}
-              href={"/auth/login"}
+              edge={"end"}
             >
-              Login
-            </Button>
-          )}
-          <IconButton
-            onClick={handleMainMenu}
-            color={"inherit"}
-            size={"large"}
-            edge={"end"}
-          >
-            <MenuIcon />
-          </IconButton>
+              <MenuIcon />
+            </IconButton>
+          </Box>
           <MainMenu
             anchorEl={mainMenuAnchorEl}
             handleClose={handleCloseMainMenu}

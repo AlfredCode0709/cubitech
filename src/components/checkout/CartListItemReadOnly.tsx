@@ -1,7 +1,6 @@
-import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
-import CardMediaContainer from "@/components/common/CardMediaContainer";
+import ItemImage from "../common/ItemImage";
 import styles from "../../styles/checkout.module.scss";
 import { FC } from "react";
 
@@ -23,12 +22,7 @@ const CartListItemReadOnly: FC<CartListItemReadOnlyProps> = ({ item }) => {
     <>
       <Grid size={12} container className={styles.cartListItemReadOnly}>
         <Grid size={2}>
-          <Card variant={"outlined"}>
-            <CardMediaContainer
-              imageSrc={"/cubitech_brands/cubitech_light.svg"}
-              alt={"Item Image"}
-            />
-          </Card>
+          <ItemImage imageSrc={"/cubitech_brands/cubitech_light.svg"} />
         </Grid>
         <Grid size={1}>
           <Typography className={styles.itemQuantity}>

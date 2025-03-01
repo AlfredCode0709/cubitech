@@ -1,6 +1,6 @@
 import Head from "next/head";
-import ItemData from "@/components/cubifood/ItemData";
-import MoreItemsData from "@/components/cubifood/MoreItemsData";
+import ItemData from "@/components/common/ItemData";
+import MoreItemsDrawer from "@/components/common/MoreItemsDrawer";
 import { FC } from "react";
 
 const ItemView: FC<any> = () => {
@@ -16,8 +16,8 @@ const ItemView: FC<any> = () => {
         {/* Item Data */}
         <ItemData />
 
-        {/* More Items Data */}
-        <MoreItemsData TOTAL_ITEMS={18} />
+        {/* More Items Drawer */}
+        <MoreItemsDrawer totalItems={18} />
       </main>
     </>
   );

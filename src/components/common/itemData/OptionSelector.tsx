@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
@@ -30,26 +31,28 @@ const OptionSelector: FC<OptionSelectorProps> = ({
       }}
     >
       <FormLabel>Options</FormLabel>
-      <Controller
-        name="option"
-        control={control}
-        rules={{ required: "Please select one option" }}
-        render={({ field }) => (
-          <RadioGroup row {...field}>
-            {options.map((opt) => (
-              <FormControlLabel
-                key={opt.value}
-                value={opt.value}
-                control={<Radio />}
-                label={opt.label}
-              />
-            ))}
-          </RadioGroup>
+      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+        <Controller
+          name="option"
+          control={control}
+          rules={{ required: "Please select one option" }}
+          render={({ field }) => (
+            <RadioGroup row {...field}>
+              {options.map((opt) => (
+                <FormControlLabel
+                  key={opt.value}
+                  value={opt.value}
+                  control={<Radio />}
+                  label={opt.label}
+                />
+              ))}
+            </RadioGroup>
+          )}
+        />
+        {errors.option && (
+          <Typography color="error">{errors.option.message}</Typography>
         )}
-      />
-      {errors.option && (
-        <Typography color="error">{errors.option.message}</Typography>
-      )}
+      </Box>
     </FormControl>
   </Grid>
 );

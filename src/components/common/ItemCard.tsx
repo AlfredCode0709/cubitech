@@ -3,6 +3,7 @@ import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import Chip from "@mui/material/Chip";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 import commonStyles from "../../styles/common.module.scss";
@@ -13,7 +14,9 @@ interface ItemCardProps {
   imageSrc: string;
   name: string;
   price: number | 0;
+  haveChip: boolean;
   isCUBIMart: boolean;
+  onClick: any;
 }
 
 const ItemCard: FC<ItemCardProps> = ({
@@ -21,11 +24,13 @@ const ItemCard: FC<ItemCardProps> = ({
   imageSrc,
   name,
   price,
+  haveChip,
   isCUBIMart,
+  onClick
 }) => {
   return (
-    <Card className={commonStyles.itemCard} elevation={0}>
-      <CardActionArea href={href}>
+    <Card className={commonStyles.itemCard} variant={"outlined"}>
+      <CardActionArea href={href} onClick={onClick}>
         {/* Card Media */}
         <Box className={commonStyles.cardMediaContainer}>
           <CardMedia
@@ -37,7 +42,7 @@ const ItemCard: FC<ItemCardProps> = ({
         </Box>
 
         {/* Card Content */}
-        <CardContent className={commonStyles.cardContentData}>
+        <CardContent className={commonStyles.contentData}>
           <Typography className={commonStyles.name}>{name}</Typography>
           {price !== 0 && (
             <Typography
@@ -46,6 +51,9 @@ const ItemCard: FC<ItemCardProps> = ({
           )}
           {isCUBIMart === true && (
             <Rating defaultValue={5} className={commonStyles.rating} />
+          )}
+          {haveChip === true && (
+            <Chip className={commonStyles.chip} label={"9mins"} />
           )}
         </CardContent>
       </CardActionArea>

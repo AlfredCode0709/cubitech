@@ -10,7 +10,7 @@ import styles from "../../styles/cubifood.module.scss";
 import { FC } from "react";
 
 const TreasureCard: FC<{ isMain?: boolean }> = ({ isMain = false }) => (
-  <Card className={isMain ? styles.topTreasure : styles.treasure} elevation={0}>
+  <Card variant={'outlined'} className={isMain ? styles.topTreasure : styles.treasure}>
     <CardActionArea>
       {/* Card Media */}
       <Box className={styles.cardMediaContainer}>

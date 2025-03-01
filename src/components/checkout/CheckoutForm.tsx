@@ -47,18 +47,18 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ items }) => {
     setValue("collectBy", newTimeSlot);
   };
 
-  const { handleCheckout, loading } = useStripeCheckout();
+  // const { handleCheckout, loading } = useStripeCheckout();
 
   const onSubmit = async (data: CheckoutFormValues) => {
     console.log("Form Data:", data);
     
-    handleCheckout({
-      cartItems: data.cartItems,
-      currency: "sgd",
-      paymentMethod: data.paymentMethod.toLowerCase().includes("paynow")
-        ? "paynow"
-        : "card",
-    });
+    // handleCheckout({
+    //   cartItems: data.cartItems,
+    //   currency: "sgd",
+    //   paymentMethod: data.paymentMethod.toLowerCase().includes("paynow")
+    //     ? "paynow"
+    //     : "card",
+    // });
   };
 
   return (
@@ -93,7 +93,7 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ items }) => {
 
       <PaymentMethodOption control={control} name="paymentMethod" />
 
-      <Button
+      {/* <Button
         color={"primary"}
         variant={"contained"}
         size={"large"}
@@ -106,7 +106,7 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ items }) => {
         fullWidth
       >
         {loading ? "Pending Checkout" : "Proceed to Checkout"}
-      </Button>
+      </Button> */}
     </Box>
   );
 };
