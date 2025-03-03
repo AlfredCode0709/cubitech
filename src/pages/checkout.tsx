@@ -1,17 +1,11 @@
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid2";
+import dynamic from "next/dynamic";
 import Head from "next/head";
-import CheckoutForm from "@/components/checkout/CheckoutForm";
-import PaymentDetailsReadOnly from "@/components/checkout/PaymentDetailsReadOnly";
-import styles from "../styles/checkout.module.scss";
 import { FC } from "react";
-import { useOrder } from "@/contexts/OrderContext";
 
 const Checkout: FC<any> = () => {
-  const { state } = useOrder();
-
-  const items = state?.items;
-  const subtotal = state?.subtotal;
+  const CheckoutView = dynamic(() => import("@/view/checkout/CheckoutView"), {
+    ssr: false, // Ensures it's only rendered on the client
+  });
 
   return (
     <>
@@ -25,16 +19,7 @@ const Checkout: FC<any> = () => {
         />
       </Head>
       <main>
-        <Box className={styles.checkout}>
-          <Grid container spacing={2}>
-            <Grid size={7}>
-              <CheckoutForm items={items} />
-            </Grid>
-            <Grid size={5}>
-              <PaymentDetailsReadOnly subtotal={subtotal} />
-            </Grid>
-          </Grid>
-        </Box>
+        <CheckoutView />
       </main>
     </>
   );

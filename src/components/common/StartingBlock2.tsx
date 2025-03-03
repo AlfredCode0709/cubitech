@@ -6,15 +6,13 @@ interface StartingBlock2Props {
   backgroundImage: string;
 }
 
-const StartingBlock2: FC<StartingBlock2Props> = ({
-  backgroundImage,
-}) => {
+const StartingBlock2: FC<StartingBlock2Props> = ({ backgroundImage }) => {
   return (
     <Box
       className={commonStyles.startingBlock2}
       style={
         {
-          "--background-image": `url(${backgroundImage})`,
+          "--background-image": `url(${backgroundImage || "/default.png"})`,
         } as CSSProperties
       }
     />

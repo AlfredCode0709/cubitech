@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import commonStyles from "../../styles/common.module.scss";
+import styles from "../../styles/checkout.module.scss";
 import { FC } from "react";
 
 interface PaymentDetailsReadOnly {
@@ -20,11 +20,11 @@ const PaymentDetailsReadOnly: FC<PaymentDetailsReadOnly> = ({ subtotal }) => {
   ];
 
   return (
-    <Box className={commonStyles.paymentDetails}>
+    <Box className={styles.paymentDetailsReadOnly}>
       {details.map(({ label, value }) => (
-        <Stack key={label} className={commonStyles.paymentDetailsLine}>
-          <Typography>{label}</Typography>
-          <Typography className={commonStyles.price}>
+        <Stack key={label} className={styles.paymentDetailsLine}>
+          <Typography className={styles._}>{label}</Typography>
+          <Typography className={styles.price}>
             {label === "Discount"
               ? `-$${value.toFixed(2)}`
               : `$${value.toFixed(2)}`}
@@ -32,9 +32,9 @@ const PaymentDetailsReadOnly: FC<PaymentDetailsReadOnly> = ({ subtotal }) => {
         </Stack>
       ))}
 
-      <Stack className={commonStyles.totalAmount}>
-        <Typography className={commonStyles._}>Total</Typography>
-        <Typography className={commonStyles.price}>
+      <Stack className={styles.totalAmount}>
+        <Typography className={styles._}>Total</Typography>
+        <Typography className={styles.price}>
           ${total.toFixed(2)}
         </Typography>
       </Stack>

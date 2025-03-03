@@ -6,19 +6,11 @@
   .content {
     display: flex;
     align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
 
-    .leftGrid {
-      text-align: left;
-    }
-
-    .rightGrid {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .leftGridBox {
-      width: 90%;
-      margin-right: 10%;
+    .leftContent {
+      width: 45%;
 
       .title {
         font-weight: 600;
@@ -36,9 +28,8 @@
       }
     }
 
-    .rightGridBox {
-      width: 90%;
-      margin-left: 10%;
+    .rightContent {
+      width: 45%;
 
       .title {
         font-weight: 600;

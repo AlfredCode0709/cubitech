@@ -51,7 +51,7 @@ const CartListItem: FC<CartListItemProps> = ({ item }) => {
     <>
       <Grid size={12} container className={styles.cartListItem}>
         <Grid size={0.75}>
-          <Checkbox sx={{ marginTop: "-6.5px" }} />
+          <Checkbox sx={{ marginTop: "-20px" }} />
         </Grid>
         <Grid size={1.75}>
           <ItemImage imageSrc={"/cubitech_brands/cubitech_light.svg"} />

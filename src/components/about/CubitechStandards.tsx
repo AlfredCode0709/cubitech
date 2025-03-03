@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid2";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import styles from "../../styles/about.module.scss";
@@ -7,29 +7,25 @@ import styles from "../../styles/about.module.scss";
 const CubitechStandards: React.FC = () => {
   return (
     <Box className={styles.container}>
-      <Grid container className={styles.content}>
-        <Grid size={6} className={styles.leftGrid}>
-          <Image
-            src={
-              "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740624906/block4_dfzea5.svg"
-            }
-            alt={"Cubitech Standards"}
-            width={480}
-            height={270}
-            style={{ display: "block" }}
-          />
-        </Grid>
-        <Grid size={6}>
-          <Box className={styles.rightGridBox}>
-            <Typography className={styles.title}>Cubitech Standards</Typography>
-            <Typography className={styles.subtitle}>
-              We embrace strong corporate governance to fulfill the Cubitech
-              Vision, making life easier through the seamless integration of
-              diverse technologies.
-            </Typography>
-          </Box>
-        </Grid>
-      </Grid>
+      <Stack className={styles.content}>
+        <Image
+          src={
+            "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740624906/block4_dfzea5.svg"
+          }
+          alt={"Cubitech Standards"}
+          width={480}
+          height={270}
+          style={{ display: "block" }}
+        />
+        <Box className={styles.rightContent}>
+          <Typography className={styles.title}>Cubitech Standards</Typography>
+          <Typography className={styles.subtitle}>
+            We embrace strong corporate governance to fulfill the Cubitech
+            Vision, making life easier through the seamless integration of
+            diverse technologies.
+          </Typography>
+        </Box>
+      </Stack>
     </Box>
   );
 };

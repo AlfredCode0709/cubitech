@@ -46,7 +46,7 @@ const Category: FC<CategoryProps> = ({
       className={commonStyles.category}
       style={
         {
-          color: `${primaryColor}`,
+          color: `${primaryColor || "var(--primary-main)"}`,
         } as CSSProperties
       }
     >
@@ -61,10 +61,10 @@ const Category: FC<CategoryProps> = ({
                 className={commonStyles.avatar}
                 style={
                   {
-                    backgroundColor: `${bgColor}`,
+                    backgroundColor: `${bgColor || "var(--primary-light)"}`,
                     border:
                       selectedCategory === category.name
-                        ? `2px solid ${primaryColor}`
+                        ? `2px solid ${primaryColor || "var(--primary-main)"}`
                         : "none",
                   } as CSSProperties
                 }

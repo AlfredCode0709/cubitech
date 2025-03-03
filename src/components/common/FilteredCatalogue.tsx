@@ -1,16 +1,16 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
+import ItemCard from "./ItemCard";
 import PaginationVariant1 from "../common/PaginationVariant1";
 import commonStyles from "../../styles/common.module.scss";
 import { FC, useState } from "react";
-import ItemCard from "./ItemCard";
 
 interface FilteredCatalogueProps {
   imageSrc: string;
   numberOfStalls: number;
 }
 
-const ITEMS_PER_PAGE = 12;
+const itemsPerPage = 12;
 
 const FilteredCatalogue: FC<FilteredCatalogueProps> = ({
   imageSrc,
@@ -19,16 +19,16 @@ const FilteredCatalogue: FC<FilteredCatalogueProps> = ({
   const [currentPage, setCurrentPage] = useState(1);
 
   /* Total items and paginated data */
-  const totalPages = Math.ceil(numberOfStalls / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(numberOfStalls / itemsPerPage);
 
   const paginatedItems = Array.from(
     {
       length: Math.min(
-        ITEMS_PER_PAGE,
-        numberOfStalls - (currentPage - 1) * ITEMS_PER_PAGE,
+        itemsPerPage,
+        numberOfStalls - (currentPage - 1) * itemsPerPage,
       ),
     },
-    (_, i) => (currentPage - 1) * ITEMS_PER_PAGE + i + 1,
+    (_, i) => (currentPage - 1) * itemsPerPage + i + 1,
   );
 
   return (
@@ -52,7 +52,8 @@ const FilteredCatalogue: FC<FilteredCatalogueProps> = ({
               name={`Shop Name ${globalIndex}`}
               price={0}
               haveChip={true}
-              isCUBIMart={false}            
+              isCUBIMart={false} 
+              onClick={() => {}}           
             />
           </Grid>
         ))}

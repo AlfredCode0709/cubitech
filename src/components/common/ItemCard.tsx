@@ -1,11 +1,10 @@
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Chip from "@mui/material/Chip";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
+import CardMediaContainer from "./CardMediaContainer";
 import commonStyles from "../../styles/common.module.scss";
 import { FC } from "react";
 
@@ -26,20 +25,13 @@ const ItemCard: FC<ItemCardProps> = ({
   price,
   haveChip,
   isCUBIMart,
-  onClick
+  onClick,
 }) => {
   return (
     <Card className={commonStyles.itemCard} variant={"outlined"}>
       <CardActionArea href={href} onClick={onClick}>
         {/* Card Media */}
-        <Box className={commonStyles.cardMediaContainer}>
-          <CardMedia
-            className={commonStyles.cardMedia}
-            component={"img"}
-            image={imageSrc}
-            alt={"Card Media"}
-          />
-        </Box>
+        <CardMediaContainer imageSrc={imageSrc} />
 
         {/* Card Content */}
         <CardContent className={commonStyles.contentData}>

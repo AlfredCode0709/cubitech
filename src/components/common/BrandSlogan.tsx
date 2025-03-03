@@ -14,7 +14,7 @@ const BrandSlogan: FC<BrandSloganProps> = ({ color, children }) => {
       className={commonStyles.brandSlogan}
       style={
         {
-          color: `${color}`,
+          "--color": `${color || "var(--primary-main)"}`,
         } as CSSProperties
       }
     >

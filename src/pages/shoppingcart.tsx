@@ -1,4 +1,4 @@
-import CartView from "@/components/view/shoppingcart/CartView";
+import CartView from "@/view/shoppingcart/CartView";
 import Head from "next/head";
 import { useCart } from "@/contexts/CartContext";
 import { FC, useState } from "react";
@@ -20,7 +20,12 @@ const ShoppingCart: FC<any> = () => {
         />
       </Head>
       <main>
-        <CartView state={state} dispatch={dispatch} isCubiFood={isCubiFood} setIsCubiFood={setIsCubiFood} />
+        <CartView
+          state={state}
+          dispatch={dispatch}
+          isCubiFood={isCubiFood}
+          setIsCubiFood={setIsCubiFood}
+        />
       </main>
     </>
   );

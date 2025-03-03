@@ -3,16 +3,15 @@ import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 import CustomizationSelector from "./itemData/CustomizationSelector";
 import ItemActionButtons from "./itemData/ItemActionButtons";
-import QuantitySelector from "./itemData/QuantitySelector";
+import ItemImage from "../common/ItemImage";
 import OptionSelector from "./itemData/OptionSelector";
+import QuantitySelector from "./itemData/QuantitySelector";
 import SpecialNotes from "./itemData/SpecialNotes";
 import commonStyles from "../../styles/common.module.scss";
+import { useCart } from "@/contexts/CartContext";
+import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { useUser } from "@auth0/nextjs-auth0";
-import { useCart } from "@/contexts/CartContext";
-import ItemImage from "../common/ItemImage";
 
 interface FormValues {
   option: string;
@@ -24,15 +23,9 @@ interface FormValues {
 const ItemData: FC<any> = () => {
   const router = useRouter();
 
-  // if (router.pathname === `/cubifood/item/[...id]`) {
-  //   console.log(true);
-  // }
-
   const { id } = router.query;
 
-  const { user } = useUser();
-
-  const { state, dispatch } = useCart();
+  const { dispatch } = useCart();
 
   const {
     control,
@@ -68,6 +61,8 @@ const ItemData: FC<any> = () => {
       specialNotes: data.specialNotes,
       quantity: data.quantity,
     };
+
+    console.log(newItem);
 
     /* Dispatch action to add item to the cart */
     dispatch({ type: "ADD_ITEM", payload: newItem });

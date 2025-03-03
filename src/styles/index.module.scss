@@ -16,6 +16,7 @@
     display: flex;
     justify-content: center;
     margin-top: 2.5%;
+    gap: 16px;
 
     .avatar {
       width: 170px;
@@ -57,32 +58,6 @@
 
   .itemsCatalogue {
     padding: 2.5% 0;
-
-    .card {
-      border-radius: 8px;
-      overflow: hidden;
-
-      .cardContent {
-        border-top: 1px solid var(--divider-color);
-
-        .name {
-          font-weight: 500;
-          font-size: 16px;
-          line-height: var(--h6);
-          margin-bottom: 10%;
-        }
-
-        .price {
-          font-size: 16px;
-          line-height: var(--body1);
-          color: var(--secondary-main);
-        }
-
-        .rating {
-          margin-top: 10%;
-        }
-      }
-    }
   }
 }
 
@@ -94,78 +69,69 @@
   .content {
     display: flex;
     align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
-    .leftGrid {
-      text-align: left;
+  .leftContent {
+    width: 45%;
+
+    .title {
+      font-weight: 600;
+      font-size: 28px;
+      line-height: var(--h4);
+      color: var(--white);
+
+      .subtitle {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: var(--subtitle2);
+        margin-top: 5%;
+      }
     }
 
-    .rightGrid {
-      display: flex;
-      justify-content: flex-end;
+    .descr {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: var(--h4);
+      color: #b5d4fc;
+      margin: 5% 0 7.25% 0;
     }
 
-    .leftGridBox {
-      width: 90%;
-      margin-right: 10%;
+    .learnMoreButton {
+      background: var(--white);
+      color: var(--primary-main);
 
-      .title {
-        font-weight: 600;
-        font-size: 28px;
-        line-height: var(--h4);
+      &:hover {
+        background: var(--primary-dark);
         color: var(--white);
-
-        .subtitle {
-          font-weight: 500;
-          font-size: 20px;
-          line-height: var(--subtitle2);
-          margin-top: 4%;
-        }
       }
+    }
+  }
 
-      .description {
+  .rightContent {
+    width: 45%;
+
+    .title {
+      font-weight: 600;
+      font-size: 28px;
+      line-height: var(--h4);
+      color: var(--primary-main);
+
+      .subtitle {
         font-weight: 500;
-        font-size: 18px;
-        line-height: var(--h4);
-        color: #b5d4fc;
-        margin: 5% 0 6.5% 0;
-      }
-
-      .learnMoreButton {
-        background: var(--white);
-        color: var(--primary-main);
-
-        &:hover {
-          background: var(--primary-dark);
-          color: var(--white);
-        }
+        font-size: 20px;
+        line-height: var(--subtitle2);
+        margin-top: 5%;
       }
     }
 
-    .rightGridBox {
-      width: 90%;
-      margin-left: 10%;
-
-      .title {
-        font-weight: 600;
-        font-size: 28px;
-        line-height: var(--h4);
-        color: var(--primary-main);
-
-        .subtitle {
-          font-weight: 500;
-          font-size: 20px;
-          line-height: var(--subtitle2);
-          margin-top: 4%;
-        }
-      }
-
-      .description {
-        font-weight: 500;
-        font-size: 18px;
-        line-height: var(--h4);
-        color: var(--primary-dark);
-        margin: 5% 0 6.5% 0;
-      }
+    .descr {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: var(--h4);
+      color: var(--primary-dark);
+      margin: 5% 0 7.25% 0;
     }
   }
 }

@@ -17,7 +17,7 @@ const StartingBlock1: FC<StartingBlock1Props> = ({
       className={commonStyles.startingBlock1}
       style={
         {
-          "--background-image": `url(${backgroundImage})`,
+          "--background-image": `url(${backgroundImage || "/default.png"})`
         } as CSSProperties
       }
     >

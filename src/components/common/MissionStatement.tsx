@@ -4,7 +4,7 @@ import commonStyles from "../../styles/common.module.scss";
 import { FC, ReactNode } from "react";
 
 interface MissionStatementProps {
-  children: ReactNode; // Content inside the component
+  children: ReactNode;
 }
 
 const MissionStatement: FC<MissionStatementProps> = ({ children }) => {

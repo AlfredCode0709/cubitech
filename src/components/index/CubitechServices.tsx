@@ -14,7 +14,7 @@ const CubitechServices: FC<any> = () => {
       </Typography>
 
       {/* Cubitech brand avatars */}
-      <Box className={styles.brands} gap={2}>
+      <Box className={styles.brands}>
         {[
           "CubiFood",
           "CubiMart",

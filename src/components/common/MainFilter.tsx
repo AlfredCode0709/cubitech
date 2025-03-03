@@ -44,7 +44,7 @@ const MainFilter: FC<MainFilterProps> = ({
     setFilters((prev) => ({ ...prev, [key]: value }));
     if (key === "cuisine") {
       const selectedCuisineItem = categories.find(
-        (category) => category.name === value,
+        (category) => category.name === value
       );
       const image = selectedCuisineItem
         ? selectedCuisineItem.src
@@ -55,7 +55,7 @@ const MainFilter: FC<MainFilterProps> = ({
 
   const handleApplyFilters = () => {
     const selectedCuisineItem = categories.find(
-      (category) => category.name === filters.cuisine,
+      (category) => category.name === filters.cuisine
     );
     const image = selectedCuisineItem
       ? selectedCuisineItem.src
@@ -73,7 +73,7 @@ const MainFilter: FC<MainFilterProps> = ({
   }, [selectedCategory]);
 
   const isAnyFilterSelected = Object.values(filters).some(
-    (value) => value !== "",
+    (value) => value !== ""
   );
 
   return (
@@ -105,6 +105,15 @@ const MainFilter: FC<MainFilterProps> = ({
                 onChange={(e) => handleFilterChange(id, e.target.value)}
                 MenuProps={{
                   disableScrollLock: true,
+                }}
+                sx={{
+                  backgroundColor: "white",
+                  "& .MuiSelect-select": {
+                    backgroundColor: "white",
+                  },
+                  "&.MuiOutlinedInput-root": {
+                    backgroundColor: "white",
+                  },
                 }}
               >
                 {(dynamic

@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid2";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import commonStyles from "../../styles/common.module.scss";
@@ -15,12 +15,11 @@ interface JoinSectionProps {
 const JoinSection: FC<JoinSectionProps> = ({ title, subtitle, buttonText }) => {
   return (
     <Box className={commonStyles.joinSection}>
-      <Grid container className={commonStyles.gridContainer}>
-        <Grid size={9} className={commonStyles.leftGrid}>
+      <Stack className={commonStyles.content}>
+        <Stack className={commonStyles.leftContent}>
           <Typography className={commonStyles.title}>{title}</Typography>
           <Typography className={commonStyles.subtitle}>{subtitle}</Typography>
-        </Grid>
-        <Grid size={3} className={commonStyles.rightGrid}>
+        </Stack>
           <Button
             startIcon={<ArrowForwardIcon />}
             color={"primary"}
@@ -29,8 +28,7 @@ const JoinSection: FC<JoinSectionProps> = ({ title, subtitle, buttonText }) => {
           >
             {buttonText}
           </Button>
-        </Grid>
-      </Grid>
+      </Stack>
     </Box>
   );
 };

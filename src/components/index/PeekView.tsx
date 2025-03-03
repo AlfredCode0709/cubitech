@@ -9,9 +9,9 @@ import commonStyles from "../../styles/common.module.scss";
 import styles from "../../styles/index.module.scss";
 import { FC, useState } from "react";
 
-const ITEMS_PER_PAGE = 6;
+const itemsPerPage = 6;
 
-const TITLE_CONFIG = {
+const titleConfig = {
   CUBIFood: {
     path: "/cubitech_brands/cubifood_light.svg",
     color: "#09b96d",
@@ -24,7 +24,7 @@ const TITLE_CONFIG = {
   },
 } as const;
 
-type TitleType = keyof typeof TITLE_CONFIG;
+type TitleType = keyof typeof titleConfig;
 
 interface PeekViewProps {
   title: TitleType;
@@ -36,7 +36,7 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
     path: imageSrc,
     color: titleSubColor,
     link,
-  } = TITLE_CONFIG[title] || {
+  } = titleConfig[title] || {
     path: "/cubitech_brands/cubitech_light.svg",
     color: "#bf3953",
     link: "/",
@@ -45,16 +45,16 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   /* Total items and paginated data */
-  const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const paginatedItems = Array.from(
     {
       length: Math.min(
-        ITEMS_PER_PAGE,
-        totalItems - (currentPage - 1) * ITEMS_PER_PAGE,
+        itemsPerPage,
+        totalItems - (currentPage - 1) * itemsPerPage
       ),
     },
-    (_, i) => (currentPage - 1) * ITEMS_PER_PAGE + i + 1,
+    (_, i) => (currentPage - 1) * itemsPerPage + i + 1
   );
 
   return (
