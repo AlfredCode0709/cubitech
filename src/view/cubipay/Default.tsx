@@ -35,7 +35,7 @@ const Default: FC<any> = () => {
       <JoinSection
         title={"Pay with CubiPay"}
         subtitle={
-          "The faster, easier way to pay. Swipe on your phone to earn CubiPerk points and redeem discounts on Cubitech services, partner rewards, and more."
+          "Swipe to pay effortlessly and earn CubiPerk points for exclusive discounts on Cubitech and partner rewards."
         }
         buttonText={"Start Using CubiPay"}
       />

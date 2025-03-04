@@ -52,6 +52,15 @@ const OrderSummary: React.FC<Props> = ({
                 shrink: Boolean(register("referralCode")),
               },
             }}
+            sx={{
+              backgroundColor: "white",
+              "& .MuiSelect-select": {
+                backgroundColor: "white",
+              },
+              "&.MuiOutlinedInput-root": {
+                backgroundColor: "white",
+              },
+            }}
             {...register("referralCode")}
             error={!!errors.referralCode}
             helperText={errors.referralCode?.message}
@@ -68,9 +77,9 @@ const OrderSummary: React.FC<Props> = ({
 
         <Grid size={6}>
           <Button
-            className={styles.resetButton}
             onClick={handleReset}
             variant={"contained"}
+            size={"large"}
             fullWidth
           >
             Reset
@@ -78,9 +87,9 @@ const OrderSummary: React.FC<Props> = ({
         </Grid>
         <Grid size={6}>
           <Button
-            className={styles.buyNowButton}
             type={"submit"}
             variant={"contained"}
+            size={"large"}
             fullWidth
           >
             Buy Now

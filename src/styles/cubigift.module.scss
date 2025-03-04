@@ -63,33 +63,9 @@
       font-weight: 600;
       font-size: 24px;
     }
-
-    .paginationButtons {
-      display: flex;
-      justify-content: flex-end;
-      gap: 16px;
-
-      .iconButton {
-        background: var(--primary-main);
-        color: var(--white);
-
-        &:hover {
-          background: var(--primary-dark);
-        }
-
-        &:focus {
-          background: var(--primary-dark);
-        }
-
-        &:disabled {
-          background: transparent;
-          color: var(--disable-main);
-        }
-      }
-    }
   }
 
-  .cardContainer {
+  .giftCardList {
     display: flex;
     gap: 20px;
     padding: 2.5% 0;
@@ -97,12 +73,34 @@
     cursor: grab;
     scroll-behavior: smooth;
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    // &::-webkit-scrollbar {
+    //   display: none;
+    // }
 
     &.dragging {
       cursor: pointer;
+    }
+
+    /* Chrome, Edge, and Safari */
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #00000033;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #00000066;
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
     }
 
     .cardWrapper {
@@ -279,12 +277,6 @@
             width: 30%;
             text-align: right;
           }
-        }
-
-        .resetButton,
-        .buyNowButton {
-          height: 50px;
-          border-radius: 8px;
         }
       }
     }

@@ -1,14 +1,16 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+if (!stripeSecretKey) {
+  throw new Error("Stripe secret key is missing! Make sure to set STRIPE_SECRET_KEY.");
+}
+
+const stripe = new Stripe(stripeSecretKey, {
   apiVersion: "2025-02-24.acacia",
 });
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
@@ -21,9 +23,12 @@ export default async function handler(
     }
 
     const validPaymentMethods = ["paynow", "card"];
+    if (!validPaymentMethods.includes(paymentMethod)) {
+      return res.status(400).json({ error: "Invalid payment method" });
+    }
 
     const protocol = req.headers["x-forwarded-proto"] || "http";
-    const baseUrl = `${protocol}://${req.headers.host}`;
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || `${protocol}://${req.headers.host}`;
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: [paymentMethod],
@@ -31,9 +36,7 @@ export default async function handler(
         {
           price_data: {
             currency,
-            product_data: {
-              name: "Order Payment",
-            },
+            product_data: { name: "Order Payment" },
             unit_amount: amount,
           },
           quantity: 1,

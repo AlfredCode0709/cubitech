@@ -6,7 +6,7 @@ import { FC } from "react";
 
 const LearnMoreContent: FC = () => {
   return (
-    <Box className={styles.rightGridBox}>
+    <Box className={styles.rightContent}>
       <Typography className={styles.title} component={"div"}>
         Boost Your Points with CubiPerk
         <br />

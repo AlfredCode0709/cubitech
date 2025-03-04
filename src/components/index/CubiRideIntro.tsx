@@ -12,7 +12,7 @@ const CubiRideIntro: FC<any> = () => {
       <Stack className={styles.content}>
         <Image
           src={
-            "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740573114/block2_izggej.svg"
+"https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740573114/block2_izggej.svg"
           }
           width={480}
           height={270}

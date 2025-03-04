@@ -8,12 +8,7 @@ import PaymentMethodOption from "./PaymentMethodOption";
 import TimeSlot from "./TimeSlot";
 import styles from "../../styles/checkout.module.scss";
 import { useForm } from "react-hook-form";
-import { loadStripe } from "@stripe/stripe-js";
 import { FC, useState } from "react";
-
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,
-);
 
 interface CheckoutFormProps {
   items: any[];
@@ -38,12 +33,13 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ items }) => {
     });
 
   const consumeBy = watch("consumeBy");
+  const [loading, setLoading] = useState(false);
 
   const handleConsumeByChange = (newValue: string) => {
     setValue("consumeBy", newValue);
     setValue(
       "collectBy",
-      newValue === "dineIn" ? "<15minsSelfCollection" : "7amTo10am"
+      newValue === "dineIn" ? "<15minsSelfCollection" : "7amTo10am",
     );
   };
 
@@ -51,54 +47,13 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ items }) => {
     setValue("collectBy", newTimeSlot);
   };
 
-  const onSubmit = async (data: CheckoutFormValues) => {
+  const onSubmit = (data: CheckoutFormValues) => {
     console.log("Form Data:", data);
-
-    handleCheckout(data.paymentMethod);
-  };
-
-  const [loading, setLoading] = useState(false);
-
-  const handleCheckout = async (paymentMethodParams: string) => {
-    setLoading(true);
-
-    let paymentMethod = "";
-    
-    if (paymentMethodParams === "debitCreditCard") {
-      paymentMethod = "card";
-    } else {
-      paymentMethod = "paynow";
-    }
-
-    try {
-      const totalAmount = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-      const response = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          amount: totalAmount * 100,
-          currency: "sgd",
-          paymentMethod,
-        }),
-      });
-
-      const data = await response.json();
-      if (data.sessionId) {
-        const stripe = await stripePromise;
-        await stripe?.redirectToCheckout({ sessionId: data.sessionId });
-      } else {
-        console.error("Failed to create session");
-      }
-    } catch (error) {
-      console.error("Checkout error:", error);
-    }
-    setLoading(false);
   };
 
   return (
     <Box
-      component={"form"}
+      component="form"
       className={styles.checkoutForm}
       onSubmit={handleSubmit(onSubmit)}
     >
@@ -129,18 +84,15 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ items }) => {
       <PaymentMethodOption control={control} name="paymentMethod" />
 
       <Button
-        color={"primary"}
-        variant={"contained"}
-        size={"large"}
+        color="primary"
+        variant="contained"
+        size="large"
         startIcon={<ShoppingCartCheckoutIcon />}
-        type={"submit"}
-        sx={{
-          marginTop: "5%",
-        }}
-        disabled={loading}
+        type="submit"
+        sx={{ marginTop: "5%" }}
         fullWidth
       >
-        {loading ? "Pending Checkout" : "Proceed to Checkout"}
+        Proceed to Checkout
       </Button>
     </Box>
   );

@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import styles from "../../styles/index.module.scss";
-import { FC } from "react";
+import { FC, Fragment } from "react";
 
 const CubitechServices: FC<any> = () => {
   return (
@@ -23,15 +23,17 @@ const CubitechServices: FC<any> = () => {
           "CubiGift",
           "CubiPerk",
         ].map((item) => (
-          <Link href={`/${item.toLowerCase()}`}>
-            <Avatar
-              className={styles.avatar}
-              alt={item}
-              src={`/cubitech_brands/${item.toLowerCase()}_light.svg`}
-              component={"div"}
-              variant={"square"}
-            />
-          </Link>
+          <Fragment key={`/${item.toLowerCase()}`}>
+            <Link href={`/${item.toLowerCase()}`}>
+              <Avatar
+                className={styles.avatar}
+                alt={item}
+                src={`/cubitech_brands/${item.toLowerCase()}_light.svg`}
+                component={"div"}
+                variant={"square"}
+              />
+            </Link>
+          </Fragment>
         ))}
       </Box>
     </Box>

@@ -46,6 +46,19 @@
   margin-top: -80px;
 }
 
+/* Starting block 3 styles */
+
+.startingBlock3 {
+  background: var(--background-image) center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  margin-top: -80px;
+}
+
 /* Mission Statement styles */
 
 .missionStatement {
@@ -312,6 +325,7 @@
   padding: 2% 10%;
 
   .content {
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -319,6 +333,9 @@
     gap: 24px;
 
     .leftContent {
+      flex: 1;
+      text-align: left;
+      
       .title {
         font-weight: 600;
         font-size: 30px;
@@ -332,6 +349,10 @@
         line-height: var(--subtitle2);
         color: var(--primary-dark);
       }
+    }
+
+    button {
+      white-space: nowrap;
     }
   }
 }
@@ -548,6 +569,139 @@
         background: var(--primary-main);
         color: var(--white);
       }
+    }
+  }
+}
+
+/* Highlights styles */
+
+.highlights {
+  padding: 2.5% 10% 2.75% 10%;
+  color: var(--primary-main);
+  text-align: center;
+
+  .title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: var(--h5);
+  }
+
+  .stackContainer {
+    padding-top: 2.5%;
+    width: 100%;
+
+    .stackRow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+
+      .stackItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 33.33%;
+
+        .avatar {
+          width: 150px;
+          height: 150px;
+        }
+
+        .itemTitle {
+          font-weight: 500;
+          font-size: 20px;
+          line-height: var(--h6);
+          margin: 2.5% 0;
+        }
+
+        .itemDescr {
+          margin: 0 7.5%;
+          font-size: 16px;
+          line-height: var(--body1);
+        }
+      }
+    }
+  }
+}
+
+/* Safety Pledge styles */
+
+.safetyPledge {
+  padding: 2.5% 10% 2.75% 10%;
+  background: #00987b;
+  color: var(--white);
+  text-align: center;
+
+  .title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: var(--h5);
+  }
+
+  .stackContainer {
+    padding-top: 2.5%;
+    width: 100%;
+
+    .stackRow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+
+      .stackItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 33.33%;
+
+        .avatar {
+          width: 150px;
+          height: 150px;
+        }
+
+        .itemTitle {
+          font-weight: 500;
+          font-size: 20px;
+          line-height: var(--h6);
+          margin: 2.5% 0;
+        }
+
+        .itemDescr {
+          margin: 0 6%;
+          font-size: 16px;
+          line-height: var(--body1);
+        }
+      }
+    }
+  }
+}
+
+/* Payment Flow and Transaction Replay Flow styles */
+
+.paymentFlow,
+.transactionReplayFlow {
+  background: #d9d9d9;
+  height: 350px;
+  border-radius: 8px;
+
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5% 0;
+
+    .card {
+      padding: 5%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      height: 300px;
+      width: 300px;
     }
   }
 }

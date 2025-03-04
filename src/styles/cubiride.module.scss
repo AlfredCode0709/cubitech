@@ -1,7 +1,7 @@
 /* Passenger Types styles */
 
 .passengerTypes {
-  padding: 2.5% 10%;
+  padding: 2.5% 10% 2.75% 10%;
   background-color: var(--primary-light);
   color: var(--primary-main);
   text-align: center;
@@ -22,29 +22,39 @@
       line-height: var(--h5);
     }
 
-    .gridContainer {
-      .gridItem {
+    .stackContainer {
+      width: 100%;
+
+      .stackRow {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
 
-        .avatar {
-          width: 150px;
-          height: 150px;
-          margin-bottom: 2.5%;
-        }
+        .stackItem {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 33.33%;
 
-        .title {
-          font-weight: 500;
-          font-size: 20px;
-          line-height: var(--h6);
-        }
+          .avatar {
+            width: 150px;
+            height: 150px;
+          }
 
-        .description {
-          margin: 2.5% 8% 1.25% 8%;
-          font-size: 16px;
-          line-height: var(--body1);
+          .itemTitle {
+            font-weight: 500;
+            font-size: 20px;
+            line-height: var(--h6);
+            margin: 2.5% 0;
+          }
+
+          .itemDescr {
+            margin: 0 8%;
+            font-size: 16px;
+            line-height: var(--body1);
+          }
         }
       }
     }

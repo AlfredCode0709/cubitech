@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid2";
+import Stack from "@mui/material/Stack";
 import LearnMoreImage from "./LearnMoreImage";
 import LearnMoreContent from "./LearnMoreContent";
 import styles from "../../styles/cubiperk.module.scss";
@@ -8,14 +8,13 @@ import { FC } from "react";
 const LearnMore: FC = () => {
   return (
     <Box className={styles.learnMore}>
-      <Grid container className={styles.gridContainer}>
-        <Grid size={6} className={styles.leftGrid}>
-          <LearnMoreImage src="/cubiperk/block2.svg" alt="CubiPerk" />
-        </Grid>
-        <Grid size={6}>
-          <LearnMoreContent />
-        </Grid>
-      </Grid>
+      <Stack className={styles.content}>
+        <LearnMoreImage
+          src="https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741068723/block2_b9jiuh.svg"
+          alt="CubiPerk"
+        />
+        <LearnMoreContent />
+      </Stack>
     </Box>
   );
 };

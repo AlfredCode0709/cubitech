@@ -1,21 +1,22 @@
-import Default from "@/components/view/cubiperk/Default";
-import Logged from "@/components/view/cubiperk/Logged";
+import Default from "@/view/cubiperk/Default";
 import Head from "next/head";
-import { useUser } from "@auth0/nextjs-auth0";
 import { FC } from "react";
 
 const CubiPerk: FC<any> = () => {
-  const { user } = useUser();
-
   return (
     <>
       <Head>
         <title>CubiPerk | Cubitech</title>
         <meta name="description" content="Cubitech - Next Typescript" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/cubiperk.ico" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/dcsfz2ydj/image/upload/v1739968425/cubiperk_henbls.ico"
+        />
       </Head>
-      <main>{user ? <Logged /> : <Default />}</main>
+      <main>
+        <Default />
+      </main>
     </>
   );
 };
