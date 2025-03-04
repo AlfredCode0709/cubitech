@@ -37,13 +37,13 @@ const PaymentDetails: FC<PaymentDetailsProps> = ({ subtotal }) => {
       total,
     };
 
-    // Store in context and sessionStorage
+    /* Store in context and sessionStorage */
     orderDispatch({ type: "SET_ORDER", payload: orderData });
 
-    // Clear cart after checkout
+    /* Clear cart after checkout */
     cartDispatch({ type: "CLEAR_CART" });
 
-    // Redirect to checkout page
+    /* Redirect to checkout page */
     router.push("/checkout");
   };
 
@@ -54,8 +54,8 @@ const PaymentDetails: FC<PaymentDetailsProps> = ({ subtotal }) => {
           <Typography className={styles._}>{label}</Typography>
           <Typography className={styles.price}>
             {label === "Discount"
-              ? `-$${value.toFixed(2)}`
-              : `$${value.toFixed(2)}`}
+              ? `-$${Number(value).toFixed(2)}`
+              : `$${Number(value).toFixed(2)}`}
           </Typography>
         </Stack>
       ))}
@@ -67,7 +67,9 @@ const PaymentDetails: FC<PaymentDetailsProps> = ({ subtotal }) => {
 
       <Stack className={styles.totalAmount}>
         <Typography className={styles._}>Total</Typography>
-        <Typography className={styles.price}>${total.toFixed(2)}</Typography>
+        <Typography className={styles.price}>
+          ${Number(total).toFixed(2)}
+        </Typography>
       </Stack>
 
       <Button

@@ -27,16 +27,21 @@ const ConsumeByOption: FC<ConsumeByOptionProps> = ({
           exclusive
           onChange={(_, newValue) => newValue && onChange(newValue)}
           color="primary"
-          sx={{ marginBottom: "5%" }}
+          sx={{ mb: "5%" }}
         >
-          <ToggleButton value="dineIn">
-            <LocalDiningIcon />
-            <Typography fontWeight={500}>&nbsp;Dine In</Typography>
-          </ToggleButton>
-          <ToggleButton value="takeaway">
-            <TakeoutDiningIcon />
-            <Typography fontWeight={500}>&nbsp;Takeaway</Typography>
-          </ToggleButton>
+          {[
+            { value: "dineIn", icon: <LocalDiningIcon />, label: "Dine In" },
+            {
+              value: "takeaway",
+              icon: <TakeoutDiningIcon />,
+              label: "Takeaway",
+            },
+          ].map(({ value, icon, label }) => (
+            <ToggleButton key={value} value={value}>
+              {icon}
+              <Typography fontWeight={500}>&nbsp;{label}</Typography>
+            </ToggleButton>
+          ))}
         </ToggleButtonGroup>
       )}
     />

@@ -1,55 +1,51 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 
-const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
-if (!stripeSecretKey) {
-  throw new Error("Stripe secret key is missing! Make sure to set STRIPE_SECRET_KEY.");
-}
+console.log(
+  "Stripe Secret Key:",
+  process.env.STRIPE_SECRET_KEY ? "Loaded" : "Missing",
+);
 
-const stripe = new Stripe(stripeSecretKey, {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
   apiVersion: "2025-02-24.acacia",
 });
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
   try {
-    const { amount, currency, paymentMethod } = req.body;
+    const { cartItems, paymentMethod } = req.body;
 
-    if (!amount || !currency || !paymentMethod) {
-      return res.status(400).json({ error: "Missing required parameters" });
-    }
+    /* Format items for Stripe */
+    const lineItems = cartItems.map((item: any) => ({
+      price_data: {
+        currency: "sgd",
+        product_data: { name: item.name },
+        // unit_amount: item.price * 100, /* Convert to cents */
+        unit_amount: 1 * 10,
+      },
+      quantity: item.quantity,
+    }));
 
-    const validPaymentMethods = ["paynow", "card"];
-    if (!validPaymentMethods.includes(paymentMethod)) {
-      return res.status(400).json({ error: "Invalid payment method" });
-    }
-
-    const protocol = req.headers["x-forwarded-proto"] || "http";
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || `${protocol}://${req.headers.host}`;
+    /* Use Correct Payment Method Type */
+    const allowedPaymentMethods: Stripe.Checkout.SessionCreateParams.PaymentMethodType[] =
+      paymentMethod === "payNow" ? ["paynow"] : ["card"];
 
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: [paymentMethod],
-      line_items: [
-        {
-          price_data: {
-            currency,
-            product_data: { name: "Order Payment" },
-            unit_amount: amount,
-          },
-          quantity: 1,
-        },
-      ],
+      payment_method_types: allowedPaymentMethods,
+      line_items: lineItems,
       mode: "payment",
-      success_url: `${baseUrl}/success`,
-      cancel_url: `${baseUrl}/cancel`,
+      success_url: `${req.headers.origin}/checkout/success`,
+      cancel_url: `${req.headers.origin}/checkout/cancel`,
     });
 
     res.status(200).json({ sessionId: session.id });
-  } catch (error) {
-    console.error("Error creating Stripe session:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
   }
 }

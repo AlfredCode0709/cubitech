@@ -1,16 +1,16 @@
 import Head from "next/head";
-import commonStyles from "../styles/common.module.scss";
+import commonStyles from "../../styles/common.module.scss";
 import { FC } from "react";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
-const PaymentSuccess: FC<any> = () => {
+const PaymentCancelled: FC<any> = () => {
   return (
     <>
       <Head>
-        <title>Payment Success</title>
+        <title>Payment Cancelled</title>
         <meta name="description" content="Cubitech - Next Typescript" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
@@ -19,28 +19,29 @@ const PaymentSuccess: FC<any> = () => {
         />
       </Head>
       <main>
-        <Box className={commonStyles.paymentSuccessDisplay}>
+        <Box className={commonStyles.paymentCancelledDisplay}>
           <Avatar
             className={commonStyles.avatar}
-            alt="Payment Success"
+            alt="Payment Cancelled"
             src={
-              "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740485477/payment_success_z0k2wv.svg"
+              "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740483513/payment_cancelled_azppgl.svg"
             }
             variant={"square"}
           />
           <Typography className={commonStyles.title}>
-            Your Payment Is Successful
+            Your Payment Is Cancelled
           </Typography>
           <Typography className={commonStyles.subtitle}>
-            Your payment has been processed successfully. You can view your
-            order details in the order tab.
+            Your payment was not completed. You can retry the payment or contact
+            support for help.
           </Typography>
           <Box className={commonStyles.buttonGroup}>
-            <Button className={commonStyles.button} size={"large"} href={"/"}>
-              Go to Home
-            </Button>
-            <Button className={commonStyles.button} size={"large"} href={"/cubifood"}>
-              Continue Shopping
+            <Button
+              className={commonStyles.button}
+              size={"large"}
+              href={"/checkout"}
+            >
+              Back to Checkout
             </Button>
           </Box>
         </Box>
@@ -49,4 +50,4 @@ const PaymentSuccess: FC<any> = () => {
   );
 };
 
-export default PaymentSuccess;
+export default PaymentCancelled;

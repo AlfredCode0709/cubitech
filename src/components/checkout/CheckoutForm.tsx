@@ -9,6 +9,8 @@ import TimeSlot from "./TimeSlot";
 import styles from "../../styles/checkout.module.scss";
 import { useForm } from "react-hook-form";
 import { FC, useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
 
 interface CheckoutFormProps {
   items: any[];
@@ -21,6 +23,15 @@ interface CheckoutFormValues {
   paymentMethod: string;
 }
 
+console.log(
+  "Stripe Public Key:",
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+);
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!,
+);
+
 const CheckoutForm: FC<CheckoutFormProps> = ({ items }) => {
   const { handleSubmit, watch, control, setValue } =
     useForm<CheckoutFormValues>({
@@ -32,8 +43,8 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ items }) => {
       },
     });
 
-  const consumeBy = watch("consumeBy");
   const [loading, setLoading] = useState(false);
+  const consumeBy = watch("consumeBy");
 
   const handleConsumeByChange = (newValue: string) => {
     setValue("consumeBy", newValue);
@@ -47,8 +58,23 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ items }) => {
     setValue("collectBy", newTimeSlot);
   };
 
-  const onSubmit = (data: CheckoutFormValues) => {
+  const onSubmit = async (data: CheckoutFormValues) => {
     console.log("Form Data:", data);
+
+    try {
+      setLoading(true);
+      const response = await axios.post("/api/checkout", {
+        cartItems: data.cartItems,
+        paymentMethod: data.paymentMethod === "payNow" ? "payNow" : "card",
+      });
+
+      const stripe = await stripePromise;
+      await stripe?.redirectToCheckout({ sessionId: response.data.sessionId });
+    } catch (error) {
+      console.error("Payment error:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -91,8 +117,9 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ items }) => {
         type="submit"
         sx={{ marginTop: "5%" }}
         fullWidth
+        disabled={loading}
       >
-        Proceed to Checkout
+        {loading ? "Checkout Processing" : "Proceed to Checkout"}
       </Button>
     </Box>
   );

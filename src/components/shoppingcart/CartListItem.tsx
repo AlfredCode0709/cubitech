@@ -78,7 +78,7 @@ const CartListItem: FC<CartListItemProps> = ({ item }) => {
         </Grid>
         <Grid size={1.5}>
           <Typography className={styles.itemPrice}>
-            ${item.price * item.quantity}
+            ${Number(item.price * item.quantity).toFixed(2)}
           </Typography>
         </Grid>
         <Grid size={2.25}>

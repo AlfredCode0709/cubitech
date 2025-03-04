@@ -26,8 +26,8 @@ const PaymentDetailsReadOnly: FC<PaymentDetailsReadOnly> = ({ subtotal }) => {
           <Typography className={styles._}>{label}</Typography>
           <Typography className={styles.price}>
             {label === "Discount"
-              ? `-$${value.toFixed(2)}`
-              : `$${value.toFixed(2)}`}
+              ? `-$${Number(value).toFixed(2)}`
+              : `$${Number(value).toFixed(2)}`}
           </Typography>
         </Stack>
       ))}
@@ -35,7 +35,7 @@ const PaymentDetailsReadOnly: FC<PaymentDetailsReadOnly> = ({ subtotal }) => {
       <Stack className={styles.totalAmount}>
         <Typography className={styles._}>Total</Typography>
         <Typography className={styles.price}>
-          ${total.toFixed(2)}
+          ${Number(total).toFixed(2)}
         </Typography>
       </Stack>
     </Box>
