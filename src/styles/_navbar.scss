@@ -1,0 +1,16 @@
+/* Navbar container styles */
+
+.navbarContainer {
+  display: flex;
+
+  /* AppBar styles */
+
+  .appBar {
+    justify-content: center;
+
+    .avatar {
+      width: 170px;
+      height: 40px;
+    }
+  }
+}

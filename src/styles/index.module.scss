@@ -1,0 +1,137 @@
+/* Cubitech Services styles */
+
+.cubitechServices {
+  padding: 2.5% 10%;
+  background: var(--primary-light);
+  text-align: center;
+
+  .slogan {
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--primary-main);
+    line-height: var(--h5);
+  }
+
+  .brands {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5%;
+    gap: 16px;
+
+    .avatar {
+      width: 170px;
+      height: 40px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+}
+
+/* Peek View styles */
+
+.peekView {
+  padding: 2.5% 10%;
+
+  .header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .title {
+      font-family: "Codec Pro Bold", sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: 1;
+      color: var(--primary-main);
+      line-height: var(--h4);
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+
+  .itemsCatalogue {
+    padding: 2.5% 0;
+  }
+}
+
+/* Intro blocks styles */
+
+.introSection {
+  padding: 2.5% 10%;
+
+  .content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .leftContent {
+    width: 45%;
+
+    .title {
+      font-weight: 600;
+      font-size: 28px;
+      line-height: var(--h4);
+      color: var(--white);
+
+      .subtitle {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: var(--subtitle2);
+        margin-top: 5%;
+      }
+    }
+
+    .descr {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: var(--h4);
+      color: #b5d4fc;
+      margin: 5% 0 7.25% 0;
+    }
+
+    .learnMoreButton {
+      background: var(--white);
+      color: var(--primary-main);
+
+      &:hover {
+        background: var(--primary-dark);
+        color: var(--white);
+      }
+    }
+  }
+
+  .rightContent {
+    width: 45%;
+
+    .title {
+      font-weight: 600;
+      font-size: 28px;
+      line-height: var(--h4);
+      color: var(--primary-main);
+
+      .subtitle {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: var(--subtitle2);
+        margin-top: 5%;
+      }
+    }
+
+    .descr {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: var(--h4);
+      color: var(--primary-dark);
+      margin: 5% 0 7.25% 0;
+    }
+  }
+}
