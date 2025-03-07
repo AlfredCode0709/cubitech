@@ -1,0 +1,395 @@
+/* Treasures styles */
+
+.treasures {
+  padding: 2.5% 10%;
+  background: #08834e;
+  color: var(--white);
+
+  .title {
+    font-family: "Merriweather", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    font-style: italic;
+    line-height: var(--h5);
+    text-align: center;
+  }
+
+  .treasuresView {
+    padding: 2.5% 0;
+
+    .topTreasure {
+      height: 100%;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        box-shadow: 0px 4px 8px #00000026;
+      }
+
+      .cardContent {
+        border-top: 1px solid var(--divider-color);
+
+        .name {
+          font-weight: 500;
+          font-size: 20px;
+          line-height: var(--h6);
+          margin-bottom: 4%;
+        }
+
+        .descr {
+          font-size: 16px;
+          line-height: var(--body1);
+          color: var(--secondary-main);
+        }
+      }
+    }
+
+    .treasure {
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        box-shadow: 0px 4px 8px #00000026;
+      }
+
+      .cardContent {
+        border-top: 1px solid var(--divider-color);
+
+        .name {
+          font-weight: 500;
+          font-size: 18px;
+          line-height: var(--h6);
+          margin-bottom: 4%;
+        }
+
+        .descr {
+          font-size: 14px;
+          line-height: var(--body1);
+          color: var(--secondary-main);
+        }
+      }
+    }
+
+    .button {
+      color: #08834e;
+
+      &:hover {
+        background: #e7fef4;
+      }
+    }
+  }
+}
+
+/* Nearby Outlets styles */
+
+.nearbyOutlets {
+  padding: 2.5% 10%;
+
+  .title {
+    font-family: "Merriweather", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    font-style: italic;
+    color: #08834e;
+    line-height: var(--h3);
+  }
+
+  .outletRowHeader {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2.5% 0;
+
+    .leftSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+
+      .avatar {
+        width: 100px;
+        height: 100px;
+        padding: 7.5%;
+        background: #e7fef4;
+      }
+
+      .outletName {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: var(--h5);
+        color: #08834e;
+      }
+    }
+
+    .rightSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+
+      .distance {
+        font-size: 18px;
+        color: var(--text-secondary-main);
+      }
+
+      .outletViewButton {
+        color: #066039;
+      }
+    }
+  }
+
+  .shopList {
+    display: flex;
+    padding: 0 0 1% 1%;
+    overflow-x: auto;
+    cursor: grab;
+    scroll-behavior: smooth;
+
+    &.dragging {
+      cursor: pointer;
+    }
+
+    /* Chrome, Edge, and Safari */
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #00000033;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #00000066;
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    .content {
+      display: flex;
+      flex-wrap: no-wrap;
+
+      .shopCard {
+        width: 200px;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        border: 1px solid var(--divider-color);
+
+        &:hover {
+          box-shadow: 0px 4px 8px #00000026;
+        }
+
+        .contentData {
+          border-top: 1px solid var(--divider-color);
+
+          .name {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: var(--h6);
+            margin-bottom: 10%;
+          }
+
+          .chip {
+            font-weight: 500;
+            color: #066039;
+            background: #e7fef4;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Outlet Page Cover styles */
+
+.outletPageCover {
+  background: url("/cubifood/pagecover1.png") center / cover no-repeat;
+  height: 62.5vh;
+}
+
+/* Outlet Page Header styles */
+
+.outletPageHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5% 10%;
+  height: 37.5vh;
+  margin-bottom: -80px;
+  text-align: center;
+
+  .outletData {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    margin-top: -80px;
+
+    .firstSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+      gap: 16px;
+
+      .avatar {
+        width: 100px;
+        height: 100px;
+        padding: 7.5%;
+        background: #e7fef4;
+      }
+
+      .outletInfo {
+        display: flex;
+        flex-direction: column;
+
+        .outletName {
+          font-size: 24px;
+          font-weight: 500;
+          line-height: var(--h5);
+          color: #08834e;
+        }
+
+        .outletAddress {
+          font-size: 18px;
+          line-height: var(--body1);
+          color: #066039;
+          margin-top: 2.5%;
+        }
+      }
+    }
+
+    .secondSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      text-align: right;
+      flex-grow: 1;
+      margin-right: 2.5%;
+
+      .distance {
+        font-size: 18px;
+        color: var(--text-secondary-main);
+      }
+    }
+
+    .thirdSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+
+      .chip {
+        font-size: 16px;
+        width: 80px;
+        height: 33px;
+      }
+
+      .viewMapButton {
+        color: #066039;
+      }
+    }
+  }
+
+  .operatingHoursBox {
+    position: absolute;
+    transform: translateX(-50%);
+    width: 300px;
+    background: var(--white);
+    padding: 16px;
+    border-radius: 8px;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+    &.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .operatingHoursRow {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+  }
+}
+
+/* Outlet Filter styles */
+
+.outletFilter {
+  padding: 2.5% 10%;
+  background: #e9e9e9;
+
+  .allStallsButton,
+  .stallButton {
+    color: #08834e;
+
+    &:hover {
+      background: #08834e;
+      color: var(--white);
+    }
+
+    &.focused {
+      background: #08834e;
+      color: var(--white);
+    }
+
+    &.notFocused {
+      background: transparent;
+      color: #08834e;
+    }
+  }
+
+  .stallList {
+    .data {
+      align-items: center;
+
+      .dataView {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        cursor: grab;
+        scroll-behavior: smooth;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        &.dragging {
+          cursor: pointer;
+        }
+
+        .cardWrapper {
+          text-align: center;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+}
+
+/* Stall List Display and Stall Menu styles */
+
+.stallListDisplay,
+.stallMenu {
+  padding: 2.5% 10%;
+
+  .stallView,
+  .menuView {
+    padding: 2.5% 0;
+  }
+}

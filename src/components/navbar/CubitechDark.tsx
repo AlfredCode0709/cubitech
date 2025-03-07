@@ -1,7 +1,7 @@
 import Avatar from "@mui/material/Avatar";
 import { FC } from "react";
 
-const LogoDark: FC<any> = () => {
+const CubitechDark: FC<any> = () => {
   return (
     <Avatar
       className={"avatar"}
@@ -14,4 +14,4 @@ const LogoDark: FC<any> = () => {
   );
 };
 
-export default LogoDark;
+export default CubitechDark;

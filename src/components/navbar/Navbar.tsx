@@ -5,11 +5,14 @@ import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
-import LogoDark from "./LogoDark";
+import CubitechDark from "./CubitechDark";
 import MainMenu from "./MainMenu";
+import { useRouter } from "next/router";
 import { FC, MouseEvent, useState } from "react";
 
 const Navbar: FC<any> = () => {
+  const router = useRouter();
+
   const [mainMenuAnchorEl, setMainMenuAnchorEl] = useState<null | HTMLElement>(
     null
   );
@@ -25,10 +28,16 @@ const Navbar: FC<any> = () => {
   return (
     <Box className={"navbarContainer"}>
       <CssBaseline />
-      <AppBar className={"appBar"} component={"nav"}>
+      <AppBar
+        className={"appBar"}
+        component={"nav"}
+        sx={{
+          bgcolor: router.pathname === "/cubifood" ? "#08834e" : "primary.main",
+        }}
+      >
         <Toolbar>
           <Link href={"/"}>
-            <LogoDark />
+            <CubitechDark />
           </Link>
           <Box flexGrow={1} />
           <IconButton

@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
-import LogoDark from "./navbar/LogoDark";
+import CubitechDark from "./navbar/CubitechDark";
 import { FC } from "react";
 
 const Footer: FC<any> = () => {
@@ -11,7 +11,7 @@ const Footer: FC<any> = () => {
       <Grid container spacing={4}>
         <Grid size={3}>
           <Link href={"/"}>
-            <LogoDark />
+            <CubitechDark />
           </Link>
           <Typography className={"footer1Section"}>
             12 Marina Blvd, <br />
@@ -30,6 +30,18 @@ const Footer: FC<any> = () => {
 
         <Grid size={3} className={"footerSection"}>
           <Typography className={"footerHeading"}>Consumers</Typography>
+          {[
+            "CubiFood",
+            // "CubiMart",
+            // "CubiRide",
+            // "CubiPay",
+            // "CubiGift",
+            // "CubiPerk",
+          ].map((item) => (
+            <Link key={item} href={`/${item.toLowerCase()}`}>
+              <Typography className={"footerLink"}>{item}</Typography>
+            </Link>
+          ))}
         </Grid>
 
         <Grid size={3} className={"footerSection"}>

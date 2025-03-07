@@ -4,11 +4,11 @@ export const mainNavItems = [
     href: "/about",
     label: "About Us",
   },
-//   {
-//     avatar: "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741347930/cubifood_icon_wwe1ks.svg",
-//     href: "/cubifood",
-//     label: "CubiFood",
-//   },
+  {
+    avatar: "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741347930/cubifood_icon_wwe1ks.svg",
+    href: "/cubifood",
+    label: "CubiFood",
+  },
 //   {
 //     avatar: "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741347930/cubimart_icon_ohsez1.svg",
 //     href: "/cubimart",

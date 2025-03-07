@@ -33,6 +33,19 @@
   }
 }
 
+/* Starting block 2 styles */
+
+.startingBlock2 {
+  background: var(--background-image) center/cover no-repeat;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  margin-top: -80px;
+}
+
 /* Mission Statement styles */
 
 .missionStatement {
@@ -44,6 +57,24 @@
   .text {
     font-weight: 500;
     font-size: 24px;
+    line-height: var(--h5);
+  }
+}
+
+/* Brand Slogan styles */
+
+.brandSlogan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15vh;
+  color: var(--color);
+
+  .text {
+    font-family: "Merriweather", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    font-style: italic;
     line-height: var(--h5);
   }
 }
@@ -229,5 +260,98 @@
         color: var(--primary-dark);
       }
     }
+  }
+}
+
+/* Category styles */
+
+.category {
+  padding: 2% 10%;
+  color: var(--color);
+  text-align: center;
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      background: var(--color);
+    }
+
+    .name {
+      margin-top: 10%;
+    }
+  }
+}
+
+/* Main Filter styles */
+
+.mainFilter {
+  padding: 2.5% 10%;
+  background: #e9e9e9;
+
+  .filterContent {
+    align-items: center;
+
+    .clearAllButtonVariant1 {
+      color: #08834e;
+      margin-right: 2.5%;
+
+      &:hover {
+        background: #08834e;
+        color: var(--white);
+      }
+    }
+
+    .clearAllButtonVariant2 {
+      color: var(--primary-main);
+      margin-right: 2.5%;
+
+      &:hover {
+        background: var(--primary-dark);
+        color: var(--white);
+      }
+    }
+
+    .applyFiltersButtonVariant1 {
+      background: #08834e;
+
+      &:hover {
+        background: #05482b;
+      }
+
+      &:disabled {
+        background: transparent;
+        color: var(--disable-main);
+      }
+    }
+
+    .applyFiltersButtonVariant2 {
+      background: var(--primary-main);
+      color: var(--white);
+
+      &:hover {
+        background: var(--primary-dark);
+      }
+
+      &:disabled {
+        background: transparent;
+        color: var(--disable-main);
+      }
+    }
+  }
+}
+
+/* Filtered Catalogue styles */
+
+.filteredCatalogue {
+  padding: 2.5% 10%;
+
+  .catalogueView {
+    padding: 2.5% 0;
   }
 }
