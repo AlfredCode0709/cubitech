@@ -37,7 +37,7 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
     color: titleSubColor,
     link,
   } = titleConfig[title] || {
-    path: "/cubitech_brands/cubitech_light.svg",
+    path: "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345140/cubitech_light_qhxj6v.svg",
     color: "#bf3953",
     link: "/",
   };

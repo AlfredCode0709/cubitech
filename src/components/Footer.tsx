@@ -32,7 +32,7 @@ const Footer: FC<any> = () => {
           <Typography className={"footerHeading"}>Consumers</Typography>
           {[
             "CubiFood",
-            // "CubiMart",
+            "CubiMart",
             // "CubiRide",
             // "CubiPay",
             // "CubiGift",

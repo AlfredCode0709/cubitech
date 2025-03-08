@@ -1,7 +1,6 @@
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import commonStyles from "../../styles/common.module.scss";
-import { CSSProperties, FC, ReactNode } from "react";
+import { CSSProperties, FC } from "react";
 
 interface StartingBlock2Props {
   backgroundImage: string;

@@ -4,6 +4,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import MenuIcon from "@mui/icons-material/Menu";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Link from "next/link";
 import CubitechDark from "./CubitechDark";
 import MainMenu from "./MainMenu";
@@ -32,7 +33,9 @@ const Navbar: FC<any> = () => {
         className={"appBar"}
         component={"nav"}
         sx={{
-          bgcolor: router.pathname === "/cubifood" ? "#08834e" : "primary.main",
+          bgcolor: router.pathname.startsWith("/cubifood")
+            ? "#08834e"
+            : "primary.main",
         }}
       >
         <Toolbar>
@@ -40,14 +43,19 @@ const Navbar: FC<any> = () => {
             <CubitechDark />
           </Link>
           <Box flexGrow={1} />
-          <IconButton
-            onClick={handleMainMenu}
-            color={"inherit"}
-            size={"large"}
-            edge={"end"}
-          >
-            <MenuIcon />
-          </IconButton>
+          <Box className={"buttonList"}>
+            <IconButton color={"inherit"} size={"large"} href={"/cart"}>
+              <ShoppingCartIcon />
+            </IconButton>
+            <IconButton
+              onClick={handleMainMenu}
+              color={"inherit"}
+              size={"large"}
+              edge={"end"}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Box>
         </Toolbar>
         <MainMenu
           anchorEl={mainMenuAnchorEl}

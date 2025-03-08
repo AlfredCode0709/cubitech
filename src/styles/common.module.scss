@@ -355,3 +355,72 @@
     padding: 2.5% 0;
   }
 }
+
+/* Item Data styles */
+
+.itemData {
+  padding: 2.5% 10%;
+
+  .itemContent {
+    padding: 2.5%;
+
+    .itemName {
+      font-weight: 500;
+      font-size: 28px;
+      line-height: var(--h4);
+      margin-bottom: 4%;
+    }
+
+    .itemPrice {
+      font-size: 24px;
+      line-height: var(--body1);
+      color: var(--secondary-main);
+      margin-bottom: 4%;
+    }
+
+    .itemActionButtons {
+      padding: 4% 0;
+      display: flex;
+      gap: 16px;
+
+      .button {
+        background: #08834e;
+
+        &:hover {
+          background: #05482b;
+        }
+
+        &:disabled {
+          background: #0000001f;
+          color: #00000042;
+        }
+      }
+    }
+  }
+}
+
+/* More Items Drawer styles */
+
+.moreItemsDrawer {
+  padding: 0 10%;
+
+  .header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .title {
+      font-family: "Merriweather", Helvetica, Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--color);
+      line-height: var(--body1);
+    }
+  }
+
+  .itemsView {
+    padding: 2.5% 0 5%;
+  }
+}

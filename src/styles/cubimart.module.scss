@@ -1,0 +1,70 @@
+/* Bargain Blitz styles */
+
+.bargainBlitz {
+  padding: 2.5% 10%;
+  background: var(--primary-main);
+  color: var(--white);
+
+  .header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .title {
+      font-family: "Merriweather", Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      font-style: italic;
+      line-height: var(--h5);
+    }
+
+    .iconButton {
+      background: var(--white);
+      color: var(--primary-main);
+
+      &:hover {
+        background: #b7d4fa;
+      }
+
+      &:focus {
+        background: #b7d4fa;
+      }
+
+      &:disabled {
+        background: transparent;
+        color: var(--disable-main);
+      }
+    }
+  }
+
+  .itemsCatalogue {
+    padding: 2.5% 0;
+  }
+}
+
+/* Stores View styles */
+
+.storesView {
+  padding: 2.5% 10%;
+
+  .header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .title {
+      font-family: "Merriweather", Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      font-style: italic;
+      color: var(--primary-main);
+      line-height: var(--h3);
+    }
+  }
+
+  .catalogueView {
+    padding: 2.5% 0;
+  }
+}

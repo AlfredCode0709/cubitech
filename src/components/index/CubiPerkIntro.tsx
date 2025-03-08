@@ -33,7 +33,7 @@ const CubiPerkIntro: FC<any> = () => {
         </Box>
         <Image
           src={
-            "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741347461/block3_urxbcz.svg"
+            "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741348081/block3_j1zcbj.svg"
           }
           width={480}
           height={270}
