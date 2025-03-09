@@ -1,0 +1,311 @@
+/* CubiPay Usage styles */
+
+.cubiPayUsage {
+  padding: 2.5% 10%;
+  background: var(--primary-light);
+  color: var(--primary-main);
+
+  .header {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: var(--h6);
+  }
+
+  .content {
+    padding: 2.5% 0;
+
+    .title {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: var(--h5);
+    }
+
+    .description {
+      font-size: 18px;
+      line-height: var(--body1);
+      margin-top: 2.5%;
+    }
+
+    /* QR Code Scanning styles */
+    .qrContainer {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      animation: zoomAnimation 2s ease-out forwards;
+
+      .qrIcon {
+        width: 100%;
+        height: 100%;
+      }
+
+      .scanningShadow {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 25%;
+        background: #0058cc7f;
+        animation: scanAnimation 2s ease-in-out forwards;
+      }
+    }
+
+    .scanningText {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: var(--h6);
+      margin-top: 2.5%;
+      animation: fadeIn 0.5s ease-out;
+      transition: opacity 0.5s;
+    }
+
+    /* Payment Amount Auto Input styles */
+    .typingText {
+      display: flex;
+      animation: fadeIn 0.5s ease-out;
+      transition: opacity 0.5s;
+
+      .amountText {
+        font-weight: 500;
+        font-size: 40px;
+      }
+    }
+
+    .userCard {
+      margin: 10% 0;
+      padding: 5%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      animation: fadeIn 0.5s ease-out;
+      transition: opacity 0.5s;
+    }
+
+    .sendButton {
+      position: relative;
+      width: 100%;
+      height: 60px;
+      background: var(--primary-main);
+      border-radius: 30px;
+      text-align: center;
+      overflow: hidden;
+      animation: fadeIn 0.5s ease-out;
+      transition: opacity 0.5s;
+
+      .sendText {
+        color: var(--white);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: var(--h6);
+        transform: translateY(-50%);
+        transition: opacity 0.5s;
+      }
+
+      .arrowBox {
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        width: 50px;
+        height: 50px;
+        background: var(--white);
+        border-radius: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(-50%);
+        animation: none;
+
+        &.arrowSlide {
+          animation: slideAnimation 0.5s forwards;
+        }
+
+        .arrowForwardIcon {
+          color: var(--primary-main);
+        }
+      }
+    }
+
+    /* Payment Success / Payment Success Replay styles */
+    .iconBox {
+      width: 75px;
+      height: 75px;
+      position: relative;
+      animation: fadeIn 0.5s ease-out;
+      transition: opacity 0.5s;
+
+      .checkCircleIcon {
+        width: 100%;
+        height: 100%;
+        color: var(--primary-main);
+      }
+    }
+
+    .successText {
+      font-weight: 500;
+      font-size: 20px;
+      color: var(--primary-main);
+      line-height: var(--h6);
+      margin: 5% 0;
+      animation: fadeIn 0.5s ease-out;
+      transition: opacity 0.5s;
+    }
+
+    .amountText {
+      display: flex;
+      animation: fadeIn 0.5s ease-out;
+      transition: opacity 0.5s;
+
+      .amountValue {
+        font-size: 40px;
+        font-weight: 500;
+      }
+    }
+
+    .userInfo, .payeeInfo {
+      padding: 3%;
+      margin-top: 5%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      border-top: 1px solid var(--divider-color);
+      animation: fadeIn 0.5s ease-out;
+      transition: opacity 0.5s;
+    }
+
+    /* Transaction History styles */
+    .transactionHistoryTitle {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: var(--h6);
+      margin-bottom: 7.5%;
+      animation: fadeIn 0.5s ease-out forwards;
+      transition: opacity 0.5s;
+    }
+
+    .transactionRow {
+      padding: 7.5% 0;
+      border-bottom: 1px solid var(--divider-color);
+
+      .payeeLabel {
+        text-align: left;
+
+        .text {
+          transition: transform 0.3s ease;
+        }
+
+        .zoomEffect {
+          transform: scale(0.9);
+        }
+      }
+
+      .amountLabel {
+        text-align: right;
+
+        .text {
+          transition: transform 0.3s ease;
+          font-weight: 600;
+        }
+
+        .zoomEffect {
+          transform: scale(0.9);
+        }
+      }
+
+      .arrowOption {
+        text-align: right;
+
+        .arrowForwardIcon {
+          font-size: 14px;
+          color: var(--text-secondary-main);
+        }
+
+        .zoomEffect {
+          transform: scale(0.9);
+        }
+      }
+    }
+
+    /* Zoomed In Transaction styles */
+    .transactionDetailsTitle {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: var(--h6);
+      margin-bottom: 7.5%;
+      animation: fadeIn 0.5s ease-out forwards;
+      transition: opacity 0.5s;
+    }
+
+    .transactionAmountData {
+      display: flex;
+      justify-content: right;
+
+      .amountValue {
+        font-weight: 500;
+        font-size: 40px;
+      }
+    }
+
+    .gridRow {
+      border-bottom: 1px solid var(--divider-color);
+      padding: 7.5% 0;
+
+      .leftText {
+        text-align: left;
+      }
+
+      .rightText {
+        text-align: right;
+
+        .arrowForwardIcon {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+/* Keyframe for zooming in from 0 to 200x200 size */
+@keyframes zoomAnimation {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Keyframe for scanning shadow that only covers 30% of the height */
+@keyframes scanAnimation {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* Slight upward movement */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideAnimation {
+  0% {
+    left: 1%;
+  }
+  100% {
+    left: 77.5%;
+  }
+}

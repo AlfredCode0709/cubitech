@@ -87,9 +87,8 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ state }) => {
         isCubiMart: isCubiMart
       });
 
-      // dispatch({ type: "CLEAR_ORDER" });
-
       if (response.sessionId) {
+        dispatch({ type: "CLEAR_ORDER" }); // Clear order after successful checkout
         router.push(response.success_url);
       }
     } catch (error) {

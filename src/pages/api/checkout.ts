@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       additionalCosts,
       discount,
       total,
-      isCubiMart,  // Ensure `isCubiMart` flag is passed
+      isCubiMart,
     } = req.body;
 
     console.log("Received checkout request:", JSON.stringify(req.body, null, 2));
@@ -52,7 +52,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ error: "Unsupported payment method" });
     }
 
-    /* Convert prices to cents & validate */
     const toCents = (amount: any) => {
       if (typeof amount !== "number" || isNaN(amount)) {
         throw new Error(`Invalid amount: ${amount}`);
@@ -78,7 +77,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       };
     });
 
-    // Add additional costs as a separate line item
     if (additionalCosts > 0) {
       line_items.push({
         price_data: {
@@ -93,7 +91,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
     }
 
-    // Add discount as a separate line item if applicable
     if (discount > 0) {
       line_items.push({
         price_data: {
@@ -102,13 +99,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             name: "Discount",
             description: `Discount applied: $${discount.toFixed(2)}`,
           },
-          unit_amount: 0, // No amount because we will calculate the total manually
+          unit_amount: 0, // No amount because discount is deducted from total
         },
-        quantity: 1, // Only 1 discount line item
+        quantity: 1,
       });
     }
 
-    // Calculate the total amount manually
     const calculatedTotal = subtotal + additionalCosts - discount;
 
     const protocol = req.headers["x-forwarded-proto"] || "http";
@@ -118,7 +114,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       payment_method_types: supportedPaymentMethods[paymentMethod],
       line_items,
       mode: "payment",
-      success_url: `${baseUrl}/checkout/success`,
+      success_url: `${baseUrl}/checkout/success?sessionId={CHECKOUT_SESSION_ID}`,
       cancel_url: `${baseUrl}/checkout/cancel`,
       metadata: {
         subtotal: subtotal.toFixed(2),
@@ -138,11 +134,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     res.status(200).json({
+      status: "success",
+      message: "Checkout session created successfully",
       sessionId: session.id,
-      success_url: session.url, // Ensure this is passed back to frontend
+      success_url: session.url,
     });
   } catch (error: any) {
     console.error("Stripe Error:", error.message || error);
-    res.status(500).json({ error: error.message || "Internal Server Error" });
+    res.status(500).json({
+      status: "error",
+      message: "Failed to create checkout session",
+      error: error.message || "Internal Server Error",
+    });
   }
 }

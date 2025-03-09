@@ -35,8 +35,8 @@ const Footer: FC<any> = () => {
           {[
             "CubiFood",
             "CubiMart",
-            // "CubiRide",
-            // "CubiPay",
+            "CubiRide",
+            "CubiPay",
             // "CubiGift",
             // "CubiPerk",
           ].map((item) => (
