@@ -297,50 +297,33 @@
   .filterContent {
     align-items: center;
 
-    .clearAllButtonVariant1 {
-      color: #08834e;
-      margin-right: 2.5%;
+    .filterOptions {
+      display: flex;
+      justify-content: flex-end;
+      text-align: right;
+      gap: 16px;
 
-      &:hover {
-        background: #08834e;
-        color: var(--white);
-      }
-    }
-
-    .clearAllButtonVariant2 {
-      color: var(--primary-main);
-      margin-right: 2.5%;
-
-      &:hover {
-        background: var(--primary-dark);
-        color: var(--white);
+      .clearAllButtonVariant1 {
+        color: #08834e;
+  
+        &:hover {
+          background: #e7fef4;
+        }
       }
     }
 
     .applyFiltersButtonVariant1 {
       background: #08834e;
-
-      &:hover {
-        background: #05482b;
-      }
-
-      &:disabled {
-        background: transparent;
-        color: var(--disable-main);
-      }
-    }
-
-    .applyFiltersButtonVariant2 {
-      background: var(--primary-main);
       color: var(--white);
 
       &:hover {
-        background: var(--primary-dark);
+        background: #05482b;
+        color: var(--white);
       }
 
       &:disabled {
-        background: transparent;
-        color: var(--disable-main);
+        background: #0000001f;
+        color: #00000042;
       }
     }
   }
@@ -378,6 +361,29 @@
       margin-bottom: 4%;
     }
 
+    .rating {
+      margin-bottom: 4%;
+    }
+
+    .brandName {
+      font-size: 18px;
+      line-height: var(--body1);
+      color: var(--text-secondary-main);
+      margin-bottom: 4%;
+    }
+
+    .promotionOutline {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4%;
+      gap: 16px;
+
+      .title {
+        color: var(--text-secondary-main);
+        line-height: var(--body1);
+      }
+    }
+
     .itemActionButtons {
       padding: 4% 0;
       display: flex;
@@ -394,6 +400,65 @@
           background: #0000001f;
           color: #00000042;
         }
+      }
+    }
+  }
+
+  .productData {
+    padding: 5%;
+    height: 100%;
+
+    .productDetailsTitle {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: var(--h4);
+      margin-bottom: 3%;
+    }
+
+    .productDescription {
+      font-size: 16px;
+      line-height: var(--body1);
+      color: var(--text-secondary-main);
+    }
+  }
+
+  .ratingsData {
+    padding: 10%;
+    height: 100%;
+
+    .ratingsReviewsTitle {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: var(--h4);
+      margin-bottom: 5%;
+    }
+
+    .ratingRow {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2.5%;
+
+      .rating {
+        font-size: 18px;
+        margin-right: 2.5%;
+
+        .score {
+          font-weight: 600;
+          font-size: 22px;
+        }
+      }
+    }
+
+    .numberOfReviews {
+      color: var(--text-secondary-main);
+    }
+
+    .ratingTable {
+      margin-top: 10%;
+      align-items: center;
+
+      .rating {
+        margin-top: 3%;
       }
     }
   }

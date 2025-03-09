@@ -7,38 +7,48 @@ import styles from "../../styles/cart.module.scss";
 import { FC, Fragment } from "react";
 
 interface CartViewProps {
-  // state: any;
-  // dispatch: any;
+  state: any;
+  dispatch: any;
   isCubiMart: boolean;
   setIsCubiMart: any;
 }
 
 const CartView: FC<CartViewProps> = ({
-  // state,
-  // dispatch,
+  state,
+  dispatch,
   isCubiMart,
   setIsCubiMart,
 }) => {
+  const isEmpty =
+    (isCubiMart && state?.cubiMartItems.length === 0) ||
+    (!isCubiMart && state?.cubiFoodItems.length === 0);
+
   return (
     <Fragment>
       <Box className={styles.cartView}>
         <Toggle isCubiMart={isCubiMart} setIsCubiMart={setIsCubiMart} />
 
-        {/* <ShoppingCartDisplay
-          dispatch={dispatch}
-          isCubiMart={isCubiMart}
-          items={isCubiMart ? state.cubimartCart : state.cubifoodCart}
-        /> */}
-        {/* <EmptyCartDisplay
+        {isEmpty ? (
+          <EmptyCartDisplay
             imageSrc={
               isCubiMart
                 ? "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740469687/cubimart_emptycart_icon_cbhh4u.svg"
                 : "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1740135701/cubifood_emptycart_icon_ku3pne.svg"
             }
             shopLink={isCubiMart ? "/cubimart" : "/cubifood"}
-          /> */}
+          />
+        ) : (
+          <ShoppingCartDisplay
+            dispatch={dispatch}
+            isCubiMart={isCubiMart}
+            items={isCubiMart ? state.cubiMartItems : state.cubiFoodItems}
+          />
+        )}
       </Box>
-      <MoreItemsDrawer totalItems={18} brand={"CUBIFood"} />
+      <MoreItemsDrawer
+        totalItems={18}
+        brand={isCubiMart ? "CUBIMart" : "CUBIFood"}
+      />
     </Fragment>
   );
 };

@@ -1,12 +1,12 @@
 import CartView from "@/view/cart/CartView";
 import Head from "next/head";
-// import { useCart } from "@/contexts/CartContext";
+import { useCart } from "@/contexts/CartContext";
 import { FC, Fragment, useState } from "react";
 
 const Cart: FC<any> = () => {
-  // const { state, dispatch } = useCart();
-
   const [isCubiMart, setIsCubiMart] = useState(true);
+
+  const { state, dispatch } = useCart();
 
   return (
     <Fragment>
@@ -21,8 +21,8 @@ const Cart: FC<any> = () => {
       </Head>
       <main>
         <CartView
-          // state={state}
-          // dispatch={dispatch}
+          state={state}
+          dispatch={dispatch}
           isCubiMart={isCubiMart}
           setIsCubiMart={setIsCubiMart}
         />

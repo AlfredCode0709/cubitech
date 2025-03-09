@@ -89,9 +89,6 @@ export const getMainFilterVariant2 = (isLoggedIn: any) => [
       options: [
         { value: "selfCollection", label: "Self Collection" },
         { value: "doorstepDelivery", label: "Doorstep Delivery" },
-        { value: "threeToFiveDay", label: "3-5 Day Delivery" },
-        { value: "nextDay", label: "Next Day Delivery" },
-        { value: "scheduled", label: "Scheduled Delivery" },
         { value: "storePickUp", label: "Seller Store Pick Up" },
       ],
   },

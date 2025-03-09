@@ -1,19 +1,22 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
+import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 import CustomizationSelector from "./CustomisationSelector";
 import ItemActionButtons from "./ItemActionButtons";
 import ItemImage from "./ItemImage";
 import OptionSelector from "./OptionSelector";
+import ProductOverview from "./ProductOverview";
+import PromotionOutline from "./PromotionOutline";
 import QuantitySelector from "./QuantitySelector";
 import SpecialNotes from "./SpecialNotes";
 import commonStyles from "../../../styles/common.module.scss";
-import { CartContext } from "@/contexts/CartContext";
 import { customisations } from "./customisations";
 import { options } from "./options";
+import { useCart } from "@/contexts/CartContext";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-import { FC, useContext, useEffect } from "react";
+import { FC, useEffect } from "react";
 
 interface FormValues {
   option: string;
@@ -29,7 +32,7 @@ interface ItemDataProps {
 const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
   const router = useRouter();
   const { id } = router.query;
-  const { dispatch } = useContext(CartContext);
+  const { dispatch } = useCart();
 
   const {
     control,
@@ -74,7 +77,7 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
           quantity: data.quantity,
         };
 
-    dispatch({ type: "ADD_CART_ITEM", payload: { item: newItem, isCubiMart } });
+    dispatch({ type: "ADD_CART_ITEM", payload: newItem, isCubiMart });
 
     reset();
   };
@@ -106,6 +109,21 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
             <Typography className={commonStyles.itemName}>Item Name</Typography>
             <Typography className={commonStyles.itemPrice}>$9.99</Typography>
 
+            {/* Rating - CubiMart only */}
+            {isCubiMart === true && (
+              <>
+                <Rating
+                  className={commonStyles.rating}
+                  size={"large"}
+                  defaultValue={5}
+                />
+                <Typography className={commonStyles.brandName}>
+                  Brand Name
+                </Typography>
+                <PromotionOutline />
+              </>
+            )}
+
             {/* Order Customisation */}
             <Grid container spacing={2}>
               <OptionSelector
@@ -113,11 +131,15 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
                 control={control}
                 errors={errors}
               />
-              <CustomizationSelector
-                customisations={customisations}
-                control={control}
-              />
-              <SpecialNotes control={control} />
+              {isCubiMart === false && (
+                <>
+                  <CustomizationSelector
+                    customisations={customisations}
+                    control={control}
+                  />
+                  <SpecialNotes control={control} />
+                </>
+              )}
               <QuantitySelector control={control} errors={errors} />
             </Grid>
 
@@ -130,6 +152,8 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
             />
           </Box>
         </Grid>
+
+        {isCubiMart === true && <ProductOverview />}
       </Grid>
     </Box>
   );

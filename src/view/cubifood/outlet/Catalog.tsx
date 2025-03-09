@@ -4,7 +4,7 @@ import OutletPageHeader from "@/components/cubifood/OutletPageHeader/OutletPageH
 import StallListDisplay from "@/components/cubifood/StallListDisplay";
 import StallMenu from "@/components/cubifood/StallMenu";
 import styles from "../../../styles/cubifood.module.scss";
-import { FC, useState } from "react";
+import { FC, Fragment, useState } from "react";
 
 const Catalog: FC<any> = () => {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -16,7 +16,7 @@ const Catalog: FC<any> = () => {
   const numberOfStalls = 14;
 
   return (
-    <>
+    <Fragment>
       {/* Starting block of Outlet Catalogue page */}
       <Box className={styles.outletPageCover} />
 
@@ -38,7 +38,7 @@ const Catalog: FC<any> = () => {
       ) : (
         <StallMenu stallId={selectedOption} numberOfItems={20} />
       )}
-    </>
+    </Fragment>
   );
 };
 

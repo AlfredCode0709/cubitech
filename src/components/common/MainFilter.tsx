@@ -28,7 +28,7 @@ const MainFilter: FC<MainFilterProps> = ({
 }) => {
   const router = useRouter();
 
-  const isCubiFood = router.pathname === '/cubifood';
+  const isCubiFood = router.pathname === "/cubifood";
   const selectThemeColor = isCubiFood ? "#08834e" : "primary";
   const menuItemSelectedColor = isCubiFood
     ? "#c5f2e0 !important"
@@ -159,27 +159,27 @@ const MainFilter: FC<MainFilterProps> = ({
         ))}
 
         {/* <Grid size={isLoggedIn ? 3.5 : 4} textAlign={"right"}> */}
-        <Grid size={4} textAlign={"right"}>
+        <Grid size={4} className={commonStyles.filterOptions}>
           <Button
             size={"large"}
             className={
-              router.pathname === '/cubifood'
+              router.pathname === "/cubifood"
                 ? commonStyles.clearAllButtonVariant1
-                : commonStyles.clearAllButtonVariant2
+                : ""
             }
             onClick={handleClearFilters}
           >
             Clear All
           </Button>
           <Button
+            variant={"contained"}
             size={"large"}
             className={
-              router.pathname === '/cubifood'
+              router.pathname === "/cubifood"
                 ? commonStyles.applyFiltersButtonVariant1
-                : commonStyles.applyFiltersButtonVariant2
+                : ""
             }
-            variant="contained"
-            color="primary"
+            color={'primary'}
             onClick={handleApplyFilters}
             disabled={!isAnyFilterSelected}
           >

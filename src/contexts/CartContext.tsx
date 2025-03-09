@@ -1,99 +1,203 @@
-import { createContext, useReducer, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useReducer,
+  ReactNode,
+  Dispatch,
+  useEffect,
+} from "react";
 
-interface CartItem {
+export interface CubiFoodItem {
+  cartId: number;
   itemId: string;
   name: string;
   price: number;
-  quantity: number;
-  option?: string;
-  customizations?: string[];
+  option: string;
+  customizations: string[];
   specialNotes?: string;
-  brand?: string;
-  promotions?: string[];
+  quantity: number;
+}
+
+export interface CubiMartItem {
+  cartId: number;
+  itemId: string;
+  name: string;
+  price: number;
+  brand: string;
+  option: string;
+  promotions: string[];
+  quantity: number;
 }
 
 interface CartState {
-  cubiFood: CartItem[];
-  cubiMart: CartItem[];
+  cubiFoodItems: CubiFoodItem[];
+  cubiMartItems: CubiMartItem[];
 }
 
 type CartAction =
-  | { type: "ADD_CART_ITEM"; payload: { item: CartItem; isCubiMart: boolean } }
-  | { type: "REMOVE_CART_ITEM"; payload: { itemId: string; isCubiMart: boolean } };
+  | {
+      type: "ADD_CART_ITEM";
+      payload: Omit<CubiMartItem, "cartId"> | Omit<CubiFoodItem, "cartId">;
+      isCubiMart: boolean;
+    }
+  | { type: "REMOVE_CART_ITEM"; payload: number; isCubiMart: boolean }
+  | {
+      type: "UPDATE_QUANTITY";
+      payload: { cartId: number; quantity: number };
+      isCubiMart: boolean;
+    }
+  | { type: "CLEAR_CART"; isCubiMart: boolean };
 
 const initialState: CartState = {
-  cubiFood: [],
-  cubiMart: [],
+  cubiFoodItems: [],
+  cubiMartItems: [],
 };
 
-const cartReducer = (state: CartState, action: CartAction): CartState => {
-  switch (action.type) {
-    case "ADD_CART_ITEM": {
-      const { item, isCubiMart } = action.payload;
-      const cartKey = isCubiMart ? "cubiMart" : "cubiFood";
-      const existingCart = state[cartKey];
-
-      // Check if item exists
-      const existingItemIndex = existingCart.findIndex(
-        (cartItem) => cartItem.itemId === item.itemId
-      );
-
-      let updatedCart;
-      if (existingItemIndex !== -1) {
-        updatedCart = existingCart.map((cartItem, index) =>
-          index === existingItemIndex
-            ? { ...cartItem, quantity: cartItem.quantity + item.quantity }
-            : cartItem
-        );
-      } else {
-        updatedCart = [...existingCart, item];
-      }
-
-      sessionStorage.setItem(cartKey, JSON.stringify(updatedCart));
-      return { ...state, [cartKey]: updatedCart };
-    }
-
-    case "REMOVE_CART_ITEM": {
-      const { itemId, isCubiMart } = action.payload;
-      const cartKey = isCubiMart ? "cubiMart" : "cubiFood";
-      const updatedCart = state[cartKey].filter(
-        (cartItem) => cartItem.itemId !== itemId
-      );
-
-      sessionStorage.setItem(cartKey, JSON.stringify(updatedCart));
-      return { ...state, [cartKey]: updatedCart };
-    }
-
-    default:
-      return state;
-  }
-};
-
-export const CartContext = createContext<{
+const CartContext = createContext<{
   state: CartState;
-  dispatch: React.Dispatch<CartAction>;
+  dispatch: Dispatch<CartAction>;
 }>({
   state: initialState,
   dispatch: () => null,
 });
 
-export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [state, dispatch] = useReducer(cartReducer, initialState, () => {
-    if (typeof window !== "undefined") {
-      const storedCubiFood = sessionStorage.getItem("cubiFood");
-      const storedCubiMart = sessionStorage.getItem("cubiMart");
+const cartReducer = (state: CartState, action: CartAction): CartState => {
+  let updatedState = { ...state };
 
-      return {
-        cubiFood: storedCubiFood ? JSON.parse(storedCubiFood) : [],
-        cubiMart: storedCubiMart ? JSON.parse(storedCubiMart) : [],
-      };
+  switch (action.type) {
+    case "ADD_CART_ITEM": {
+      const cartId = Date.now() + Math.random(); // Generate a unique cartId
+
+      if (action.isCubiMart) {
+        const newItem: CubiMartItem = {
+          cartId,
+          ...action.payload,
+        } as CubiMartItem;
+        const existingItem = state.cubiMartItems.find(
+          (item) =>
+            item.itemId === newItem.itemId && item.option === newItem.option
+        );
+
+        if (existingItem) {
+          updatedState.cubiMartItems = state.cubiMartItems.map((item) =>
+            item.cartId === existingItem.cartId
+              ? { ...item, quantity: item.quantity + newItem.quantity }
+              : item
+          );
+        } else {
+          updatedState.cubiMartItems = [...state.cubiMartItems, newItem];
+        }
+      } else {
+        const newItem: CubiFoodItem = {
+          cartId,
+          ...action.payload,
+        } as CubiFoodItem;
+        const existingItem = state.cubiFoodItems.find(
+          (item) =>
+            item.itemId === newItem.itemId && item.option === newItem.option
+        );
+
+        if (existingItem) {
+          updatedState.cubiFoodItems = state.cubiFoodItems.map((item) =>
+            item.cartId === existingItem.cartId
+              ? { ...item, quantity: item.quantity + newItem.quantity }
+              : item
+          );
+        } else {
+          updatedState.cubiFoodItems = [...state.cubiFoodItems, newItem];
+        }
+      }
+      break;
     }
-    return initialState;
-  });
+
+    case "UPDATE_QUANTITY":
+      updatedState = action.isCubiMart
+        ? {
+            ...state,
+            cubiMartItems: state.cubiMartItems.map((item) =>
+              item.cartId === action.payload.cartId
+                ? { ...item, quantity: action.payload.quantity }
+                : item
+            ),
+          }
+        : {
+            ...state,
+            cubiFoodItems: state.cubiFoodItems.map((item) =>
+              item.cartId === action.payload.cartId
+                ? { ...item, quantity: action.payload.quantity }
+                : item
+            ),
+          };
+      break;
+
+    case "REMOVE_CART_ITEM":
+      updatedState = action.isCubiMart
+        ? {
+            ...state,
+            cubiMartItems: state.cubiMartItems.filter(
+              (item) => item.cartId !== action.payload
+            ),
+          }
+        : {
+            ...state,
+            cubiFoodItems: state.cubiFoodItems.filter(
+              (item) => item.cartId !== action.payload
+            ),
+          };
+      break;
+
+    case "CLEAR_CART": {
+      updatedState = action.isCubiMart
+        ? { ...state, cubiMartItems: [] }
+        : { ...state, cubiFoodItems: [] };
+      break;
+    }
+
+    default:
+      return state;
+  }
+
+  // Persist cart to sessionStorage
+  if (typeof window !== "undefined") {
+    sessionStorage.setItem("cart", JSON.stringify(updatedState));
+  }
+
+  return updatedState;
+};
+
+export const CartProvider = ({ children }: { children: ReactNode }) => {
+  const [state, dispatch] = useReducer(cartReducer, initialState);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedCart = sessionStorage.getItem("cart");
+      if (savedCart) {
+        const parsedState: CartState = JSON.parse(savedCart);
+
+        dispatch({ type: "CLEAR_CART", isCubiMart: true });
+        dispatch({ type: "CLEAR_CART", isCubiMart: false });
+
+        parsedState.cubiMartItems.forEach((item) => {
+          dispatch({ type: "ADD_CART_ITEM", payload: item, isCubiMart: true });
+        });
+        parsedState.cubiFoodItems.forEach((item) => {
+          dispatch({ type: "ADD_CART_ITEM", payload: item, isCubiMart: false });
+        });
+      }
+    }
+  }, []);
 
   return (
     <CartContext.Provider value={{ state, dispatch }}>
       {children}
     </CartContext.Provider>
   );
+};
+
+export const useCart = () => {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error("useCart must be used within a CartProvider");
+  }
+  return context;
 };

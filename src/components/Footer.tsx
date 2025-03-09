@@ -24,7 +24,9 @@ const Footer: FC<any> = () => {
         </Grid>
 
         <Grid size={3} className={"footerSection"}>
-          <Typography className={"footerLink"}>About Us</Typography>
+          <Link href={"/about"}>
+            <Typography className={"footerLink"}>About Us</Typography>
+          </Link>
           <Typography className={"footerLink"}>Help Centre</Typography>
         </Grid>
 

@@ -10,7 +10,7 @@ const ItemView: FC<any> = () => {
       ssr: false, // Ensures it's only rendered on the client
     }
   );
-
+  
   return (
     <Fragment>
       <Head>
@@ -19,15 +19,15 @@ const ItemView: FC<any> = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
           rel="icon"
-          href="https://res.cloudinary.com/dcsfz2ydj/image/upload/v1739968423/cubifood_xnltgt.ico"
+          href="https://res.cloudinary.com/dcsfz2ydj/image/upload/v1739968424/cubimart_vygwia.ico"
         />
       </Head>
       <main>
         {/* Item Data */}
-        <ItemData isCubiMart={false} />
+        <ItemData isCubiMart={true} />
 
         {/* More Items Drawer */}
-        <MoreItemsDrawer totalItems={18} brand={"CUBIFood"} />
+        <MoreItemsDrawer totalItems={18} brand={"CUBIMart"} />
       </main>
     </Fragment>
   );
