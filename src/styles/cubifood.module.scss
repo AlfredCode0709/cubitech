@@ -393,3 +393,48 @@
     padding: 2.5% 0;
   }
 }
+
+/* User Starting block styles */
+
+.userStartingBlock {
+  background: url("/cubifood/infographic1.png") center / cover no-repeat;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  margin-top: -100px;
+}
+
+/* Quick Start styles */
+.quickStart {
+  height: 25vh;
+  padding: 0 5.75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--divider-color);
+
+  .content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 16px;
+
+    .actionCard {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2%;
+
+      .text {
+        font-weight: 500;
+        font-size: 24px;
+      }
+    }
+  }
+}

@@ -67,3 +67,41 @@
     }
   }
 }
+
+/* User Menu styles */
+
+.userMenu {
+  /* MUI Menu Paper styles */
+
+  .MuiMenu-paper {
+    background-color: var(--primary-light);
+    color: var(--primary-main);
+    margin-top: 19px;
+  }
+
+  /* MUI Menu Item styles */
+
+  .MuiMenuItem-root {
+    &:hover {
+      background-color: #b7d4fa;
+      color: var(--primary-dark);
+
+      /* MUI Typography styles */
+
+      .MuiTypography-root {
+        font-weight: 500;
+      }
+    }
+  }
+
+  /* Menu Item styles */
+
+  .menuItem {
+    display: flex;
+
+    .icon {
+      margin-left: -5%;
+      margin-right: 10%;
+    }
+  }
+}

@@ -135,3 +135,336 @@
     }
   }
 }
+
+/* User Dashboard styles */
+
+.userDashboard {
+  padding: 2.5% 10% 5%;
+
+  .infographicBox {
+    min-width: 100%;
+    height: 100%;
+    background-image: url("/index/infographic1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .accountInfo {
+    .card {
+      padding: 5%;
+      background: var(--primary-light);
+
+      .title {
+        font-weight: 500;
+        font-size: 32px;
+        color: var(--primary-dark);
+        line-height: var(--h4);
+        display: flex;
+        align-items: center;
+
+        .cubiPay,
+        .cubiPerk {
+          font-family: "Codec Pro Bold", sans-serif;
+          font-weight: 700;
+          font-size: 34px;
+          letter-spacing: 0.5;
+          color: var(--primary-main);
+          line-height: var(--h6);
+          margin-top: 2%;
+
+          .subColor1 {
+            color: #47b8d1;
+          }
+
+          .subColor2 {
+            color: #fbc512;
+          }
+        }
+      }
+
+      .value {
+        font-weight: 600;
+        font-size: 40px;
+        color: var(--primary-main);
+        line-height: var(--h3);
+        text-align: right;
+        margin-top: 5%;
+      }
+    }
+
+    .marginTop {
+      margin-top: 5%;
+    }
+  }
+
+  .userShortcutBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .avatar {
+      width: 136px;
+      height: 32px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+}
+
+/* Top Rated Eateries styles */
+
+.topRatedEateries {
+  padding: 2.5% 10%;
+  background: #e7fef4;
+  color: #08834e;
+
+  .title {
+    font-family: "Merriweather", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: var(--h4);
+    font-style: italic;
+    align-items: center;
+
+    .cubiFood {
+      font-family: "Codec Pro Bold", sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: 1;
+      line-height: var(--h4);
+      font-style: normal;
+      margin-right: 0.5%;
+    }
+  }
+
+  .content {
+    padding: 2.5% 0;
+
+    .eateryCard {
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        box-shadow: 0px 4px 8px #00000026;
+      }
+
+      .cardContent {
+        border-top: 1px solid var(--divider-color);
+
+        .name {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: var(--h6);
+          margin-bottom: 5%;
+        }
+
+        .address {
+          font-size: 14px;
+          line-height: var(--body1);
+          color: var(--secondary-main);
+        }
+
+        .rating {
+          margin-top: 10%;
+        }
+      }
+    }
+  }
+}
+
+/* CubiPerk Progress Table styles */
+
+.cubiPerkProgressTable {
+  padding: 2.5% 10%;
+
+  .cubiperk {
+    font-family: "Codec Pro Bold", sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 1;
+    color: var(--primary-main);
+    line-height: var(--h4);
+
+    .subColor {
+      color: #fbc512;
+    }
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  .content {
+    padding: 2.5% 0;
+
+    .card {
+      border-radius: 8px;
+
+      .cardContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .leftBox {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .avatar {
+            width: 65px;
+            height: 65px;
+            background: var(--primary-light);
+            padding: 15%;
+          }
+        }
+
+        .rightBox {
+          padding: 5% 0;
+
+          .name {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: var(--body1);
+          }
+
+          .summary {
+            font-size: 12px;
+            color: var(--secondary-main);
+          }
+
+          .button {
+            font-size: 12px;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* CubiPlus Intro styles */
+
+.cubiPlusIntro {
+  padding: 2.5% 10%;
+  background: #ffebe6;
+  color: #f4511e;
+
+  .title {
+    font-family: "Merriweather", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: var(--h5);
+    font-style: italic;
+    align-items: center;
+
+    .cubiPlus {
+      font-family: "Codec Pro Bold", sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: 1;
+      line-height: var(--h4);
+      font-style: normal;
+      margin-left: 1%;
+    }
+  }
+
+  .content {
+    padding: 2.5% 0;
+
+    .card {
+      border-radius: 8px;
+      overflow: hidden;
+
+      .cardMediaContainer {
+        width: 100%;
+        padding-bottom: 100%;
+        position: relative;
+
+        .cardMedia {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+        }
+      }
+
+      .cardContent {
+        border-top: 1px solid var(--divider-color);
+
+        .name {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: var(--h6);
+          margin-bottom: 2.5%;
+        }
+
+        .description {
+          font-size: 14px;
+          line-height: var(--body1);
+          color: var(--secondary-main);
+        }
+      }
+    }
+  }
+}
+
+/* News Board styles */
+
+.newsBoard {
+  padding: 2.5% 10%;
+  background: var(--primary-light);
+  color: var(--primary-main);
+
+  .title {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: var(--h6);
+  }
+
+  .card {
+    border-radius: 8px;
+    overflow: hidden;
+
+    .cardMediaContainer {
+      width: 100%;
+      padding-bottom: 100%;
+      position: relative;
+
+      .cardMedia {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+      }
+    }
+
+    .cardContent {
+      border-top: 1px solid var(--divider-color);
+
+      .title {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: var(--h6);
+        margin-bottom: 2.5%;
+      }
+
+      .description {
+        font-size: 14px;
+        line-height: var(--body1);
+        color: var(--secondary-main);
+      }
+    }
+  }
+}

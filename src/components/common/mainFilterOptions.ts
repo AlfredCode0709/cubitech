@@ -11,7 +11,7 @@ export const getMainFilterVariant1 = (isLoggedIn: boolean) => [
   {
     label: "Price",
     id: "price",
-    size: isLoggedIn ? 1.5 : 2,
+    size: isLoggedIn ? 1.25 : 2,
     options: [
       { value: "0to10", label: "$0 - $10" },
       { value: "10to20", label: "$10 - $20" },
@@ -21,7 +21,7 @@ export const getMainFilterVariant1 = (isLoggedIn: boolean) => [
   {
     label: "Cuisine",
     id: "cuisine",
-    size: isLoggedIn ? 1.5 : 2,
+    size: isLoggedIn ? 1.75 : 2,
     dynamic: true,
   },
   {

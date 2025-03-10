@@ -29,14 +29,16 @@ export const mainNavItems = [
     href: "/cubipay",
     label: "CubiPay",
   },
-  //   {
-  //     avatar: "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741347929/cubigift_icon_btsglb.svg",
-  //     href: "/cubigift",
-  //     label: "CubiGift",
-  //   },
-  //   {
-  //     avatar: "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741347931/cubiperk_icon_kgcuqb.svg",
-  //     href: "/cubiperk",
-  //     label: "CubiPerk",
-  //   },
+  {
+    avatar:
+      "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741347929/cubigift_icon_btsglb.svg",
+    href: "/cubigift",
+    label: "CubiGift",
+  },
+  {
+    avatar:
+      "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741347931/cubiperk_icon_kgcuqb.svg",
+    href: "/cubiperk",
+    label: "CubiPerk",
+  },
 ];

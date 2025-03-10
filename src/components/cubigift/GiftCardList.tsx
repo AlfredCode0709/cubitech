@@ -54,7 +54,7 @@ const GiftCardList: FC<GiftCardListProps> = ({ onCardSelect, giftListRef }) => {
           >
             <Avatar
               alt="CubiGift"
-              src="/cubitech_brands/cubigift_light.svg"
+              src="https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345166/cubigift_light_yw56ji.svg"
               className={styles.avatar}
               variant="square"
             />

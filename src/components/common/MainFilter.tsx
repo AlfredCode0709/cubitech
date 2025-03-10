@@ -7,6 +7,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import commonStyles from "../../styles/common.module.scss";
 import { useRouter } from "next/router";
+import { useUser } from "@auth0/nextjs-auth0";
 import {
   getMainFilterVariant1,
   getMainFilterVariant2,
@@ -27,6 +28,8 @@ const MainFilter: FC<MainFilterProps> = ({
   onClearFilters,
 }) => {
   const router = useRouter();
+  const { user } = useUser();
+  const isLoggedIn = !!user;
 
   const isCubiFood = router.pathname === "/cubifood";
   const selectThemeColor = isCubiFood ? "#08834e" : "primary";
@@ -36,8 +39,8 @@ const MainFilter: FC<MainFilterProps> = ({
   const menuItemHoverColor = isCubiFood ? "#e7fef4" : "var(--primary-light)";
 
   const filterOptions = router.pathname.startsWith("/cubifood")
-    ? getMainFilterVariant1(false)
-    : getMainFilterVariant2(false);
+    ? getMainFilterVariant1(isLoggedIn)
+    : getMainFilterVariant2(isLoggedIn);
 
   const initialFilters = {
     sortBy: "",
@@ -93,7 +96,7 @@ const MainFilter: FC<MainFilterProps> = ({
   }, [selectedCategory]);
 
   const isAnyFilterSelected = Object.values(filters).some(
-    (value) => value !== ""
+    (value) => value !== "",
   );
 
   return (
@@ -158,8 +161,11 @@ const MainFilter: FC<MainFilterProps> = ({
           </Grid>
         ))}
 
-        {/* <Grid size={isLoggedIn ? 3.5 : 4} textAlign={"right"}> */}
-        <Grid size={4} className={commonStyles.filterOptions}>
+        <Grid
+          size={isLoggedIn ? 3.5 : 4}
+          textAlign={"right"}
+          className={commonStyles.filterOptions}
+        >
           <Button
             size={"large"}
             className={
@@ -179,7 +185,7 @@ const MainFilter: FC<MainFilterProps> = ({
                 ? commonStyles.applyFiltersButtonVariant1
                 : ""
             }
-            color={'primary'}
+            color={"primary"}
             onClick={handleApplyFilters}
             disabled={!isAnyFilterSelected}
           >

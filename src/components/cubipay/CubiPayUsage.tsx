@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import PaymentFlow from "./PaymentFlow/_";
 import TransactionReplayFlow from "./TransactionReplayFlow/_";
@@ -12,30 +12,37 @@ const CubiPayUsage: FC<any> = () => {
       <Typography className={styles.header}>
         How CubiPay Wallet works
       </Typography>
-      <Grid container className={styles.content} spacing={2}>
-        <Grid item xs={6}>
-          <Typography className={styles.title}>
+      <Stack className={styles.content}>
+        <Box className={styles.leftContent}>
+          <Typography className={styles.title} component={"div"}>
             Effortless Transactions
+            <br />
+            <span className={styles.descr}>
+              Easily split the bill after a meal — send or request transfers
+              instantly with no fees involved.
+            </span>
           </Typography>
-          <Typography className={styles.description}>
-            Easily split the bill after a meal — send or request transfers
-            instantly with no fees involved.
-          </Typography>
-        </Grid>
-        <Grid item xs={6}>
+        </Box>
+        <Box className={styles.rightContent}>
           <PaymentFlow />
-        </Grid>
-        <Grid item xs={6}>
-          <Typography className={styles.title}>Stay in Charge</Typography>
-          <Typography className={styles.description}>
-            Get instant payment notifications and access your full transaction
-            history anytime in the app.
+        </Box>
+      </Stack>
+
+      <Stack className={styles.content}>
+        <Box className={styles.leftContent}>
+          <Typography className={styles.title} component={"div"}>
+            Stay in Charge
+            <br />
+            <span className={styles.descr}>
+              Get instant payment notifications and access your full transaction
+              history anytime in the app.
+            </span>
           </Typography>
-        </Grid>
-        <Grid item xs={6}>
+        </Box>
+        <Box className={styles.rightContent}>
           <TransactionReplayFlow />
-        </Grid>
-      </Grid>
+        </Box>
+      </Stack>
     </Box>
   );
 };

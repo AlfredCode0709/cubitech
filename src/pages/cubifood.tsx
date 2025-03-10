@@ -1,8 +1,12 @@
 import _ from "@/view/cubifood/Default";
+import Logged from "@/view/cubifood/Logged";
 import Head from "next/head";
+import { useUser } from "@auth0/nextjs-auth0";
 import { FC, Fragment } from "react";
 
 const CubiFood: FC<any> = () => {
+  const { user } = useUser();
+
   return (
     <Fragment>
       <Head>
@@ -15,7 +19,7 @@ const CubiFood: FC<any> = () => {
         />
       </Head>
       <main>
-        <_ />
+        {user ? <Logged /> : <_ />}
       </main>
     </Fragment>
   );

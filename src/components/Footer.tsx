@@ -37,8 +37,8 @@ const Footer: FC<any> = () => {
             "CubiMart",
             "CubiRide",
             "CubiPay",
-            // "CubiGift",
-            // "CubiPerk",
+            "CubiGift",
+            "CubiPerk",
           ].map((item) => (
             <Link key={item} href={`/${item.toLowerCase()}`}>
               <Typography className={"footerLink"}>{item}</Typography>
