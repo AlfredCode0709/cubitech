@@ -7,7 +7,7 @@ author = 40269896
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "pnpm dev"
+args = "pnpm run dev"
 
 [deployment]
 run = ["sh", "-c", "pnpm run start"]
