@@ -1,0 +1,14 @@
+[workflows]
+runButton = "Run"
+
+[[workflows.workflow]]
+name = "Run"
+author = 40269896
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "pnpm dev"
+
+[deployment]
+run = ["sh", "-c", "pnpm run start"]
+build = ["sh", "-c", "pnpm run build"]
