@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import Chip from "@mui/material/Chip";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
-import CardMediaContainer from "@/components/CardMediaContainer";
+import CardMediaContainer from "./CardMediaContainer";
 import commonStyles from "@/styles/common.module.scss";
 import { FC } from "react";
 

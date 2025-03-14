@@ -1,7 +1,7 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import CardMediaContainer from "@/components/CardMediaContainer";
+import CardMediaContainer from "./CardMediaContainer";
 import commonStyles from "@/styles/common.module.scss";
 import { CSSProperties, FC } from "react";
 
@@ -29,7 +29,7 @@ const InfoCard: FC<InfoCardProps> = ({
       <CardContent className={commonStyles.contentData}>
         <Typography
           className={commonStyles.title}
-          style={
+          sx={
             {
               "--title-font-size": `${titleFontSize || 12}px`,
             } as CSSProperties
@@ -39,7 +39,7 @@ const InfoCard: FC<InfoCardProps> = ({
         </Typography>
         <Typography
           className={commonStyles.descr}
-          style={
+          sx={
             {
               "--descr-font-size": `${descrFontSize || 12}px`,
             } as CSSProperties

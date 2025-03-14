@@ -4,7 +4,7 @@ import commonStyles from "@/styles/common.module.scss";
 import { CSSProperties, FC, ReactNode } from "react";
 
 interface StartingBlock1Props {
-  backgroundImage: string;
+  backgroundImage?: string;
   backgroundPosition?: string;
   children: ReactNode;
 }

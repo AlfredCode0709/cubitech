@@ -3,15 +3,22 @@ import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 import CubitechDark from "./CubitechDark";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { CSSProperties, FC } from "react";
 
 const Footer: FC<any> = () => {
+  const router = useRouter();
+
   return (
     <Box
       className={"footerContainer"}
       sx={
         {
-          "--background": "var(--primary-dark)",
+          "--background": `${
+            router.pathname.startsWith("/cubifood")
+              ? "#066039"
+              : "var(--primary-dark)"
+          }`,
         } as CSSProperties
       }
     >
@@ -39,6 +46,11 @@ const Footer: FC<any> = () => {
 
         <Grid size={3} className={"footerSection"}>
           <Typography className={"footerHeading"}>Consumers</Typography>
+          {["CubiFood"].map((item) => (
+            <Link key={item} href={`/${item.toLowerCase()}`}>
+              <Typography className={"footerLink"}>{item}</Typography>
+            </Link>
+          ))}
         </Grid>
 
         <Grid size={3} className={"footerSection"}>
