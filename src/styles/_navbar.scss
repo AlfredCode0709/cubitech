@@ -1,0 +1,77 @@
+/* Navbar container styles */
+
+.navbarContainer {
+  display: flex;
+
+  /* AppBar styles */
+
+  .appBar {
+    justify-content: center;
+
+    .avatar {
+      width: 170px;
+      height: 40px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+
+    /* Button List styles */
+    
+    .buttonList {
+      display: flex;
+      gap: 16px;
+    }
+  }
+}
+
+/* Main Menu styles */
+
+.mainMenu {
+  /* MUI Menu Paper styles */
+
+  .MuiMenu-paper {
+    background: var(--background-color);
+    color: var(--color);
+    margin-top: 16px;
+    width: var(--width);
+  }
+
+  /* MUI Menu Item styles */
+
+  .MuiMenuItem-root {
+    &:hover {
+      background: var(--hover-background-color);
+      color: var(--hover-color);
+      transition: all 0.3s ease-in-out;
+
+      /* MUI Typography styles */
+
+      .MuiTypography-root {
+        font-weight: 500;
+      }
+    }
+  }
+
+  /* Menu Item styles */
+
+  .menuItem {
+    display: flex;
+    width: var(--width);
+
+    .avatar {
+      width: 35px;
+      height: 35px;
+      margin-right: 10%;
+    }
+
+    .icon {
+      width: 35px;
+      height: 35px;
+      margin-left: -10%;
+      margin-right: 10%;
+    }
+  }
+}

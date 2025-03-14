@@ -1,0 +1,35 @@
+/* Starting block 1 styles */
+
+.startingBlock1 {
+  background: var(--background-image) var(--background-position) / cover
+    no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  margin-top: -80px;
+
+  /* Semi-transparent dark overlay */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #00000059;
+    z-index: 0;
+  }
+
+  /* Title styles */
+  .title {
+    font-weight: 600;
+    font-size: 54px;
+    line-height: var(--h1);
+    color: var(--white);
+    width: 80%;
+    margin: 33% auto 0;
+    position: relative;
+    z-index: 1;
+    text-align: left;
+  }
+}

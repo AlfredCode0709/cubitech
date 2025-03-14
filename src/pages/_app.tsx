@@ -1,6 +1,24 @@
-import "@/styles/globals.css";
+import "@/styles/globals.scss";
+import Layout from "@/components/Layout";
+import { createDynamicTheme } from "@/styles/theme";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  const [theme, setTheme] = useState(createDynamicTheme());
+
+  useEffect(() => {
+    /* Recreate the theme after the DOM is available */
+    setTheme(createDynamicTheme());
+  }, []);
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
+  );
 }

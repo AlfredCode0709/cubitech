@@ -1,0 +1,55 @@
+/* Footer container styles */
+
+.footerContainer {
+  padding: 3% 5%;
+  background: var(--background);
+  color: var(--white);
+
+  .avatar {
+    width: 170px;
+    height: 40px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  /* Styling for the first section of the footer */
+
+  .footer1Section {
+    text-align: left;
+    margin: 10% 0 7.5% 0;
+  }
+
+  .footer1_subSection {
+    text-align: left;
+  }
+
+  /* General styling for the footer sections */
+
+  .footerSection {
+    text-align: left;
+
+    .footerHeading {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: var(--h6);
+    }
+
+    .footerLink {
+      font-size: 16px;
+      line-height: var(--body1);
+      color: inherit;
+
+      /* Change cursor to pointer on hover */
+
+      cursor: pointer;
+
+      &:hover {
+        color: #d8e1ec;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+}
