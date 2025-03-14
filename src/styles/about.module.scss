@@ -1,0 +1,50 @@
+/* Container styles for DevelopingCubitech, BuildingResilience and CubitechStandards */
+
+.container {
+  padding: 2.5% 10%;
+
+  .content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .leftContent {
+      width: 45%;
+
+      .title {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: var(--h4);
+        color: var(--primary-main);
+      }
+
+      .subtitle {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: var(--subtitle2);
+        color: var(--primary-dark);
+        margin-top: 4%;
+      }
+    }
+
+    .rightContent {
+      width: 45%;
+
+      .title {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: var(--h4);
+        color: var(--primary-main);
+      }
+
+      .subtitle {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: var(--subtitle2);
+        color: var(--primary-dark);
+        margin-top: 4%;
+      }
+    }
+  }
+}

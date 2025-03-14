@@ -6,9 +6,22 @@ import Toolbar from "@mui/material/Toolbar";
 import MenuIcon from "@mui/icons-material/Menu";
 import CubitechDark from "../CubitechDark";
 import Link from "next/link";
-import { FC } from "react";
+import MainMenu from "./MainMenu";
+import { FC, MouseEvent, useState } from "react";
 
 const Navbar: FC<any> = () => {
+  const [mainMenuAnchorEl, setMainMenuAnchorEl] = useState<null | HTMLElement>(
+    null
+  );
+
+  const handleMainMenu = (event: MouseEvent<HTMLElement>) => {
+    setMainMenuAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseMainMenu = () => {
+    setMainMenuAnchorEl(null);
+  };
+
   return (
     <Box className={"navbarContainer"}>
       <CssBaseline />
@@ -19,11 +32,20 @@ const Navbar: FC<any> = () => {
           </Link>
           <Box flexGrow={1} />
           <Box className={"buttonList"}>
-            <IconButton color={"inherit"} size={"large"} edge={"end"}>
+            <IconButton
+              onClick={handleMainMenu}
+              color={"inherit"}
+              size={"large"}
+              edge={"end"}
+            >
               <MenuIcon />
             </IconButton>
           </Box>
         </Toolbar>
+        <MainMenu
+          anchorEl={mainMenuAnchorEl}
+          handleClose={handleCloseMainMenu}
+        />
       </AppBar>
     </Box>
   );
