@@ -13,7 +13,7 @@ import SpecialNotes from "./SpecialNotes";
 import commonStyles from "@/styles/common.module.scss";
 import { customisations } from "./customisations";
 import { options } from "./options";
-// import { useCart } from "@/contexts/CartContext";
+import { useCart } from "@/contexts/CartContext";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
@@ -32,7 +32,7 @@ interface ItemDataProps {
 const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
   const router = useRouter();
   const { id } = router.query;
-  // const { dispatch } = useCart();
+  const { dispatch } = useCart();
 
   const {
     control,
@@ -79,7 +79,7 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
 
     console.log(newItem);
 
-    // dispatch({ type: "ADD_CART_ITEM", payload: newItem, isCubiMart });
+    dispatch({ type: "ADD_CART_ITEM", payload: newItem, isCubiMart });
 
     reset();
   };

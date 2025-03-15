@@ -1,5 +1,7 @@
 import "@/styles/globals.scss";
 import Layout from "@/components/Layout";
+import { CartProvider } from "@/contexts/CartContext";
+import { OrderProvider } from "@/contexts/OrderContext";
 import { createDynamicTheme } from "@/styles/theme";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -15,10 +17,14 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <OrderProvider>
+        <CartProvider>
+          <CssBaseline />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </CartProvider>
+      </OrderProvider>
     </ThemeProvider>
   );
 }
