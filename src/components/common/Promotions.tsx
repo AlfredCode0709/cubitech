@@ -11,8 +11,8 @@ interface PromotionsProps {
   descr: string;
   titleFontSize: number;
   descrFontSize: number;
-  bgColor: string;
-  color: string;
+  bgColor?: string;
+  color?: string;
   imageSrc: string;
 }
 
@@ -27,8 +27,8 @@ const Promotions: FC<PromotionsProps> = ({
   imageSrc,
 }) => {
   return (
-    <Box className={commonStyles.promotion} bgcolor={bgColor}>
-      <Typography className={commonStyles.title} color={color}>
+    <Box className={commonStyles.promotion} bgcolor={bgColor || 'var(--primary-light)'}>
+      <Typography className={commonStyles.title} color={color || 'var(--primary-main)'}>
         {header}
       </Typography>
 

@@ -1,4 +1,5 @@
-export const getMainFilterVariant1 = (isLoggedIn: boolean) => [
+// export const getMainFilterVariant1 = (isLoggedIn: boolean) => [
+export const getMainFilterVariant1 = () => [
   {
     label: "Sort by",
     id: "sortBy",
@@ -11,7 +12,8 @@ export const getMainFilterVariant1 = (isLoggedIn: boolean) => [
   {
     label: "Price",
     id: "price",
-    size: isLoggedIn ? 1.25 : 2,
+    // size: isLoggedIn ? 1.25 : 2,
+    size: 2,
     options: [
       { value: "0to10", label: "$0 - $10" },
       { value: "10to20", label: "$10 - $20" },
@@ -21,7 +23,8 @@ export const getMainFilterVariant1 = (isLoggedIn: boolean) => [
   {
     label: "Cuisine",
     id: "cuisine",
-    size: isLoggedIn ? 1.75 : 2,
+    // size: isLoggedIn ? 1.75 : 2, 
+    size: 2,
     dynamic: true,
   },
   {
@@ -34,27 +37,29 @@ export const getMainFilterVariant1 = (isLoggedIn: boolean) => [
       { value: "vegetarian", label: "Vegetarian" },
     ],
   },
-  ...(isLoggedIn
-    ? [
-        {
-          label: "Consume By",
-          id: "consumeBy",
-          size: 1.5,
-          options: [
-            { value: "dineIn", label: "Dine-in" },
-            { value: "takeaway", label: "Takeaway" },
-            { value: "delivery", label: "Delivery" },
-          ],
-        },
-      ]
-    : []),
+  // ...(isLoggedIn
+  //   ? [
+  //       {
+  //         label: "Consume By",
+  //         id: "consumeBy",
+  //         size: 1.5,
+  //         options: [
+  //           { value: "dineIn", label: "Dine-in" },
+  //           { value: "takeaway", label: "Takeaway" },
+  //           { value: "delivery", label: "Delivery" },
+  //         ],
+  //       },
+  //     ]
+  //   : []),
 ];
 
-export const getMainFilterVariant2 = (isLoggedIn: boolean) => [
+// export const getMainFilterVariant2 = (isLoggedIn: boolean) => [
+export const getMainFilterVariant2 = () => [
   {
     label: "Sort by",
     id: "sortBy",
-    size: isLoggedIn ? 1.75 : 2,
+    // size: isLoggedIn ? 1.75 : 2,
+    size: 2,
     options: [
       { value: "bestMatch", label: "Best Match" },
       { value: "lowToHighPrice", label: "Low to High Price" },
@@ -64,13 +69,15 @@ export const getMainFilterVariant2 = (isLoggedIn: boolean) => [
   {
     label: "Category",
     id: "category",
-    size: isLoggedIn ? 1.5 : 2,
+    // size: isLoggedIn ? 1.5 : 2,
+    size: 2,
     dynamic: true,
   },
   {
     label: "Shipping From",
     id: "shippingFrom",
-    size: isLoggedIn ? 1.5 : 2,
+    // size: isLoggedIn ? 1.5 : 2,
+    size: 2,
     options: [
       { value: "Singapore", label: "Singapore" },
       { value: "Malaysia", label: "Malaysia" },
@@ -92,17 +99,17 @@ export const getMainFilterVariant2 = (isLoggedIn: boolean) => [
       { value: "storePickUp", label: "Seller Store Pick Up" },
     ],
   },
-  ...(isLoggedIn
-    ? [
-        {
-          label: "Promotions",
-          id: "consumeBy",
-          size: 1.75,
-          options: [
-            { value: "freeShipping", label: "Free Shipping" },
-            { value: "4_4_deals", label: "4.4 Deals" },
-          ],
-        },
-      ]
-    : []),
+  // ...(isLoggedIn
+  //   ? [
+  //       {
+  //         label: "Promotions",
+  //         id: "consumeBy",
+  //         size: 1.75,
+  //         options: [
+  //           { value: "freeShipping", label: "Free Shipping" },
+  //           { value: "4_4_deals", label: "4.4 Deals" },
+  //         ],
+  //       },
+  //     ]
+  //   : []),
 ];

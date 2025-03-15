@@ -1,0 +1,252 @@
+/* Bargain Blitz styles */
+
+.bargainBlitz {
+  padding: 2.5% 10%;
+  background: var(--primary-main);
+  color: var(--white);
+
+  .header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .title {
+      font-family: "Merriweather", Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      font-style: italic;
+      line-height: var(--h5);
+    }
+
+    .iconButton {
+      background: var(--white);
+      color: var(--primary-main);
+
+      &:hover {
+        background: #b7d4fa;
+      }
+
+      &:focus {
+        background: #b7d4fa;
+      }
+
+      &:disabled {
+        background: transparent;
+        color: var(--disable-main);
+      }
+    }
+  }
+
+  .itemsCatalogue {
+    padding: 2.5% 0;
+  }
+}
+
+/* Stores View styles */
+
+.storesView {
+  padding: 2.5% 10%;
+
+  .header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .title {
+      font-family: "Merriweather", Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      font-style: italic;
+      color: var(--primary-main);
+      line-height: var(--h3);
+    }
+  }
+
+  .catalogueView {
+    padding: 2.5% 0;
+  }
+}
+
+/* Store Page Cover styles */
+
+.storePageCover {
+  background: url("/cubimart/pagecover1.png") center / cover no-repeat;
+  height: 62.5vh;
+}
+
+/* Store Page Header styles */
+
+.storePageHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5% 10%;
+  height: 37.5vh;
+  margin-bottom: -80px;
+  text-align: center;
+
+  .storeData {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    margin-top: -80px;
+
+    .storeInfo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+      gap: 16px;
+
+      .avatar {
+        width: 100px;
+        height: 100px;
+        padding: 7.5%;
+        background: var(--primary-light);
+      }
+
+      .data {
+        display: flex;
+        flex-direction: column;
+
+        .storeName {
+          font-size: 24px;
+          font-weight: 500;
+          line-height: var(--h5);
+          color: var(--primary-main);
+        }
+
+        .storeUserName {
+          font-size: 18px;
+          line-height: var(--body1);
+          color: var(--primary-dark);
+          margin-top: 2.5%;
+        }
+      }
+    }
+
+    .storeStats {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      text-align: right;
+      flex-grow: 1;
+      margin-right: 2.5%;
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100px;
+
+        .number {
+          display: flex;
+          align-items: center;
+          font-size: 22px;
+          font-weight: 600;
+          color: var(--primary-main);
+          margin-bottom: 5%;
+
+          .icon {
+            color: var(--primary-main);
+          }
+        }
+
+        .label {
+          display: flex;
+          align-items: center;
+          font-size: 16px;
+          line-height: var(--body1);
+          color: var(--text-secondary-main);
+        }
+      }
+    }
+
+    .storeActions {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+
+      .chatButton {
+        width: 100px;
+        color: var(--primary-main);
+
+        &:hover {
+          background: var(--primary-dark);
+          color: var(--white);
+        }
+      }
+    }
+  }
+}
+
+/* Store Filter styles */
+
+.storeFilter {
+  padding: 2.5% 10%;
+  background: #e9e9e9;
+
+  .allCategoriesButton,
+  .categoryButton {
+    &:hover {
+      background: var(--primary-main);
+      color: var(--white);
+    }
+
+    &.focused {
+      background: var(--primary-main);
+      color: var(--white);
+    }
+
+    &.notFocused {
+      background: transparent;
+      color: var(--primary-main);
+    }
+  }
+
+  .categoryList {
+    .data {
+      align-items: center;
+
+      .dataView {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        cursor: grab;
+        scroll-behavior: smooth;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        &.dragging {
+          cursor: pointer;
+        }
+
+        .cardWrapper {
+          text-align: center;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+}
+
+/* Category List Display and Category Menu styles */
+
+.categoryListDisplay, .categoryMenu {
+  padding: 2.5% 10%;
+
+  .categoryView, .menuView {
+    padding: 2.5% 0;
+  }
+}

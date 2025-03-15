@@ -27,7 +27,7 @@ const MainFilter: FC<MainFilterProps> = ({
   onClearFilters,
 }) => {
   const router = useRouter();
-  const isLoggedIn = false;
+  // const isLoggedIn = false;
 
   const isCubiFood = router.pathname === "/cubifood";
   const selectThemeColor = isCubiFood ? "#08834e" : "primary";
@@ -37,8 +37,12 @@ const MainFilter: FC<MainFilterProps> = ({
   const menuItemHoverColor = isCubiFood ? "#e7fef4" : "var(--primary-light)";
 
   const filterOptions = router.pathname.startsWith("/cubifood")
-    ? getMainFilterVariant1(isLoggedIn)
-    : getMainFilterVariant2(isLoggedIn);
+    ? getMainFilterVariant1()
+    : getMainFilterVariant2();
+    // ? getMainFilterVariant1(isLoggedIn)
+    // : getMainFilterVariant2(isLoggedIn);
+
+    
 
   const initialFilters = {
     sortBy: "",
@@ -160,7 +164,8 @@ const MainFilter: FC<MainFilterProps> = ({
         ))}
 
         <Grid
-          size={isLoggedIn ? 3.5 : 4}
+          // size={isLoggedIn ? 3.5 : 4}
+          size={4}
           textAlign={"right"}
           className={commonStyles.filterOptions}
         >

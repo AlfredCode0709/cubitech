@@ -4,6 +4,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ItemCard from "../common/card/ItemCard";
 import PaginationVariant1 from "../common/pagination/PaginationVariant1";
+import Link from "next/link";
 import commonStyles from "@/styles/common.module.scss";
 import styles from "@/styles/index.module.scss";
 import { FC, useState } from "react";
@@ -59,12 +60,12 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
   return (
     <Box className={styles.peekView}>
       <Stack className={styles.header}>
-        {/* <Link href={link}> */}
-        <Typography className={styles.title}>
-          {title.substring(0, 4)}
-          <span style={{ color: titleSubColor }}>{title.substring(4)}</span>
-        </Typography>
-        {/* </Link> */}
+        <Link href={link}>
+          <Typography className={styles.title}>
+            {title.substring(0, 4)}
+            <span style={{ color: titleSubColor }}>{title.substring(4)}</span>
+          </Typography>
+        </Link>
         {/* Pagination Buttons */}
         {totalPages > 1 && (
           <PaginationVariant1
@@ -84,11 +85,11 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
         {paginatedItems.map((globalIndex) => (
           <Grid size={2} key={globalIndex}>
             <ItemCard
-              //   href={
-              //     title === "CUBIFood"
-              //       ? `/cubifood/item/${globalIndex}`
-              //       : `/cubimart/item/${globalIndex}`
-              //   }
+              href={
+                title === "CUBIFood"
+                  ? `/cubifood/item/${globalIndex}`
+                  : `/cubimart/item/${globalIndex}`
+              }
               imageSrc={imageSrc}
               name={`Item Name ${globalIndex}`}
               price={9.99}

@@ -9,7 +9,7 @@ import commonStyles from "@/styles/common.module.scss";
 import { FC } from "react";
 
 interface ItemCardProps {
-  href?: string;
+  href: string;
   imageSrc: string;
   name: string;
   price: number | 0;
@@ -31,8 +31,7 @@ const ItemCard: FC<ItemCardProps> = ({
 }) => {
   return (
     <Card className={commonStyles.itemCard} variant={"outlined"}>
-      {/* <CardActionArea href={href} onClick={onClick}> */}
-      <CardActionArea onClick={onClick}>
+      <CardActionArea href={href} onClick={onClick}>
         {/* Card Media */}
         <CardMediaContainer imageSrc={imageSrc} />
 

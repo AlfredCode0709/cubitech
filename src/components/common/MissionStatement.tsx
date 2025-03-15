@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import commonStyles from "../../styles/common.module.scss";
+import commonStyles from "@/styles/common.module.scss";
 import { FC, ReactNode } from "react";
 
 interface MissionStatementProps {
