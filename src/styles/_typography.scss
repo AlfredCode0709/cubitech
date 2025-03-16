@@ -1,0 +1,23 @@
+:root {
+  --h1: 1.167;
+  --h2: 1.2;
+  --h3: 1.167;
+  --h4: 1.235;
+  --h5: 1.334;
+  --h6: 1.6;
+  --subtitle1: 1.75;
+  --subtitle2: 1.57;
+  --body1: 1.5;
+  --body2: 1.43;
+  --caption: 1.66;
+  --button: 1.75;
+  --overline: 2.66;
+}
+
+@font-face {
+  font-family: "Codec Pro Bold";
+  src: url("https://res.cloudinary.com/dcsfz2ydj/raw/upload/v1740137894/CodecProBold_hrnf7s.ttf")
+    format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
