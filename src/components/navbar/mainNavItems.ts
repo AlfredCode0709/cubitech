@@ -11,4 +11,10 @@ export const mainNavItems = [
     href: "/cubifood",
     label: "CubiFood",
   },
+  {
+    avatar:
+      "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741347930/cubimart_icon_ohsez1.svg",
+    href: "/cubimart",
+    label: "CubiMart",
+  },
 ];

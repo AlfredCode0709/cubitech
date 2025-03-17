@@ -48,7 +48,7 @@ export const createDynamicTheme = () =>
       },
     },
     typography: {
-      fontFamily: inter.style.fontFamily,
+      fontFamily: `"Inter", sans-serif;`,
     },
     components: {
       MuiAppBar: {

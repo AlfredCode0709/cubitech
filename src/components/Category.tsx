@@ -2,7 +2,7 @@ import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
-import commonStyles from "../../styles/common.module.scss";
+import commonStyles from "@/styles/common.module.scss";
 import { CSSProperties, FC } from "react";
 
 interface CategoryType {

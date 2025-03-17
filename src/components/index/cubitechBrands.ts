@@ -15,24 +15,24 @@ export const cubitechBrands = [
     alt: "CubiRide",
     src: "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345169/cubiride_light_hbsixp.svg",
     key: "cubiride",
-    href: "/cubiride",
+    href: "#",
   },
   {
     alt: "CubiPay",
     src: "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345167/cubipay_light_jobac7.svg",
     key: "cubipay",
-    href: "/cubipay",
+    href: "#",
   },
   {
     alt: "CubiGift",
     src: "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345166/cubigift_light_yw56ji.svg",
     key: "cubigift",
-    href: "/cubigift",
+    href: "#",
   },
   {
     alt: "CubiPerk",
     src: "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345168/cubiperk_light_swr92v.svg",
     key: "cubiperk",
-    href: "/cubiperk",
+    href: "#",
   },
 ];

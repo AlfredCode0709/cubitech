@@ -118,15 +118,16 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
               )}
               <QuantitySelector control={control} errors={errors} />
             </Grid>
-          </Box>
 
-          {/* Action Buttons */}
-          <ItemActionButtons
-            router={router}
-            watch={watch}
-            reset={reset}
-            onSubmit={handleSubmit(onSubmit)}
-          />
+            {/* Action Buttons */}
+            <ItemActionButtons
+              router={router}
+              watch={watch}
+              reset={reset}
+              onSubmit={handleSubmit(onSubmit)}
+              isCubiMart={isCubiMart}
+            />
+          </Box>
         </Grid>
       </Grid>
     </Box>

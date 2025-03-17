@@ -13,6 +13,7 @@ interface ItemActionButtonsProps {
   watch: UseFormWatch<FormValues>;
   reset: () => void;
   onSubmit: () => void;
+  isCubiMart: boolean;
 }
 
 const ItemActionButtons: FC<ItemActionButtonsProps> = ({
@@ -20,13 +21,12 @@ const ItemActionButtons: FC<ItemActionButtonsProps> = ({
   watch,
   reset,
   onSubmit,
+  isCubiMart,
 }) => {
-  const isCubiFood = router.pathname.startsWith("/cubifood");
-
   return (
     <Box className={commonStyles.itemActionButtons}>
       <Button
-        className={`${isCubiFood === true && commonStyles.button}`}
+        className={isCubiMart === false ? commonStyles.button : ""}
         size="large"
         variant="contained"
         startIcon={<ArrowBackIcon />}
@@ -35,7 +35,7 @@ const ItemActionButtons: FC<ItemActionButtonsProps> = ({
         Back
       </Button>
       <Button
-        className={`${isCubiFood === true && commonStyles.button}`}
+        className={isCubiMart === false ? commonStyles.button : ""}
         size="large"
         variant="contained"
         onClick={() => reset()}
@@ -43,7 +43,7 @@ const ItemActionButtons: FC<ItemActionButtonsProps> = ({
         Reset
       </Button>
       <Button
-        className={`${isCubiFood === true && commonStyles.button}`}
+        className={isCubiMart === false ? commonStyles.button : ""}
         size="large"
         variant="contained"
         startIcon={<AddIcon />}

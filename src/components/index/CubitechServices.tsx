@@ -1,6 +1,7 @@
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
 import styles from "../../styles/index.module.scss";
 import { cubitechBrands } from "./cubitechBrands";
 import { FC, Fragment } from "react";
@@ -15,13 +16,15 @@ const CubitechServices: FC = () => {
       <Box className={styles.brands}>
         {cubitechBrands.map((item) => (
           <Fragment key={item.key}>
-            <Avatar
-              className={styles.avatar}
-              alt={item.alt}
-              src={item.src}
-              component={"div"}
-              variant={"square"}
-            />
+            <Link href={item.href}>
+              <Avatar
+                className={styles.avatar}
+                alt={item.alt}
+                src={item.src}
+                component={"div"}
+                variant={"square"}
+              />
+            </Link>
           </Fragment>
         ))}
       </Box>

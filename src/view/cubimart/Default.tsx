@@ -1,19 +1,19 @@
+import BargainBlitz from "@/components/cubimart/BargainBlitz";
 import BrandSlogan from "@/components/common/BrandSlogan";
 import Category from "@/components/common/Category";
 import FilteredCatalogue from "@/components/common/FilteredCatalogue";
 import MainFilter from "@/components/common/mainFilter/MainFilter";
-import NearbyOutlets from "@/components/cubifood/nearbyOutlets/NearbyOutlets";
 import Promotions from "@/components/common/Promotions";
 import StartingBlock2 from "@/components/common/StartingBlock2";
-import Treasures from "@/components/cubifood/treasures/Treasures";
-import { categories } from "@/components/cubifood/categories";
+import StoresView from "@/components/cubimart/StoresView";
+import { categories } from "@/components/cubimart/categories";
 import { FC, Fragment, useState } from "react";
 
 const Default: FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>("");
   const [isFiltered, setIsFiltered] = useState<boolean>(false);
   const [imageSrc, setImageSrc] = useState<string>(
-    "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345165/cubifood_light_j6lpn9.svg",
+    "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345166/cubimart_light_i70igy.svg",
   );
 
   const handleCategorySelect = (categoryName: string) => {
@@ -36,12 +36,11 @@ const Default: FC = () => {
 
   return (
     <Fragment>
-      <StartingBlock2 backgroundImage={"/cubifood/block1.png"} />
+      {/* Starting block of CubiFood Page */}
+      <StartingBlock2 backgroundImage={"/cubimart/block1.png"} />
 
-      {/* CubiFood slogan block */}
-      <BrandSlogan color={"#08834e"}>
-        Eat Smart. Pay Easy. Enjoy Every Bite.
-      </BrandSlogan>
+      {/* CubiMart slogan block */}
+      <BrandSlogan>Shop the Beat of Your Life!</BrandSlogan>
 
       {/* Promotions */}
       <Promotions
@@ -50,23 +49,19 @@ const Default: FC = () => {
         descr={"Description"}
         titleFontSize={18}
         descrFontSize={14}
-        bgColor={"#e7fef4"}
-        color={"#08834e"}
         imageSrc={
-          "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345165/cubifood_light_j6lpn9.svg"
+          "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345166/cubimart_light_i70igy.svg"
         }
       />
 
-      {/* Treasures */}
-      <Treasures />
+      {/* Bargain Blitz */}
+      <BargainBlitz totalItems={18} />
 
       {/* CUBIFood Category */}
       <Category
         categories={categories}
         selectedCategory={selectedCategory}
         onCategorySelect={handleCategorySelect}
-        primaryColor={"#08834e"}
-        bgColor={"#e7fef4"}
       />
 
       {/* Main Filter */}
@@ -84,11 +79,11 @@ const Default: FC = () => {
       {isFiltered ? (
         <FilteredCatalogue
           imageSrc={imageSrc}
-          numberOfStalls={18}
-          numberOfItems={0}
+          numberOfStalls={0}
+          numberOfItems={18}
         />
       ) : (
-        <NearbyOutlets numberOfStalls={10} />
+        <StoresView numberOfStores={40} />
       )}
     </Fragment>
   );

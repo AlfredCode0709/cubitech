@@ -7,7 +7,12 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import commonStyles from "@/styles/common.module.scss";
 import { useRouter } from "next/router";
-import { getMainFilterVariant1, FiltersState, FilterConfig } from "./mainFilterOptions";
+import {
+  getMainFilterVariant1,
+  getMainFilterVariant2,
+  FiltersState,
+  FilterConfig,
+} from "./mainFilterOptions";
 import { FC, useEffect, useState } from "react";
 
 interface MainFilterProps {
@@ -27,19 +32,24 @@ const MainFilter: FC<MainFilterProps> = ({
 
   const isCubiFood = router.pathname === "/cubifood";
   const selectThemeColor = isCubiFood ? "#08834e" : "primary";
-  const menuItemSelectedColor = isCubiFood ? "#c5f2e0 !important" : "#cfe3fc !important";
+  const menuItemSelectedColor = isCubiFood
+    ? "#c5f2e0 !important"
+    : "#cfe3fc !important";
   const menuItemHoverColor = isCubiFood ? "#e7fef4" : "var(--primary-light)";
 
   /* Ensure filterOptions is always an array */
   const filterOptions: FilterConfig[] = router.pathname.startsWith("/cubifood")
     ? getMainFilterVariant1()
-    : [];
+    : getMainFilterVariant2();
 
   const initialFilters: FiltersState = {
     sortBy: "",
     price: "",
     cuisine: "",
+    category: "",
     dietaryChoice: "",
+    shippingFrom: "",
+    shippingOption: "",
   };
 
   const [filters, setFilters] = useState<FiltersState>(initialFilters);
@@ -54,7 +64,7 @@ const MainFilter: FC<MainFilterProps> = ({
   const handleFilterChange = (key: keyof FiltersState, value: string) => {
     setFilters((prev) => ({ ...prev, [key]: value }));
 
-    if (key === "cuisine") {
+    if (key === "category" || key === "cuisine") {
       const image = applyCategoryImage(key, value);
       onApplyFilters(image, value);
     }
@@ -63,6 +73,9 @@ const MainFilter: FC<MainFilterProps> = ({
   const handleApplyFilters = () => {
     const cuisineImage = applyCategoryImage("cuisine", filters.cuisine);
     onApplyFilters(cuisineImage, filters.cuisine);
+
+    const categoryImage = applyCategoryImage("category", filters.category);
+    onApplyFilters(categoryImage, filters.category);
   };
 
   const handleClearFilters = () => {
@@ -75,11 +88,14 @@ const MainFilter: FC<MainFilterProps> = ({
       setFilters((prev) => ({
         ...prev,
         cuisine: selectedCategory,
+        category: selectedCategory,
       }));
     }
   }, [selectedCategory]);
 
-  const isAnyFilterSelected = Object.values(filters).some((value) => value !== "");
+  const isAnyFilterSelected = Object.values(filters).some(
+    (value) => value !== "",
+  );
 
   return (
     <Box className={commonStyles.mainFilter}>
@@ -140,13 +156,19 @@ const MainFilter: FC<MainFilterProps> = ({
         ))}
 
         <Grid size={4} textAlign="right" className={commonStyles.filterOptions}>
-          <Button size="large" onClick={handleClearFilters} className={isCubiFood ? commonStyles.clearAllButtonVariant1 : ""}>
+          <Button
+            size="large"
+            onClick={handleClearFilters}
+            className={isCubiFood ? commonStyles.clearAllButtonVariant1 : ""}
+          >
             Clear All
           </Button>
           <Button
             variant="contained"
             size="large"
-            className={isCubiFood ? commonStyles.applyFiltersButtonVariant1 : ""}
+            className={
+              isCubiFood ? commonStyles.applyFiltersButtonVariant1 : ""
+            }
             color="primary"
             onClick={handleApplyFilters}
             disabled={!isAnyFilterSelected}

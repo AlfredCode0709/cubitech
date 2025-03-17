@@ -85,12 +85,9 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
         {paginatedItems.map((globalIndex) => (
           <Grid size={2} key={globalIndex}>
             <ItemCard
-              // href={
-              //  title === "CUBIFood"
-              //    ? `/cubifood/item/${globalIndex}`
-              //    : `/cubimart/item/${globalIndex}`
-              // }
-              href={"#"}
+              href={
+                title === "CUBIFood" ? `/cubifood/item/${globalIndex}` : `#`
+              }
               imageSrc={imageSrc}
               name={`Item Name ${globalIndex}`}
               price={9.99}
