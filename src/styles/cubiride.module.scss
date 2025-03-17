@@ -1,0 +1,62 @@
+/* Passenger Types styles */
+
+.passengerTypes {
+  padding: 2.5% 10% 2.75% 10%;
+  background-color: var(--primary-light);
+  color: var(--primary-main);
+  text-align: center;
+
+  .title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: var(--h5);
+  }
+
+  .everydayRides,
+  .premiumRides {
+    padding-top: 5%;
+
+    .title {
+      font-weight: 600;
+      font-size: 22px;
+      line-height: var(--h5);
+    }
+
+    .stackContainer {
+      width: 100%;
+
+      .stackRow {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+
+        .stackItem {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 33.33%;
+
+          .avatar {
+            width: 150px;
+            height: 150px;
+          }
+
+          .itemTitle {
+            font-weight: 500;
+            font-size: 20px;
+            line-height: var(--h6);
+            margin: 2.5% 0;
+          }
+
+          .itemDescr {
+            margin: 0 8%;
+            font-size: 16px;
+            line-height: var(--body1);
+          }
+        }
+      }
+    }
+  }
+}
