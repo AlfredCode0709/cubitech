@@ -1,0 +1,394 @@
+/* Rewards Table styles */
+
+.rewardsTable {
+  padding: 2.5% 10%;
+  color: var(--primary-dark);
+
+  .title {
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--primary-main);
+    line-height: var(--h5);
+    text-align: center;
+  }
+
+  .infoBox {
+    width: 80%;
+    margin: 0 10%;
+
+    .gridContainer {
+      padding: 4% 0;
+      text-align: center;
+      display: flex;
+
+      .header {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: var(--h6);
+        background: var(--primary-light);
+        padding: 3%;
+        border-radius: 12px;
+        border: 1px solid var(--divider-color);
+      }
+
+      .rewardGridItem {
+        display: flex;
+
+        .leftBox {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          padding: 3%;
+          border-radius: 12px;
+          border: 1px solid var(--divider-color);
+
+          .conditionDescr1 {
+            font-weight: 500;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+
+            .cubiRide {
+              font-family: "Codec Pro Bold", sans-serif;
+              font-weight: 700;
+              font-size: 22px;
+              letter-spacing: 0.5;
+              color: var(--primary-main);
+              line-height: var(--h6);
+
+              .subColor {
+                color: #599aa6;
+              }
+            }
+          }
+
+          .conditionDescr2 {
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            margin-top: 1.25%;
+
+            .cubiPay {
+              font-family: "Codec Pro Bold", sans-serif;
+              font-weight: 700;
+              font-size: 18px;
+              letter-spacing: 0.5;
+              color: var(--primary-main);
+              line-height: var(--h6);
+              margin-top: 1.25%;
+
+              .subColor1 {
+                color: #47b8d1;
+              }
+
+              .subColor2 {
+                color: #f0a941;
+              }
+            }
+          }
+        }
+
+        .rightBox {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          padding: 3%;
+          background: var(--primary-main);
+          color: var(--white);
+          border-radius: 12px;
+          border: 1px solid var(--divider-color);
+
+          .rewardsDescr {
+            font-weight: 500;
+            font-size: 22px;
+            line-height: var(--body1);
+            display: flex;
+            align-items: center;
+
+            .box {
+              display: flex;
+              flex-direction: column;
+            }
+
+            .subtitle {
+              line-height: var(--body2);
+              margin-top: 2.5%;
+            }
+          }
+        }
+      }
+
+      .note {
+        font-size: 14px;
+        line-height: var(--body2);
+      }
+    }
+  }
+}
+
+/* Learn More styles */
+
+.learnMore {
+  padding: 2.5% 10%;
+  background: var(--primary-light);
+
+  .content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    .rightContent {
+      width: 45%;
+
+      .title {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: var(--h4);
+        color: var(--primary-main);
+
+        .subtitle {
+          font-weight: 500;
+          font-size: 20px;
+          line-height: var(--subtitle2);
+          color: var(--primary-dark);
+          margin: 5% 0;
+        }
+      }
+    }
+  }
+}
+
+/* Usage Table styles */
+
+.usageTable {
+  padding: 2.5% 10%;
+  text-align: center;
+  color: var(--primary-dark);
+
+  .title {
+    font-weight: 500;
+    font-size: 48px;
+    line-height: var(--h3);
+    color: var(--primary-main);
+    margin-bottom: 2.5%;
+  }
+
+  .subtitle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    color: var(--primary-dark);
+
+    .cubiPayLater {
+      font-family: "Codec Pro Bold", sans-serif;
+      font-weight: 700;
+      font-size: inherit;
+      letter-spacing: 0.5;
+      color: var(--primary-main);
+      line-height: var(--h6);
+      margin-top: 0.25%;
+
+      .subColor1 {
+        color: #47b8d1;
+      }
+
+      .subColor2 {
+        color: #f0a941;
+      }
+    }
+  }
+
+  .gridContainer {
+    width: 80%;
+    margin: 0 10%;
+    padding: 2.5% 0;
+
+    .title {
+      font-weight: 500;
+      font-size: 34px;
+      background: #ffb74d;
+      color: var(--white);
+      line-height: var(--h4);
+      padding: 3%;
+      border-radius: 16px;
+      border: 1px solid var(--divider-color);
+      margin: 0;
+    }
+
+    .topUpMethodGrid {
+      display: flex;
+
+      .box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 5%;
+        background: var(--primary-main);
+        color: var(--white);
+        border-radius: 16px;
+        border: 1px solid var(--divider-color);
+        font-weight: 500;
+
+        .text {
+          font-size: 24px;
+        }
+      }
+    }
+
+    .sendMoneyIcon {
+      width: 178px;
+      height: 360px;
+      margin: 0 auto;
+    }
+
+    .cubiPerkEarningMethod {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--primary-dark);
+
+      .avatar {
+        width: 150px;
+        height: 150px;
+        padding: 5%;
+        background: #8ecae6;
+        margin: 0 auto;
+      }
+
+      .descr {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        flex-direction: column;
+        margin-top: 5%;
+      }
+    }
+  }
+}
+
+/* Hacks Table styles */
+
+.hacksTable {
+  padding: 2.5% 10%;
+  text-align: center;
+  background: var(--primary-main);
+  color: var(--white);
+
+  .title {
+    font-weight: 500;
+    font-size: 34px;
+    line-height: var(--h4);
+  }
+
+  .gridContainer1 {
+    padding: 4% 0;
+
+    .box {
+      width: 60%;
+      margin: 0 20%;
+
+      .avatar {
+        width: 150px;
+        height: 150px;
+        padding: 5%;
+        background: var(--primary-light);
+        margin: 0 auto;
+      }
+
+      .description {
+        margin-top: 5%;
+      }
+    }
+  }
+
+  .heading6_descr {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: var(--h6);
+  }
+
+  .heading3_descr {
+    font-weight: 500;
+    font-size: 48px;
+    line-height: var(--h3);
+    margin: 4% 0;
+  }
+
+  .heading5_descr {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: var(--h5);
+    margin-bottom: 2%;
+  }
+
+  .gridContainer2 {
+    padding: 2.5% 0;
+    justify-content: center;
+
+    .box {
+      background: var(--primary-main);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 17.5% 7.5%;
+      border: 1px solid #d9d9d9;
+      text-align: center;
+      transition: background 0.5s ease-in-out, transform 0.5s ease-in-out;
+      transform: scale(1);
+
+      &.highlighted {
+        background: var(--primary-light);
+        transform: scale(1.1);
+      }
+
+      &.extendedPeriod {
+        background: #47b8d1;
+      }
+
+      .highlightedText {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: var(--h5);
+        color: var(--primary-main);
+      }
+
+      .defaultText {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: var(--h5);
+        color: var(--white);
+      }
+    }
+
+    .dynamicText {
+      font-size: 14px;
+      line-height: var(--body2);
+      color: var(--white);
+      margin-top: 10%;
+      transition: opacity 0.5s ease-in-out;
+    }
+  }
+
+  .example_descr {
+    font-size: 16px;
+    line-height: var(--h6);
+    margin: 2.5% 0;
+  }
+
+  .noticeText {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: var(--h6);
+  }
+}

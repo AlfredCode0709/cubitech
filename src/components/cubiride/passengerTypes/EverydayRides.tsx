@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import styles from "@/styles/cubiride.module.scss";
-import { everydayAvatars } from "./everydayRides";
+import { everydayAvatars } from "./everydayAvatars";
 import { FC } from "react";
 
 const EverydayRides: FC = () => {
