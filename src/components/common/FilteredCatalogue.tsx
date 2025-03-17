@@ -70,8 +70,7 @@ const FilteredCatalogue: FC<FilteredCatalogueProps> = ({
               />
             ) : (
               <ItemCard
-                // href={`/cubimart/item/${globalIndex}`}
-                href={`#`}
+                href={`/cubimart/item/${globalIndex}`}
                 imageSrc={imageSrc}
                 name={`Item Name ${globalIndex}`}
                 price={9.99}

@@ -20,7 +20,7 @@ const titleConfig = {
   CUBIMart: {
     path: "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345166/cubimart_light_i70igy.svg",
     color: "#bf3953",
-    link: "#",
+    link: "/cubimart",
   },
 } as const;
 
@@ -86,7 +86,9 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
           <Grid size={2} key={globalIndex}>
             <ItemCard
               href={
-                title === "CUBIFood" ? `/cubifood/item/${globalIndex}` : `#`
+                title === "CUBIFood"
+                  ? `/cubifood/item/${globalIndex}`
+                  : `/cubimart/item/${globalIndex}`
               }
               imageSrc={imageSrc}
               name={`Item Name ${globalIndex}`}

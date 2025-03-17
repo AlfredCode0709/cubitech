@@ -1,13 +1,13 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
-// import Rating from "@mui/material/Rating";
+import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 import CustomisationSelector from "./CustomisationSelector";
 import ItemActionButtons from "./ItemActionButtons";
 import ItemImage from "./ItemImage";
 import OptionSelector from "./OptionSelector";
-// import ProductOverview from "./ProductOverview";
-// import PromotionOutline from "./PromotionOutline";
+import ProductOverview from "./ProductOverview";
+import PromotionOutline from "./PromotionOutline";
 import QuantitySelector from "./QuantitySelector";
 import SpecialNotes from "./SpecialNotes";
 import commonStyles from "@/styles/common.module.scss";
@@ -101,12 +101,29 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
             <Typography className={commonStyles.itemName}>Item Name</Typography>
             <Typography className={commonStyles.itemPrice}>$9.99</Typography>
 
-            <Grid container spacing={2}>
+            {/* Rating - CubiMart only */}
+            {isCubiMart === true && (
+              <>
+                <Rating
+                  className={commonStyles.rating}
+                  size={"large"}
+                  defaultValue={5}
+                />
+                <Typography className={commonStyles.brandName}>
+                  Brand Name
+                </Typography>
+                <PromotionOutline />
+              </>
+            )}
+
+            {/* Order Customisation */}
+            <Grid container columnSpacing={2} rowSpacing={3}>
               <OptionSelector
                 options={options}
                 control={control}
                 errors={errors}
               />
+
               {isCubiMart === false && (
                 <Fragment>
                   <CustomisationSelector
@@ -116,6 +133,7 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
                   <SpecialNotes control={control} />
                 </Fragment>
               )}
+
               <QuantitySelector control={control} errors={errors} />
             </Grid>
 
@@ -129,6 +147,8 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
             />
           </Box>
         </Grid>
+
+        {isCubiMart === true && <ProductOverview />}
       </Grid>
     </Box>
   );

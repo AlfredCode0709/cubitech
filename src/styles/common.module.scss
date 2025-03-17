@@ -343,7 +343,7 @@
 /* Item Data styles */
 
 .itemData {
-  padding: 2.5% 10%;
+  padding: 2.5% 10% 0.75%;
 
   .itemContent {
     padding: 2.5%;
@@ -386,7 +386,7 @@
     }
 
     .itemActionButtons {
-      padding: 4% 0;
+      padding-top: 4%;
       display: flex;
       gap: 16px;
 
@@ -462,6 +462,33 @@
         margin-top: 3%;
       }
     }
+  }
+}
+
+/* More Items Drawer styles */
+
+.moreItemsDrawer {
+  padding: 2.5% 10% 0;
+  border-top: 1px solid var(--divider-color);
+
+  .header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .title {
+      font-family: "Merriweather", Helvetica, Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--color);
+      line-height: var(--body1);
+    }
+  }
+
+  .itemsView {
+    padding: 2.5% 0 5%;
   }
 }
 
