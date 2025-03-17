@@ -55,7 +55,7 @@ const ShopList: FC<ShopListProps> = ({ numberOfStalls, shopListRef }) => {
         {Array.from({ length: numberOfStalls }).map((_, stallIndex) => (
           <Grid key={stallIndex} sx={{ flex: "0 0 auto" }}>
             <Card className={styles.shopCard} variant={"outlined"}>
-              <CardActionArea>
+              <CardActionArea href={`/cubifood/outlet/${stallIndex + 1}`}>
                 <CardMediaContainer
                   imageSrc={
                     "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345165/cubifood_light_j6lpn9.svg"

@@ -90,6 +90,7 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
               //    ? `/cubifood/item/${globalIndex}`
               //    : `/cubimart/item/${globalIndex}`
               // }
+              href={"#"}
               imageSrc={imageSrc}
               name={`Item Name ${globalIndex}`}
               price={9.99}

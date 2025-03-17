@@ -179,3 +179,190 @@
     }
   }
 }
+
+/* Outlet Page Cover styles */
+
+.outletPageCover {
+  background: url("/cubifood/pagecover1.png") center / cover no-repeat;
+  height: 62.5vh;
+}
+
+/* Outlet Page Header styles */
+
+.outletPageHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5% 10%;
+  height: 37.5vh;
+  margin-bottom: -80px;
+  text-align: center;
+
+  .outletData {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    margin-top: -80px;
+
+    .firstSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+      gap: 16px;
+
+      .avatar {
+        width: 100px;
+        height: 100px;
+        padding: 7.5%;
+        background: #e7fef4;
+      }
+
+      .outletInfo {
+        display: flex;
+        flex-direction: column;
+
+        .outletName {
+          font-size: 24px;
+          font-weight: 500;
+          line-height: var(--h5);
+          color: #08834e;
+        }
+
+        .outletAddress {
+          font-size: 18px;
+          line-height: var(--body1);
+          color: #066039;
+          margin-top: 2.5%;
+        }
+      }
+    }
+
+    .secondSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      text-align: right;
+      flex-grow: 1;
+      margin-right: 2.5%;
+
+      .distance {
+        font-size: 18px;
+        color: var(--text-secondary-main);
+      }
+    }
+
+    .thirdSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+
+      .chip {
+        font-size: 16px;
+        width: 80px;
+        height: 33px;
+      }
+
+      .viewMapButton {
+        color: #066039;
+      }
+    }
+  }
+
+  .operatingHoursBox {
+    position: absolute;
+    transform: translateX(-50%);
+    width: 300px;
+    background: var(--white);
+    padding: 16px;
+    border-radius: 8px;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+    &.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .operatingHoursRow {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+  }
+}
+
+/* Outlet Filter styles */
+
+.outletFilter {
+  padding: 2.5% 10%;
+  background: #e9e9e9;
+
+  .allStallsButton,
+  .stallButton {
+    color: #08834e;
+
+    &:hover {
+      background: #08834e;
+      color: var(--white);
+    }
+
+    &.focused {
+      background: #08834e;
+      color: var(--white);
+    }
+
+    &.notFocused {
+      background: transparent;
+      color: #08834e;
+    }
+  }
+
+  .stallList {
+    .data {
+      align-items: center;
+
+      .dataView {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        cursor: grab;
+        scroll-behavior: smooth;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        &.dragging {
+          cursor: pointer;
+        }
+
+        .cardWrapper {
+          text-align: center;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+}
+
+/* Stall List Display and Stall Menu styles */
+
+.stallListDisplay,
+.stallMenu {
+  padding: 2.5% 10%;
+
+  .stallView,
+  .menuView {
+    padding: 2.5% 0;
+  }
+}

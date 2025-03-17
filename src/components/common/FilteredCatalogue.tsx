@@ -59,7 +59,7 @@ const FilteredCatalogue: FC<FilteredCatalogueProps> = ({
           <Grid size={2} key={globalIndex}>
             {isCubiFood ? (
               <ItemCard
-                // href={`/cubifood/outlet/${globalIndex}`}
+                href={`/cubifood/outlet/${globalIndex}`}
                 imageSrc={imageSrc}
                 name={`Shop Name ${globalIndex}`}
                 price={0}
@@ -71,6 +71,7 @@ const FilteredCatalogue: FC<FilteredCatalogueProps> = ({
             ) : (
               <ItemCard
                 // href={`/cubimart/item/${globalIndex}`}
+                href={`#`}
                 imageSrc={imageSrc}
                 name={`Item Name ${globalIndex}`}
                 price={9.99}

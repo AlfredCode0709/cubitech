@@ -6,21 +6,21 @@ import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 import CardMediaContainer from "../CardMediaContainer";
 import commonStyles from "@/styles/common.module.scss";
-import { FC } from "react";
+import { FC, MouseEvent } from "react";
 
 interface ItemCardProps {
-  // href: string;
+  href: string;
   imageSrc: string;
   name: string;
   price: number | 0;
   haveChip: boolean;
   isCUBIMart: boolean;
   otherText: boolean;
-  onClick: () => void;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
 }
 
 const ItemCard: FC<ItemCardProps> = ({
-  // href,
+  href,
   imageSrc,
   name,
   price,
@@ -31,7 +31,7 @@ const ItemCard: FC<ItemCardProps> = ({
 }) => {
   return (
     <Card className={commonStyles.itemCard} variant={"outlined"}>
-      <CardActionArea onClick={onClick}>
+      <CardActionArea href={href} onClick={onClick}>
         {/* Card Media */}
         <CardMediaContainer imageSrc={imageSrc} />
 

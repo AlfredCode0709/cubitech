@@ -1,5 +1,6 @@
 import Menu from "@mui/material/Menu";
 import MainNavArray from "./MainNavArray";
+import { useRouter } from "next/router";
 import { CSSProperties, FC } from "react";
 
 interface MainMenuProps {
@@ -8,6 +9,8 @@ interface MainMenuProps {
 }
 
 const MainMenu: FC<MainMenuProps> = ({ anchorEl, handleClose }) => {
+  const router = useRouter();
+
   return (
     <Menu
       className={"mainMenu"}
@@ -27,10 +30,18 @@ const MainMenu: FC<MainMenuProps> = ({ anchorEl, handleClose }) => {
       sx={
         {
           "--width": "150px",
-          "--background-color": "var(--primary-light)",
-          "--color": "var(--primary-main)",
-          "--hover-background-color": "#b7d1fa",
-          "--hover-color": "var(--primary-dark)",
+          "--background-color": router.pathname.startsWith("/cubifood")
+            ? "#e7fef4"
+            : "var(--primary-light)",
+          "--color": router.pathname.startsWith("/cubifood")
+            ? "#08834e"
+            : "var(--primary-main)",
+          "--hover-background-color": router.pathname.startsWith("/cubifood")
+            ? "#b7fadd"
+            : "#b7d1fa",
+          "--hover-color": router.pathname.startsWith("/cubifood")
+            ? "#066039"
+            : "var(--primary-dark)",
         } as CSSProperties
       }
     >

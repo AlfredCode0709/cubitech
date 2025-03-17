@@ -1,7 +1,9 @@
 import Avatar from "@mui/material/Avatar";
 import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import PaginationVariant2 from "@/components/common/pagination/PaginationVariant2";
 import commonStyles from "@/styles/common.module.scss";
 import styles from "@/styles/cubifood.module.scss";
@@ -47,6 +49,14 @@ const OutletRowHeader: FC<OutletRowHeaderProps> = ({
             disableSkipToPrev={paginationState.disableSkipToPrev}
           />
         )}
+        <Divider orientation="vertical" flexItem sx={{ height: "50px" }} />
+        <IconButton
+          className={styles.outletViewButton}
+          href={`/cubifood/outlet/${outletIndex + 1}`}
+          size={"large"}
+        >
+          <TravelExploreIcon />
+        </IconButton>
       </Stack>
     </Stack>
   );
