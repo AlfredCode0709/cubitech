@@ -7,11 +7,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CubitechDark from "../CubitechDark";
 import Link from "next/link";
 import MainMenu from "./MainMenu";
+import { useRouter } from "next/router";
 import { FC, MouseEvent, useState } from "react";
 
 const Navbar: FC = () => {
+  const router = useRouter();
+
   const [mainMenuAnchorEl, setMainMenuAnchorEl] = useState<null | HTMLElement>(
-    null
+    null,
   );
 
   const handleMainMenu = (event: MouseEvent<HTMLElement>) => {
@@ -25,7 +28,15 @@ const Navbar: FC = () => {
   return (
     <Box className={"navbarContainer"}>
       <CssBaseline />
-      <AppBar className={"appBar"} component={"nav"}>
+      <AppBar
+        className={"appBar"}
+        component={"nav"}
+        sx={{
+          bgcolor: router.pathname.startsWith("/cubifood")
+            ? "#08834e"
+            : "primary.main",
+        }}
+      >
         <Toolbar>
           <Link href={"/"}>
             <CubitechDark />

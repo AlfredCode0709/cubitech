@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ItemCard from "../common/card/ItemCard";
 import PaginationVariant1 from "../common/pagination/PaginationVariant1";
-// import Link from "next/link";
+import Link from "next/link";
 import commonStyles from "@/styles/common.module.scss";
 import styles from "@/styles/index.module.scss";
 import { FC, useState } from "react";
@@ -15,12 +15,12 @@ const titleConfig = {
   CUBIFood: {
     path: "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345165/cubifood_light_j6lpn9.svg",
     color: "#09b96d",
-    // link: "/cubifood",
+    link: "/cubifood",
   },
   CUBIMart: {
     path: "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345166/cubimart_light_i70igy.svg",
     color: "#bf3953",
-    // link: "/cubimart",
+    link: "#",
   },
 } as const;
 
@@ -35,11 +35,11 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
   const {
     path: imageSrc,
     color: titleSubColor,
-    // link,
+    link,
   } = titleConfig[title] || {
     path: "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345140/cubitech_light_qhxj6v.svg",
     color: "#bf3953",
-    // link: "/",
+    link: "/",
   };
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -51,21 +51,21 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
     {
       length: Math.min(
         itemsPerPage,
-        totalItems - (currentPage - 1) * itemsPerPage
+        totalItems - (currentPage - 1) * itemsPerPage,
       ),
     },
-    (_, i) => (currentPage - 1) * itemsPerPage + i + 1
+    (_, i) => (currentPage - 1) * itemsPerPage + i + 1,
   );
 
   return (
     <Box className={styles.peekView}>
       <Stack className={styles.header}>
-        {/* <Link href={link}> */}
+        <Link href={link}>
           <Typography className={styles.title}>
             {title.substring(0, 4)}
             <span style={{ color: titleSubColor }}>{title.substring(4)}</span>
           </Typography>
-        {/* </Link> */}
+        </Link>
         {/* Pagination Buttons */}
         {totalPages > 1 && (
           <PaginationVariant1
@@ -86,9 +86,9 @@ const PeekView: FC<PeekViewProps> = ({ title, totalItems }) => {
           <Grid size={2} key={globalIndex}>
             <ItemCard
               // href={
-              //   title === "CUBIFood"
-              //     ? `/cubifood/item/${globalIndex}`
-              //     : `/cubimart/item/${globalIndex}`
+              //  title === "CUBIFood"
+              //    ? `/cubifood/item/${globalIndex}`
+              //    : `/cubimart/item/${globalIndex}`
               // }
               imageSrc={imageSrc}
               name={`Item Name ${globalIndex}`}

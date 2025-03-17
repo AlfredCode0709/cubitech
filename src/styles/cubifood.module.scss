@@ -1,0 +1,181 @@
+/* Treasures styles */
+
+.treasures {
+  padding: 2.5% 10%;
+  background: #08834e;
+  color: var(--white);
+
+  .title {
+    font-family: "Merriweather", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    font-style: italic;
+    line-height: var(--h5);
+    text-align: center;
+  }
+
+  .treasuresView {
+    padding: 2.5% 0;
+
+    .treasure {
+      height: var(--height);
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        box-shadow: 0px 4px 8px #00000026;
+      }
+
+      .contentData {
+        border-top: 1px solid var(--divider-color);
+
+        .name {
+          font-weight: 500;
+          font-size: var(--name-font-size);
+          line-height: var(--h6);
+          margin-bottom: 4%;
+        }
+
+        .descr {
+          font-size: var(--descr-font-size);
+          line-height: var(--body1);
+          color: var(--secondary-main);
+        }
+      }
+      .button {
+        color: #08834e;
+
+        &:hover {
+          background: #e7fef4;
+        }
+      }
+    }
+  }
+}
+
+/* Nearby Outlets styles */
+
+.nearbyOutlets {
+  padding: 2.5% 10%;
+
+  .title {
+    font-family: "Merriweather", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    font-style: italic;
+    color: #08834e;
+    line-height: var(--h3);
+  }
+
+  .outletRowHeader {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2.5% 0;
+
+    .leftSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+
+      .avatar {
+        width: 100px;
+        height: 100px;
+        padding: 7.5%;
+        background: #e7fef4;
+      }
+
+      .outletName {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: var(--h5);
+        color: #08834e;
+      }
+    }
+
+    .rightSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+
+      .distance {
+        font-size: 18px;
+        color: var(--text-secondary-main);
+      }
+
+      .outletViewButton {
+        color: #066039;
+      }
+    }
+  }
+
+  .shopList {
+    display: flex;
+    padding: 0 0 1% 1%;
+    overflow-x: auto;
+    cursor: grab;
+    scroll-behavior: smooth;
+
+    &.dragging {
+      cursor: pointer;
+    }
+
+    /* Chrome, Edge, and Safari */
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #00000033;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #00000066;
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    .content {
+      display: flex;
+      flex-wrap: no-wrap;
+
+      .shopCard {
+        width: 200px;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        border: 1px solid var(--divider-color);
+
+        &:hover {
+          box-shadow: 0px 4px 8px #00000026;
+        }
+
+        .contentData {
+          border-top: 1px solid var(--divider-color);
+
+          .name {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: var(--h6);
+            margin-bottom: 10%;
+          }
+
+          .chip {
+            font-weight: 500;
+            color: #066039;
+            background: #e7fef4;
+          }
+        }
+      }
+    }
+  }
+}

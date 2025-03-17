@@ -1,7 +1,7 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import CardMediaContainer from "./CardMediaContainer";
+import CardMediaContainer from "../CardMediaContainer";
 import commonStyles from "@/styles/common.module.scss";
 import { CSSProperties, FC } from "react";
 
