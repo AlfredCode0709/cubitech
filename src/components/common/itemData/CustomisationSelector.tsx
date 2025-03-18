@@ -30,7 +30,7 @@ const CustomisationSelector: FC<CustomisationSelectorProps> = ({
       <FormLabel>Customisation</FormLabel>
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
         <Controller
-          name="customizations"
+          name="customisations"
           control={control}
           render={({ field }) => (
             <>

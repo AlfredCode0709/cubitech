@@ -13,13 +13,15 @@ import SpecialNotes from "./SpecialNotes";
 import commonStyles from "@/styles/common.module.scss";
 import { customisations } from "./customisations";
 import { options } from "./options";
+import { CubiFoodItem, CubiMartItem, useCart } from "@/contexts/CartContext";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { FC, Fragment } from "react";
 
 export interface FormValues {
   option: string;
-  customizations?: string[];
+  customisations?: string[];
+  promotions?: string[];
   specialNotes?: string;
   quantity: number;
 }
@@ -31,6 +33,7 @@ interface ItemDataProps {
 const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
   const router = useRouter();
   const { id } = router.query;
+  const { dispatch } = useCart();
 
   const {
     control,
@@ -41,42 +44,57 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
   } = useForm<FormValues>({
     defaultValues: {
       option: "",
-      customizations: [],
+      customisations: [],
+      promotions: ["Promotion 1", "Promotion 2"],
       specialNotes: "",
       quantity: 1,
     },
   });
 
-  const onSubmit = (data: FormValues) => {
-    const itemId = Array.isArray(id) ? id[0] : (id ?? "");
+  const promotions = watch("promotions");
 
+  const onSubmit = (data: FormValues) => {
+    const itemId = Array.isArray(id) ? id[0] : id ?? "";
+  
     if (!itemId) {
       console.error("Invalid item ID");
       return;
     }
-
-    const newItem = isCubiMart
-      ? {
-          itemId,
-          name: "Item Name",
-          price: 9.99,
-          brand: "Brand Name",
-          option: data.option,
-          promotions: ["Promotion 1", "Promotion 2"],
-          quantity: data.quantity,
-        }
-      : {
-          itemId,
-          name: "Item Name",
-          price: 9.99,
-          option: data.option,
-          customizations: data.customizations || [],
-          specialNotes: data.specialNotes,
-          quantity: data.quantity,
-        };
-
-    console.log(newItem);
-
+  
+    if (isCubiMart) {
+      const newItem: Omit<CubiMartItem, "cartId"> = {
+        itemId,
+        name: "Item Name",
+        price: 9.99,
+        brand: "Brand Name",
+        option: data.option,
+        promotions: data.promotions || [],
+        quantity: data.quantity,
+      };
+  
+      dispatch({
+        type: "ADD_CART_ITEM",
+        payload: newItem,
+        isCubiMart: true,
+      });
+    } else {
+      const newItem: Omit<CubiFoodItem, "cartId"> = {
+        itemId,
+        name: "Item Name",
+        price: 9.99,
+        option: data.option,
+        customisations: data.customisations || [], 
+        specialNotes: data.specialNotes ?? "",
+        quantity: data.quantity,
+      };
+  
+      dispatch({
+        type: "ADD_CART_ITEM",
+        payload: newItem,
+        isCubiMart: false,
+      });
+    }
+  
     reset();
   };
 
@@ -112,7 +130,7 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
                 <Typography className={commonStyles.brandName}>
                   Brand Name
                 </Typography>
-                <PromotionOutline />
+                <PromotionOutline promotions={promotions ? promotions : []} />
               </>
             )}
 

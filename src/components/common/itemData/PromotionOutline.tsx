@@ -4,12 +4,17 @@ import Typography from "@mui/material/Typography";
 import commonStyles from "@/styles/common.module.scss";
 import { FC } from "react";
 
-const PromotionOutline: FC = () => {
+interface PromotionOutlineProps {
+  promotions: string[];
+}
+
+const PromotionOutline: FC<PromotionOutlineProps> = ({ promotions }) => {
   return (
     <Box className={commonStyles.promotionOutline}>
       <Typography className={commonStyles.title}>Promotions</Typography>
-      <Chip color={"primary"} label="Promotion 1" />
-      <Chip color={"primary"} label="Promotion 2" />
+      {promotions.map((promotion, index) => (
+        <Chip key={index} color={"primary"} label={promotion} />
+      ))}
     </Box>
   );
 };

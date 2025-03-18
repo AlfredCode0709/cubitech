@@ -1,0 +1,295 @@
+/* Cart View styles */
+
+.cartView {
+  padding: 2.5% 10%;
+
+  /* Empty Cart Display styles */
+
+  .emptyCartDisplay {
+    padding: 5% 0 6.25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .avatar {
+      width: 200px;
+      height: 200px;
+    }
+
+    .titleVariant1 {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: var(--h5);
+      color: #08834e;
+      margin-top: 5%;
+    }
+
+    .titleVariant2 {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: var(--h5);
+      color: var(--primary-dark);
+      margin-top: 5%;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      line-height: var(--body1);
+      color: var(--text-secondary-main);
+      margin-top: 1.25%;
+    }
+
+    .buttonVariant1 {
+      color: #08834e;
+      margin-top: 2.5%;
+
+      &:hover {
+        background: #08834e;
+        color: var(--white);
+      }
+    }
+
+    .buttonVariant2 {
+      color: var(--primary-main);
+      margin-top: 2.5%;
+
+      &:hover {
+        background: var(--primary-main);
+        color: var(--white);
+      }
+    }
+  }
+
+  /* Shopping Cart header styles */
+
+  .shoppingCartHeader {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2.5% 0;
+
+    .title {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: var(--h4);
+      color: var(--primary-main);
+
+      .itemNumber {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: var(--body1);
+        color: var(--text-secondary-main);
+        margin-top: 5%;
+      }
+    }
+  }
+
+  /* Cart Data styles */
+
+  .cartData {
+    align-items: flex-start;
+
+    /* Cart List Group Item styles */
+
+    .cartListGroupItem {
+      width: 100%;
+      border: 1px solid var(--divider-color);
+      border-radius: 8px;
+      overflow: hidden;
+
+      .header {
+        display: flex;
+        align-items: center;
+        padding: 1.25% 0;
+
+        .data {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+
+          .avatar {
+            border: 1px solid var(--divider-color);
+            width: 60px;
+            height: 60px;
+            padding: 1%;
+          }
+        }
+      }
+
+      .listItem {
+        padding: 2.5% 0;
+
+        .itemData {
+          padding: 0 1.25%;
+
+          .itemName {
+            height: 55px;
+            font-weight: 500;
+            font-size: 18px;
+          }
+
+          .itemBrand {
+            font-size: 14px;
+            color: var(--text-secondary-dark);
+            margin-bottom: 1%;
+          }
+
+          .itemSelectedPromo {
+            font-size: 14px;
+            color: var(--primary-dark);
+            margin-bottom: 1%;
+          }
+
+          .itemOption {
+            font-size: 14px;
+            color: var(--text-secondary-main);
+            margin-bottom: 1%;
+          }
+
+          .itemCustomisation {
+            font-size: 14px;
+            color: var(--text-secondary-main);
+            margin-bottom: 1%;
+          }
+
+          .itemSpecialNotes {
+            font-size: 14px;
+            color: var(--text-secondary-dark);
+            font-style: italic;
+            margin-bottom: 1%;
+          }
+        }
+
+        .itemPrice {
+          font-weight: 600;
+          font-size: 18px;
+          color: var(--primary-dark);
+        }
+
+        .options {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: -6.5px;
+        }
+
+        .quantity {
+          display: flex;
+          width: var(--width);
+          margin-top: var(--margin-top);
+          justify-content: var(--justify-content);
+          font-weight: 500;
+          font-size: 18px;
+        }
+      }
+    }
+
+    /* Cart List Item styles */
+
+    .cartListItem {
+      padding: 2.5% 0;
+      border: 1px solid var(--divider-color);
+      border-radius: 8px;
+      overflow: hidden;
+
+      .itemData {
+        padding: 0 1.25%;
+
+        .itemName {
+          height: 55px;
+          font-weight: 500;
+          font-size: 18px;
+        }
+
+        .itemBrand {
+          font-size: 14px;
+          color: var(--text-secondary-dark);
+          margin-bottom: 1%;
+        }
+
+        .itemSelectedPromo {
+          font-size: 14px;
+          color: var(--primary-dark);
+          margin-bottom: 1%;
+        }
+
+        .itemOption {
+          font-size: 14px;
+          color: var(--text-secondary-main);
+          margin-bottom: 1%;
+        }
+
+        .itemCustomisation {
+          font-size: 14px;
+          color: var(--text-secondary-main);
+          margin-bottom: 1%;
+        }
+
+        .itemSpecialNotes {
+          font-size: 14px;
+          color: var(--text-secondary-dark);
+          font-style: italic;
+          margin-bottom: 1%;
+        }
+      }
+
+      .itemPrice {
+        font-weight: 600;
+        font-size: 18px;
+        color: var(--primary-dark);
+      }
+
+      .options {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: -6.5px;
+      }
+
+      .quantity {
+        display: flex;
+        width: var(--width);
+        margin-top: var(--margin-top);
+        justify-content: var(--justify-content);
+        font-weight: 500;
+        font-size: 18px;
+      }
+    }
+
+    /* Payment Details styles */
+
+    .paymentDetails {
+      border: 1px solid var(--divider-color);
+      border-radius: 8px;
+      padding: 5%;
+
+      .paymentDetailsLine,
+      .totalAmount {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 5% 0;
+        border-bottom: 1px solid var(--divider-color);
+      }
+
+      ._ {
+        font-weight: 500;
+        font-size: 18px;
+      }
+
+      .price {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: var(--h6);
+        color: var(--primary-dark);
+      }
+
+      .checkoutButton {
+        margin-top: 5%;
+      }
+    }
+  }
+}

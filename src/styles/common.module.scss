@@ -640,6 +640,39 @@
   }
 }
 
+/* Toggle styles */
+
+.toggle {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+
+    .brands {
+      font-family: "Codec Pro Bold", sans-serif;
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: 0.25;
+      color: var(--primary-main);
+      line-height: var(--h4);
+      margin-top: 1.25%;
+  
+      .subColor1 {
+        color: #09b96d;
+      }
+  
+      .subColor2 {
+        color: #c03853;
+      }
+    }
+  }
+}
+
 /* Page 404 styles */
 
 .page404 {
