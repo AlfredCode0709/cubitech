@@ -6,7 +6,7 @@ import FormLabel from "@mui/material/FormLabel";
 import Grid from "@mui/material/Grid2";
 import { FormValues } from "./ItemData";
 import { Control, Controller } from "react-hook-form";
-import { FC } from "react";
+import { FC, Fragment } from "react";
 
 interface CustomisationSelectorProps {
   customisations: string[];
@@ -33,7 +33,7 @@ const CustomisationSelector: FC<CustomisationSelectorProps> = ({
           name="customisations"
           control={control}
           render={({ field }) => (
-            <>
+            <Fragment>
               {customisations.map((label, index) => (
                 <FormControlLabel
                   key={index}
@@ -51,7 +51,7 @@ const CustomisationSelector: FC<CustomisationSelectorProps> = ({
                         field.onChange(
                           checked
                             ? [...currentValue, label]
-                            : currentValue.filter((val) => val !== label),
+                            : currentValue.filter((val) => val !== label)
                         );
                       }}
                     />
@@ -59,7 +59,7 @@ const CustomisationSelector: FC<CustomisationSelectorProps> = ({
                   label={label}
                 />
               ))}
-            </>
+            </Fragment>
           )}
         />
       </Box>

@@ -121,7 +121,7 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
 
             {/* Rating - CubiMart only */}
             {isCubiMart === true && (
-              <>
+              <Fragment>
                 <Rating
                   className={commonStyles.rating}
                   size={"large"}
@@ -131,7 +131,7 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
                   Brand Name
                 </Typography>
                 <PromotionOutline promotions={promotions ? promotions : []} />
-              </>
+              </Fragment>
             )}
 
             {/* Order Customisation */}

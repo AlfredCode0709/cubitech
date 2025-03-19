@@ -5,6 +5,7 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
 import { CartProvider } from "@/contexts/CartContext";
+import { OrderProvider } from "@/contexts/OrderContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState(createDynamicTheme());
@@ -16,12 +17,14 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <CartProvider>
-        <CssBaseline />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </CartProvider>
+      <OrderProvider>
+        <CartProvider>
+          <CssBaseline />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </CartProvider>
+      </OrderProvider>
     </ThemeProvider>
   );
 }

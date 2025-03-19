@@ -4,10 +4,10 @@ import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 import styles from "@/styles/cubiperk.module.scss";
 import { earningMethods } from "./earningMethods";
-import { FC } from "react";
+import { FC, Fragment } from "react";
 
 const CubiPerkEarnings: FC = () => (
-  <>
+  <Fragment>
     <Grid size={12}>
       <Avatar
         className={styles.sendMoneyIcon}
@@ -37,7 +37,7 @@ const CubiPerkEarnings: FC = () => (
         </Box>
       </Grid>
     ))}
-  </>
+  </Fragment>
 );
 
 export default CubiPerkEarnings;

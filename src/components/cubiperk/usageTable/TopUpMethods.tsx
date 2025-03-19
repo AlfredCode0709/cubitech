@@ -11,18 +11,18 @@ interface TopUpMethod {
 const topUpMethods: TopUpMethod[] = [
   {
     subtitle: (
-      <>
+      <Fragment>
         Top up using <strong>PayNow</strong>
-      </>
+      </Fragment>
     ),
   },
   {
     subtitle: (
-      <>
+      <Fragment>
         Top up from your
         <br />
         bank <strong>via FAST</strong>
-      </>
+      </Fragment>
     ),
   },
   { subtitle: "Top up using debit/credit cards" },

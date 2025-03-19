@@ -50,8 +50,7 @@ const BargainBlitz: FC<BargainBlitzProps> = ({ totalItems }) => {
         {paginatedItems.map((globalIndex) => (
           <Grid size={2} key={globalIndex}>
             <ItemCard
-              // href={`/cubimart/item/${globalIndex}`}
-              href={"#"}
+              href={`/cubimart/item/${globalIndex}`}
               imageSrc={
                 "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741345166/cubimart_light_i70igy.svg"
               }

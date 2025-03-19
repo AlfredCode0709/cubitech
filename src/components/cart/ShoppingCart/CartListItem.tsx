@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import RemoveIcon from "@mui/icons-material/Remove";
-import ItemImage from "../common/itemData/ItemImage";
+import ItemImage from "@/components/common/itemData/ItemImage";
 import styles from "@/styles/cart.module.scss";
 import { CubiFoodItem, CubiMartItem, useCart } from "@/contexts/CartContext";
 import { CSSProperties, FC, Fragment, useState } from "react";

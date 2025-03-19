@@ -6,11 +6,11 @@ import Typography from "@mui/material/Typography";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import RemoveIcon from "@mui/icons-material/Remove";
-import ItemImage from "../common/itemData/ItemImage";
+import CartListGroupItemHeader from "./CartListGroupItemHeader";
+import ItemImage from "@/components/common/itemData/ItemImage";
 import styles from "@/styles/cart.module.scss";
 import { CubiFoodItem, CubiMartItem, useCart } from "@/contexts/CartContext";
 import { CSSProperties, FC, Fragment, useEffect, useState } from "react";
-import CartListGroupItemHeader from "./CartListGroupItemHeader";
 
 interface CartListGroupItemData {
   isCubiMart: boolean;

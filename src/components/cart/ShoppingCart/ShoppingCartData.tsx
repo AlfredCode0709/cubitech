@@ -1,7 +1,7 @@
 import Grid from "@mui/material/Grid2";
 import CartListItem from "./CartListItem";
-import CartListGroupItem from "./CartListGroupItem";
-import PaymentDetails from "./PaymentDetails";
+import CartListGroupItem from "../CartListGroupItem/CartListGroupItem";
+import PaymentDetails from "../PaymentDetails";
 import styles from "@/styles/cart.module.scss";
 import { CubiFoodItem, CubiMartItem } from "@/contexts/CartContext";
 import { FC, useMemo } from "react";
@@ -47,7 +47,7 @@ const ShoppingCartData: FC<ShoppingCartDataProps> = ({ isCubiMart, items }) => {
         })}
       </Grid>
       <Grid size={3.5}>
-        <PaymentDetails items={items} />
+        <PaymentDetails isCubiMart={isCubiMart} items={items} />
       </Grid>
     </Grid>
   );

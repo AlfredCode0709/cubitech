@@ -64,7 +64,6 @@ const initialState: CartState = {
   cubiMartItems: [],
 };
 
-// IndexedDB helper functions
 const DB_NAME = "CubitechCartDB";
 const STORE_NAME = "cart";
 
@@ -142,7 +141,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
           : [...state.cubiFoodItems, newItem];
       }
 
-      saveCartToDB(updatedState); // ✅ Now saving immediately
+      saveCartToDB(updatedState); 
       break;
     }
 

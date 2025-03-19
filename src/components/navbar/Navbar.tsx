@@ -6,12 +6,14 @@ import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import CubitechDark from "../CubitechDark";
 import Link from "next/link";
 import MainMenu from "./MainMenu";
 import { useRouter } from "next/router";
 import { FC, MouseEvent, useState } from "react";
 import { useCart } from "@/contexts/CartContext";
+import { useOrder } from "@/contexts/OrderContext";
 
 const Navbar: FC = () => {
   const router = useRouter();
@@ -28,12 +30,17 @@ const Navbar: FC = () => {
     setMainMenuAnchorEl(null);
   };
 
-  const { state } = useCart();
+  const { state: cartState } = useCart();
+  const { state: orderState } = useOrder();
 
-  const cartItems = [...state.cubiFoodItems, ...state.cubiMartItems];
+  const cartItems = [...cartState.cubiFoodItems, ...cartState.cubiMartItems];
   const cartItemCount = cartItems?.length;
 
-  // console.log(state);
+  const orderItems = [
+    ...orderState.cubiFood.orderItems,
+    ...orderState.cubiMart.orderItems,
+  ];
+  const orderItemCount = orderItems?.length;
 
   return (
     <Box className={"navbarContainer"}>
@@ -53,6 +60,17 @@ const Navbar: FC = () => {
           </Link>
           <Box flexGrow={1} />
           <Box className={"buttonList"}>
+            {orderItemCount > 0 && (
+              <IconButton color={"inherit"} size={"large"} href={"/checkout"}>
+                <Badge
+                  color={"error"}
+                  badgeContent={orderItemCount}
+                  invisible={orderItemCount === 0}
+                >
+                  <ShoppingCartIcon />
+                </Badge>
+              </IconButton>
+            )}
             <IconButton color={"inherit"} size={"large"} href={"/cart"}>
               <Badge
                 color={"error"}

@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import EmptyCartDisplay from "@/components/cart/EmptyCartDisplay";
 import MoreItemsDrawer from "@/components/common/MoreItemsDrawer";
-import ShoppingCartDisplay from "@/components/cart/ShoppingCartDisplay";
+import ShoppingCartDisplay from "@/components/cart/ShoppingCart/ShoppingCartDisplay";
 import Toggle from "@/components/common/Toggle";
 import styles from "@/styles/cart.module.scss";
 import { useCart } from "@/contexts/CartContext";
@@ -9,7 +9,6 @@ import { FC, Fragment, useState } from "react";
 
 const CartView: FC = () => {
   const { state, dispatch } = useCart();
-
   const [isCubiMart, setIsCubiMart] = useState(true);
 
   const isEmpty =
