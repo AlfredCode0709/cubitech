@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
-import InfoCard from "./card/InfoCard";
+import InfoCard from "@/components/common/card/InfoCard";
 import commonStyles from "@/styles/common.module.scss";
 import { FC } from "react";
 
@@ -27,8 +27,14 @@ const Promotions: FC<PromotionsProps> = ({
   imageSrc,
 }) => {
   return (
-    <Box className={commonStyles.promotion} bgcolor={bgColor || 'var(--primary-light)'}>
-      <Typography className={commonStyles.title} color={color || 'var(--primary-main)'}>
+    <Box
+      className={commonStyles.promotion}
+      bgcolor={bgColor || "var(--primary-light)"}
+    >
+      <Typography
+        className={commonStyles.title}
+        color={color || "var(--primary-main)"}
+      >
         {header}
       </Typography>
 

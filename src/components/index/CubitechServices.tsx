@@ -2,7 +2,7 @@ import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
-import styles from "../../styles/index.module.scss";
+import styles from "@/styles/index.module.scss";
 import { cubitechBrands } from "./cubitechBrands";
 import { FC, Fragment } from "react";
 

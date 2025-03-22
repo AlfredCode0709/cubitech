@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid2";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import Typography from "@mui/material/Typography";
+import commonStyles from "@/styles/common.module.scss";
 import { FormValues } from "./ItemData";
 import { Control, Controller, FieldErrors } from "react-hook-form";
 import { useRouter } from "next/router";
@@ -37,13 +38,14 @@ const OptionSelector: FC<OptionSelectorProps> = ({
             "&:hover": { background: radioHoverColor },
           },
         }}
+        fullWidth
       >
         <FormLabel>Options</FormLabel>
-        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+        <Box className={commonStyles.optionSelector}>
           <Controller
             name="option"
             control={control}
-            rules={{ required: "Please select one option" }}
+            rules={{ required: "Please select an option" }}
             render={({ field }) => (
               <RadioGroup row {...field}>
                 {options.map((opt) => (
@@ -57,12 +59,10 @@ const OptionSelector: FC<OptionSelectorProps> = ({
               </RadioGroup>
             )}
           />
-          {errors.option?.message && (
-            <Typography color="error">
-              {String(errors.option.message)}
-            </Typography>
-          )}
         </Box>
+        {errors.option?.message && (
+          <Typography className={commonStyles.optionSelectorError}>{String(errors.option.message)}</Typography>
+        )}
       </FormControl>
     </Grid>
   );

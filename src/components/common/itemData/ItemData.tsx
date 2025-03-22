@@ -16,9 +16,13 @@ import { options } from "./options";
 import { CubiFoodItem, CubiMartItem, useCart } from "@/contexts/CartContext";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
+import { useSnackbar } from "notistack";
 import { FC, Fragment } from "react";
 
 export interface FormValues {
+  itemName: string;
+  itemPrice: number;
+  brandName: string;
   option: string;
   customisations?: string[];
   promotions?: string[];
@@ -34,6 +38,7 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
   const router = useRouter();
   const { id } = router.query;
   const { dispatch } = useCart();
+  const { enqueueSnackbar } = useSnackbar();
 
   const {
     control,
@@ -43,6 +48,9 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
     formState: { errors },
   } = useForm<FormValues>({
     defaultValues: {
+      itemName: 'Item Name',
+      itemPrice: 9.99,
+      brandName: 'Brand Name',
       option: "",
       customisations: [],
       promotions: ["Promotion 1", "Promotion 2"],
@@ -51,6 +59,9 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
     },
   });
 
+  const itemName = watch('itemName');
+  const itemPrice = watch('itemPrice');
+  const brandName = watch('brandName');
   const promotions = watch("promotions");
 
   const onSubmit = (data: FormValues) => {
@@ -60,7 +71,7 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
       console.error("Invalid item ID");
       return;
     }
-  
+
     if (isCubiMart) {
       const newItem: Omit<CubiMartItem, "cartId"> = {
         itemId,
@@ -71,7 +82,7 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
         promotions: data.promotions || [],
         quantity: data.quantity,
       };
-  
+      
       dispatch({
         type: "ADD_CART_ITEM",
         payload: newItem,
@@ -87,14 +98,18 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
         specialNotes: data.specialNotes ?? "",
         quantity: data.quantity,
       };
-  
+
       dispatch({
         type: "ADD_CART_ITEM",
         payload: newItem,
         isCubiMart: false,
       });
     }
-  
+
+    enqueueSnackbar("Item successfully added to cart!", {
+      variant: "success",
+    });
+
     reset();
   };
 
@@ -116,8 +131,8 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
         </Grid>
         <Grid size={8}>
           <Box className={commonStyles.itemContent}>
-            <Typography className={commonStyles.itemName}>Item Name</Typography>
-            <Typography className={commonStyles.itemPrice}>$9.99</Typography>
+            <Typography className={commonStyles.itemName}>{itemName}</Typography>
+            <Typography className={commonStyles.itemPrice}>${itemPrice}</Typography>
 
             {/* Rating - CubiMart only */}
             {isCubiMart === true && (
@@ -128,7 +143,7 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
                   defaultValue={5}
                 />
                 <Typography className={commonStyles.brandName}>
-                  Brand Name
+                  {brandName}
                 </Typography>
                 <PromotionOutline promotions={promotions ? promotions : []} />
               </Fragment>
@@ -148,7 +163,7 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
                     customisations={customisations}
                     control={control}
                   />
-                  <SpecialNotes control={control} />
+                  <SpecialNotes control={control} errors={errors}/>
                 </Fragment>
               )}
 

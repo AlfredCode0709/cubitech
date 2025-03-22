@@ -26,6 +26,7 @@ const CustomisationSelector: FC<CustomisationSelectorProps> = ({
           "&:hover": { background: "#e7fef4" },
         },
       }}
+      fullWidth
     >
       <FormLabel>Customisation</FormLabel>
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>

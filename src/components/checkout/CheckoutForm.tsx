@@ -1,8 +1,9 @@
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import RestartAltIcon from "@mui/icons-material/RestartAlt";
-import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
+import CloseIcon from "@mui/icons-material/Close";
+import CartListGroupItemReadOnly from "./CartListGroupItemReadOnly/CartListGroupItemReadOnly";
+import CartListItemReadOnly from "./CartListItemReadOnly";
 import ConsumeByOption from "./ConsumeByOption";
 import DeliverByOption from "./DeliverByOption";
 import PaymentMethodOption from "./PaymentMethodOption";
@@ -11,12 +12,13 @@ import styles from "@/styles/checkout.module.scss";
 import { CubiFoodItem, CubiMartItem, useOrder } from "@/contexts/OrderContext";
 import { useForm } from "react-hook-form";
 import { FC, Fragment, useMemo } from "react";
-import Stack from "@mui/material/Stack";
-import CartListGroupItemReadOnly from "./CartListGroupItemReadOnly/CartListGroupItemReadOnly";
-import CartListItemReadOnly from "./CartListItemReadOnly";
+import CheckoutActionButtons from "./CheckoutActionButtons";
+import IconButton from "@mui/material/IconButton";
+import { enqueueSnackbar } from "notistack";
 
 interface CheckoutFormProps {
   isCubiMart: boolean;
+  handleCancel: () => void;
 }
 
 export interface CheckoutFormValues {
@@ -32,11 +34,11 @@ export interface CheckoutFormValues {
   isCubiMart: boolean;
 }
 
-const CheckoutForm: FC<CheckoutFormProps> = ({ isCubiMart }) => {
-  const { state, dispatch } = useOrder();
+const CheckoutForm: FC<CheckoutFormProps> = ({ isCubiMart, handleCancel }) => {
+  const { state } = useOrder();
 
   const orderData = isCubiMart === true ? state?.cubiMart : state?.cubiFood;
-  const { orderItems = [] } = orderData || {}; // Only destructure what's needed
+  const { orderItems = [] } = orderData || {};
 
   const groupedItems = useMemo(() => {
     return orderItems.reduce(
@@ -54,18 +56,18 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ isCubiMart }) => {
     );
   }, [orderItems]);
 
-  const { handleSubmit, control, setValue, reset } =
+  const { handleSubmit, watch, control, setValue, reset } =
     useForm<CheckoutFormValues>({
       defaultValues: {
         cartItems: orderItems,
-        consumeBy: "dineIn", // Default value
-        collectBy: "<15minsSelfCollection", // Default value
-        deliverBy: "doorStepDelivery", // Default value
-        paymentMethod: "card", // Default value
-        subtotal: orderData.subtotal || 0, // Only use if needed
-        additionalCosts: orderData.additionalCosts || 0, // Only use if needed
-        discount: orderData.discount || 0, // Only use if needed
-        total: orderData.total || 0, // Only use if needed
+        consumeBy: "dineIn",
+        collectBy: "<15minsSelfCollection",
+        deliverBy: "doorStepDelivery",
+        paymentMethod: "card",
+        subtotal: orderData.subtotal || 0,
+        additionalCosts: orderData.additionalCosts || 0,
+        discount: orderData.discount || 0,
+        total: orderData.total || 0,
         isCubiMart,
       },
     });
@@ -78,22 +80,31 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ isCubiMart }) => {
     setValue("collectBy", newTimeSlot);
   };
 
-  const consumeBy = control._getWatch("consumeBy");
+  const consumeBy = watch("consumeBy");
+
+  const handleConsumeByChange = (newValue: string) => {
+    setValue("consumeBy", newValue);
+    setValue(
+      "collectBy",
+      newValue === "dineIn" ? "<15minsSelfCollection" : "7amTo10am"
+    );
+  };
 
   const onSubmit = async (data: CheckoutFormValues) => {
-    // Use Object.entries to get both key and value at once
     const filteredData = Object.entries(data).reduce((acc, [key, value]) => {
-      // Only add the valid keys based on isCubiMart
       if (isCubiMart && key !== "consumeBy" && key !== "collectBy") {
         acc[key as keyof CheckoutFormValues] = value;
       } else if (!isCubiMart && key !== "deliverBy") {
         acc[key as keyof CheckoutFormValues] = value;
       }
       return acc;
-    }, {} as Record<keyof CheckoutFormValues, string | number | boolean>); // Replace `any` with specific types
+    }, {} as Record<keyof CheckoutFormValues, string | number | boolean>);
 
     console.log(filteredData);
-    dispatch({ type: "CLEAR_ORDER" });
+
+    enqueueSnackbar("Checkout done! This is a simulation!", {
+      variant: "success",
+    });
   };
 
   const handleReset = () => {
@@ -121,7 +132,19 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ isCubiMart }) => {
       className={styles.checkoutForm}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Typography className={styles.title}>Checkout</Typography>
+      <Stack
+        display={"flex"}
+        flexDirection={"row"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+        marginBottom={"5%"}
+      >
+        <Typography className={styles.title}>Checkout</Typography>
+
+        <IconButton onClick={handleCancel} color={"error"}>
+          <CloseIcon />
+        </IconButton>
+      </Stack>
 
       {isCubiMart ? (
         <Fragment>
@@ -133,7 +156,11 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ isCubiMart }) => {
         </Fragment>
       ) : (
         <Fragment>
-          <ConsumeByOption control={control} name="consumeBy" />
+          <ConsumeByOption
+            control={control}
+            name="consumeBy"
+            onChange={handleConsumeByChange}
+          />
           {consumeBy === "dineIn" ? (
             <Typography
               color="textSecondary"
@@ -182,35 +209,7 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ isCubiMart }) => {
 
       <PaymentMethodOption control={control} name="paymentMethod" />
 
-      <Stack
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          marginTop: "2.5%",
-          gap: "16px",
-        }}
-      >
-        <Button
-          color={"primary"}
-          variant={"contained"}
-          size={"large"}
-          startIcon={<RestartAltIcon />}
-          onClick={handleReset}
-          fullWidth
-        >
-          Reset
-        </Button>
-        <Button
-          color={"primary"}
-          variant={"contained"}
-          size={"large"}
-          startIcon={<ShoppingCartCheckoutIcon />}
-          type={"submit"}
-          fullWidth
-        >
-          Proceed to Checkout
-        </Button>
-      </Stack>
+      <CheckoutActionButtons handleReset={handleReset} />
     </Box>
   );
 };

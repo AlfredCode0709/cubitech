@@ -11,9 +11,10 @@ import { FC } from "react";
 interface ConsumeByOptionProps {
   control: Control<CheckoutFormValues>;
   name: keyof CheckoutFormValues;
+  onChange: (newValue: string) => void;
 }
 
-const ConsumeByOption: FC<ConsumeByOptionProps> = ({ control, name }) => {
+const ConsumeByOption: FC<ConsumeByOptionProps> = ({ control, name, onChange }) => {
   return (
     <Controller
       name={name}
@@ -21,7 +22,7 @@ const ConsumeByOption: FC<ConsumeByOptionProps> = ({ control, name }) => {
       render={({ field }) => (
         <FormControl sx={{ marginY: "2.5%" }}>
           <FormLabel sx={{ marginBottom: "1.25%" }}>Consume By</FormLabel>
-          <RadioGroup {...field}>
+          <RadioGroup {...field} onChange={(_, newValue) => newValue && onChange(newValue)}>
             {consumeOptions.map((option) => (
               <FormControlLabel
                 key={option.value}

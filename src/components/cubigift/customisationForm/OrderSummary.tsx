@@ -14,11 +14,9 @@ interface OrderSummaryProps {
 }
 
 const OrderSummary: FC<OrderSummaryProps> = ({ totalAmount, reset }) => {
-  // const { watch, reset } = useFormContext();
   const { watch } = useFormContext();
   const giftsNumber = watch("giftsNumber") || 0;
   const selectedGiftAmount = watch("selectedGiftAmount") || 0;
-  // const totalAmount = giftsNumber * selectedGiftAmount;
 
   return (
     <Card className={styles.orderCard} variant={"outlined"}>

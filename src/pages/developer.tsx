@@ -1,13 +1,12 @@
-import WelcomeDialog from "@/components/index/WelcomeDialog";
-import Default from "@/view/index/Default";
+import DeveloperView from "@/view/dev/DeveloperView";
 import Head from "next/head";
 import { FC, Fragment } from "react";
 
-const Index: FC = () => {
+const Developer: FC = () => {
   return (
     <Fragment>
       <Head>
-        <title>Cubitech</title>
+        <title>Developer Portal | Cubitech</title>
         <meta name="description" content="Cubitech - Next Typescript" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
@@ -16,11 +15,10 @@ const Index: FC = () => {
         />
       </Head>
       <main>
-        <WelcomeDialog />
-        <Default />
+        <DeveloperView />
       </main>
     </Fragment>
   );
 };
 
-export default Index;
+export default Developer;

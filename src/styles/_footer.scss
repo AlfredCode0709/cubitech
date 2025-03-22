@@ -41,14 +41,18 @@
       font-size: 16px;
       line-height: var(--body1);
       color: inherit;
-
-      /* Change cursor to pointer on hover */
-
       cursor: pointer;
+      transition: all 0.3s ease-in-out;
 
       &:hover {
-        color: #d8e1ec;
-        transition: all 0.3s ease-in-out;
+        color: #b5d4fc;
+      }
+
+      &.inactive {
+        cursor: default;
+        color: var(--disable-main);
+        // color: #94a4b8;
+        pointer-events: none;
       }
     }
   }

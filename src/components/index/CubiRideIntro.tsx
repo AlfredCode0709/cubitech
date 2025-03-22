@@ -35,9 +35,9 @@ const CubiRideIntro: FC = () => {
             variant={"contained"}
             size={"large"}
             color={"primary"}
-            // href={"#"}
+            href={"/cubiride"}
           >
-            Book A Ride Now!
+            Learn More
           </Button>
         </Box>
       </Stack>

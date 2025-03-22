@@ -7,16 +7,31 @@ import Toggle from "@/components/common/Toggle";
 import styles from "@/styles/checkout.module.scss";
 import { useOrder } from "@/contexts/OrderContext";
 import { FC, Fragment, useState } from "react";
+import CancelCheckoutDialog from "@/components/checkout/CancelCheckoutDialog";
 
 const CheckoutView: FC = () => {
-  const { state } = useOrder();
+  const { state, dispatch } = useOrder();
   const [isCubiMart, setIsCubiMart] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const isEmpty =
     (isCubiMart && state.cubiMart.orderItems.length === 0) ||
     (!isCubiMart && state.cubiFood.orderItems.length === 0);
 
   const currentOrderState = isCubiMart ? state.cubiMart : state.cubiFood;
+
+  const handleOpenDialog = () => {
+    setOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpen(false);
+  };
+
+  const handleConfirmCancel = () => {
+    dispatch({ type: "CLEAR_ORDER" });
+    setOpen(false);
+  };
 
   return (
     <Fragment>
@@ -34,7 +49,10 @@ const CheckoutView: FC = () => {
         ) : (
           <Grid container spacing={2} className={styles.checkoutData}>
             <Grid size={7}>
-              <CheckoutForm isCubiMart={isCubiMart} />
+              <CheckoutForm
+                isCubiMart={isCubiMart}
+                handleCancel={handleOpenDialog}
+              />
             </Grid>
             <Grid size={5}>
               <PaymentDetailsReadOnly state={currentOrderState} />
@@ -42,6 +60,12 @@ const CheckoutView: FC = () => {
           </Grid>
         )}
       </Box>
+
+      <CancelCheckoutDialog
+        open={open}
+        handleCloseDialog={handleCloseDialog}
+        handleConfirmClear={handleConfirmCancel}
+      />
     </Fragment>
   );
 };

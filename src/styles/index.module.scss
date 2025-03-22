@@ -1,3 +1,19 @@
+/* Welcome Dialog styles */
+
+.welcomeDialog {
+  .dialogTitle {
+    font-size: 26px;
+  }
+
+  .link {
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: var(--primary-main);
+    }
+  }
+}
+
 /* Cubitech Services styles */
 
 .cubitechServices {

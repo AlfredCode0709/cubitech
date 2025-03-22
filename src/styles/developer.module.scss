@@ -1,0 +1,48 @@
+/* Developer View styles */
+
+.developerView {
+  padding: 2.5% 10%;
+
+  .headerTitle1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--primary-main);
+    margin-bottom: 3%;
+    display: flex;
+    flex-direction: column;
+
+    .descr {
+      font-size: 20px;
+      color: var(--black);
+      margin-top: 1.25%;
+    }
+  }
+
+  .headerTitle2, .headerTitle3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-main);
+    display: flex;
+    flex-direction: column;
+
+    .descr {
+      font-size: 18px;
+      color: var(--black);
+      margin: 0.75% 0 1.75%;
+    }
+  }
+
+  .headerTitle4 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-main);
+    display: flex;
+    flex-direction: column;
+
+    .descr {
+      font-size: 18px;
+      color: var(--black);
+      margin: 1% 0;
+    }
+  }
+}

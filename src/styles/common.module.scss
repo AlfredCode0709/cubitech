@@ -16,7 +16,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: #00000059;
+    background: var(--overlay);
     z-index: 0;
   }
 
@@ -493,6 +493,17 @@
       margin-bottom: 4%;
     }
 
+    .optionSelector {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .optionSelectorError {
+      color: var(--error-main);
+      margin-top: 1.25%;
+    }
+
     .promotionOutline {
       display: flex;
       align-items: center;
@@ -661,11 +672,11 @@
       color: var(--primary-main);
       line-height: var(--h4);
       margin-top: 1.25%;
-  
+
       .subColor1 {
         color: #09b96d;
       }
-  
+
       .subColor2 {
         color: #c03853;
       }

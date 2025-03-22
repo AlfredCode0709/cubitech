@@ -75,7 +75,12 @@
         font-size: 26px;
         font-weight: 600;
         color: var(--primary-main);
-        margin-bottom: 5%;
+        // margin-bottom: 5%;
+      }
+
+      .dineInText {
+        color: var(--text-secondary-main);
+        margin: 0.75% 0 5% 0;
       }
 
       .cartListGroupItemReadOnly {

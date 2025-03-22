@@ -1,8 +1,8 @@
 import FormControl from "@mui/material/FormControl";
 import Grid from "@mui/material/Grid2";
 import TextField from "@mui/material/TextField";
-import { FormValues } from "./ItemData";
 import { Control, Controller, FieldErrors } from "react-hook-form";
+import { FormValues } from "./ItemData";
 import { useRouter } from "next/router";
 import { FC } from "react";
 
@@ -35,12 +35,12 @@ const QuantitySelector: FC<QuantitySelectorProps> = ({ control, errors }) => {
               variant="outlined"
               error={!!errors.quantity}
               helperText={errors.quantity?.message}
-              inputProps={{ min: 1, max: 100 }}
+              slotProps={{
+                htmlInput: { min: 1, max: 100 }
+              }}
               onChange={(e) => {
-                let value = Number(e.target.value);
-                if (value > 100) value = 100;
-                if (value < 1) value = 1;
-                field.onChange(value);
+                const value = Number(e.target.value);
+                field.onChange(Math.max(1, Math.min(value, 100)));
               }}
               sx={{
                 "& label.Mui-focused": { color: themeColor },

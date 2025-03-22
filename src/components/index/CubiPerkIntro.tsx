@@ -26,7 +26,7 @@ const CubiPerkIntro: FC = () => {
             className={styles.learnMoreButton}
             variant={"contained"}
             size={"large"}
-            // href={"#"}
+            href={"/cubiperk"}
           >
             Learn More
           </Button>

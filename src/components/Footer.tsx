@@ -38,24 +38,29 @@ const Footer: FC = () => {
         </Grid>
 
         <Grid size={3} className={"footerSection"}>
-          <Link href={"/about"}>
-            <Typography className={"footerLink"}>About Us</Typography>
-          </Link>
-          <Typography className={"footerLink"}>Help Centre</Typography>
+          <FooterLink href={"/about"}>About Us</FooterLink>
+          <FooterLink>Help Centre</FooterLink>
         </Grid>
 
         <Grid size={3} className={"footerSection"}>
           <Typography className={"footerHeading"}>Consumers</Typography>
-          {["CubiFood", "CubiMart", "CubiRide", "CubiPay", "CubiGift", "CubiPerk"].map((item) => (
-            <Link key={item} href={`/${item.toLowerCase()}`}>
-              <Typography className={"footerLink"}>{item}</Typography>
-            </Link>
+          {[
+            "CubiFood",
+            "CubiMart",
+            "CubiRide",
+            "CubiPay",
+            "CubiGift",
+            "CubiPerk",
+          ].map((item) => (
+            <FooterLink key={item} href={`/${item.toLowerCase()}`}>
+              {item}
+            </FooterLink>
           ))}
         </Grid>
 
         <Grid size={3} className={"footerSection"}>
           <Typography className={"footerHeading"}>Quick Links</Typography>
-          <Typography className={"footerLink"}>Developer Portal</Typography>
+          <FooterLink href={"/developer"}>Developer Portal</FooterLink>
         </Grid>
       </Grid>
     </Box>
@@ -63,3 +68,16 @@ const Footer: FC = () => {
 };
 
 export default Footer;
+
+const FooterLink: FC<{ href?: string; children: React.ReactNode }> = ({
+  href,
+  children,
+}) => {
+  return href ? (
+    <Link href={href}>
+      <Typography className="footerLink">{children}</Typography>
+    </Link>
+  ) : (
+    <Typography className="footerLink inactive">{children}</Typography>
+  );
+};

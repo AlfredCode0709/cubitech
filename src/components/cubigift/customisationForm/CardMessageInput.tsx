@@ -16,7 +16,7 @@ const CardMessageInput: FC<CardMessageInputProps> = ({
   const cardMessage = watch("cardMessage");
 
   useEffect(() => {
-    if (cardMessage) clearErrors("cardMessage"); // ✅ Clear error if value exists
+    if (cardMessage) clearErrors("cardMessage");
   }, [cardMessage, clearErrors]);
 
   return (
