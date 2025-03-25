@@ -5,7 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import DeleteIcon from "@mui/icons-material/Delete";
 import styles from "@/styles/cart.module.scss";
-import { ChangeEvent, FC } from "react";
+import { ChangeEvent, CSSProperties, FC } from "react";
 
 interface CartListGroupItemHeaderProps {
   isCubiMart: boolean;
@@ -18,7 +18,7 @@ const CartListGroupItemHeader: FC<CartListGroupItemHeaderProps> = ({
   isCubiMart,
   isChecked,
   onCheckboxChange,
-  onDeleteAll
+  onDeleteAll,
 }) => {
   return (
     <Grid size={12} container className={styles.header}>
@@ -35,12 +35,21 @@ const CartListGroupItemHeader: FC<CartListGroupItemHeaderProps> = ({
               : "https://res.cloudinary.com/dcsfz2ydj/image/upload/v1741347930/cubifood_icon_wwe1ks.svg"
           }
         />
-        <Typography>Brand/Supplier Name</Typography>
+        <Typography
+          className={styles.title}
+          sx={
+            {
+              "--color": isCubiMart ? "var(--primary-main)" : "#08834e",
+            } as CSSProperties
+          }
+        >
+          Brand/Supplier Name
+        </Typography>
       </Grid>
       {isChecked && (
         <Grid size={0.75}>
           <IconButton>
-            <DeleteIcon color={"error"} onClick={onDeleteAll}/>
+            <DeleteIcon color={"error"} onClick={onDeleteAll} />
           </IconButton>
         </Grid>
       )}

@@ -11,7 +11,7 @@ import { openDB } from "idb";
 export interface CubiFoodItem {
   cartId: number;
   itemId: string;
-  name: string;
+  itemName: string;
   price: number;
   option: string;
   customisations?: string[];
@@ -22,9 +22,9 @@ export interface CubiFoodItem {
 export interface CubiMartItem {
   cartId: number;
   itemId: string;
-  name: string;
+  itemName: string;
   price: number;
-  brand?: string;
+  brandName?: string;
   promotions?: string[];
   option: string;
   quantity: number;
@@ -47,23 +47,6 @@ export interface OrderState {
     total: number;
   };
 }
-
-// const initialState: OrderState = {
-//   cubiFood: {
-//     orderItems: [],
-//     subtotal: 0,
-//     additionalCosts: 0,
-//     discount: 0,
-//     total: 0,
-//   },
-//   cubiMart: {
-//     orderItems: [],
-//     subtotal: 0,
-//     additionalCosts: 0,
-//     discount: 0,
-//     total: 0,
-//   },
-// };
 
 const initialState: OrderState = {
   cubiFood: {

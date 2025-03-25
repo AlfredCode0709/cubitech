@@ -17,7 +17,7 @@ const ProductOverview: FC = () => {
   ];
 
   return (
-    <Grid size={12} container spacing={2} paddingBottom={"2.5%"}>
+    <Grid size={12} container spacing={2} paddingTop={"1.75%"}>
       <Grid size={8}>
         <Card className={commonStyles.productData} variant={"outlined"}>
           <Typography className={commonStyles.productDetailsTitle}>

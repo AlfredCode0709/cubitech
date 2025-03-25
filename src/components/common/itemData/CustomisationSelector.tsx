@@ -4,8 +4,9 @@ import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 import Grid from "@mui/material/Grid2";
-import { FormValues } from "./ItemData";
+import commonStyles from "@/styles/common.module.scss";
 import { Control, Controller } from "react-hook-form";
+import { FormValues } from "./ItemData";
 import { FC, Fragment } from "react";
 
 interface CustomisationSelectorProps {
@@ -29,7 +30,7 @@ const CustomisationSelector: FC<CustomisationSelectorProps> = ({
       fullWidth
     >
       <FormLabel>Customisation</FormLabel>
-      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+      <Box className={commonStyles.customisationSelector}>
         <Controller
           name="customisations"
           control={control}

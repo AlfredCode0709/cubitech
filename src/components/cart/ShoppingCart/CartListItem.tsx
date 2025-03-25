@@ -21,7 +21,7 @@ const CartListItem: FC<CartListItemProps> = ({ isCubiMart, item }) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const isCubiMartItem = (
-    item: CubiMartItem | CubiFoodItem
+    item: CubiMartItem | CubiFoodItem,
   ): item is CubiMartItem => {
     return isCubiMart;
   };
@@ -54,12 +54,8 @@ const CartListItem: FC<CartListItemProps> = ({ isCubiMart, item }) => {
 
   return (
     <Grid size={12} container className={styles.cartListItem}>
-      <Grid size={0.75}>
-        <Checkbox
-          sx={{ marginTop: "-25px" }}
-          checked={isChecked}
-          onChange={handleCheckbox}
-        />
+      <Grid size={0.75} className={styles.checkbox}>
+        <Checkbox checked={isChecked} onChange={handleCheckbox} />
       </Grid>
       <Grid size={1.75}>
         <ItemImage
@@ -71,11 +67,30 @@ const CartListItem: FC<CartListItemProps> = ({ isCubiMart, item }) => {
         />
       </Grid>
       <Grid size={5} className={styles.itemData}>
-        <Typography className={styles.itemName}>{item.name}</Typography>
+        <Typography className={styles.itemName}>{item.itemName}</Typography>
+
+        <Typography
+          className={styles.itemOption}
+          sx={
+            {
+              "--color": isCubiMart ? "var(--primary-main)" : "#08834e",
+            } as CSSProperties
+          }
+        >
+          {item.option === "option1"
+            ? "Option 1"
+            : item.option === "option2"
+              ? "Option 2"
+              : item.option === "option3"
+                ? "Option 3"
+                : "Option 4"}
+        </Typography>
 
         {isCubiMartItem(item) && (
           <Fragment>
-            <Typography className={styles.itemBrand}>{item.brand}</Typography>
+            <Typography className={styles.itemBrandName}>
+              {item.brandName}
+            </Typography>
             {item.promotions?.length !== 0 && (
               <Typography className={styles.itemSelectedPromo}>
                 {item.promotions?.sort().join(", ")}
@@ -83,16 +98,6 @@ const CartListItem: FC<CartListItemProps> = ({ isCubiMart, item }) => {
             )}
           </Fragment>
         )}
-
-        <Typography className={styles.itemOption}>
-          {item.option === "option1"
-            ? "Option 1"
-            : item.option === "option2"
-            ? "Option 2"
-            : item.option === "option3"
-            ? "Option 3"
-            : "Option 4"}
-        </Typography>
 
         {!isCubiMartItem(item) && (
           <Fragment>
@@ -109,11 +114,13 @@ const CartListItem: FC<CartListItemProps> = ({ isCubiMart, item }) => {
           </Fragment>
         )}
       </Grid>
+
       <Grid size={1.5}>
         <Typography className={styles.itemPrice}>
           ${Number(item.price * item.quantity).toFixed(2)}
         </Typography>
       </Grid>
+
       <Grid size={isChecked ? 2.25 : 3}>
         <Box className={styles.options}>
           {isChecked && (
@@ -130,8 +137,8 @@ const CartListItem: FC<CartListItemProps> = ({ isCubiMart, item }) => {
             sx={
               {
                 "--margin-top": isChecked ? 0 : "6.5px",
-                "--width": isChecked ? "50px" : "",
-                "--justify-content": isChecked ? 'center' : 'flex-end'
+                "--width": isChecked ? "50px" : "85%",
+                "--justify-content": isChecked ? "center" : "flex-end",
               } as CSSProperties
             }
           >
@@ -144,6 +151,7 @@ const CartListItem: FC<CartListItemProps> = ({ isCubiMart, item }) => {
           )}
         </Box>
       </Grid>
+      
       <Grid size={isChecked ? 0.75 : 0}>
         {isChecked && (
           <IconButton sx={{ marginTop: "-6.5px" }} onClick={handleRemoveItem}>

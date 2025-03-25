@@ -28,12 +28,12 @@ const CartListGroupItemData: FC<CartListGroupItemData> = ({
     items.length > 0 && items.every((item) => checkedItems[item.cartId]);
 
   useEffect(() => {
-    // Update header checkbox when item selection changes
     if (items.length > 0) {
       const allChecked = items.every((item) => checkedItems[item.cartId]);
       if (allChecked !== isAllChecked) {
-        setCheckedItems(Object.fromEntries(items.map((item) => [item.cartId, allChecked])));
-
+        setCheckedItems(
+          Object.fromEntries(items.map((item) => [item.cartId, allChecked]))
+        );
       }
     }
   }, [isAllChecked, items, checkedItems]);
@@ -44,7 +44,6 @@ const CartListGroupItemData: FC<CartListGroupItemData> = ({
     return isCubiMart;
   };
 
-  // Toggle individual checkbox
   const handleItemCheckbox = (cartId: number) => {
     setCheckedItems((prev) => {
       const updatedCheckedItems = { ...prev, [cartId]: !prev[cartId] };
@@ -52,7 +51,6 @@ const CartListGroupItemData: FC<CartListGroupItemData> = ({
     });
   };
 
-  // Toggle all checkboxes
   const handleAllCheckbox = () => {
     const newCheckedState = !isAllChecked;
     setCheckedItems(
@@ -70,11 +68,9 @@ const CartListGroupItemData: FC<CartListGroupItemData> = ({
     });
   };
 
-  // Delete a single item
   const handleDeleteItem = (cartId: number) => {
     dispatch({ type: "REMOVE_CART_ITEM", payload: cartId, isCubiMart });
 
-    // Remove the item from the checked state
     setCheckedItems((prev) => {
       const updatedCheckedItems = { ...prev };
       delete updatedCheckedItems[cartId];
@@ -82,7 +78,6 @@ const CartListGroupItemData: FC<CartListGroupItemData> = ({
     });
   };
 
-  // Delete all items in the group
   const handleDeleteAllItems = () => {
     if (!items.length) return;
 
@@ -91,7 +86,6 @@ const CartListGroupItemData: FC<CartListGroupItemData> = ({
       payload: { itemId: items[0].itemId, isCubiMart },
     });
 
-    // Reset checked items
     setCheckedItems({});
   };
 
@@ -115,13 +109,13 @@ const CartListGroupItemData: FC<CartListGroupItemData> = ({
             key={item.cartId}
             className={styles.listItem}
           >
-            <Grid size={0.75}>
+            <Grid size={0.75} className={styles.checkbox}>
               <Checkbox
-                sx={{ marginTop: "-10.5px" }}
                 checked={isChecked}
                 onChange={() => handleItemCheckbox(item.cartId)}
               />
             </Grid>
+
             <Grid size={1.75}>
               <ItemImage
                 imageSrc={
@@ -131,23 +125,20 @@ const CartListGroupItemData: FC<CartListGroupItemData> = ({
                 }
               />
             </Grid>
+
             <Grid size={5} className={styles.itemData}>
-              <Typography className={styles.itemName}>{item.name}</Typography>
+              <Typography className={styles.itemName}>
+                {item.itemName}
+              </Typography>
 
-              {isCubiMartItem(item) && (
-                <Fragment>
-                  <Typography className={styles.itemBrand}>
-                    {item.brand}
-                  </Typography>
-                  {item.promotions?.length !== 0 && (
-                    <Typography className={styles.itemSelectedPromo}>
-                      {item.promotions?.sort().join(", ")}
-                    </Typography>
-                  )}
-                </Fragment>
-              )}
-
-              <Typography className={styles.itemOption}>
+              <Typography
+                className={styles.itemOption}
+                sx={
+                  {
+                    "--color": isCubiMart ? "var(--primary-main)" : "#08834e",
+                  } as CSSProperties
+                }
+              >
                 {item.option === "option1"
                   ? "Option 1"
                   : item.option === "option2"
@@ -156,6 +147,19 @@ const CartListGroupItemData: FC<CartListGroupItemData> = ({
                   ? "Option 3"
                   : "Option 4"}
               </Typography>
+
+              {isCubiMartItem(item) && (
+                <Fragment>
+                  <Typography className={styles.itemBrand}>
+                    {item.brandName}
+                  </Typography>
+                  {item.promotions?.length !== 0 && (
+                    <Typography className={styles.itemSelectedPromo}>
+                      {item.promotions?.sort().join(", ")}
+                    </Typography>
+                  )}
+                </Fragment>
+              )}
 
               {!isCubiMartItem(item) && (
                 <Fragment>
@@ -172,11 +176,13 @@ const CartListGroupItemData: FC<CartListGroupItemData> = ({
                 </Fragment>
               )}
             </Grid>
+
             <Grid size={1.5}>
               <Typography className={styles.itemPrice}>
                 ${Number(item.price * item.quantity).toFixed(2)}
               </Typography>
             </Grid>
+            
             <Grid size={isChecked ? 2.25 : 3}>
               <Box className={styles.options}>
                 {isChecked && (

@@ -71,162 +71,205 @@
       border-radius: 8px;
       padding: 5%;
 
-      .title {
-        font-size: 26px;
-        font-weight: 600;
-        color: var(--primary-main);
-        // margin-bottom: 5%;
+      .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2.5%;
+
+        .title {
+          font-size: 26px;
+          font-weight: 600;
+          color: var(--primary-main);
+        }
+      }
+
+      .consumeBySelectorControl {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 2.5% 0;
+      }
+
+      .consumeBySelectorError {
+        color: var(--error-main);
+        margin: 1.25% 0 2.5%;
       }
 
       .dineInText {
         color: var(--text-secondary-main);
-        margin: 0.75% 0 5% 0;
       }
 
-      .cartListGroupItemReadOnly {
-        width: 100%;
-        border-top: 1px solid var(--divider-color);
-        border-bottom: 1px solid var(--divider-color);
+      .timeSlotSelectorControl {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -1% 0 -1%;
 
-        .header {
+        .timeSlotSelectorHeader {
           display: flex;
+          flex-direction: row;
           align-items: center;
-          padding: 1.25% 0;
-          gap: 8px;
-          border-bottom: 1px solid var(--divider-color);
-
-          .avatar {
-            border: 1px solid var(--divider-color);
-            width: 60px;
-            height: 60px;
-            padding: 1%;
-          }
-
-          .groupItemName {
-            font-weight: 500;
-            font-size: 18px;
-          }
-        }
-
-        .listItemReadOnly {
-          padding: 2.5% 0;
-
-          .itemQuantity {
-            text-align: center;
-            font-weight: 600;
-            font-size: 18px;
-            color: var(--primary-main);
-          }
-  
-          .itemData {
-            padding: 0 1.25%;
-  
-            .itemName {
-              height: 55px;
-              font-weight: 600;
-              font-size: 18px;
-            }
-  
-            .itemBrand {
-              font-size: 14px;
-              color: var(--text-secondary-dark);
-              margin-bottom: 1%;
-            }
-  
-            .itemOption {
-              font-size: 14px;
-              color: var(--text-secondary-main);
-              margin-bottom: 1%;
-            }
-  
-            .itemCustomisation {
-              font-size: 14px;
-              color: var(--text-secondary-main);
-              margin-bottom: 1%;
-            }
-  
-            .itemPromotions {
-              font-size: 14px;
-              color: var(--primary-dark);
-              margin-bottom: 1%;
-            }
-  
-            .itemSpecialNotes {
-              font-size: 14px;
-              color: var(--text-secondary-dark);
-              font-style: italic;
-              margin-bottom: 1%;
-            }
-          }
-  
-          .itemPrice {
-            text-align: right;
-            font-weight: 600;
-            font-size: 18px;
-            color: var(--primary-dark);
-          }
+          justify-content: space-between;
         }
       }
 
-      .cartListItemReadOnly {
-        padding: 2.5% 0;
-        border-top: var(--border-top);
-        border-bottom: 1px solid var(--divider-color);
+      // .dineInText {
+      //   color: var(--text-secondary-main);
+      //   margin: 0.75% 0 5% 0;
+      // }
 
-        .itemQuantity {
-          text-align: center;
-          font-weight: 600;
-          font-size: 18px;
-          color: var(--primary-main);
-        }
+      // .cartListGroupItemReadOnly {
+      //   width: 100%;
+      //   border-top: 1px solid var(--divider-color);
+      //   border-bottom: 1px solid var(--divider-color);
 
-        .itemData {
-          padding: 0 1.25%;
+      //   .header {
+      //     display: flex;
+      //     align-items: center;
+      //     padding: 1.25% 0;
+      //     gap: 8px;
+      //     border-bottom: 1px solid var(--divider-color);
 
-          .itemName {
-            height: 55px;
-            font-weight: 600;
-            font-size: 18px;
-          }
+      //     .avatar {
+      //       border: 1px solid var(--divider-color);
+      //       width: 60px;
+      //       height: 60px;
+      //       padding: 1%;
+      //     }
 
-          .itemBrand {
-            font-size: 14px;
-            color: var(--text-secondary-dark);
-            margin-bottom: 1%;
-          }
+      //     .groupItemName {
+      //       font-weight: 500;
+      //       font-size: 18px;
+      //     }
+      //   }
 
-          .itemOption {
-            font-size: 14px;
-            color: var(--text-secondary-main);
-            margin-bottom: 1%;
-          }
+      //   .listItemReadOnly {
+      //     padding: 2.5% 0;
 
-          .itemCustomisation {
-            font-size: 14px;
-            color: var(--text-secondary-main);
-            margin-bottom: 1%;
-          }
+      //     .itemQuantity {
+      //       text-align: center;
+      //       font-weight: 600;
+      //       font-size: 18px;
+      //       color: var(--primary-main);
+      //     }
+  
+      //     .itemData {
+      //       padding: 0 1.25%;
+  
+      //       .itemName {
+      //         height: 55px;
+      //         font-weight: 600;
+      //         font-size: 18px;
+      //       }
+  
+      //       .itemBrand {
+      //         font-size: 14px;
+      //         color: var(--text-secondary-dark);
+      //         margin-bottom: 1%;
+      //       }
+  
+      //       .itemOption {
+      //         font-size: 14px;
+      //         color: var(--text-secondary-main);
+      //         margin-bottom: 1%;
+      //       }
+  
+      //       .itemCustomisation {
+      //         font-size: 14px;
+      //         color: var(--text-secondary-main);
+      //         margin-bottom: 1%;
+      //       }
+  
+      //       .itemPromotions {
+      //         font-size: 14px;
+      //         color: var(--primary-dark);
+      //         margin-bottom: 1%;
+      //       }
+  
+      //       .itemSpecialNotes {
+      //         font-size: 14px;
+      //         color: var(--text-secondary-dark);
+      //         font-style: italic;
+      //         margin-bottom: 1%;
+      //       }
+      //     }
+  
+      //     .itemPrice {
+      //       text-align: right;
+      //       font-weight: 600;
+      //       font-size: 18px;
+      //       color: var(--primary-dark);
+      //     }
+      //   }
+      // }
 
-          .itemPromotions {
-            font-size: 14px;
-            color: var(--primary-dark);
-            margin-bottom: 1%;
-          }
+      // .cartListItemReadOnly {
+      //   padding: 2.5% 0;
+      //   border-top: var(--border-top);
+      //   border-bottom: 1px solid var(--divider-color);
 
-          .itemSpecialNotes {
-            font-size: 14px;
-            color: var(--text-secondary-dark);
-            font-style: italic;
-            margin-bottom: 1%;
-          }
-        }
+      //   .itemQuantity {
+      //     text-align: center;
+      //     font-weight: 600;
+      //     font-size: 18px;
+      //     color: var(--primary-main);
+      //   }
 
-        .itemPrice {
-          text-align: right;
-          font-weight: 600;
-          font-size: 18px;
-          color: var(--primary-dark);
-        }
+      //   .itemData {
+      //     padding: 0 1.25%;
+
+      //     .itemName {
+      //       height: 55px;
+      //       font-weight: 600;
+      //       font-size: 18px;
+      //     }
+
+      //     .itemBrand {
+      //       font-size: 14px;
+      //       color: var(--text-secondary-dark);
+      //       margin-bottom: 1%;
+      //     }
+
+      //     .itemOption {
+      //       font-size: 14px;
+      //       color: var(--text-secondary-main);
+      //       margin-bottom: 1%;
+      //     }
+
+      //     .itemCustomisation {
+      //       font-size: 14px;
+      //       color: var(--text-secondary-main);
+      //       margin-bottom: 1%;
+      //     }
+
+      //     .itemPromotions {
+      //       font-size: 14px;
+      //       color: var(--primary-dark);
+      //       margin-bottom: 1%;
+      //     }
+
+      //     .itemSpecialNotes {
+      //       font-size: 14px;
+      //       color: var(--text-secondary-dark);
+      //       font-style: italic;
+      //       margin-bottom: 1%;
+      //     }
+      //   }
+
+      //   .itemPrice {
+      //     text-align: right;
+      //     font-weight: 600;
+      //     font-size: 18px;
+      //     color: var(--primary-dark);
+      //   }
+      // }
+
+      .actionButtons {
+        display: flex;
+        flex-direction: row;
+        margin-top: 5%;
+        gap: 16px;
       }
     }
 
@@ -256,6 +299,18 @@
         color: var(--primary-dark);
       }
     }
+  }
+}
+
+/* Cancel Checkout Dialog styles */
+
+.cancelCheckoutDialog {
+  .dialogTitle {
+    font-size: 24px;
+  }
+
+  .dialogActions {
+    padding: 2.5%;
   }
 }
 

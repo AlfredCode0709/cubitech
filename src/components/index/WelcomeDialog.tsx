@@ -28,7 +28,6 @@ const WelcomeDialog: FC = () => {
       className={styles.welcomeDialog}
       open={open}
       onClose={handleClose}
-      fullWidth
       disablePortal
       disableScrollLock
     >
@@ -42,7 +41,8 @@ const WelcomeDialog: FC = () => {
           Please refer to the{" "}
           <Link className={styles.link} href={"/developer"}>
             Developer Portal
-          </Link>{" "}for latest developments.
+          </Link>{" "}
+          for latest developments.
         </Typography>
       </DialogContent>
       <DialogActions className={styles.dialogActions}>

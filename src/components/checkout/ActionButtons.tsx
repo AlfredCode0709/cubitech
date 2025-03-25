@@ -2,30 +2,22 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
+import styles from "@/styles/checkout.module.scss";
 import { FC } from "react";
 
-interface CheckoutActionButtonsProps {
-  handleReset: () => void;
+interface ActionButtonsProps {
+  reset: () => void;
 }
 
-const CheckoutActionButtons: FC<CheckoutActionButtonsProps> = ({
-  handleReset,
-}) => {
+const ActionButtons: FC<ActionButtonsProps> = ({ reset }) => {
   return (
-    <Stack
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        marginTop: "2.5%",
-        gap: "16px",
-      }}
-    >
+    <Stack className={styles.actionButtons}>
       <Button
         color={"primary"}
         variant={"contained"}
         size={"large"}
         startIcon={<RestartAltIcon />}
-        onClick={handleReset}
+        onClick={() => reset()}
         fullWidth
       >
         Reset
@@ -35,13 +27,13 @@ const CheckoutActionButtons: FC<CheckoutActionButtonsProps> = ({
         variant={"contained"}
         size={"large"}
         startIcon={<ShoppingCartCheckoutIcon />}
-        type={"submit"}
+        type={'submit'}
         fullWidth
       >
-        Proceed to Checkout
+        Checkout
       </Button>
     </Stack>
   );
 };
 
-export default CheckoutActionButtons;
+export default ActionButtons;

@@ -107,7 +107,7 @@
         .data {
           display: flex;
           align-items: center;
-          gap: 16px;
+          gap: 8px;
 
           .avatar {
             border: 1px solid var(--divider-color);
@@ -115,11 +115,21 @@
             height: 60px;
             padding: 1%;
           }
+
+          .title {
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--color);
+          }
         }
       }
 
       .listItem {
         padding: 2.5% 0;
+
+        .checkbox {
+          margin-top: -10px;
+        }
 
         .itemData {
           padding: 0 1.25%;
@@ -130,7 +140,7 @@
             font-size: 18px;
           }
 
-          .itemBrand {
+          .itemBrandName {
             font-size: 14px;
             color: var(--text-secondary-dark);
             margin-bottom: 1%;
@@ -138,13 +148,14 @@
 
           .itemSelectedPromo {
             font-size: 14px;
-            color: var(--primary-dark);
+            color: var(--text-secondary-main);
             margin-bottom: 1%;
           }
 
           .itemOption {
             font-size: 14px;
-            color: var(--text-secondary-main);
+            font-weight: 500;
+            color: var(--color);
             margin-bottom: 1%;
           }
 
@@ -165,7 +176,6 @@
         .itemPrice {
           font-weight: 600;
           font-size: 18px;
-          color: var(--primary-dark);
         }
 
         .options {
@@ -194,6 +204,10 @@
       border-radius: 8px;
       overflow: hidden;
 
+      .checkbox {
+        margin-top: -10px;
+      }
+
       .itemData {
         padding: 0 1.25%;
 
@@ -203,7 +217,7 @@
           font-size: 18px;
         }
 
-        .itemBrand {
+        .itemBrandName {
           font-size: 14px;
           color: var(--text-secondary-dark);
           margin-bottom: 1%;
@@ -211,13 +225,14 @@
 
         .itemSelectedPromo {
           font-size: 14px;
-          color: var(--primary-dark);
+          color: var(--text-secondary-main);
           margin-bottom: 1%;
         }
 
         .itemOption {
           font-size: 14px;
-          color: var(--text-secondary-main);
+          font-weight: 500;
+          color: var(--color);
           margin-bottom: 1%;
         }
 
@@ -238,7 +253,6 @@
       .itemPrice {
         font-weight: 600;
         font-size: 18px;
-        color: var(--primary-dark);
       }
 
       .options {
@@ -290,6 +304,18 @@
       .checkoutButton {
         margin-top: 5%;
       }
+    }
+  }
+
+  /* Clear Cart Dialog styles */
+
+  .clearCartDialog {
+    .dialogTitle {
+      font-size: 24px;
+    }
+
+    .dialogActions {
+      padding: 2.5%;
     }
   }
 }

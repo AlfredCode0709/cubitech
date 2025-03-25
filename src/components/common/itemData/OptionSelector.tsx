@@ -7,8 +7,8 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import Typography from "@mui/material/Typography";
 import commonStyles from "@/styles/common.module.scss";
-import { FormValues } from "./ItemData";
 import { Control, Controller, FieldErrors } from "react-hook-form";
+import { FormValues } from "./ItemData";
 import { useRouter } from "next/router";
 import { FC } from "react";
 
@@ -61,7 +61,9 @@ const OptionSelector: FC<OptionSelectorProps> = ({
           />
         </Box>
         {errors.option?.message && (
-          <Typography className={commonStyles.optionSelectorError}>{String(errors.option.message)}</Typography>
+          <Typography className={commonStyles.optionSelectorError}>
+            {String(errors.option.message)}
+          </Typography>
         )}
       </FormControl>
     </Grid>

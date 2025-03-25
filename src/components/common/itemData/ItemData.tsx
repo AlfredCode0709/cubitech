@@ -2,18 +2,19 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
+import ActionButtons from "./ActionButtons";
 import CustomisationSelector from "./CustomisationSelector";
-import ItemActionButtons from "./ItemActionButtons";
 import ItemImage from "./ItemImage";
 import OptionSelector from "./OptionSelector";
 import ProductOverview from "./ProductOverview";
-import PromotionOutline from "./PromotionOutline";
+import PromotionBlock from "./PromotionBlock";
 import QuantitySelector from "./QuantitySelector";
 import SpecialNotes from "./SpecialNotes";
 import commonStyles from "@/styles/common.module.scss";
+import { CubiFoodItem, CubiMartItem, useCart } from "@/contexts/CartContext";
 import { customisations } from "./customisations";
 import { options } from "./options";
-import { CubiFoodItem, CubiMartItem, useCart } from "@/contexts/CartContext";
+import { promotions } from "./promotions";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { useSnackbar } from "notistack";
@@ -48,25 +49,24 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
     formState: { errors },
   } = useForm<FormValues>({
     defaultValues: {
-      itemName: 'Item Name',
+      itemName: "Item Name",
       itemPrice: 9.99,
-      brandName: 'Brand Name',
+      brandName: "Brand Name",
       option: "",
       customisations: [],
-      promotions: ["Promotion 1", "Promotion 2"],
+      promotions: [],
       specialNotes: "",
       quantity: 1,
     },
   });
 
-  const itemName = watch('itemName');
-  const itemPrice = watch('itemPrice');
-  const brandName = watch('brandName');
-  const promotions = watch("promotions");
+  const itemName = watch("itemName");
+  const itemPrice = watch("itemPrice");
+  const brandName = watch("brandName");
 
   const onSubmit = (data: FormValues) => {
     const itemId = Array.isArray(id) ? id[0] : id ?? "";
-  
+
     if (!itemId) {
       console.error("Invalid item ID");
       return;
@@ -75,14 +75,14 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
     if (isCubiMart) {
       const newItem: Omit<CubiMartItem, "cartId"> = {
         itemId,
-        name: "Item Name",
+        itemName: "Item Name",
         price: 9.99,
-        brand: "Brand Name",
+        brandName: "Brand Name",
         option: data.option,
-        promotions: data.promotions || [],
+        promotions: promotions,
         quantity: data.quantity,
       };
-      
+
       dispatch({
         type: "ADD_CART_ITEM",
         payload: newItem,
@@ -91,10 +91,10 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
     } else {
       const newItem: Omit<CubiFoodItem, "cartId"> = {
         itemId,
-        name: "Item Name",
+        itemName: "Item Name",
         price: 9.99,
         option: data.option,
-        customisations: data.customisations || [], 
+        customisations: data.customisations || [],
         specialNotes: data.specialNotes ?? "",
         quantity: data.quantity,
       };
@@ -131,10 +131,13 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
         </Grid>
         <Grid size={8}>
           <Box className={commonStyles.itemContent}>
-            <Typography className={commonStyles.itemName}>{itemName}</Typography>
-            <Typography className={commonStyles.itemPrice}>${itemPrice}</Typography>
+            <Typography className={commonStyles.itemName}>
+              {itemName}
+            </Typography>
+            <Typography className={commonStyles.itemPrice}>
+              ${itemPrice}
+            </Typography>
 
-            {/* Rating - CubiMart only */}
             {isCubiMart === true && (
               <Fragment>
                 <Rating
@@ -145,11 +148,10 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
                 <Typography className={commonStyles.brandName}>
                   {brandName}
                 </Typography>
-                <PromotionOutline promotions={promotions ? promotions : []} />
+                <PromotionBlock promotions={promotions} />
               </Fragment>
             )}
 
-            {/* Order Customisation */}
             <Grid container columnSpacing={2} rowSpacing={3}>
               <OptionSelector
                 options={options}
@@ -163,22 +165,20 @@ const ItemData: FC<ItemDataProps> = ({ isCubiMart }) => {
                     customisations={customisations}
                     control={control}
                   />
-                  <SpecialNotes control={control} errors={errors}/>
+                  <SpecialNotes control={control} errors={errors} />
                 </Fragment>
               )}
 
               <QuantitySelector control={control} errors={errors} />
             </Grid>
-
-            {/* Action Buttons */}
-            <ItemActionButtons
-              router={router}
-              watch={watch}
-              reset={reset}
-              onSubmit={handleSubmit(onSubmit)}
-              isCubiMart={isCubiMart}
-            />
           </Box>
+
+          <ActionButtons
+            router={router}
+            watch={watch}
+            reset={reset}
+            isCubiMart={isCubiMart}
+          />
         </Grid>
 
         {isCubiMart === true && <ProductOverview />}

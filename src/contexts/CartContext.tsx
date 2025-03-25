@@ -11,7 +11,7 @@ import { openDB } from "idb";
 export interface CubiFoodItem {
   cartId: number;
   itemId: string;
-  name: string;
+  itemName: string;
   price: number;
   option: string;
   customisations: string[];
@@ -22,9 +22,9 @@ export interface CubiFoodItem {
 export interface CubiMartItem {
   cartId: number;
   itemId: string;
-  name: string;
+  itemName: string;
   price: number;
-  brand: string;
+  brandName: string;
   option: string;
   promotions: string[];
   quantity: number;

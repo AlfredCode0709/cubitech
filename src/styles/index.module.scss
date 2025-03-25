@@ -2,15 +2,21 @@
 
 .welcomeDialog {
   .dialogTitle {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .link {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    color: var(--primary-main);
+    font-weight: 500;
 
     &:hover {
-      color: var(--primary-main);
+      color: var(--primary-dark);
     }
+  }
+
+  .dialogActions {
+    padding: 2.5%;
   }
 }
 
@@ -37,7 +43,7 @@
     .avatar {
       width: 170px;
       height: 40px;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.2s ease-in-out;
 
       &:hover {
         opacity: 0.75;
@@ -65,7 +71,7 @@
       letter-spacing: 1;
       color: var(--primary-main);
       line-height: var(--h4);
-      transition: all 0.3s ease-in-out;
+      transition: all 0.2s ease-in-out;
 
       &:hover {
         opacity: 0.75;

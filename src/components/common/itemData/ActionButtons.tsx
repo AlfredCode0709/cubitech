@@ -8,23 +8,21 @@ import { UseFormWatch } from "react-hook-form";
 import { useRouter } from "next/router";
 import { FC } from "react";
 
-interface ItemActionButtonsProps {
+interface ActionButtonsProps {
   router: ReturnType<typeof useRouter>;
   watch: UseFormWatch<FormValues>;
   reset: () => void;
-  onSubmit: () => void;
   isCubiMart: boolean;
 }
 
-const ItemActionButtons: FC<ItemActionButtonsProps> = ({
+const ActionButtons: FC<ActionButtonsProps> = ({
   router,
   watch,
   reset,
-  onSubmit,
   isCubiMart,
 }) => {
   return (
-    <Box className={commonStyles.itemActionButtons}>
+    <Box className={commonStyles.actionButtons}>
       <Button
         className={isCubiMart === false ? commonStyles.button : ""}
         size="large"
@@ -48,7 +46,7 @@ const ItemActionButtons: FC<ItemActionButtonsProps> = ({
         variant="contained"
         startIcon={<AddIcon />}
         disabled={!watch("option") || !watch("quantity")}
-        onClick={() => onSubmit()}
+        type={'submit'}
       >
         Add to Cart
       </Button>
@@ -56,4 +54,4 @@ const ItemActionButtons: FC<ItemActionButtonsProps> = ({
   );
 };
 
-export default ItemActionButtons;
+export default ActionButtons;

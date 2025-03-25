@@ -1,10 +1,10 @@
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
 import Grid from "@mui/material/Grid2";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import ActionButtons from "./ActionButtons";
 import commonStyles from "@/styles/common.module.scss";
 import { useRouter } from "next/router";
 import {
@@ -94,7 +94,7 @@ const MainFilter: FC<MainFilterProps> = ({
   }, [selectedCategory]);
 
   const isAnyFilterSelected = Object.values(filters).some(
-    (value) => value !== "",
+    (value) => value !== ""
   );
 
   return (
@@ -155,27 +155,12 @@ const MainFilter: FC<MainFilterProps> = ({
           </Grid>
         ))}
 
-        <Grid size={4} textAlign="right" className={commonStyles.filterOptions}>
-          <Button
-            size="large"
-            onClick={handleClearFilters}
-            className={isCubiFood ? commonStyles.clearAllButtonVariant1 : ""}
-          >
-            Clear All
-          </Button>
-          <Button
-            variant="contained"
-            size="large"
-            className={
-              isCubiFood ? commonStyles.applyFiltersButtonVariant1 : ""
-            }
-            color="primary"
-            onClick={handleApplyFilters}
-            disabled={!isAnyFilterSelected}
-          >
-            Apply Filters
-          </Button>
-        </Grid>
+        <ActionButtons
+          isCubiFood={isCubiFood}
+          handleClearFilters={handleClearFilters}
+          handleApplyFilters={handleApplyFilters}
+          isAnyFilterSelected={isAnyFilterSelected}
+        />
       </Grid>
     </Box>
   );
