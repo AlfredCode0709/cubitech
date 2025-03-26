@@ -21,9 +21,8 @@ const PaymentDetailsReadOnly: FC<PaymentDetailsReadOnlyProps> = ({ state }) => {
     { label: "Subtotal", value: state.subtotal },
     { label: "Additional Costs", value: state.additionalCosts },
     { label: "Discount (15%)", value: state.discount },
-    { label: "Total", value: state.total },
   ];
-  
+
   return (
     <Box className={styles.paymentDetailsReadOnly}>
       {details.map(({ label, value }) => (
@@ -36,6 +35,12 @@ const PaymentDetailsReadOnly: FC<PaymentDetailsReadOnlyProps> = ({ state }) => {
           </Typography>
         </Stack>
       ))}
+      <Stack className={styles.totalAmount}>
+        <Typography className={styles._}>Total</Typography>
+        <Typography className={styles.price}>
+          {`$${state?.total.toFixed(2)}`}
+        </Typography>
+      </Stack>
     </Box>
   );
 };

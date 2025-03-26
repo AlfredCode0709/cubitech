@@ -21,7 +21,7 @@ const CartListGroupItemHeader: FC<CartListGroupItemHeaderProps> = ({
   onDeleteAll,
 }) => {
   return (
-    <Grid size={12} container className={styles.header}>
+    <Grid size={12} container className={styles.groupItemHeader}>
       <Grid size={0.75}>
         <Checkbox checked={isChecked} onChange={onCheckboxChange} />
       </Grid>

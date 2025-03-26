@@ -19,7 +19,7 @@ const CartListGroupItemReadOnly: FC<CartListGroupItemProps> = ({
 
   return (
     <Box className={styles.cartListGroupItemReadOnly} key={key}>
-      <CartListGroupItemData isCubiMart={isCubiMart} items={typedItems} key={key}/>
+      <CartListGroupItemData isCubiMart={isCubiMart} items={typedItems} />
     </Box>
   );
 };

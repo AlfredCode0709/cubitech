@@ -85,190 +85,230 @@
         }
       }
 
-      .consumeBySelectorControl {
+      .deliveryMethodSelectorControl {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
         margin: 2.5% 0;
-      }
 
-      .consumeBySelectorError {
-        color: var(--error-main);
-        margin: 1.25% 0 2.5%;
-      }
-
-      .dineInText {
-        color: var(--text-secondary-main);
-      }
-
-      .timeSlotSelectorControl {
-        display: flex;
-        flex-wrap: wrap;
-        margin: -1% 0 -1%;
-
-        .timeSlotSelectorHeader {
+        .deliveryMethodSelectorHeader {
           display: flex;
           flex-direction: row;
           align-items: center;
           justify-content: space-between;
         }
+
+        .deliveryMethodSelectorError {
+          color: var(--error-main);
+          margin-top: 1.25%;
+        }
       }
 
-      // .dineInText {
-      //   color: var(--text-secondary-main);
-      //   margin: 0.75% 0 5% 0;
-      // }
+      .consumeBySelectorControl {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 2.5% 0;
 
-      // .cartListGroupItemReadOnly {
-      //   width: 100%;
-      //   border-top: 1px solid var(--divider-color);
-      //   border-bottom: 1px solid var(--divider-color);
+        .consumeBySelectorError {
+          color: var(--error-main);
+          margin-top: 1.25%;
+        }
+      }
 
-      //   .header {
-      //     display: flex;
-      //     align-items: center;
-      //     padding: 1.25% 0;
-      //     gap: 8px;
-      //     border-bottom: 1px solid var(--divider-color);
+      .consumeByData {
+        background: lavender;
+        margin-bottom: 2.5%;
+        
+        .consumeByText {
+          color: var(--text-secondary-main);
+        }
 
-      //     .avatar {
-      //       border: 1px solid var(--divider-color);
-      //       width: 60px;
-      //       height: 60px;
-      //       padding: 1%;
-      //     }
+        .timeSlotSelectorControl {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
 
-      //     .groupItemName {
-      //       font-weight: 500;
-      //       font-size: 18px;
-      //     }
-      //   }
+          .timeSlotSelectorHeader {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+          }
 
-      //   .listItemReadOnly {
-      //     padding: 2.5% 0;
+          .timeSlotSelectorError {
+            color: var(--error-main);
+            margin-top: 1.25%;
+          }
+        }
+      }
 
-      //     .itemQuantity {
-      //       text-align: center;
-      //       font-weight: 600;
-      //       font-size: 18px;
-      //       color: var(--primary-main);
-      //     }
+      .cartListGroupItemReadOnly {
+        width: 100%;
+        border-top: 1px solid var(--divider-color);
+        border-bottom: 1px solid var(--divider-color);
+        margin: 2.5% 0;
+
+        .groupItemHeader {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 1.25% 0;
+          gap: 8px;
+          border-bottom: 1px solid var(--divider-color);
+
+          .avatar {
+            border: 1px solid var(--divider-color);
+            width: 60px;
+            height: 60px;
+            padding: 1%;
+          }
+
+          .groupItemName {
+            font-weight: 500;
+            font-size: 18px;
+            color: var(--color);
+          }
+        }
+
+        .listItemReadOnly {
+          padding: 2.5% 0;
+
+          .itemQuantity {
+            text-align: center;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--primary-main);
+          }
   
-      //     .itemData {
-      //       padding: 0 1.25%;
+          .itemData {
+            padding: 0 1.25%;
   
-      //       .itemName {
-      //         height: 55px;
-      //         font-weight: 600;
-      //         font-size: 18px;
-      //       }
+            .itemName {
+              height: 55px;
+              font-weight: 500;
+              font-size: 18px;
+            }
   
-      //       .itemBrand {
-      //         font-size: 14px;
-      //         color: var(--text-secondary-dark);
-      //         margin-bottom: 1%;
-      //       }
+            .itemOption {
+              font-size: 14px;
+              font-weight: 500;
+              color: var(--color);
+              margin-bottom: 1%;
+            }
+
+            .itemBrandName {
+              font-size: 14px;
+              color: var(--text-secondary-dark);
+              margin-bottom: 1%;
+            }
+
+            .itemSelectedPromo {
+              font-size: 14px;
+              color: var(--text-secondary-main);
+              margin-bottom: 1%;
+            }
   
-      //       .itemOption {
-      //         font-size: 14px;
-      //         color: var(--text-secondary-main);
-      //         margin-bottom: 1%;
-      //       }
+            .itemCustomisation {
+              font-size: 14px;
+              color: var(--text-secondary-main);
+              margin-bottom: 1%;
+            }
   
-      //       .itemCustomisation {
-      //         font-size: 14px;
-      //         color: var(--text-secondary-main);
-      //         margin-bottom: 1%;
-      //       }
+            .itemSpecialNotes {
+              font-size: 14px;
+              color: var(--text-secondary-dark);
+              font-style: italic;
+              margin-bottom: 1%;
+            }
+          }
   
-      //       .itemPromotions {
-      //         font-size: 14px;
-      //         color: var(--primary-dark);
-      //         margin-bottom: 1%;
-      //       }
-  
-      //       .itemSpecialNotes {
-      //         font-size: 14px;
-      //         color: var(--text-secondary-dark);
-      //         font-style: italic;
-      //         margin-bottom: 1%;
-      //       }
-      //     }
-  
-      //     .itemPrice {
-      //       text-align: right;
-      //       font-weight: 600;
-      //       font-size: 18px;
-      //       color: var(--primary-dark);
-      //     }
-      //   }
-      // }
+          .itemPrice {
+            text-align: right;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--primary-dark);
+          }
+        }
+      }
 
-      // .cartListItemReadOnly {
-      //   padding: 2.5% 0;
-      //   border-top: var(--border-top);
-      //   border-bottom: 1px solid var(--divider-color);
+      .cartListItemReadOnly {
+        border-bottom: 1px solid var(--divider-color);
+        padding: 2.5% 0;
 
-      //   .itemQuantity {
-      //     text-align: center;
-      //     font-weight: 600;
-      //     font-size: 18px;
-      //     color: var(--primary-main);
-      //   }
+        .itemQuantity {
+          text-align: center;
+          font-weight: 600;
+          font-size: 18px;
+          color: var(--primary-main);
+        }
 
-      //   .itemData {
-      //     padding: 0 1.25%;
+        .itemData {
+          padding: 0 1.25%;
 
-      //     .itemName {
-      //       height: 55px;
-      //       font-weight: 600;
-      //       font-size: 18px;
-      //     }
+          .itemName {
+            height: 55px;
+            font-weight: 500;
+            font-size: 18px;
+          }
 
-      //     .itemBrand {
-      //       font-size: 14px;
-      //       color: var(--text-secondary-dark);
-      //       margin-bottom: 1%;
-      //     }
+          .itemOption {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color);
+            margin-bottom: 1%;
+          }
 
-      //     .itemOption {
-      //       font-size: 14px;
-      //       color: var(--text-secondary-main);
-      //       margin-bottom: 1%;
-      //     }
+          .itemBrandName {
+            font-size: 14px;
+            color: var(--text-secondary-dark);
+            margin-bottom: 1%;
+          }
 
-      //     .itemCustomisation {
-      //       font-size: 14px;
-      //       color: var(--text-secondary-main);
-      //       margin-bottom: 1%;
-      //     }
+          .itemSelectedPromo {
+            font-size: 14px;
+            color: var(--text-secondary-main);
+            margin-bottom: 1%;
+          }
 
-      //     .itemPromotions {
-      //       font-size: 14px;
-      //       color: var(--primary-dark);
-      //       margin-bottom: 1%;
-      //     }
+          .itemCustomisation {
+            font-size: 14px;
+            color: var(--text-secondary-main);
+            margin-bottom: 1%;
+          }
 
-      //     .itemSpecialNotes {
-      //       font-size: 14px;
-      //       color: var(--text-secondary-dark);
-      //       font-style: italic;
-      //       margin-bottom: 1%;
-      //     }
-      //   }
+          .itemSpecialNotes {
+            font-size: 14px;
+            color: var(--text-secondary-dark);
+            font-style: italic;
+            margin-bottom: 1%;
+          }
+        }
 
-      //   .itemPrice {
-      //     text-align: right;
-      //     font-weight: 600;
-      //     font-size: 18px;
-      //     color: var(--primary-dark);
-      //   }
-      // }
+        .itemPrice {
+          text-align: right;
+          font-weight: 600;
+          font-size: 18px;
+          color: var(--primary-dark);
+        }
+      }
+
+      .paymentMethodSelectorControl {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 2.5% 0;
+
+        .paymentMethodSelectorError {
+          color: var(--error-main);
+          margin-top: 1.25%;
+        }
+      }
 
       .actionButtons {
         display: flex;
         flex-direction: row;
-        margin-top: 5%;
+        margin-top: 2.5%;
         gap: 16px;
       }
     }
@@ -285,6 +325,14 @@
         justify-content: space-between;
         padding: 5% 0;
         border-bottom: 1px solid var(--divider-color);
+      }
+
+      .totalAmount {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 5% 0;
       }
 
       ._ {

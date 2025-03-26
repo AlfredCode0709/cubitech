@@ -1,13 +1,13 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
-import CheckoutForm from "@/components/checkout/CheckoutForm";
+import CancelCheckoutDialog from "@/components/checkout/CancelCheckoutDialog";
+import CheckoutForm from "@/components/checkout/CheckoutForm/CheckoutForm";
 import EmptyCheckoutDisplay from "@/components/checkout/EmptyCheckoutDisplay";
 import PaymentDetailsReadOnly from "@/components/checkout/PaymentDetailsReadOnly";
 import Toggle from "@/components/common/Toggle";
 import styles from "@/styles/checkout.module.scss";
 import { useOrder } from "@/contexts/OrderContext";
 import { FC, Fragment, useState } from "react";
-import CancelCheckoutDialog from "@/components/checkout/CancelCheckoutDialog";
 
 const CheckoutView: FC = () => {
   const { state, dispatch } = useOrder();

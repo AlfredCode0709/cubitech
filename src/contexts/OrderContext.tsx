@@ -68,7 +68,7 @@ const initialState: OrderState = {
 type OrderAction =
   | { type: "ADD_ORDER"; payload: OrderState }
   | { type: "LOAD_ORDER"; payload: OrderState }
-  | { type: "CLEAR_ORDER" };
+  | { type: "CLEAR_ORDER"; payload: { isCubiMart: boolean } };
 
 const DB_NAME = "CubitechOrderDB";
 const STORE_NAME = "orders";
@@ -98,12 +98,21 @@ async function loadOrderFromDB(): Promise<OrderState> {
 }
 
 // Clear the order from IndexedDB
-async function clearOrderFromDB(): Promise<void> {
-  const db = await getDB();
-  const tx = db.transaction(STORE_NAME, "readwrite");
-  await tx.objectStore(STORE_NAME).delete("order");
-  await tx.done;
-}
+// async function clearOrderFromDB(isCubiMart: boolean): Promise<void> {
+//   const db = await getDB();
+//   const savedOrder = await db.transaction(STORE_NAME).objectStore(STORE_NAME).get("order");
+
+//   if (!savedOrder) return;
+
+//   const updatedOrder = {
+//     ...savedOrder,
+//     [isCubiMart ? "cubiMart" : "cubiFood"]: initialState[isCubiMart ? "cubiMart" : "cubiFood"],
+//   };
+
+//   const tx = db.transaction(STORE_NAME, "readwrite");
+//   await tx.objectStore(STORE_NAME).put(updatedOrder, "order");
+//   await tx.done;
+// }
 
 // Define the context with state and dispatch
 const OrderContext = createContext<{
@@ -129,8 +138,12 @@ const orderReducer = (state: OrderState, action: OrderAction): OrderState => {
       break;
 
     case "CLEAR_ORDER":
-      updatedState = initialState; // Reset to initial state
-      clearOrderFromDB(); // Clear from DB
+      if (action.payload.isCubiMart) {
+        updatedState = { ...state, cubiMart: initialState.cubiMart };
+      } else {
+        updatedState = { ...state, cubiFood: initialState.cubiFood };
+      }
+      saveOrderToDB(updatedState); // Save after clearing
       break;
 
     default:

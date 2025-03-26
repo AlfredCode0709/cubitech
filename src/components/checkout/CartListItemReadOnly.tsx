@@ -17,8 +17,10 @@ const CartListItemReadOnly: FC<CartListItemReadOnlyProps> = ({
   isFirst,
 }) => {
   // Safely narrow type based on isCubiMart flag
-  const isFoodItem = !isCubiMart && (item as CubiFoodItem).customisations !== undefined;
-  const isMartItem = isCubiMart && (item as CubiMartItem).brand !== undefined;
+  const isFoodItem =
+    !isCubiMart && (item as CubiFoodItem).customisations !== undefined;
+  const isMartItem =
+    isCubiMart && (item as CubiMartItem).brandName !== undefined;
 
   return (
     <Fragment>
@@ -41,19 +43,24 @@ const CartListItemReadOnly: FC<CartListItemReadOnlyProps> = ({
             }
           />
         </Grid>
+
         <Grid size={1}>
           <Typography className={styles.itemQuantity}>
             {item.quantity}x
           </Typography>
         </Grid>
+
         <Grid size={7} className={styles.itemData}>
-          <Typography className={styles.itemName}>{item.name}</Typography>
+          <Typography className={styles.itemName}>{item.itemName}</Typography>
 
-          {isMartItem && "brand" in item && (
-            <Typography className={styles.itemBrand}>{item.brand}</Typography>
-          )}
-
-          <Typography className={styles.itemOption}>
+          <Typography
+            className={styles.itemOption}
+            sx={
+              {
+                "--color": isCubiMart ? "var(--primary-main)" : "#08834e",
+              } as CSSProperties
+            }
+          >
             {item.option === "option1"
               ? "Option 1"
               : item.option === "option2"
@@ -63,10 +70,16 @@ const CartListItemReadOnly: FC<CartListItemReadOnlyProps> = ({
               : "Option 4"}
           </Typography>
 
+          {isMartItem && "brandName" in item && (
+            <Typography className={styles.itemBrandName}>
+              {item.brandName}
+            </Typography>
+          )}
+
           {isMartItem && "promotions" in item && (
             <Fragment>
               {item.promotions?.length !== 0 && (
-                <Typography className={styles.itemPromotions}>
+                <Typography className={styles.itemSelectedPromo}>
                   {item.promotions?.sort().join(", ")}
                 </Typography>
               )}
@@ -88,6 +101,7 @@ const CartListItemReadOnly: FC<CartListItemReadOnlyProps> = ({
             </Fragment>
           )}
         </Grid>
+
         <Grid size={2}>
           <Typography className={styles.itemPrice}>
             ${Number(item.price * item.quantity).toFixed(2)}

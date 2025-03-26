@@ -99,7 +99,7 @@
       border-radius: 8px;
       overflow: hidden;
 
-      .header {
+      .groupItemHeader {
         display: flex;
         align-items: center;
         padding: 1.25% 0;
@@ -140,6 +140,13 @@
             font-size: 18px;
           }
 
+          .itemOption {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color);
+            margin-bottom: 1%;
+          }
+
           .itemBrandName {
             font-size: 14px;
             color: var(--text-secondary-dark);
@@ -149,13 +156,6 @@
           .itemSelectedPromo {
             font-size: 14px;
             color: var(--text-secondary-main);
-            margin-bottom: 1%;
-          }
-
-          .itemOption {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--color);
             margin-bottom: 1%;
           }
 

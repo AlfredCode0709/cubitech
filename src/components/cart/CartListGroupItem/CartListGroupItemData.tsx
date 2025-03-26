@@ -150,7 +150,7 @@ const CartListGroupItemData: FC<CartListGroupItemData> = ({
 
               {isCubiMartItem(item) && (
                 <Fragment>
-                  <Typography className={styles.itemBrand}>
+                  <Typography className={styles.itemBrandName}>
                     {item.brandName}
                   </Typography>
                   {item.promotions?.length !== 0 && (
