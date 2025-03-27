@@ -29,7 +29,7 @@ const CheckoutView: FC = () => {
   };
 
   const handleConfirmCancel = () => {
-    dispatch({ type: "CLEAR_ORDER" });
+    dispatch({ type: "CLEAR_ORDER", payload: { isCubiMart } });
     setOpen(false);
   };
 

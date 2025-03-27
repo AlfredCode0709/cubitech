@@ -1,7 +1,7 @@
-import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import CloseIcon from "@mui/icons-material/Close";
+import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import styles from "@/styles/checkout.module.scss";
 import { FC } from "react";
 
@@ -14,9 +14,14 @@ const CheckoutFormHeader: FC<CheckoutFormHeaderProps> = ({ handleCancel }) => {
     <Stack className={styles.header}>
       <Typography className={styles.title}>Checkout</Typography>
 
-      <IconButton onClick={handleCancel} color={"error"}>
-        <CloseIcon />
-      </IconButton>
+      <Button
+        color={"error"}
+        variant={"contained"}
+        startIcon={<RemoveShoppingCartIcon />}
+        onClick={handleCancel}
+      >
+        Cancel
+      </Button>
     </Stack>
   );
 };

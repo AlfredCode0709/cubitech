@@ -12,6 +12,7 @@ import styles from "@/styles/checkout.module.scss";
 import { CubiFoodItem, CubiMartItem, useOrder } from "@/contexts/OrderContext";
 import { enqueueSnackbar } from "notistack";
 import { useForm, Controller } from "react-hook-form";
+import { useRouter } from "next/router";
 import { FC, Fragment, useMemo } from "react";
 
 interface CheckoutFormProps {
@@ -34,6 +35,7 @@ export interface CheckoutFormValues {
 
 const CheckoutForm: FC<CheckoutFormProps> = ({ isCubiMart, handleCancel }) => {
   const { state, dispatch } = useOrder();
+  const router = useRouter();
 
   const orderData = isCubiMart === true ? state?.cubiMart : state?.cubiFood;
   const { orderItems = [] } = orderData || {};
@@ -100,6 +102,8 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ isCubiMart, handleCancel }) => {
     enqueueSnackbar("Checkout done! This is a simulation!", {
       variant: "success",
     });
+
+    router.push('/checkout/success');
   };
 
   return (
@@ -166,7 +170,7 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ isCubiMart, handleCancel }) => {
 
       <PaymentMethodSelector control={control} errors={errors} />
 
-      <ActionButtons reset={reset} />
+      <ActionButtons reset={reset} watch={watch}/>
     </Box>
   );
 };

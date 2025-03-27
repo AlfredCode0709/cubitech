@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 import ReferralCodeInput from "./ReferralCodeInput";
 import styles from "@/styles/cubigift.module.scss";
-import { useFormContext } from "react-hook-form";
+import { useFormContext, UseFormWatch } from "react-hook-form";
 import { FC } from "react";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
@@ -63,6 +63,13 @@ const OrderSummary: FC<OrderSummaryProps> = ({ totalAmount, reset }) => {
               type="submit"
               variant={"contained"}
               size={"large"}
+              disabled={
+                !watch("personOrCompanyName") ||
+                !watch("cardTitle") ||
+                !watch("cardMessage") ||
+                !watch("selectedGiftAmount") ||
+                !watch("giftsNumber")
+              }
               fullWidth
             >
               Buy Now

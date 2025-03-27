@@ -117,7 +117,6 @@
       }
 
       .consumeByData {
-        background: lavender;
         margin-bottom: 2.5%;
         
         .consumeByText {
@@ -399,7 +398,16 @@
     margin-top: 2.5%;
     gap: 16px;
 
-    .button {
+    .button1 {
+      color: #08834e;
+
+      &:hover {
+        background: #08834e;
+        color: var(--white);
+      }
+    }
+
+    .button2 {
       color: var(--primary-main);
 
       &:hover {

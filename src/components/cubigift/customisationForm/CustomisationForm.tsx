@@ -8,6 +8,7 @@ import GiftNumberInput from "./GiftNumberInput";
 import OrderSummary from "./OrderSummary";
 import PersonCompanyInput from "./PersonCompanyInput";
 import styles from "@/styles/cubigift.module.scss";
+import { enqueueSnackbar } from "notistack";
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import { FC, useEffect } from "react";
 
@@ -32,7 +33,6 @@ const CustomisationForm: FC<CustomisationFormProps> = ({
   setSelectedCardMessage,
 }) => {
   const methods = useForm<CustomisationFormData>({
-    mode: "onTouched",
     defaultValues: {
       giftsNumber: 1,
       cardTitle: selectedCardTitle || "",
@@ -44,7 +44,8 @@ const CustomisationForm: FC<CustomisationFormProps> = ({
   const { setValue, watch, handleSubmit, trigger } = methods;
   const giftsNumber = watch("giftsNumber", 1);
   const selectedGiftAmount = watch("selectedGiftAmount", null);
-  const totalAmount = selectedGiftAmount !== null ? selectedGiftAmount * giftsNumber : 0;
+  const totalAmount =
+    selectedGiftAmount !== null ? selectedGiftAmount * giftsNumber : 0;
 
   useEffect(() => {
     setValue("cardTitle", selectedCardTitle);
@@ -59,6 +60,10 @@ const CustomisationForm: FC<CustomisationFormProps> = ({
   const onSubmit: SubmitHandler<CustomisationFormData> = (data) => {
     console.log(data);
     methods.reset();
+
+    enqueueSnackbar("Gift cards successfully purchased! This is a simulation!", {
+      variant: "success",
+    });
   };
 
   return (
@@ -74,9 +79,7 @@ const CustomisationForm: FC<CustomisationFormProps> = ({
             <Grid container size={7} spacing={4}>
               <PersonCompanyInput />
 
-              <CardTitleInput
-                setSelectedCardTitle={setSelectedCardTitle}
-              />
+              <CardTitleInput setSelectedCardTitle={setSelectedCardTitle} />
 
               <CardMessageInput
                 setSelectedCardMessage={setSelectedCardMessage}
