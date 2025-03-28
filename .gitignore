@@ -44,3 +44,5 @@ next-env.d.ts
 
 create_component.tsx
 create_page.tsx
+# Local Netlify folder
+.netlify

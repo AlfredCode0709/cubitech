@@ -38,7 +38,7 @@ export const formFields: FormField[] = [
   },
   {
     name: "feedback",
-    label: "What can I improve in my portfolio?",
+    label: "What can I do to improve my portfolio?",
     multiline: true,
     rows: 4,
     rules: { required: "Feedback is required" },
