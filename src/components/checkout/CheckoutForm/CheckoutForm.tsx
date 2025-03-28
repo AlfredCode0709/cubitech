@@ -103,13 +103,13 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ isCubiMart, handleCancel }) => {
       variant: "success",
     });
 
-    router.push('/checkout/success');
+    router.push("/checkout/success");
   };
 
   return (
     <Box
-      component={"form"}
       className={styles.checkoutForm}
+      component={"form"}
       onSubmit={handleSubmit(onSubmit)}
     >
       <CheckoutFormHeader handleCancel={handleCancel} />
@@ -170,7 +170,7 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ isCubiMart, handleCancel }) => {
 
       <PaymentMethodSelector control={control} errors={errors} />
 
-      <ActionButtons reset={reset} watch={watch}/>
+      <ActionButtons reset={reset} watch={watch} />
     </Box>
   );
 };

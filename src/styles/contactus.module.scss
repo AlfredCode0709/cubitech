@@ -11,5 +11,21 @@
     font-size: 18px;
     color: var(--text-secondary-main);
     line-height: var(--body1);
+    margin-bottom: 5%;
+  }
+
+  .textField {
+    margin-bottom: 5%;
+  }
+
+  .actionButtons {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+    .button {
+      height: 50px;
+      font-size: 16px;
+    }
   }
 }

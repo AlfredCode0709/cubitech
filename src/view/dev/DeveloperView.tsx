@@ -7,6 +7,7 @@ import { FC, Fragment } from "react";
 const DeveloperView: FC = () => {
   const websiteUpdates = [
     "Added Snackbar Provider for real-time feedbacks.",
+    "Enabled Contact Us Page with a simple feedback form.",
     "Enhanced filter options in CubiFood and CubiMart for better user experience.",
     "Improved UI for Checkout Page to handle CUBIFood and CUBIMart orders.",
     "Refactored CartContext and OrderContext with IndexedDB API integration.",

@@ -1,35 +1,58 @@
-"use client";
-
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
+import ActionButtons from "@/components/contact/ActionButtons";
 import styles from "@/styles/contactus.module.scss";
+import { enqueueSnackbar } from "notistack";
 import { formFields, FormField } from "@/components/contact/FormFields";
-import { useForm, Controller, SubmitHandler } from "react-hook-form";
-import { FC } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { FC, useState } from "react";
 
-type FormData = {
+interface FormData {
   firstName: string;
   lastName: string;
   email: string;
   feedback: string;
-};
+}
 
 const ContactUsForm: FC = () => {
-  const { control, handleSubmit, reset, formState: { errors } } = useForm<FormData>({
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>({
     defaultValues: {
       firstName: "",
       lastName: "",
       email: "",
-      feedback: ""
-    }
+      feedback: "",
+    },
   });
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log("Form Data Submitted:", data);
-    reset(); 
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (data: FormData) => {
+    setLoading(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        enqueueSnackbar("Feedback submitted successfully!", { variant: "success" });
+        reset();
+      } else {
+        const result = await response.json();
+        enqueueSnackbar(result.message || "Failed to submit feedback", { variant: "error" });
+      }
+    } catch {
+      enqueueSnackbar("Something went wrong. Try again later.", { variant: "error" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -42,39 +65,34 @@ const ContactUsForm: FC = () => {
         Contact Me
       </Typography>
       <Typography className={styles.subtitle}>
-        Let me know what I can improve in my portfolio!
+        Let me know what I can do to improve my portfolio!
       </Typography>
 
-      {formFields.map(({ name, label, type, multiline, rows, rules }: FormField) => (
-        <Controller
-          key={name}
-          name={name}
-          control={control}
-          rules={rules}
-          render={({ field }) => (
-            <TextField
-              {...field}
-              fullWidth
-              label={label}
-              margin="normal"
-              type={type || "text"}
-              multiline={multiline}
-              rows={rows}
-              error={!!errors[name as keyof FormData]}
-              helperText={errors[name as keyof FormData]?.message}
-            />
-          )}
-        />
-      ))}
+      {formFields.map(
+        ({ name, label, type, multiline, rows, rules }: FormField) => (
+          <Controller
+            key={name}
+            name={name}
+            control={control}
+            rules={rules}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                fullWidth
+                className={styles.textField}
+                label={label}
+                type={type || "text"}
+                multiline={multiline}
+                rows={rows}
+                error={!!errors[name as keyof FormData]}
+                helperText={errors[name as keyof FormData]?.message}
+              />
+            )}
+          />
+        )
+      )}
 
-      <Stack display={"flex"} flexDirection={"row"} gap={"16px"} marginTop={"2.5%"}>
-        <Button variant="contained" color="primary" size="large" fullWidth onClick={() => reset()}>
-          Reset
-        </Button>
-        <Button variant="contained" color="primary" size="large" type="submit" fullWidth>
-          Send Feedback
-        </Button>
-      </Stack>
+      <ActionButtons reset={reset} loading={loading} />
     </Box>
   );
 };

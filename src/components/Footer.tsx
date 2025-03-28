@@ -39,7 +39,7 @@ const Footer: FC = () => {
 
         <Grid size={3} className={"footerSection"}>
           <FooterLink href={"/about"}>About Us</FooterLink>
-          <FooterLink href={"/contactus"}>Help Centre</FooterLink>
+          <FooterLink href={"/contactus"}>Contact Us</FooterLink>
         </Grid>
 
         <Grid size={3} className={"footerSection"}>
