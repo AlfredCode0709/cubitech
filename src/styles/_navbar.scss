@@ -1,0 +1,118 @@
+/* Navbar container styles */
+
+.navbarContainer {
+  display: flex;
+
+  /* AppBar styles */
+
+  .appBar {
+    justify-content: center;
+    background: var(--appBarBgColor);
+
+    .desktopAvatar {
+      width: 170px;
+      height: 40px;
+    }
+
+    @media (min-width: 900px) {
+      .desktopAvatar:hover {
+        transition: all 0.3s ease-in-out;
+        opacity: 0.75;
+      }
+    }
+
+    .mobileAvatar {
+      width: 136px;
+      height: 32px;
+    }
+  }
+}
+
+/* Main Menu styles */
+
+.desktopMainMenu {
+  /* MUI Menu Paper styles */
+
+  .MuiMenu-paper {
+    background: var(--desktopMainMenuBgColor);
+    color: var(--desktopMainMenuColor);
+    width: 150px;
+    margin-top: 16px;
+  }
+
+  /* MUI Typography styles */
+
+  .MuiTypography-root {
+    font-weight: 500;
+  }
+
+  @media (min-width: 900px) {
+    .MuiMenuItem-root:hover {
+      background: var(--desktopMainMenuHoverBgColor);
+      color: var(--desktopMainMenuHoverColor);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .MuiTypography-root:hover {
+      font-weight: 600;
+    }
+  }
+
+  /* Menu Item styles */
+
+  .menuItem {
+    display: flex;
+
+    .avatar {
+      width: 35px;
+      height: 35px;
+      margin-right: 10%;
+    }
+  }
+}
+
+.mobileMainMenu {
+  .header {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobileAvatar {
+    width: 136px;
+    height: 32px;
+  }
+
+  /* MUI Drawer Paper styles */
+
+  .MuiDrawer-paper {
+    background: var(--mobileMainMenuBgColor);
+    color: var(--mobileMainMenuColor);
+    width: 250px;
+  }
+
+  /* MUI List Item styles */
+
+  .MuiListItem-root {
+    padding: 0;
+  }
+
+  /* MUI Typography styles */
+
+  .MuiTypography-root {
+    font-weight: 600;
+  }
+
+  /* List Item styles */
+
+  .listItem {
+    display: flex;
+
+    .avatar {
+      width: 35px;
+      height: 35px;
+      margin-left: 10%;
+    }
+  }
+}

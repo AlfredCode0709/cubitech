@@ -1,12 +1,13 @@
-import HomeDefault from "@/views/home/HomeDefault";
+import Error404 from "@/views/error404/Error404";
 import Head from "next/head";
 import { FC, Fragment } from "react";
 
-const Home: FC = () => {
+const Page: FC = () => {
+
   return (
     <Fragment>
       <Head>
-        <title>Cubitech</title>
+        <title>404 | Cubitech</title>
         <meta name="description" content="Cubitech - Next Typescript" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
@@ -15,10 +16,10 @@ const Home: FC = () => {
         />
       </Head>
       <main>
-        <HomeDefault />
+        <Error404 />
       </main>
     </Fragment>
   );
 };
 
-export default Home;
+export default Page;
