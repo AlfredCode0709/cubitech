@@ -35,10 +35,7 @@ const MobileMainMenu: FC<MobileMainMenuProps> = ({
           {brand.lightLogo}
         </Link>
       </Toolbar>
-      <Box
-        role="presentation"
-        onClick={toggleDrawer(false)}
-      >
+      <Box role="presentation" onClick={toggleDrawer(false)}>
         <List>
           {navItems.map((nav) => (
             <Link key={nav.label} href={nav.href} passHref>

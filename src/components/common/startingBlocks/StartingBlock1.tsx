@@ -49,15 +49,15 @@ const StartingBlock1: FC<StartingBlock1Props> = ({
     <Box className={`${commonStyles.startingBlock1}`} sx={style}>
       <Typography className={commonStyles.text} component={'div'}>
         <Box sx={{ display: { xs: "none", md: "block" } }}>
-          <span className={commonStyles.title}>{title}</span>
+          <span className={commonStyles.desktopTitle}>{title}</span>
         </Box>
         <Box sx={{ display: { xs: "block", md: "none" } }}>
           <span>
-            <span className={commonStyles.title}>{title}</span>
+            <span className={commonStyles.mobileTitle}>{title}</span>
             <br />
-            <span className={commonStyles.textDivider}>━━━</span>
+            <span className={commonStyles.mobileTextDivider}>━━━</span>
             <br />
-            <span className={commonStyles.subtitle}>{subtitle}</span>
+            <span className={commonStyles.mobileSubtitle}>{subtitle}</span>
           </span>
         </Box>
       </Typography>

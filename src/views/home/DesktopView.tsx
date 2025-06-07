@@ -40,10 +40,10 @@ const DesktopView: FC = () => {
       />
 
       {/* CUBIFood Peek View */}
-      <PeekView title={"CUBIFood"} totalItems={12} />
+      <PeekView title={"CUBIFood"} totalItems={18} />
 
       {/* CUBIMart Peek View */}
-      <PeekView title={"CUBIMart"} totalItems={12} />
+      <PeekView title={"CUBIMart"} totalItems={18} />
 
       {/* CUBIRide Intro */}
       <CubiRideIntro />

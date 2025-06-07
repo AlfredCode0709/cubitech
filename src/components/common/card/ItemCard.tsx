@@ -64,7 +64,7 @@ const ItemCard: FC<ItemCardProps> = ({
               <Box sx={{ display: { xs: "block", md: "none" } }}>
                 <Typography className={commonStyles.mobileRatingView}>
                   <StarIcon
-                    fontSize={"small"}
+                    sx={{ fontSize: 16 }}
                     className={commonStyles.starIcon}
                   />
                   &nbsp;<span className={commonStyles.ratingScore}>5</span>&nbsp;• 99 sold

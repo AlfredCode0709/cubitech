@@ -1,9 +1,10 @@
+import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import ItemCard from "@/components/common/card/ItemCard";
 import styles from "@/styles/home.module.scss";
 import { titleConfig, TitleType } from "./PeekView";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FC, Fragment } from "react";
+import { FC } from "react";
 
 interface MobileViewProps {
   title: TitleType;
@@ -19,7 +20,7 @@ const MobileView: FC<MobileViewProps> = ({ title, totalItems }) => {
   const allItems = Array.from({ length: totalItems }, (_, i) => i + 1);
 
   return (
-    <Fragment>
+    <Box className={styles.mobile}>
       <Typography className={styles.title}>
         {title.substring(0, 4)}
         <span style={{ color: titleSubColor }}>{title.substring(4)}</span>
@@ -31,7 +32,7 @@ const MobileView: FC<MobileViewProps> = ({ title, totalItems }) => {
         className={styles.carousel}
       >
         {allItems.map((globalIndex) => (
-          <SwiperSlide key={globalIndex} style={{ width: 150 }}>
+          <SwiperSlide key={globalIndex} style={{ width: 140 }}>
             <ItemCard
               href={"#"}
               cardImage={imageSrc}
@@ -43,7 +44,7 @@ const MobileView: FC<MobileViewProps> = ({ title, totalItems }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </Fragment>
+    </Box>
   );
 };
 

@@ -8,7 +8,7 @@ import { FC, Fragment } from "react";
 
 const DesktopView: FC = () => {
   return (
-    <Fragment>
+    <Box className={styles.desktop}>
       <Typography className={styles.slogan}>
         One platform, countless solutions - from essentials to opportunities.
       </Typography>
@@ -28,7 +28,7 @@ const DesktopView: FC = () => {
           </Fragment>
         ))}
       </Box>
-    </Fragment>
+    </Box>
   );
 };
 

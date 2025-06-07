@@ -1,42 +1,71 @@
+/* Welcome Dialog styles */
+
+.welcomeDialog {
+  .link {
+    color: var(--primary-main);
+    font-weight: 500;
+  }
+
+  &.desktop {
+    .dialogTitle {
+      font-size: 24px;
+    }
+
+    .text {
+      font-size: 16px;
+    }
+
+    .dialogActions {
+      padding: 2.5%;
+    }
+  }
+
+  &.mobile {
+    .dialogTitle {
+      font-size: 16px;
+    }
+
+    .text {
+      font-size: 12px;
+    }
+
+    .dialogActions {
+      padding: 5%;
+    }
+  }
+
+  &.mobile :global(.MuiDialog-paper) {
+    width: 300px !important;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media (min-width: 900px) {
+    .link:hover {
+      transition: all 0.3s ease-in-out;
+      color: var(--primary-dark);
+    }
+  }
+}
+
 /* Cubitech Services styles */
 
 .cubitechServices {
   background: var(--primary-light);
   text-align: center;
-  padding: 7.5%;
 
   .slogan {
     font-weight: 600;
-    font-size: 16px;
-    line-height: var(--h6);
     color: var(--primary-main);
   }
 
   .brands {
     display: flex;
     justify-content: center;
-    padding: 5%;
-    width: 100%;
     margin-top: 2.5%;
-    gap: 0;
   }
 
-  .gridItem {
-    display: flex;
-    justify-content: center;
-
-    .mobileAvatar {
-      width: 100px;
-      height: 23.5px;
-    }
-  }
-
-  .desktopAvatar {
-    width: 170px;
-    height: 40px;
-  }
-
-  @media (min-width: 900px) {
+  .desktop {
     padding: 2.5% 10%;
 
     .slogan {
@@ -47,9 +76,39 @@
     .brands {
       gap: 16px;
       padding: 0;
-      width: auto;
     }
 
+    .desktopAvatar {
+      width: 170px;
+      height: 40px;
+    }
+  }
+
+  .mobile {
+    padding: 7.5%;
+
+    .slogan {
+      font-size: 16px;
+      line-height: var(--h6);
+    }
+
+    .brands {
+      padding: 5%;
+      width: 100%;
+    }
+
+    .gridItem {
+      display: flex;
+      justify-content: center;
+
+      .mobileAvatar {
+        width: 100px;
+        height: 23.5px;
+      }
+    }
+  }
+
+  @media (min-width: 900px) {
     .desktopAvatar:hover {
       transition: all 0.3s ease-in-out;
       opacity: 0.75;
@@ -60,7 +119,6 @@
 /* Peek View styles */
 
 .peekView {
-  padding: 7.5% 10%;
   border-bottom: 1px solid var(--divider-color);
 
   .title {
@@ -69,14 +127,9 @@
     letter-spacing: 1;
     color: var(--primary-main);
     line-height: var(--h4);
-    font-size: 22px;
   }
 
-  .carousel {
-    padding: 7.5% 0 2.5%;
-  }
-
-  @media (min-width: 900px) {
+  .desktop {
     padding: 2.5% 10%;
 
     .header {
@@ -87,11 +140,6 @@
 
       .title {
         font-size: 28px;
-
-        &:hover {
-          transition: all 0.3s ease-in-out;
-          opacity: 0.75;
-        }
       }
     }
 
@@ -99,58 +147,54 @@
       padding: 2.5% 0;
     }
   }
+
+  .mobile {
+    padding: 7.5% 10%;
+
+    .title {
+      font-size: 22px;
+    }
+
+    .carousel {
+      padding: 7.5% 0 2.5%;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .title:hover {
+      transition: all 0.3s ease-in-out;
+      opacity: 0.75;
+    }
+  }
 }
 
 /* Intro blocks styles */
 
 .introSection {
-  padding: 10%;
-  text-align: center;
-
   .title {
     font-weight: 600;
     line-height: var(--h4);
-    font-size: 20px;
     color: var(--primary-main);
 
     .subtitle {
       font-weight: 500;
-      font-size: 16px;
       line-height: var(--subtitle2);
-      margin: 10% 0;
     }
   }
 
   .descr {
     font-weight: 500;
-    font-size: 14px;
     line-height: var(--subtitle2);
     color: var(--primary-dark);
-    margin: 10% 0;
-  }
-
-  .avatar {
-    width: 240px;
-    height: 135px;
-    display: block;
-    margin: 0 auto;
   }
 
   .learnMoreButton {
     background: var(--white);
     color: var(--primary-main);
-    width: auto;
-    align-self: center;
   }
 
-  :global(button) {
-    width: auto;
-    align-self: center;
-  }
-
-  @media (min-width: 900px) {
+  .desktop {
     padding: 2.5% 10%;
-    text-align: left;
 
     .content {
       display: flex;
@@ -164,6 +208,7 @@
 
         .title {
           font-size: 28px;
+          margin-bottom: 5%;
 
           .subtitle {
             font-size: 20px;
@@ -173,17 +218,51 @@
 
         .descr {
           font-size: 18px;
-          margin: -5% 0 6.75%;
+          margin-bottom: 7.25%;
         }
       }
 
       .avatar {
         width: 480px;
         height: 270px;
-        margin: 0;
       }
     }
+  }
 
+  .mobile {
+    padding: 10%;
+    text-align: center;
+
+    .content {
+      .title {
+        font-size: 20px;
+
+        .subtitle {
+          font-size: 16px;
+          margin: 10% 0;
+        }
+      }
+
+      .descr {
+        font-size: 14px;
+        margin: 10% 0;
+      }
+
+      .avatar {
+        width: 240px;
+        height: 135px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .mobile :global(button) {
+    width: auto;
+    align-self: center;
+  }
+
+  @media (min-width: 900px) {
     .learnMoreButton:hover {
       background: var(--primary-light);
     }

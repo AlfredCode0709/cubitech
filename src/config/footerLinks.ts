@@ -11,7 +11,7 @@ export type FooterSection = {
 export const FOOTER_SECTIONS: FooterSection[] = [
   {
     title: "Get to Know Us",
-    links: [],
+    links: [{ label: "About Us", href: "/about" }],
   },
   {
     title: "Consumers",
@@ -19,6 +19,6 @@ export const FOOTER_SECTIONS: FooterSection[] = [
   },
   {
     title: "For Developers",
-    links: [],
+    links: [{ label: "Developer Portal", href: "/dev" }],
   },
 ];

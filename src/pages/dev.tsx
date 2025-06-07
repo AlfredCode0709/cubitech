@@ -1,5 +1,4 @@
-import WelcomeDialog from "@/components/home/WelcomeDialog";
-import HomeDefault from "@/views/home/HomeDefault";
+import DeveloperPortal from "@/views/dev/DeveloperPortal";
 import Head from "next/head";
 import { FC, Fragment } from "react";
 
@@ -7,7 +6,7 @@ const Home: FC = () => {
   return (
     <Fragment>
       <Head>
-        <title>Cubitech</title>
+        <title>Developer Portal | Cubitech</title>
         <meta name="description" content="Cubitech - Next Typescript" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
@@ -16,8 +15,7 @@ const Home: FC = () => {
         />
       </Head>
       <main>
-        <WelcomeDialog />
-        <HomeDefault />
+        <DeveloperPortal />
       </main>
     </Fragment>
   );

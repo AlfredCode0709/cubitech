@@ -15,7 +15,7 @@ interface JoinSectionProps {
 const JoinSection: FC<JoinSectionProps> = ({ title, descr, buttonText }) => {
   return (
     <Box className={commonStyles.joinSection}>
-      <Box sx={{ display: { xs: "none", md: "block" } }}>
+      <Box className={commonStyles.desktop} sx={{ display: { xs: "none", md: "block" } }}>
         <Stack className={commonStyles.content}>
           <Stack className={commonStyles.left}>
             <Typography className={commonStyles.title}>{title}</Typography>
@@ -32,7 +32,7 @@ const JoinSection: FC<JoinSectionProps> = ({ title, descr, buttonText }) => {
         </Stack>
       </Box>
 
-      <Box sx={{ display: { xs: "block", md: "none" } }}>
+      <Box className={commonStyles.mobile} sx={{ display: { xs: "block", md: "none" } }}>
         <Stack className={commonStyles.content}>
           <Typography className={commonStyles.title}>{title}</Typography>
           <Typography className={commonStyles.descr}>{descr}</Typography>

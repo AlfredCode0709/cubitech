@@ -9,7 +9,10 @@ import { FC } from "react";
 const CubiPerkIntro: FC = () => {
   return (
     <Box className={styles.introSection} bgcolor={"primary.main"}>
-      <Box sx={{ display: { xs: "none", md: "block" } }}>
+      <Box
+        className={styles.desktop}
+        sx={{ display: { xs: "none", md: "block" } }}
+      >
         <Stack className={styles.content}>
           <Box className={styles.left}>
             <Typography
@@ -42,7 +45,6 @@ const CubiPerkIntro: FC = () => {
               Learn More
             </Button>
           </Box>
-          <Box className={styles.right} sx={{ display: 'flex', justifyContent: 'right' }}>
           <Avatar
             className={styles.avatar}
             alt={"CubiPerk"}
@@ -50,11 +52,14 @@ const CubiPerkIntro: FC = () => {
               "https://ik.imagekit.io/a1fr3d10/home/block3.svg?updatedAt=1749038702730"
             }
             variant={"square"}
-          /></Box>
+          />
         </Stack>
       </Box>
 
-      <Box sx={{ display: { xs: "block", md: "none" } }}>
+      <Box
+        className={styles.mobile}
+        sx={{ display: { xs: "block", md: "none" } }}
+      >
         <Stack className={styles.content}>
           <Typography
             className={styles.title}

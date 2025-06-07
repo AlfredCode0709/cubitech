@@ -1,12 +1,13 @@
 import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import styles from "@/styles/404.module.scss";
-import { FC, Fragment } from "react";
+import { FC } from "react";
 
 const DesktopView: FC = () => {
   return (
-    <Fragment>
+    <Box className={styles.desktop}>
       <Avatar
         className={styles.avatar}
         alt="404 Not Found"
@@ -28,7 +29,7 @@ const DesktopView: FC = () => {
           Home
         </Link>
       </Typography>
-    </Fragment>
+    </Box>
   );
 };
 

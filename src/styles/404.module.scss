@@ -1,46 +1,35 @@
 /* Page 404 styles */
 
 .page404 {
-  padding: 7.5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-
-  .avatar {
-    width: 320px;
-    height: 180px;
-    margin: 0 auto;
-  }
 
   .title {
     font-weight: 600;
-    font-size: 20px;
     line-height: var(--h5);
     color: var(--primary-main);
-    margin: 2.5% 5% 7.5%;
   }
 
   .descr {
-    font-size: 14px;
+    font-size: var(--descrFontSize);
     line-height: var(--body1);
     color: var(--text-secondary-main);
-    margin: 7.5% 5%;
+  }
+
+  .avatar {
+    margin: 0 auto;
   }
 
   .callToAction {
     font-size: 18px;
     line-height: var(--body1);
     color: var(--primary-dark);
-    margin-bottom: 2.5%;
 
     .link {
       font-weight: 600;
     }
   }
 
-  @media (min-width: 900px) {
+  .desktop {
     padding: 2.5% 10%;
 
     .avatar {
@@ -50,17 +39,46 @@
 
     .title {
       font-size: 28px;
-      margin: 4.25% 0;
+      margin: 2.5% 0;
     }
 
     .descr {
       font-size: 20px;
-      margin: 0 0 4.25%;
     }
 
+    .callToAction {
+      margin: 2.5% 0;
+    }
+  }
+
+  .mobile {
+    padding: 7.5%;
+
+    .avatar {
+      width: 240px;
+      height: 135px;
+      display: block;
+    }
+
+    .title {
+      font-size: 20px;
+      margin: 2.5% 0 7.5%;
+    }
+
+    .descr {
+      font-size: 14px;
+      margin: 7.5% 0;
+    }
+
+    .callToAction {
+      margin-bottom: 2.5%;
+    }
+  }
+
+  @media (min-width: 900px) {
     .link:hover {
       transition: all 0.3s ease-in-out;
-      color: #84b7fb;
+      color: #539bf9;
     }
   }
 }

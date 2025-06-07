@@ -29,11 +29,12 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ brand }) => {
             <MenuIcon />
           </IconButton>
           <Box flexGrow={1} />
-          <Link href={"/"}>
-            {brand.darkLogo}
-          </Link>
+          <Link href={"/"}>{brand.darkLogo}</Link>
           <Box flexGrow={1} />
-          <IconButton color={"inherit"} onClick={toggleDrawer(true)} sx={{ visibility: "hidden" }}>
+          <IconButton
+            color={"inherit"}
+            onClick={toggleDrawer(true)}
+          >
             <MenuIcon />
           </IconButton>
           <MobileMainMenu

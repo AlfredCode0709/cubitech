@@ -9,7 +9,7 @@ import { FC } from "react";
 const CubiRideIntro: FC = () => {
   return (
     <Box className={styles.introSection} bgcolor={"primary.light"}>
-      <Box sx={{ display: { xs: "none", md: "block" } }}>
+      <Box className={styles.desktop} sx={{ display: { xs: "none", md: "block" } }}>
         <Stack className={styles.content}>
           <Box className={styles.left}>
           <Avatar
@@ -40,7 +40,7 @@ const CubiRideIntro: FC = () => {
         </Stack>
       </Box>
 
-      <Box sx={{ display: { xs: "block", md: "none" } }}>
+      <Box className={styles.mobile} sx={{ display: { xs: "block", md: "none" } }}>
         <Stack className={styles.content}>
           <Typography className={styles.title} component={"div"}>
             Heading out somewhere?

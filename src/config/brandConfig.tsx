@@ -28,7 +28,7 @@ export const brands: Record<string, BrandConfig> = {
     desktopMainMenuHoverBgColor: "#b7d1fa",
     desktopMainMenuHoverColor: "var(--primary-dark)",
     mobileMainMenuBgColor: "var(--primary-light)",
-    mobileMainMenuColor: "var(--primary-dark)",
+    mobileMainMenuColor: "var(--primary-main)",
     footerBgColor: "var(--primary-dark)",
     footerHoverColor: "#b5d4fc",
     darkLogo: <CubitechLogo colorMode="dark" />,

@@ -4,11 +4,11 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import styles from "@/styles/home.module.scss";
 import { cubitechBrands } from "./cubitechBrands";
-import { FC, Fragment } from "react";
+import { FC } from "react";
 
 const MobileView: FC = () => {
   return (
-    <Fragment>
+    <Box className={styles.mobile}>
       <Typography className={styles.slogan}>
         One platform, countless solutions
         <br />
@@ -30,7 +30,7 @@ const MobileView: FC = () => {
           ))}
         </Grid>
       </Box>
-    </Fragment>
+    </Box>
   );
 };
 

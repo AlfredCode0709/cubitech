@@ -49,7 +49,11 @@ const DesktopMainMenu: FC<DesktopMainMenuProps> = ({
             <Avatar
               className={"avatar"}
               alt={nav.label}
-              src={nav.avatars?.[nav.label === "About Us" ? brand.avatarKey : "default"]}
+              src={
+                nav.avatars?.[
+                  nav.label === "About Us" ? brand.avatarKey : "default"
+                ]
+              }
               variant={"square"}
             />
             <Typography>{nav.label}</Typography>

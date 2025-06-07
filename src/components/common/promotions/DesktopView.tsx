@@ -1,8 +1,9 @@
+import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import InfoCard from "../card/InfoCard";
 import commonStyles from "@/styles/common.module.scss";
-import { FC, Fragment } from "react";
+import { FC } from "react";
 
 interface DesktopViewProps {
   header?: string;
@@ -13,7 +14,7 @@ interface DesktopViewProps {
 
 const DesktopView: FC<DesktopViewProps> = ({ header, title, descr, image }) => {
   return (
-    <Fragment>
+    <Box className={commonStyles.desktop}>
       <Typography className={commonStyles.header}>{header}</Typography>
 
       <Grid container className={commonStyles.content} spacing={1}>
@@ -23,7 +24,7 @@ const DesktopView: FC<DesktopViewProps> = ({ header, title, descr, image }) => {
           </Grid>
         ))}
       </Grid>
-    </Fragment>
+    </Box>
   );
 };
 

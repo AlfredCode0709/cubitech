@@ -1,0 +1,64 @@
+/* About styles */
+
+.about {
+  .title {
+    font-weight: 600;
+    line-height: var(--h4);
+    color: var(--primary-main);
+  }
+
+  .descr {
+    font-weight: 500;
+    color: var(--primary-dark);
+    line-height: var(--subtitle2);
+  }
+
+  .desktop {
+    padding: 2.5% 10%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .left,
+    .right {
+      width: 45%;
+
+      .title {
+        font-size: 28px;
+        margin-bottom: 5%;
+      }
+
+      .descr {
+        font-size: 18px;
+      }
+    }
+
+    .avatar {
+      width: 480px;
+      height: 270px;
+    }
+  }
+
+  .mobile {
+    padding: 10%;
+    text-align: center;
+
+    .title {
+      font-size: 20px;
+      margin-bottom: 10%;
+    }
+
+    .descr {
+      font-size: 14px;
+      margin-top: 10%;
+    }
+
+    .avatar {
+      width: 240px;
+      height: 135px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

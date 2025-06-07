@@ -1,12 +1,13 @@
 import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import styles from "@/styles/404.module.scss";
-import { FC, Fragment } from "react";
+import { FC } from "react";
 
 const MobileView: FC = () => {
   return (
-    <Fragment>
+    <Box className={styles.mobile}>
       <Typography className={styles.title}>
         Oops! It seems that you{`'`}re lost in the website!
       </Typography>
@@ -29,7 +30,7 @@ const MobileView: FC = () => {
           Home
         </Link>
       </Typography>
-    </Fragment>
+    </Box>
   );
 };
 

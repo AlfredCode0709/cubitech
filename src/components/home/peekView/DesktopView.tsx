@@ -8,7 +8,7 @@ import ItemCard from "@/components/common/card/ItemCard";
 import commonStyles from "@/styles/common.module.scss";
 import styles from "@/styles/home.module.scss";
 import { titleConfig, TitleType } from "./PeekView";
-import { FC, Fragment, useState } from "react";
+import { FC, useState } from "react";
 
 const itemsPerPage = 6;
 
@@ -39,7 +39,7 @@ const DesktopView: FC<DesktopViewProps> = ({ title, totalItems }) => {
   const paginationColour = title === "CUBIFood" ? commonStyles.paginationColour1 : commonStyles.paginationColour2;
 
   return (
-    <Fragment>
+    <Box className={styles.desktop}>
       <Stack className={styles.header}>
         <Typography className={styles.title}>
           {title.substring(0, 4)}
@@ -87,7 +87,7 @@ const DesktopView: FC<DesktopViewProps> = ({ title, totalItems }) => {
           </Grid>
         ))}
       </Grid>
-    </Fragment>
+    </Box>
   );
 };
 

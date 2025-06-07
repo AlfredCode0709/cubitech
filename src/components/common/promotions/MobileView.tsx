@@ -1,8 +1,9 @@
+import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import InfoCard from "../card/InfoCard";
 import commonStyles from "@/styles/common.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FC, Fragment } from "react";
+import { FC } from "react";
 
 interface MobileViewProps {
   header?: string;
@@ -13,7 +14,7 @@ interface MobileViewProps {
 
 const MobileView: FC<MobileViewProps> = ({ header, title, descr, image }) => {
   return (
-    <Fragment>
+    <Box className={commonStyles.mobile}>
       <Typography className={commonStyles.header}>{header}</Typography>
 
       <Swiper
@@ -31,7 +32,7 @@ const MobileView: FC<MobileViewProps> = ({ header, title, descr, image }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </Fragment>
+    </Box>
   );
 };
 

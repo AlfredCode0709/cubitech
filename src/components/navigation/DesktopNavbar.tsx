@@ -38,7 +38,6 @@ const DesktopNavbar: FC<DesktopNavbarProps> = ({ brand }) => {
             color={"inherit"}
             size={"large"}
             edge={"end"}
-            sx={{ visibility: 'hidden' }}
           >
             <MenuIcon />
           </IconButton>
