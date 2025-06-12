@@ -1,0 +1,279 @@
+/* Welcome Dialog styles */
+
+.welcomeDialogDesktop {
+  .link {
+    color: var(--primary-main);
+    font-weight: 500;
+  }
+
+  .dialogTitle {
+    font-size: 24px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .dialogActions {
+    padding: 2.5%;
+  }
+
+  @media (min-width: 900px) {
+    .link:hover {
+      transition: all 0.3s ease-in-out;
+      color: var(--primary-dark);
+    }
+  }
+}
+
+.welcomeDialogMobile {
+  .link {
+    color: var(--primary-main);
+    font-weight: 500;
+  }
+
+  .dialogTitle {
+    font-size: 16px;
+  }
+
+  .text {
+    font-size: 12px;
+  }
+
+  .dialogActions {
+    padding: 5%;
+
+    :global(.MuiButton-root) {
+      width: 35px !important;
+      min-width: 0;
+    }
+  }
+
+  :global(.MuiDialog-paper) {
+    width: 300px !important;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+/* Cubitech Services styles */
+
+.cubitechServices {
+  background: var(--primary-light);
+  text-align: center;
+
+  .slogan {
+    font-weight: 600;
+    color: var(--primary-main);
+  }
+
+  .brands {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5%;
+  }
+
+  .desktop {
+    padding: 2.5% 10%;
+
+    .slogan {
+      font-size: 24px;
+      line-height: var(--h5);
+    }
+
+    .brands {
+      gap: 20px;
+      padding: 0;
+    }
+
+    .desktopAvatar {
+      width: 170px;
+      height: 40px;
+    }
+  }
+
+  .mobile {
+    padding: 7.5%;
+
+    .slogan {
+      font-size: 16px;
+      line-height: var(--h6);
+    }
+
+    .brands {
+      padding: 5%;
+      width: 100%;
+    }
+
+    .gridItem {
+      display: flex;
+      justify-content: center;
+
+      .mobileAvatar {
+        width: 100px;
+        height: 23.5px;
+      }
+    }
+  }
+
+  @media (min-width: 900px) {
+    .desktopAvatar:hover {
+      transition: all 0.3s ease-in-out;
+      opacity: 0.75;
+    }
+  }
+}
+
+/* Peek View styles */
+
+.peekView {
+  border-bottom: 1px solid var(--divider-color);
+
+  .title {
+    font-family: "Codec Pro Bold", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5;
+    color: var(--primary-main);
+    line-height: var(--h4);
+  }
+
+  .desktop {
+    padding: 2.5% 10%;
+
+    .header {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .title {
+        font-size: 28px;
+        letter-spacing: 0.75;
+      }
+    }
+
+    .itemsCatalogue {
+      padding: 2.5% 0;
+    }
+  }
+
+  .mobile {
+    padding: 7.5% 10%;
+
+    .title {
+      font-size: 22px;
+    }
+
+    .carousel {
+      padding: 7.5% 0 5%;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .title:hover {
+      transition: all 0.3s ease-in-out;
+      opacity: 0.75;
+    }
+  }
+}
+
+/* Intro blocks styles */
+
+.introSection {
+  .title {
+    font-weight: 600;
+    line-height: var(--h4);
+    color: var(--primary-main);
+
+    .subtitle {
+      font-weight: 500;
+      line-height: var(--subtitle2);
+    }
+  }
+
+  .descr {
+    font-weight: 500;
+    line-height: var(--subtitle2);
+    color: var(--primary-dark);
+  }
+
+  .learnMoreButton {
+    background: var(--white);
+    color: var(--primary-main);
+  }
+
+  .desktop {
+    padding: 2.5% 10%;
+
+    .content {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .left,
+      .right {
+        width: 45%;
+
+        .title {
+          font-size: 28px;
+          margin-bottom: 5%;
+
+          .subtitle {
+            font-size: 20px;
+            margin-top: 5%;
+          }
+        }
+
+        .descr {
+          font-size: 18px;
+          margin-bottom: 7.5%;
+        }
+      }
+
+      .avatar {
+        width: 480px;
+        height: 270px;
+      }
+    }
+  }
+
+  .mobile {
+    padding: 10%;
+    text-align: center;
+
+    .content {
+      .title {
+        font-size: 20px;
+
+        .subtitle {
+          font-size: 16px;
+          margin: 10% 0;
+        }
+      }
+
+      .descr {
+        font-size: 14px;
+        margin: 10% 0;
+      }
+
+      .avatar {
+        width: 240px;
+        height: 135px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .mobile :global(button) {
+    width: auto;
+    align-self: center;
+  }
+
+  @media (min-width: 900px) {
+    .learnMoreButton:hover {
+      background: var(--primary-light);
+    }
+  }
+}

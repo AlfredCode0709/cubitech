@@ -1,0 +1,84 @@
+/* Page 404 styles */
+
+.page404 {
+  text-align: center;
+
+  .title {
+    font-weight: 600;
+    line-height: var(--h5);
+    color: var(--primary-main);
+  }
+
+  .descr {
+    font-size: var(--descrFontSize);
+    line-height: var(--body1);
+    color: var(--text-secondary-main);
+  }
+
+  .avatar {
+    margin: 0 auto;
+  }
+
+  .callToAction {
+    font-size: 18px;
+    line-height: var(--body1);
+    color: var(--primary-dark);
+
+    .link {
+      font-weight: 600;
+    }
+  }
+
+  .desktop {
+    padding: 2.5% 10%;
+
+    .avatar {
+      width: 640px;
+      height: 360px;
+    }
+
+    .title {
+      font-size: 28px;
+      margin: 2.5% 0;
+    }
+
+    .descr {
+      font-size: 20px;
+    }
+
+    .callToAction {
+      margin: 2.5% 0;
+    }
+  }
+
+  .mobile {
+    padding: 7.5%;
+
+    .avatar {
+      width: 240px;
+      height: 135px;
+      display: block;
+    }
+
+    .title {
+      font-size: 20px;
+      margin: 2.5% 0 7.5%;
+    }
+
+    .descr {
+      font-size: 14px;
+      margin: 7.5% 0;
+    }
+
+    .callToAction {
+      margin-bottom: 2.5%;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .link:hover {
+      transition: all 0.3s ease-in-out;
+      color: #539bf9;
+    }
+  }
+}

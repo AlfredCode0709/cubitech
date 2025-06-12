@@ -1,0 +1,109 @@
+/* Footer container styles */
+
+.footerContainer {
+  padding: 3% 5%;
+  background: var(--footerBgColor);
+  color: var(--white);
+
+  .desktopFooterIntroSection {
+    text-align: left;
+
+    .cubitechLogo {
+      font-family: "Codec Pro Bold", sans-serif;
+      font-weight: 700;
+      font-size: 30px;
+      letter-spacing: 1.5;
+    }
+
+    .address {
+      margin: 7.5% 0;
+    }
+
+    .text {
+      font-style: italic;
+    }
+  }
+
+  .desktopFooterLinkSection {
+    .title {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: var(--h6);
+      margin-bottom: 2%;
+    }
+
+    .footerLink {
+      font-size: 16px;
+      line-height: var(--body1);
+      color: inherit;
+
+      &.inactive {
+        color: var(--disable-main);
+        pointer-events: none;
+      }
+    }
+  }
+
+  .mobileFooterIntroSection {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 5% 0 10%;
+    border-bottom: 1px solid var(--white);
+
+    .cubitechLogo {
+      font-family: "Codec Pro Bold", sans-serif;
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: 1.75;
+    }
+
+    .address {
+      font-size: 16px;
+      margin: 5% 0;
+    }
+
+    .text {
+      font-size: 16px;
+      font-style: italic;
+    }
+  }
+
+  .mobileFooterLinkSection {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-bottom: var(--borderBottom);
+    padding: 5% 0 7.5%;
+
+    .title {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: var(--h6);
+      margin-bottom: 5%;
+    }
+
+    .footerLink {
+      font-size: 16px;
+      line-height: var(--body1);
+      color: inherit;
+
+      &.inactive {
+        color: var(--disable-main);
+      }
+    }
+  }
+
+  @media (min-width: 900px) {
+    .desktopAvatar:hover {
+      transition: all 0.3s ease-in-out;
+      opacity: 0.75;
+    }
+
+    .desktopFooterLinkSection .footerLink:hover {
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      color: var(--hoverColor);
+    }
+  }
+}

@@ -1,0 +1,29 @@
+/* Navbar container styles */
+
+.navbarContainer {
+  display: flex;
+
+  /* AppBar styles */
+
+  .appBar {
+    justify-content: center;
+    background: var(--appBarBgColor);
+
+    .desktopAvatar {
+      width: 170px;
+      height: 40px;
+    }
+
+    @media (min-width: 900px) {
+      .desktopAvatar:hover {
+        transition: all 0.3s ease-in-out;
+        opacity: 0.75;
+      }
+    }
+
+    .mobileAvatar {
+      width: 136px;
+      height: 32px;
+    }
+  }
+}
